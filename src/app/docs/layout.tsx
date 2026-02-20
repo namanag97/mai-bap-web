@@ -1,25 +1,50 @@
-import type { Metadata } from 'next'
-import DocsSidebar from '@/components/docs/DocsSidebar'
+'use client'
 
-export const metadata: Metadata = {
-  title: { default: 'Documentation', template: '%s · Meridian Docs' },
-}
+import { useState } from 'react'
+import { Menu, X } from 'lucide-react'
+import DocsSidebar from '@/components/docs/DocsSidebar'
+import { cn } from '@/lib/utils'
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+
   return (
     <div className="pt-14 min-h-screen bg-braun-50">
+      {/* Mobile docs nav toggle */}
+      <div className="lg:hidden border-b border-braun-200 bg-white px-6 h-11 flex items-center">
+        <button
+          onClick={() => setSidebarOpen(v => !v)}
+          className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-braun-500 hover:text-braun-900 transition-colors"
+        >
+          {sidebarOpen ? <X size={14} /> : <Menu size={14} />}
+          {sidebarOpen ? 'Close menu' : 'Documentation menu'}
+        </button>
+      </div>
+
+      {/* Mobile sidebar overlay */}
+      {sidebarOpen && (
+        <div className="lg:hidden fixed inset-0 z-40 pt-[calc(56px+44px)]">
+          <div className="absolute inset-0 bg-braun-900/20" onClick={() => setSidebarOpen(false)} />
+          <div className="relative h-full max-w-xs bg-white border-r border-braun-200 overflow-y-auto">
+            <div onClick={() => setSidebarOpen(false)}>
+              <DocsSidebar />
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="max-w-screen-xl mx-auto flex" style={{ height: 'calc(100vh - 56px)' }}>
-        {/* Sidebar — hidden on mobile */}
+        {/* Sidebar — desktop only */}
         <div className="hidden lg:block">
           <DocsSidebar />
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto bg-white border-r border-braun-200">
+        <div className="flex-1 overflow-y-auto bg-white lg:border-r lg:border-braun-200">
           {children}
         </div>
 
-        {/* Right gutter */}
+        {/* Right gutter — only on XL */}
         <div className="hidden xl:block w-64 shrink-0 bg-braun-50" />
       </div>
     </div>
