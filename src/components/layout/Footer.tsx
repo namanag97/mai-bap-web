@@ -51,7 +51,7 @@ export default function Footer() {
             <p className="mt-4 text-xs text-braun-500 leading-relaxed max-w-[180px]">
               Process intelligence for teams that operate at scale.
             </p>
-            <div className="mt-5 text-[9px] font-mono text-braun-300 uppercase tracking-widest">
+            <div className="mt-5 text-[9px] font-mono text-braun-500 uppercase tracking-widest">
               SOC 2 Type II · GDPR
             </div>
           </div>
@@ -59,7 +59,7 @@ export default function Footer() {
           {/* Link columns */}
           {cols.map(col => (
             <div key={col.heading}>
-              <h3 className="text-[9px] font-mono uppercase tracking-widest text-braun-300 mb-4">
+              <h3 className="text-[9px] font-mono uppercase tracking-widest text-braun-500 mb-4">
                 {col.heading}
               </h3>
               <ul className="flex flex-col gap-2.5">
@@ -79,10 +79,10 @@ export default function Footer() {
         </div>
 
         <div className="pt-6 border-t border-braun-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-          <p className="text-[9px] font-mono text-braun-300 uppercase tracking-widest">
+          <p className="text-[9px] font-mono text-braun-500 uppercase tracking-widest">
             © 2026 Meridian. All rights reserved.
           </p>
-          <p className="text-[9px] font-mono text-braun-300 uppercase tracking-widest">
+          <p className="text-[9px] font-mono text-braun-500 uppercase tracking-widest">
             System status: Operational
           </p>
         </div>
