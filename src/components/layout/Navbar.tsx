@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { siteConfig } from '@/config/site'
+import { useTheme } from '@/components/ui/ThemeProvider'
 
 export default function Navbar() {
   const pathname = usePathname()
