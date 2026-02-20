@@ -11,7 +11,7 @@
  */
 import { CodeBlock } from './CodeBlock'
 import { Callout } from './Callout'
-import type { ContentBlock } from '@/content/blog'   // same shape used in docs.ts
+import type { ContentBlock } from '@/content/types'
 
 interface ProseRendererProps {
   blocks: ContentBlock[]
