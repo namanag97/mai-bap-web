@@ -77,6 +77,9 @@ export default function FAQ() {
                       />
                     </button>
                     <div
+                      id={`faq-answer-${i}`}
+                      role="region"
+                      aria-labelledby={`faq-question-${i}`}
                       className={cn(
                         'overflow-hidden transition-all duration-300',
                         openIndex === i ? 'max-h-[500px] pb-5' : 'max-h-0'
