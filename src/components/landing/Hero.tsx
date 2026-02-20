@@ -1,33 +1,30 @@
-import Link from 'next/link'
 import { ArrowRight, ShieldCheck, Zap, Globe } from 'lucide-react'
+import { ButtonLink, SectionLabel } from '@/components/ui'
 
 const trust = [
   { icon: ShieldCheck, label: 'SOC 2 Type II' },
-  { icon: Zap, label: '<50ms p99 latency' },
-  { icon: Globe, label: '99.9% uptime SLA' },
+  { icon: Zap,         label: '<50ms p99 latency' },
+  { icon: Globe,       label: '99.9% uptime SLA' },
 ]
 
 const statsStrip = [
-  { value: '500+', label: 'Operations teams' },
-  { value: '40M+', label: 'Events per day' },
+  { value: '500+',  label: 'Operations teams' },
+  { value: '40M+',  label: 'Events per day' },
   { value: '94.7%', label: 'Avg conformance' },
   { value: '<50ms', label: 'Ingest latency' },
 ]
 
 const deviations = [
-  { id: 'INV-2847', activity: 'Approval skipped', type: 'error', time: '2m ago' },
-  { id: 'INV-2841', activity: 'SLA threshold hit', type: 'warning', time: '5m ago' },
-  { id: 'INV-2839', activity: 'Route overridden', type: 'warning', time: '9m ago' },
+  { id: 'INV-2847', activity: 'Approval skipped',  type: 'error',   time: '2m ago' },
+  { id: 'INV-2841', activity: 'SLA threshold hit',  type: 'warning', time: '5m ago' },
+  { id: 'INV-2839', activity: 'Route overridden',   type: 'warning', time: '9m ago' },
 ]
 
 function AppMockup() {
   return (
     <div
       className="border border-braun-200 overflow-hidden bg-white w-full"
-      style={{
-        boxShadow:
-          '0 40px 80px -12px rgba(9,9,11,0.12), 0 0 0 1px rgba(228,228,231,0.9)',
-      }}
+      style={{ boxShadow: '0 40px 80px -12px rgba(9,9,11,0.10), 0 0 0 1px rgba(228,228,231,0.8)' }}
     >
       {/* Title bar */}
       <div className="h-9 bg-braun-900 flex items-center px-3 gap-2 shrink-0">
@@ -50,34 +47,22 @@ function AppMockup() {
         {/* Micro sidebar */}
         <div className="w-8 bg-braun-900 flex flex-col items-center py-3 gap-2.5 shrink-0 border-r border-braun-800">
           {[true, false, false, false].map((active, i) => (
-            <div
-              key={i}
-              className={`w-3 h-3 ${active ? 'bg-braun-orange' : 'bg-braun-800'}`}
-            />
+            <div key={i} className={`w-3 h-3 ${active ? 'bg-braun-orange' : 'bg-braun-800'}`} />
           ))}
         </div>
 
-        {/* Main content */}
         <div className="flex-1 min-w-0">
           {/* KPI strip */}
           <div className="grid grid-cols-3 border-b border-braun-200 divide-x divide-braun-200">
             {[
-              { label: 'Cases',      value: '2,847', delta: '+12%',   up: true  },
-              { label: 'Conformance', value: '94.2%', delta: '↑ 2.1pp', up: true  },
-              { label: 'Avg. Cycle', value: '3.2d',  delta: '↓ 0.4d', up: true  },
+              { label: 'Cases',       value: '2,847', delta: '+12%',    up: true },
+              { label: 'Conformance', value: '94.2%', delta: '↑ 2.1pp', up: true },
+              { label: 'Avg. Cycle',  value: '3.2d',  delta: '↓ 0.4d',  up: true },
             ].map(k => (
               <div key={k.label} className="px-3 py-2.5">
-                <div className="text-[7.5px] font-mono uppercase tracking-widest text-braun-400 mb-1">
-                  {k.label}
-                </div>
-                <div className="text-[15px] font-mono text-braun-900 leading-none tabular-nums">
-                  {k.value}
-                </div>
-                <div
-                  className={`text-[7.5px] font-mono mt-1 ${
-                    k.up ? 'text-emerald-600' : 'text-rose-600'
-                  }`}
-                >
+                <div className="text-[7.5px] font-mono uppercase tracking-widest text-braun-400 mb-1">{k.label}</div>
+                <div className="text-[15px] font-mono text-braun-900 leading-none tabular-nums">{k.value}</div>
+                <div className={`text-[7.5px] font-mono mt-1 ${k.up ? 'text-emerald-600' : 'text-rose-600'}`}>
                   {k.delta}
                 </div>
               </div>
@@ -97,16 +82,16 @@ function AppMockup() {
                 { x: 279, label: 'Paid',     count: '1,988', dark: false },
               ].map((n, i) => (
                 <g key={i}>
-                  <rect
-                    x={n.x} y={4} width={70} height={30}
+                  <rect x={n.x} y={4} width={70} height={30}
                     fill={n.dark ? '#09090b' : '#ffffff'}
                     stroke={n.dark ? '#09090b' : '#e4e4e7'}
-                    strokeWidth="1"
-                  />
-                  <text x={n.x + 35} y={15} textAnchor="middle" fontSize="6" fill={n.dark ? '#71717a' : '#71717a'} fontFamily="monospace">
+                    strokeWidth="1" />
+                  <text x={n.x + 35} y={15} textAnchor="middle" fontSize="6"
+                    fill={n.dark ? '#71717a' : '#71717a'} fontFamily="monospace">
                     {n.label}
                   </text>
-                  <text x={n.x + 35} y={27} textAnchor="middle" fontSize="8" fill={n.dark ? '#ffffff' : '#09090b'} fontFamily="monospace" fontWeight="600">
+                  <text x={n.x + 35} y={27} textAnchor="middle" fontSize="8"
+                    fill={n.dark ? '#ffffff' : '#09090b'} fontFamily="monospace" fontWeight="600">
                     {n.count}
                   </text>
                 </g>
@@ -117,17 +102,10 @@ function AppMockup() {
                   <polygon points={`${x + 21},16 ${x + 25},19 ${x + 21},22`} fill="#a1a1aa" />
                 </g>
               ))}
-              {/* Deviation arc */}
-              <path
-                d="M 133 34 Q 186 52 239 34"
-                fill="none"
-                stroke="#ea580c"
-                strokeWidth="0.9"
-                strokeDasharray="2,1.5"
-              />
-              <text x="186" y="58" textAnchor="middle" fontSize="5.5" fill="#ea580c" fontFamily="monospace">
-                488 skipped approval
-              </text>
+              <path d="M 133 34 Q 186 52 239 34" fill="none" stroke="#ea580c"
+                strokeWidth="0.9" strokeDasharray="2,1.5" />
+              <text x="186" y="58" textAnchor="middle" fontSize="5.5"
+                fill="#ea580c" fontFamily="monospace">488 skipped approval</text>
             </svg>
           </div>
 
@@ -139,15 +117,8 @@ function AppMockup() {
               </span>
             </div>
             {deviations.map((d, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-2 px-3 py-2 border-b border-braun-50 last:border-0 hover:bg-braun-50 transition-colors"
-              >
-                <div
-                  className={`w-1.5 h-1.5 shrink-0 ${
-                    d.type === 'error' ? 'bg-rose-500' : 'bg-amber-400'
-                  }`}
-                />
+              <div key={i} className="flex items-center gap-2 px-3 py-2 border-b border-braun-50 last:border-0">
+                <div className={`w-1.5 h-1.5 shrink-0 ${d.type === 'error' ? 'bg-rose-500' : 'bg-amber-400'}`} />
                 <span className="text-[8px] font-mono text-braun-400 shrink-0 w-16">{d.id}</span>
                 <span className="text-[8.5px] font-mono text-braun-600 flex-1 truncate">{d.activity}</span>
                 <span className="text-[7px] font-mono text-braun-300 shrink-0">{d.time}</span>
@@ -163,7 +134,7 @@ function AppMockup() {
 export default function Hero() {
   return (
     <section className="relative pt-14 bg-braun-50 border-b border-braun-200 overflow-hidden">
-      {/* Swiss grid — very subtle */}
+      {/* Swiss grid */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -176,18 +147,11 @@ export default function Hero() {
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-[1fr_460px] xl:grid-cols-[1fr_520px] gap-12 xl:gap-20 py-24 lg:py-32 xl:py-40 items-center">
 
-          {/* ── Left: typography ── */}
+          {/* Left — typography */}
           <div>
-            {/* Section label */}
-            <div className="flex items-center gap-3 mb-10">
-              <span className="text-[10px] font-mono text-braun-300 tabular-nums">01</span>
-              <span className="h-px w-6 bg-braun-200 inline-block" />
-              <span className="text-[10px] font-mono uppercase tracking-widest text-braun-400">
-                Process Intelligence Platform
-              </span>
-            </div>
+            {/* SectionLabel component — same as every other section */}
+            <SectionLabel index="01" label="Process Intelligence Platform" className="mb-10" />
 
-            {/* Headline — font-light, tight tracking, editorial scale */}
             <h1 className="text-[clamp(3rem,7vw,6rem)] font-light tracking-tight leading-[0.92] text-braun-900 mb-8">
               Process<br />
               intelligence,<br />
@@ -200,20 +164,14 @@ export default function Hero() {
               and no-code automation. Connected.
             </p>
 
-            {/* CTAs */}
+            {/* ButtonLink components — not inline Link+classes */}
             <div className="flex flex-wrap gap-3 mb-14">
-              <Link
-                href="/docs/quick-start"
-                className="inline-flex items-center gap-2.5 px-6 py-3 bg-braun-900 text-white border border-braun-900 hover:bg-braun-800 transition-colors text-[11px] font-mono font-bold uppercase tracking-widest"
-              >
-                Get started free <ArrowRight size={12} />
-              </Link>
-              <Link
-                href="/docs/introduction"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-braun-200 text-braun-700 hover:border-braun-900 hover:text-braun-900 transition-colors text-[11px] font-mono font-bold uppercase tracking-widest"
-              >
+              <ButtonLink href="/docs/quick-start" size="lg">
+                Get started free <ArrowRight size={13} />
+              </ButtonLink>
+              <ButtonLink href="/docs/introduction" variant="secondary" size="lg">
                 Read the docs
-              </Link>
+              </ButtonLink>
             </div>
 
             {/* Trust signals */}
@@ -229,7 +187,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* ── Right: product mockup ── */}
+          {/* Right — product mockup */}
           <div className="hidden lg:block">
             <AppMockup />
           </div>
