@@ -72,7 +72,7 @@ export default function Navbar() {
         {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-5">
           <Link
-            href="#"
+            href="/docs/quick-start"
             className="text-[10px] font-mono uppercase tracking-widest text-braun-400 hover:text-braun-900 transition-colors duration-200"
           >
             Sign in
@@ -115,7 +115,7 @@ export default function Navbar() {
           ))}
           <div className="pt-3 border-t border-braun-100 flex flex-col gap-3">
             <Link
-              href="#"
+              href="/docs/quick-start"
               className="text-[10px] font-mono uppercase tracking-widest text-braun-400"
               onClick={() => setOpen(false)}
             >
