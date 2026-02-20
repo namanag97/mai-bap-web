@@ -5,13 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
-
-const links = [
-  { label: 'Features', href: '/#features' },
-  { label: 'Docs',     href: '/docs/introduction' },
-  { label: 'Blog',     href: '/blog' },
-  { label: 'Pricing',  href: '/#pricing' },
-]
+import { siteConfig } from '@/config/site'
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -48,12 +42,12 @@ export default function Navbar() {
           href="/"
           className="font-mono font-bold text-xs tracking-[0.2em] uppercase text-braun-900 hover:text-braun-orange transition-colors duration-300"
         >
-          MERIDIAN
+          {siteConfig.name.toUpperCase()}
         </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
-          {links.map(l => (
+          {siteConfig.navLinks.map(l => (
             <Link
               key={l.href}
               href={l.href}
@@ -72,16 +66,16 @@ export default function Navbar() {
         {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-5">
           <Link
-            href="/docs/quick-start"
+            href={siteConfig.ctaLinks.signIn.href}
             className="text-[10px] font-mono uppercase tracking-widest text-braun-400 hover:text-braun-900 transition-colors duration-200"
           >
-            Sign in
+            {siteConfig.ctaLinks.signIn.label}
           </Link>
           <Link
-            href="/docs/quick-start"
+            href={siteConfig.ctaLinks.getStarted.href}
             className="px-4 py-2 text-[10px] font-mono font-bold uppercase tracking-widest bg-braun-900 text-white border border-braun-900 hover:bg-braun-800 transition-colors duration-200"
           >
-            Get started
+            {siteConfig.ctaLinks.getStarted.label}
           </Link>
         </div>
 
@@ -103,7 +97,7 @@ export default function Navbar() {
         )}
       >
         <div className="px-6 py-5 flex flex-col gap-4">
-          {links.map(l => (
+          {siteConfig.navLinks.map(l => (
             <Link
               key={l.href}
               href={l.href}
@@ -115,18 +109,18 @@ export default function Navbar() {
           ))}
           <div className="pt-3 border-t border-braun-100 flex flex-col gap-3">
             <Link
-              href="/docs/quick-start"
+              href={siteConfig.ctaLinks.signIn.href}
               className="text-[10px] font-mono uppercase tracking-widest text-braun-400"
               onClick={() => setOpen(false)}
             >
-              Sign in
+              {siteConfig.ctaLinks.signIn.label}
             </Link>
             <Link
-              href="/docs/quick-start"
+              href={siteConfig.ctaLinks.getStarted.href}
               onClick={() => setOpen(false)}
               className="px-4 py-2.5 text-[10px] font-mono font-bold uppercase tracking-widest bg-braun-900 text-white border border-braun-900 text-center"
             >
-              Get started
+              {siteConfig.ctaLinks.getStarted.label}
             </Link>
           </div>
         </div>
