@@ -1,11 +1,12 @@
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 import { type BlogPost, formatDate } from '@/content/blog'
 
-const categoryColors: Record<string, string> = {
-  Product:     'text-braun-900 border-braun-900',
-  Design:      'text-data-violet border-data-violet',
-  'Case Study': 'text-data-positive border-data-positive',
-  Engineering: 'text-braun-orange border-braun-orange',
+const categoryStyle: Record<string, string> = {
+  Product:      'text-braun-900 border-braun-900 bg-braun-50',
+  Design:       'text-data-violet border-data-violet bg-violet-50',
+  'Case Study': 'text-data-positive border-data-positive bg-emerald-50',
+  Engineering:  'text-braun-orange border-braun-orange bg-orange-50',
 }
 
 interface Props {
@@ -14,37 +15,46 @@ interface Props {
 }
 
 export default function PostCard({ post, featured = false }: Props) {
-  const color = categoryColors[post.category] ?? 'text-braun-500 border-braun-300'
+  const catCls = categoryStyle[post.category] ?? 'text-braun-500 border-braun-200 bg-braun-50'
 
   if (featured) {
     return (
       <Link
         href={`/blog/${post.slug}`}
-        className="group block bg-white border border-braun-200 hover:border-braun-900 transition-colors"
+        className="group block bg-white border border-braun-200 hover:border-braun-900 transition-colors duration-300"
       >
-        <div className="p-8 md:p-10 grid md:grid-cols-2 gap-8 items-start">
-          <div>
-            <div className={`inline-block text-[9px] font-mono uppercase tracking-widest border px-2 py-0.5 mb-4 ${color}`}>
+        <div className="grid md:grid-cols-[1fr_320px] gap-0 divide-y md:divide-y-0 md:divide-x divide-braun-200">
+          {/* Main content */}
+          <div className="p-8 md:p-10">
+            <div className={`inline-block text-[9px] font-mono uppercase tracking-widest border px-2 py-0.5 mb-5 ${catCls}`}>
               {post.category}
             </div>
-            <h2 className="text-xl font-bold text-braun-900 leading-snug mb-3 group-hover:text-braun-orange transition-colors">
+            <h2 className="text-xl lg:text-2xl font-light tracking-tight text-braun-900 leading-snug mb-4 group-hover:text-braun-orange transition-colors duration-300">
               {post.title}
             </h2>
             <p className="text-sm text-braun-500 leading-relaxed">{post.excerpt}</p>
           </div>
-          <div className="flex flex-col justify-between h-full">
-            <div className="text-xs font-mono text-braun-400 uppercase tracking-widest">
+
+          {/* Meta */}
+          <div className="p-8 md:p-10 flex flex-col justify-between bg-braun-50">
+            <div className="text-[10px] font-mono uppercase tracking-widest text-braun-400">
               {formatDate(post.date)}
             </div>
-            <div className="flex items-center justify-between mt-6">
+            <div className="mt-6 space-y-4">
               <div>
                 <div className="text-xs font-semibold text-braun-800">{post.author.name}</div>
-                <div className="text-[10px] font-mono text-braun-400 uppercase tracking-widest">
+                <div className="text-[10px] font-mono text-braun-400 uppercase tracking-widest mt-0.5">
                   {post.author.role}
                 </div>
               </div>
-              <div className="text-[10px] font-mono text-braun-400 uppercase tracking-widest">
-                {post.readTime} min read
+              <div className="flex items-center justify-between pt-4 border-t border-braun-200">
+                <div className="text-[10px] font-mono text-braun-400 uppercase tracking-widest">
+                  {post.readTime} min read
+                </div>
+                <ArrowRight
+                  size={13}
+                  className="text-braun-300 group-hover:text-braun-900 group-hover:translate-x-1 transition-all duration-300"
+                />
               </div>
             </div>
           </div>
@@ -56,22 +66,22 @@ export default function PostCard({ post, featured = false }: Props) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group flex flex-col bg-white border border-braun-200 hover:border-braun-900 transition-colors"
+      className="group flex flex-col bg-white border border-braun-200 hover:border-braun-900 transition-colors duration-300"
     >
       <div className="p-6 flex flex-col flex-1">
-        <div className={`inline-block text-[9px] font-mono uppercase tracking-widest border px-2 py-0.5 mb-4 self-start ${color}`}>
+        <div className={`inline-block text-[9px] font-mono uppercase tracking-widest border px-2 py-0.5 mb-4 self-start ${catCls}`}>
           {post.category}
         </div>
-        <h3 className="text-sm font-bold text-braun-900 leading-snug mb-2 group-hover:text-braun-orange transition-colors flex-1">
+        <h3 className="text-sm font-semibold tracking-tight text-braun-900 leading-snug mb-3 flex-1 group-hover:text-braun-orange transition-colors duration-300">
           {post.title}
         </h3>
-        <p className="text-xs text-braun-500 leading-relaxed mt-2">{post.excerpt}</p>
+        <p className="text-xs text-braun-400 leading-relaxed line-clamp-3">{post.excerpt}</p>
       </div>
       <div className="border-t border-braun-100 px-6 py-3 flex items-center justify-between">
-        <span className="text-[10px] font-mono text-braun-400 uppercase tracking-widest">
+        <span className="text-[9px] font-mono text-braun-400 uppercase tracking-widest">
           {formatDate(post.date)}
         </span>
-        <span className="text-[10px] font-mono text-braun-400 uppercase tracking-widest">
+        <span className="text-[9px] font-mono text-braun-300 uppercase tracking-widest">
           {post.readTime} min
         </span>
       </div>
