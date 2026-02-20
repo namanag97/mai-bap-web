@@ -79,7 +79,7 @@ export default function DocsSidebar() {
       {/* Sidebar footer */}
       <div className="px-5 py-4 border-t border-braun-100">
         <div className="text-[9px] font-mono text-braun-500 uppercase tracking-widest">
-          v2.0 · Meridian Docs
+          {siteConfig.docsVersion} &middot; {siteConfig.name} Docs
         </div>
       </div>
     </aside>
