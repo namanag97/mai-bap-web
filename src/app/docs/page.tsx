@@ -3,7 +3,10 @@ import Link from 'next/link'
 import { navigation } from '@/content/docs'
 import { BookOpen, Cpu, Code2, Compass } from 'lucide-react'
 
-export const metadata: Metadata = { title: 'Documentation' }
+export const metadata: Metadata = {
+  title: 'Documentation',
+  description: 'Everything you need to get started with Meridian — installation, core concepts, API reference, and guides.',
+}
 
 const sectionIcons = [BookOpen, Cpu, Code2, Compass]
 
