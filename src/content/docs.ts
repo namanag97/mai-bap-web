@@ -1,3 +1,4 @@
+import type { ContentBlock } from './types'
 export type { ContentBlock } from './types'
 
 export interface DocPage {
