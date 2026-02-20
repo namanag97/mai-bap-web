@@ -47,8 +47,8 @@ export default function FAQ() {
                       <ChevronDown
                         size={14}
                         className={cn(
-                          'shrink-0 mt-1 text-braun-400 transition-transform duration-300',
-                          openIndex === i && 'rotate-180 text-braun-900'
+                          'shrink-0 mt-1 text-braun-400 transition-all duration-500 ease-out',
+                          openIndex === i && 'rotate-180 text-braun-orange'
                         )}
                       />
                     </button>
