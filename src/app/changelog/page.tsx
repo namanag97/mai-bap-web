@@ -183,7 +183,7 @@ export default function ChangelogPage() {
               {/* Timeline dot */}
               <div className="absolute -left-[calc(2rem+4.5px)] top-8 w-[9px] h-[9px] border border-braun-200 bg-white rounded-full" />
 
-              <div className="bg-white border border-braun-200 p-8">
+              <div className="bg-white border border-braun-200 p-8 hover-lift">
                 {/* Version + date row */}
                 <div className="flex items-center gap-3 mb-3">
                   <span
