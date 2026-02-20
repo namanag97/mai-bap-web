@@ -124,7 +124,7 @@ export default function Navbar() {
             <Link
               href="/docs/quick-start"
               onClick={() => setOpen(false)}
-              className="px-4 py-2.5 text-[10px] font-mono font-bold uppercase tracking-widest bg-braun-900 text-white text-center"
+              className="px-4 py-2.5 text-[10px] font-mono font-bold uppercase tracking-widest bg-braun-900 text-white border border-braun-900 text-center"
             >
               Get started
             </Link>
