@@ -97,7 +97,7 @@ export default async function DocPage({ params }: Props) {
       </h1>
 
       {/* Description */}
-      <p className="text-base text-braun-400 font-light leading-relaxed mb-8">
+      <p className="text-base text-braun-600 font-light leading-relaxed mb-8">
         {page.description}
       </p>
 
