@@ -89,7 +89,7 @@ export default function Pricing() {
         </div>
 
         <p className="mt-6 text-center text-[10px] font-mono text-braun-400 uppercase tracking-widest">
-          All plans include SSL encryption, automatic backups, and GDPR-compliant processing.
+          {footnote}
         </p>
       </div>
     </section>
