@@ -1,12 +1,16 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import DocsSidebar from '@/components/docs/DocsSidebar'
-import { cn } from '@/lib/utils'
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+
+  useEffect(() => {
+    document.body.style.overflow = sidebarOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [sidebarOpen])
 
   return (
     <div className="pt-14 min-h-screen bg-braun-50">
