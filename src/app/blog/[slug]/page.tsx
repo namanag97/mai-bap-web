@@ -46,7 +46,7 @@ export default async function BlogPostPage({ params }: Props) {
           {/* Back link */}
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-braun-300 hover:text-braun-900 transition-colors mb-10"
+            className="inline-flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-braun-500 hover:text-braun-900 transition-colors mb-10"
           >
             <ArrowLeft size={10} /> Journal
           </Link>
@@ -82,7 +82,7 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
             <div className="text-right">
               <div className="text-xs text-braun-500">{formatDate(post.date)}</div>
-              <div className="text-[9px] font-mono uppercase tracking-widest text-braun-300">
+              <div className="text-[9px] font-mono uppercase tracking-widest text-braun-500">
                 {post.readTime} min read
               </div>
             </div>
@@ -101,7 +101,7 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="mt-8 pt-6 border-t border-braun-200 flex items-center justify-between">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-braun-300 hover:text-braun-900 transition-colors"
+            className="inline-flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-braun-500 hover:text-braun-900 transition-colors"
           >
             <ArrowLeft size={10} /> All posts
           </Link>
