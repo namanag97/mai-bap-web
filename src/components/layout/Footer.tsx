@@ -4,26 +4,26 @@ const cols = [
   {
     heading: 'Product',
     links: [
-      { label: 'Features', href: '/#features' },
-      { label: 'Pricing', href: '/#pricing' },
+      { label: 'Features',  href: '/#features' },
+      { label: 'Pricing',   href: '/#pricing' },
       { label: 'Changelog', href: '/blog' },
-      { label: 'Roadmap', href: '/blog' },
+      { label: 'Roadmap',   href: '/blog' },
     ],
   },
   {
     heading: 'Docs',
     links: [
       { label: 'Introduction', href: '/docs/introduction' },
-      { label: 'Quick Start', href: '/docs/quick-start' },
-      { label: 'REST API', href: '/docs/api/rest' },
-      { label: 'Webhooks', href: '/docs/api/webhooks' },
+      { label: 'Quick Start',  href: '/docs/quick-start' },
+      { label: 'REST API',     href: '/docs/api/rest' },
+      { label: 'Webhooks',     href: '/docs/api/webhooks' },
     ],
   },
   {
     heading: 'Company',
     links: [
-      { label: 'Blog', href: '/blog' },
-      { label: 'About', href: '/blog' },
+      { label: 'Blog',    href: '/blog' },
+      { label: 'About',   href: '/blog' },
       { label: 'Careers', href: '/blog' },
       { label: 'Contact', href: '/blog' },
     ],
@@ -31,10 +31,10 @@ const cols = [
   {
     heading: 'Legal',
     links: [
-      { label: 'Privacy', href: '/blog' },
-      { label: 'Terms', href: '/blog' },
+      { label: 'Privacy',  href: '/blog' },
+      { label: 'Terms',    href: '/blog' },
       { label: 'Security', href: '/blog' },
-      { label: 'SLA', href: '/blog' },
+      { label: 'SLA',      href: '/blog' },
     ],
   },
 ]
@@ -42,28 +42,29 @@ const cols = [
 export default function Footer() {
   return (
     <footer className="border-t border-braun-200 bg-white">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-12">
-          {/* Brand */}
+      <div className="max-w-7xl mx-auto px-6 pt-16 pb-10">
+
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-14">
+          {/* Brand col */}
           <div className="col-span-2 md:col-span-1">
             <Link
               href="/"
-              className="font-mono font-bold text-sm tracking-widest uppercase text-braun-900"
+              className="font-mono font-bold text-xs tracking-[0.2em] uppercase text-braun-900 hover:text-braun-orange transition-colors"
             >
               MERIDIAN
             </Link>
-            <p className="mt-3 text-xs text-braun-500 leading-relaxed max-w-[200px]">
+            <p className="mt-4 text-xs text-braun-500 leading-relaxed max-w-[180px]">
               Process intelligence for teams that operate at scale.
             </p>
-            <p className="mt-4 text-[10px] font-mono text-braun-400 uppercase tracking-widest">
+            <div className="mt-5 text-[9px] font-mono text-braun-300 uppercase tracking-widest">
               SOC 2 Type II · GDPR
-            </p>
+            </div>
           </div>
 
           {/* Link columns */}
           {cols.map(col => (
             <div key={col.heading}>
-              <h3 className="text-[10px] font-mono uppercase tracking-widest text-braun-400 mb-4">
+              <h3 className="text-[9px] font-mono uppercase tracking-widest text-braun-300 mb-4">
                 {col.heading}
               </h3>
               <ul className="flex flex-col gap-2.5">
@@ -71,7 +72,7 @@ export default function Footer() {
                   <li key={l.label}>
                     <Link
                       href={l.href}
-                      className="text-xs text-braun-600 hover:text-braun-900 transition-colors"
+                      className="text-xs text-braun-500 hover:text-braun-900 transition-colors duration-200"
                     >
                       {l.label}
                     </Link>
@@ -82,11 +83,11 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 pt-6 border-t border-braun-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-          <p className="text-[10px] font-mono text-braun-400 uppercase tracking-widest">
+        <div className="pt-6 border-t border-braun-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+          <p className="text-[9px] font-mono text-braun-300 uppercase tracking-widest">
             © 2026 Meridian. All rights reserved.
           </p>
-          <p className="text-[10px] font-mono text-braun-400 uppercase tracking-widest">
+          <p className="text-[9px] font-mono text-braun-300 uppercase tracking-widest">
             Built with Braun/Bauhaus design principles.
           </p>
         </div>
