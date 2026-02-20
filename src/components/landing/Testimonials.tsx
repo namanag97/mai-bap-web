@@ -51,7 +51,7 @@ export default function Testimonials() {
               {logos.map(name => (
                 <span
                   key={name}
-                  className="text-sm font-mono font-bold uppercase tracking-widest text-braun-300 hover:text-braun-500 transition-colors duration-300"
+                  className="text-sm font-mono font-bold uppercase tracking-widest text-braun-400 hover:text-braun-600 transition-colors duration-300"
                 >
                   {name}
                 </span>
