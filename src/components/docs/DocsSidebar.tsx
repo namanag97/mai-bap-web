@@ -24,7 +24,7 @@ export default function DocsSidebar() {
     <aside className="w-64 shrink-0 flex flex-col bg-white border-r border-braun-200 overflow-y-auto">
       {/* Sidebar header */}
       <div className="px-5 py-5 border-b border-braun-100">
-        <div className="text-[10px] font-mono uppercase tracking-widest text-braun-300">
+        <div className="text-[10px] font-mono uppercase tracking-widest text-braun-500">
           Documentation
         </div>
       </div>
@@ -78,7 +78,7 @@ export default function DocsSidebar() {
 
       {/* Sidebar footer */}
       <div className="px-5 py-4 border-t border-braun-100">
-        <div className="text-[9px] font-mono text-braun-300 uppercase tracking-widest">
+        <div className="text-[9px] font-mono text-braun-500 uppercase tracking-widest">
           v2.0 · Meridian Docs
         </div>
       </div>
