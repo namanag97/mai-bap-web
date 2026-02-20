@@ -7,7 +7,6 @@ const cols = [
       { label: 'Features',  href: '/#features' },
       { label: 'Pricing',   href: '/#pricing' },
       { label: 'Changelog', href: '/blog' },
-      { label: 'Roadmap',   href: '/blog' },
     ],
   },
   {
@@ -23,18 +22,14 @@ const cols = [
     heading: 'Company',
     links: [
       { label: 'Blog',    href: '/blog' },
-      { label: 'About',   href: '/blog' },
-      { label: 'Careers', href: '/blog' },
-      { label: 'Contact', href: '/blog' },
+      { label: 'Contact', href: 'mailto:hello@meridian.io' },
     ],
   },
   {
     heading: 'Legal',
     links: [
-      { label: 'Privacy',  href: '/blog' },
-      { label: 'Terms',    href: '/blog' },
-      { label: 'Security', href: '/blog' },
-      { label: 'SLA',      href: '/blog' },
+      { label: 'Privacy',  href: '/privacy' },
+      { label: 'Terms',    href: '/terms' },
     ],
   },
 ]
@@ -88,7 +83,7 @@ export default function Footer() {
             © 2026 Meridian. All rights reserved.
           </p>
           <p className="text-[9px] font-mono text-braun-300 uppercase tracking-widest">
-            Built with Braun/Bauhaus design principles.
+            System status: Operational
           </p>
         </div>
       </div>
