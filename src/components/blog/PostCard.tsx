@@ -75,7 +75,7 @@ export default function PostCard({ post, featured = false }: Props) {
         <h3 className="text-sm font-semibold tracking-tight text-braun-900 leading-snug mb-3 flex-1 group-hover:text-braun-orange transition-colors duration-300">
           {post.title}
         </h3>
-        <p className="text-xs text-braun-400 leading-relaxed line-clamp-3">{post.excerpt}</p>
+        <p className="text-xs text-braun-500 leading-relaxed line-clamp-3">{post.excerpt}</p>
       </div>
       <div className="border-t border-braun-100 px-6 py-3 flex items-center justify-between">
         <span className="text-[9px] font-mono text-braun-400 uppercase tracking-widest">
