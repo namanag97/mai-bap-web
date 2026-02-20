@@ -2,41 +2,12 @@
 
 import { FadeIn } from '@/components/ui/FadeIn'
 import { SectionLabel } from '@/components/ui'
-
-const logos = [
-  'TechCorp',
-  'Axiom',
-  'Veritas',
-  'Arcline',
-  'Novus',
-  'Stratos',
-]
-
-const testimonials = [
-  {
-    quote:
-      'We went from quarterly conformance audits to real-time monitoring in a week. The impact on our SLA compliance was immediate.',
-    name: 'Sarah Chen',
-    role: 'VP Operations',
-    company: 'TechCorp',
-  },
-  {
-    quote:
-      'The automation studio alone saved us 120 analyst-hours per month. We finally stopped doing the same triage manually every day.',
-    name: 'Marcus Webb',
-    role: 'Head of Process Excellence',
-    company: 'Axiom Financial',
-  },
-  {
-    quote:
-      'Clean, fast, no consulting required. We had our first process map live within 30 minutes of connecting our ERP.',
-    name: 'Elena Kovacs',
-    role: 'COO',
-    company: 'Veritas Health',
-  },
-]
+import { siteConfig } from '@/config/site'
 
 export default function Testimonials() {
+  const { sectionIndex, sectionLabel, title, logoStripLabel, logos, items } = siteConfig.testimonials
+  const [titleLine1, titleLine2] = title.split('\n')
+
   return (
     <section className="border-b border-braun-200 bg-braun-50">
       <div className="max-w-7xl mx-auto px-6 py-24">
@@ -45,7 +16,7 @@ export default function Testimonials() {
         <FadeIn>
           <div className="mb-16 pb-10 border-b border-braun-200">
             <div className="text-[10px] font-mono uppercase tracking-widest text-braun-400 mb-8 text-center">
-              Trusted by operations teams at
+              {logoStripLabel}
             </div>
             <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
               {logos.map(name => (
@@ -63,16 +34,16 @@ export default function Testimonials() {
         {/* Section header */}
         <FadeIn>
           <div className="mb-14">
-            <SectionLabel index="03" label="Testimonials" className="mb-5" />
+            <SectionLabel index={sectionIndex} label={sectionLabel} className="mb-5" />
             <h2 className="text-3xl lg:text-4xl font-light tracking-tight text-braun-900">
-              Hear from teams<br />who switched.
+              {titleLine1}<br />{titleLine2}
             </h2>
           </div>
         </FadeIn>
 
         {/* Testimonial grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-braun-200">
-          {testimonials.map((t, i) => (
+          {items.map((t, i) => (
             <FadeIn key={t.name} delay={i * 120} direction="up">
               <div className="bg-white p-8 flex flex-col h-full">
                 <blockquote className="text-sm text-braun-600 leading-relaxed flex-1 mb-8">
