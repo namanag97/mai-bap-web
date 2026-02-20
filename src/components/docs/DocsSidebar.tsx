@@ -22,6 +22,30 @@ import { siteConfig } from '@/config/site'
  */
 export default function DocsSidebar() {
   const pathname = usePathname()
+  const [query, setQuery] = useState('')
+  const searchRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    function onKeyDown(e: KeyboardEvent) {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault()
+        searchRef.current?.focus()
+      }
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [])
+
+  const filteredNavigation = query
+    ? navigation
+        .map(section => ({
+          ...section,
+          pages: section.pages.filter(page =>
+            page.title.toLowerCase().includes(query.toLowerCase())
+          ),
+        }))
+        .filter(section => section.pages.length > 0)
+    : navigation
 
   return (
     <aside className="w-64 shrink-0 flex flex-col bg-white border-r border-braun-200 overflow-y-auto">
