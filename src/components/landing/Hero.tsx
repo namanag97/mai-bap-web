@@ -1,149 +1,226 @@
 import Link from 'next/link'
 import { ArrowRight, ShieldCheck, Zap, Globe } from 'lucide-react'
 
-function ProductMockup() {
+const trust = [
+  { icon: ShieldCheck, label: 'SOC 2 Type II' },
+  { icon: Zap, label: '<50ms p99 latency' },
+  { icon: Globe, label: '99.9% uptime SLA' },
+]
+
+const statsStrip = [
+  { value: '500+', label: 'Operations teams' },
+  { value: '40M+', label: 'Events per day' },
+  { value: '94.7%', label: 'Avg conformance' },
+  { value: '<50ms', label: 'Ingest latency' },
+]
+
+const deviations = [
+  { id: 'INV-2847', activity: 'Approval skipped', type: 'error', time: '2m ago' },
+  { id: 'INV-2841', activity: 'SLA threshold hit', type: 'warning', time: '5m ago' },
+  { id: 'INV-2839', activity: 'Route overridden', type: 'warning', time: '9m ago' },
+]
+
+function AppMockup() {
   return (
-    <div className="border border-braun-200 bg-white">
-      {/* Window chrome */}
-      <div className="border-b border-braun-200 px-4 py-2.5 flex items-center justify-between bg-braun-50">
-        <div className="flex items-center gap-2">
-          <div className="w-2.5 h-2.5 rounded-full bg-braun-200" />
-          <div className="w-2.5 h-2.5 rounded-full bg-braun-200" />
-          <div className="w-2.5 h-2.5 rounded-full bg-braun-200" />
+    <div
+      className="border border-braun-200 overflow-hidden bg-white w-full"
+      style={{
+        boxShadow:
+          '0 40px 80px -12px rgba(9,9,11,0.12), 0 0 0 1px rgba(228,228,231,0.9)',
+      }}
+    >
+      {/* Title bar */}
+      <div className="h-9 bg-braun-900 flex items-center px-3 gap-2 shrink-0">
+        <div className="flex items-center gap-1.5">
+          <div className="w-2.5 h-2.5 rounded-full bg-braun-700" />
+          <div className="w-2.5 h-2.5 rounded-full bg-braun-700" />
+          <div className="w-2.5 h-2.5 rounded-full bg-braun-700" />
         </div>
-        <span className="text-[10px] font-mono text-braun-400 uppercase tracking-widest">
-          Invoice Process — Live Monitor
+        <span className="flex-1 text-center text-[9px] font-mono text-braun-500 uppercase tracking-widest">
+          Invoice Approval — Process Monitor
         </span>
-        <span className="text-[10px] font-mono text-data-positive">● Live</span>
-      </div>
-
-      {/* Process flow SVG */}
-      <div className="p-5 bg-white">
-        <svg viewBox="0 0 460 90" className="w-full" aria-hidden="true">
-          {/* Nodes */}
-          {[
-            { x: 10,  label: 'Created',  sub: '2,847' },
-            { x: 110, label: 'Reviewed', sub: '2,691' },
-            { x: 210, label: 'Approved', sub: '2,203' },
-            { x: 310, label: 'Paid',     sub: '1,988' },
-          ].map((n, i) => (
-            <g key={i} transform={`translate(${n.x}, 18)`}>
-              <rect width="90" height="36" rx="0" fill="#f4f4f5" stroke="#e4e4e7" strokeWidth="1" />
-              <text x="45" y="14" textAnchor="middle" fontSize="8" fontFamily="monospace" fill="#52525b" fontWeight="500">
-                {n.label}
-              </text>
-              <text x="45" y="26" textAnchor="middle" fontSize="9" fontFamily="monospace" fill="#09090b" fontWeight="700">
-                {n.sub}
-              </text>
-            </g>
-          ))}
-          {/* Arrows */}
-          {[100, 200, 300].map((x, i) => (
-            <g key={i}>
-              <line x1={x} y1={36} x2={x + 10} y2={36} stroke="#a1a1aa" strokeWidth="1" />
-              <polygon points={`${x + 10},33 ${x + 15},36 ${x + 10},39`} fill="#a1a1aa" />
-            </g>
-          ))}
-          {/* Deviation path */}
-          <path d="M 155 54 Q 205 80 255 54" fill="none" stroke="#ea580c" strokeWidth="1" strokeDasharray="3,2" />
-          <text x="205" y="80" textAnchor="middle" fontSize="7" fontFamily="monospace" fill="#ea580c">
-            488 skip approval
-          </text>
-        </svg>
-      </div>
-
-      {/* KPI bar */}
-      <div className="border-t border-braun-200 grid grid-cols-3 divide-x divide-braun-200">
-        {[
-          { value: '94.2%', label: 'Conformance', color: 'text-data-positive' },
-          { value: '3.2d',  label: 'Avg duration', color: 'text-braun-900' },
-          { value: '488',   label: 'Deviations',   color: 'text-braun-orange' },
-        ].map(k => (
-          <div key={k.label} className="py-3 text-center">
-            <div className={`text-lg font-mono font-bold ${k.color}`}>{k.value}</div>
-            <div className="text-[9px] font-mono uppercase tracking-widest text-braun-400 mt-0.5">
-              {k.label}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Conformance timeline bars */}
-      <div className="border-t border-braun-200 px-5 py-4">
-        <div className="text-[9px] font-mono uppercase tracking-widest text-braun-400 mb-2">
-          Conformance — last 7 days
+        <div className="flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
+          <span className="text-[8px] font-mono text-braun-600 uppercase tracking-widest">Live</span>
         </div>
-        <div className="flex items-end gap-1 h-10">
-          {[82, 89, 91, 88, 94, 96, 94].map((v, i) => (
+      </div>
+
+      {/* App body */}
+      <div className="flex">
+        {/* Micro sidebar */}
+        <div className="w-8 bg-braun-900 flex flex-col items-center py-3 gap-2.5 shrink-0 border-r border-braun-800">
+          {[true, false, false, false].map((active, i) => (
             <div
               key={i}
-              className="flex-1"
-              style={{
-                height: `${(v / 100) * 40}px`,
-                backgroundColor: v >= 90 ? '#059669' : v >= 85 ? '#d97706' : '#e11d48',
-                opacity: 0.8,
-              }}
+              className={`w-3 h-3 ${active ? 'bg-braun-orange' : 'bg-braun-800'}`}
             />
           ))}
+        </div>
+
+        {/* Main content */}
+        <div className="flex-1 min-w-0">
+          {/* KPI strip */}
+          <div className="grid grid-cols-3 border-b border-braun-200 divide-x divide-braun-200">
+            {[
+              { label: 'Cases',      value: '2,847', delta: '+12%',   up: true  },
+              { label: 'Conformance', value: '94.2%', delta: '↑ 2.1pp', up: true  },
+              { label: 'Avg. Cycle', value: '3.2d',  delta: '↓ 0.4d', up: true  },
+            ].map(k => (
+              <div key={k.label} className="px-3 py-2.5">
+                <div className="text-[7.5px] font-mono uppercase tracking-widest text-braun-400 mb-1">
+                  {k.label}
+                </div>
+                <div className="text-[15px] font-mono text-braun-900 leading-none tabular-nums">
+                  {k.value}
+                </div>
+                <div
+                  className={`text-[7.5px] font-mono mt-1 ${
+                    k.up ? 'text-emerald-600' : 'text-rose-600'
+                  }`}
+                >
+                  {k.delta}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Process map */}
+          <div className="bg-braun-50 border-b border-braun-200 px-3 pt-3 pb-2">
+            <div className="text-[7.5px] font-mono uppercase tracking-widest text-braun-400 mb-2">
+              Process Flow
+            </div>
+            <svg viewBox="0 0 350 58" className="w-full" style={{ height: 52 }}>
+              {[
+                { x: 0,   label: 'Created',  count: '2,847', dark: true  },
+                { x: 93,  label: 'Reviewed', count: '2,691', dark: false },
+                { x: 186, label: 'Approved', count: '2,203', dark: false },
+                { x: 279, label: 'Paid',     count: '1,988', dark: false },
+              ].map((n, i) => (
+                <g key={i}>
+                  <rect
+                    x={n.x} y={4} width={70} height={30}
+                    fill={n.dark ? '#09090b' : '#ffffff'}
+                    stroke={n.dark ? '#09090b' : '#e4e4e7'}
+                    strokeWidth="1"
+                  />
+                  <text x={n.x + 35} y={15} textAnchor="middle" fontSize="6" fill={n.dark ? '#71717a' : '#71717a'} fontFamily="monospace">
+                    {n.label}
+                  </text>
+                  <text x={n.x + 35} y={27} textAnchor="middle" fontSize="8" fill={n.dark ? '#ffffff' : '#09090b'} fontFamily="monospace" fontWeight="600">
+                    {n.count}
+                  </text>
+                </g>
+              ))}
+              {[70, 163, 256].map((x, i) => (
+                <g key={i}>
+                  <line x1={x} y1={19} x2={x + 21} y2={19} stroke="#a1a1aa" strokeWidth="1" />
+                  <polygon points={`${x + 21},16 ${x + 25},19 ${x + 21},22`} fill="#a1a1aa" />
+                </g>
+              ))}
+              {/* Deviation arc */}
+              <path
+                d="M 133 34 Q 186 52 239 34"
+                fill="none"
+                stroke="#ea580c"
+                strokeWidth="0.9"
+                strokeDasharray="2,1.5"
+              />
+              <text x="186" y="58" textAnchor="middle" fontSize="5.5" fill="#ea580c" fontFamily="monospace">
+                488 skipped approval
+              </text>
+            </svg>
+          </div>
+
+          {/* Deviation feed */}
+          <div>
+            <div className="px-3 py-1.5 bg-braun-50 border-b border-braun-100">
+              <span className="text-[7.5px] font-mono uppercase tracking-widest text-braun-400">
+                Recent Deviations
+              </span>
+            </div>
+            {deviations.map((d, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-2 px-3 py-2 border-b border-braun-50 last:border-0 hover:bg-braun-50 transition-colors"
+              >
+                <div
+                  className={`w-1.5 h-1.5 shrink-0 ${
+                    d.type === 'error' ? 'bg-rose-500' : 'bg-amber-400'
+                  }`}
+                />
+                <span className="text-[8px] font-mono text-braun-400 shrink-0 w-16">{d.id}</span>
+                <span className="text-[8.5px] font-mono text-braun-600 flex-1 truncate">{d.activity}</span>
+                <span className="text-[7px] font-mono text-braun-300 shrink-0">{d.time}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   )
 }
 
-const trust = [
-  { icon: ShieldCheck, label: 'SOC 2 Type II' },
-  { icon: Zap,         label: '<50ms latency' },
-  { icon: Globe,       label: '99.9% uptime' },
-]
-
 export default function Hero() {
   return (
-    <section className="pt-14 bg-braun-50 border-b border-braun-200">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 py-20 lg:py-28 items-center">
-          {/* Left: text */}
+    <section className="relative pt-14 bg-braun-50 border-b border-braun-200 overflow-hidden">
+      {/* Swiss grid — very subtle */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(228,228,231,0.55) 1px, transparent 1px), linear-gradient(90deg, rgba(228,228,231,0.55) 1px, transparent 1px)',
+          backgroundSize: '80px 80px',
+        }}
+      />
+
+      <div className="relative max-w-7xl mx-auto px-6">
+        <div className="grid lg:grid-cols-[1fr_460px] xl:grid-cols-[1fr_520px] gap-12 xl:gap-20 py-24 lg:py-32 xl:py-40 items-center">
+
+          {/* ── Left: typography ── */}
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 border border-braun-200 bg-white mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-braun-orange" />
-              <span className="text-[10px] font-mono uppercase tracking-widest text-braun-600">
-                v2.0 now available
+            {/* Section label */}
+            <div className="flex items-center gap-3 mb-10">
+              <span className="text-[10px] font-mono text-braun-300 tabular-nums">01</span>
+              <span className="h-px w-6 bg-braun-200 inline-block" />
+              <span className="text-[10px] font-mono uppercase tracking-widest text-braun-400">
+                Process Intelligence Platform
               </span>
             </div>
 
-            <h1 className="text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight text-braun-900">
-              Process intelligence<br />
-              for teams that<br />
-              <span className="text-braun-orange">operate at scale.</span>
+            {/* Headline — font-light, tight tracking, editorial scale */}
+            <h1 className="text-[clamp(3rem,7vw,6rem)] font-light tracking-tight leading-[0.92] text-braun-900 mb-8">
+              Process<br />
+              intelligence,<br />
+              <span className="text-braun-orange">finally.</span>
             </h1>
 
-            <p className="mt-6 text-base text-braun-500 leading-relaxed max-w-md">
-              Understand how your business processes actually run, measure conformance
-              in real time, identify root causes automatically, and automate
-              exception handling — without the six-month consulting engagement.
+            <p className="text-[1.0625rem] text-braun-500 font-light leading-[1.7] max-w-[420px] mb-10">
+              Understand how your business processes actually execute — not how you
+              think they do. Real-time conformance, automated root-cause analysis,
+              and no-code automation. Connected.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-3 mb-14">
               <Link
                 href="/docs/quick-start"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-braun-900 text-white border border-braun-900 hover:bg-braun-800 transition-colors text-[11px] font-mono font-bold uppercase tracking-widest"
+                className="inline-flex items-center gap-2.5 px-6 py-3 bg-braun-900 text-white border border-braun-900 hover:bg-braun-800 transition-colors text-[11px] font-mono font-bold uppercase tracking-widest"
               >
-                Get started free
-                <ArrowRight size={13} />
+                Get started free <ArrowRight size={12} />
               </Link>
               <Link
                 href="/docs/introduction"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-transparent text-braun-800 border border-braun-200 hover:border-braun-900 transition-colors text-[11px] font-mono font-bold uppercase tracking-widest"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-braun-200 text-braun-700 hover:border-braun-900 hover:text-braun-900 transition-colors text-[11px] font-mono font-bold uppercase tracking-widest"
               >
                 Read the docs
               </Link>
             </div>
 
             {/* Trust signals */}
-            <div className="mt-10 flex flex-wrap items-center gap-6">
+            <div className="flex flex-wrap gap-6 pt-6 border-t border-braun-200">
               {trust.map(({ icon: Icon, label }) => (
-                <div key={label} className="flex items-center gap-1.5">
-                  <Icon size={12} className="text-braun-400" />
+                <div key={label} className="flex items-center gap-2">
+                  <Icon size={11} className="text-braun-400" />
                   <span className="text-[10px] font-mono uppercase tracking-widest text-braun-400">
                     {label}
                   </span>
@@ -152,27 +229,26 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: product mockup */}
-          <div className="relative">
-            {/* Decorative grid lines */}
-            <div className="absolute -inset-4 pointer-events-none opacity-30"
-              style={{
-                backgroundImage: 'linear-gradient(#e4e4e7 1px, transparent 1px), linear-gradient(90deg, #e4e4e7 1px, transparent 1px)',
-                backgroundSize: '24px 24px',
-              }}
-            />
-            <div className="relative">
-              <ProductMockup />
-            </div>
+          {/* ── Right: product mockup ── */}
+          <div className="hidden lg:block">
+            <AppMockup />
           </div>
         </div>
+      </div>
 
-        {/* Section number / label */}
-        <div className="border-t border-braun-200 py-3 flex items-center gap-4">
-          <span className="text-[10px] font-mono text-braun-300 tracking-widest">01</span>
-          <span className="text-[10px] font-mono uppercase tracking-widest text-braun-300">
-            Process Intelligence Platform — Trusted by 500+ operations teams worldwide
-          </span>
+      {/* Stats strip */}
+      <div className="relative border-t border-braun-200 bg-white">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 divide-x divide-braun-200">
+          {statsStrip.map((s, i) => (
+            <div key={s.label} className={`py-5 ${i === 0 ? 'pr-6' : 'px-6'}`}>
+              <div className="text-2xl lg:text-3xl font-mono font-light text-braun-900 tabular-nums">
+                {s.value}
+              </div>
+              <div className="text-[10px] font-mono uppercase tracking-widest text-braun-400 mt-1">
+                {s.label}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
