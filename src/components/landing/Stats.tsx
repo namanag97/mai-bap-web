@@ -1,15 +1,11 @@
 'use client'
 
 import { FadeIn } from '@/components/ui/FadeIn'
-
-const stats = [
-  { value: '2.4B',   label: 'Events processed',     sub: 'total since launch' },
-  { value: '47%',    label: 'Avg time saved',        sub: 'on exception handling' },
-  { value: '99.97%', label: 'Platform uptime',       sub: 'trailing 12 months' },
-  { value: '8min',   label: 'Median time to value',  sub: 'from first data source' },
-]
+import { siteConfig } from '@/config/site'
 
 export default function Stats() {
+  const stats = siteConfig.stats
+
   return (
     <section className="border-b border-braun-200 bg-braun-900">
       <div className="max-w-7xl mx-auto px-6">
