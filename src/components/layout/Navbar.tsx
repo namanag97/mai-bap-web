@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -16,6 +16,16 @@ const links = [
 export default function Navbar() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   function isActive(href: string) {
     if (href.startsWith('/#')) return false
@@ -23,7 +33,14 @@ export default function Navbar() {
   }
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-sm border-b border-braun-200">
+    <header
+      className={cn(
+        'fixed top-0 inset-x-0 z-50 transition-all duration-300',
+        scrolled
+          ? 'bg-white/95 backdrop-blur-sm border-b border-braun-200'
+          : 'bg-transparent border-b border-transparent'
+      )}
+    >
       <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
 
         {/* Logo */}
@@ -55,7 +72,7 @@ export default function Navbar() {
         {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-5">
           <Link
-            href="/docs/introduction"
+            href="#"
             className="text-[10px] font-mono uppercase tracking-widest text-braun-400 hover:text-braun-900 transition-colors duration-200"
           >
             Sign in
@@ -79,8 +96,13 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      {open && (
-        <div className="md:hidden border-t border-braun-200 bg-white px-6 py-5 flex flex-col gap-4">
+      <div
+        className={cn(
+          'md:hidden border-t border-braun-200 bg-white overflow-hidden transition-all duration-300',
+          open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        )}
+      >
+        <div className="px-6 py-5 flex flex-col gap-4">
           {links.map(l => (
             <Link
               key={l.href}
@@ -93,7 +115,7 @@ export default function Navbar() {
           ))}
           <div className="pt-3 border-t border-braun-100 flex flex-col gap-3">
             <Link
-              href="/docs/introduction"
+              href="#"
               className="text-[10px] font-mono uppercase tracking-widest text-braun-400"
               onClick={() => setOpen(false)}
             >
@@ -108,7 +130,7 @@ export default function Navbar() {
             </Link>
           </div>
         </div>
-      )}
+      </div>
     </header>
   )
 }
