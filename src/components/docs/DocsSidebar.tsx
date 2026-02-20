@@ -81,7 +81,12 @@ export default function DocsSidebar() {
 
       {/* Navigation */}
       <nav className="flex-1 px-3 py-5 space-y-1" aria-label="Documentation navigation">
-        {navigation.map((section, si) => (
+        {filteredNavigation.length === 0 && (
+          <div className="px-5 py-8 text-center">
+            <p className="text-[10px] font-mono text-braun-400 uppercase tracking-widest">No results found</p>
+          </div>
+        )}
+        {filteredNavigation.map((section, si) => (
           <div key={section.title}>
             {/* Section divider — not for first section */}
             {si > 0 && <div className="h-px bg-braun-100 mx-2 my-3" />}
