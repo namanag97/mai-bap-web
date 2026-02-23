@@ -7,10 +7,10 @@ import { siteConfig } from '@/config/site'
 
 const trustIcons = [ShieldCheck, Zap, Globe]
 
-const deviations = [
-  { id: 'INV-2847', activity: 'Approval skipped',  type: 'error',   time: '2m ago' },
-  { id: 'INV-2841', activity: 'SLA threshold hit',  type: 'warning', time: '5m ago' },
-  { id: 'INV-2839', activity: 'Route overridden',   type: 'warning', time: '9m ago' },
+const aiActions = [
+  { id: 'WF-0041', activity: 'Weekly ops report — sent to team',   type: 'done',    time: '1m ago' },
+  { id: 'WF-0040', activity: 'Onboarding checklist — auto-assigned', type: 'done',  time: '4m ago' },
+  { id: 'WF-0039', activity: 'Invoice approval — escalated to CFO', type: 'action', time: '7m ago' },
 ]
 
 function AppMockup() {
@@ -18,7 +18,7 @@ function AppMockup() {
     <div
       className="border border-braun-200 overflow-hidden bg-white w-full"
       role="img"
-      aria-label="Product dashboard preview showing process monitoring"
+      aria-label="mai-bap dashboard showing automated business workflows"
     >
       {/* Title bar */}
       <div className="h-9 bg-braun-900 flex items-center px-3 gap-2 shrink-0">
@@ -28,7 +28,7 @@ function AppMockup() {
           <div className="w-2.5 h-2.5 bg-braun-600" />
         </div>
         <span className="flex-1 text-center text-[9px] font-mono text-braun-500 uppercase tracking-widest">
-          Invoice Approval — Process Monitor
+          mai-bap — Automation Control
         </span>
         <div className="flex items-center gap-1.5">
           <span className="w-1.5 h-1.5 bg-data-positive inline-block animate-pulse" />
@@ -49,9 +49,9 @@ function AppMockup() {
           {/* KPI strip */}
           <div className="grid grid-cols-3 border-b border-braun-200 divide-x divide-braun-200">
             {[
-              { label: 'Cases',       value: '2,847', delta: '+12%',    up: true },
-              { label: 'Conformance', value: '94.2%', delta: '↑ 2.1pp', up: true },
-              { label: 'Avg. Cycle',  value: '3.2d',  delta: '↓ 0.4d',  up: true },
+              { label: 'Tasks automated', value: '1,247', delta: '+18%',  up: true },
+              { label: 'Hours saved',     value: '83h',   delta: '↑ 11h', up: true },
+              { label: 'Workflows live',  value: '24',    delta: '+3',     up: true },
             ].map(k => (
               <div key={k.label} className="px-2 sm:px-3 py-2.5">
                 <div className="text-[7px] sm:text-[7.5px] font-mono uppercase tracking-widest text-braun-500 mb-1">{k.label}</div>
@@ -63,17 +63,17 @@ function AppMockup() {
             ))}
           </div>
 
-          {/* Process map */}
+          {/* Automation pipeline */}
           <div className="bg-braun-50 border-b border-braun-200 px-2 sm:px-3 pt-3 pb-2">
             <div className="text-[7.5px] font-mono uppercase tracking-widest text-braun-500 mb-2">
-              Process Flow
+              Automation Pipeline
             </div>
             <svg viewBox="0 0 350 58" className="w-full" style={{ height: 52 }}>
               {[
-                { x: 0,   label: 'Created',  count: '2,847', dark: true  },
-                { x: 93,  label: 'Reviewed', count: '2,691', dark: false },
-                { x: 186, label: 'Approved', count: '2,203', dark: false },
-                { x: 279, label: 'Paid',     count: '1,988', dark: false },
+                { x: 0,   label: 'Trigger',  count: '1,247', dark: true  },
+                { x: 93,  label: 'AI triage', count: '1,247', dark: false },
+                { x: 186, label: 'Action',   count: '1,201', dark: false },
+                { x: 279, label: 'Done',     count: '1,189', dark: false },
               ].map((n, i) => (
                 <g key={i}>
                   <rect x={n.x} y={4} width={70} height={30}
@@ -99,20 +99,20 @@ function AppMockup() {
               <path d="M 133 34 Q 186 52 239 34" fill="none" stroke="#ea580c"
                 strokeWidth="0.9" strokeDasharray="2,1.5" />
               <text x="186" y="58" textAnchor="middle" fontSize="5.5"
-                fill="#ea580c" fontFamily="monospace">488 skipped approval</text>
+                fill="#ea580c" fontFamily="monospace">46 escalated to human</text>
             </svg>
           </div>
 
-          {/* Deviation feed */}
+          {/* AI actions feed */}
           <div>
             <div className="px-2 sm:px-3 py-1.5 bg-braun-50 border-b border-braun-100">
               <span className="text-[7.5px] font-mono uppercase tracking-widest text-braun-500">
-                Recent Deviations
+                AI Actions — Today
               </span>
             </div>
-            {deviations.map((d, i) => (
+            {aiActions.map((d, i) => (
               <div key={i} className="flex items-center gap-2 px-2 sm:px-3 py-2 border-b border-braun-50 last:border-0">
-                <div className={`w-1.5 h-1.5 shrink-0 ${d.type === 'error' ? 'bg-data-negative' : 'bg-data-warning'}`} />
+                <div className={`w-1.5 h-1.5 shrink-0 ${d.type === 'done' ? 'bg-data-positive' : 'bg-data-warning'}`} />
                 <span className="text-[7px] sm:text-[8px] font-mono text-braun-500 shrink-0 w-12 sm:w-16">{d.id}</span>
                 <span className="text-[8px] sm:text-[8.5px] font-mono text-braun-600 flex-1 truncate">{d.activity}</span>
                 <span className="text-[7px] font-mono text-braun-500 shrink-0 hidden sm:block">{d.time}</span>
