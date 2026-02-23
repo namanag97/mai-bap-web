@@ -7,20 +7,20 @@
 
 export const siteConfig = {
   // ── Brand ──────────────────────────────────────────────
-  name: 'Meridian',
-  tagline: 'Process Intelligence for Modern Teams',
+  name: 'mai-bap',
+  tagline: 'The AI that runs your business. You run your vision.',
   description:
-    'Understand how your business processes actually run. Real-time conformance checking, automated root cause analysis, and no-code automation — without the consulting engagement.',
-  url: 'https://namanag97.github.io/meridian-web',
-  email: 'hello@meridian.io',
-  salesEmail: 'sales@meridian.io',
-  privacyEmail: 'privacy@meridian.io',
-  legalEmail: 'legal@meridian.io',
+    'mai-bap is your management AI — it handles workflows, ops, reporting, and coordination so your team can focus on building. No consultants. No 6-month rollout. Just done.',
+  url: 'https://mai-bap.com',
+  email: 'hello@mai-bap.com',
+  salesEmail: 'sales@mai-bap.com',
+  privacyEmail: 'privacy@mai-bap.com',
+  legalEmail: 'legal@mai-bap.com',
 
   // ── Navigation ─────────────────────────────────────────
   navLinks: [
     { label: 'Features', href: '/#features' },
-    { label: 'Docs', href: '/docs/introduction' },
+    { label: 'How it works', href: '/docs/introduction' },
     { label: 'Blog', href: '/blog' },
     { label: 'Pricing', href: '/#pricing' },
   ],
@@ -30,7 +30,7 @@ export const siteConfig = {
   },
 
   // ── Footer ─────────────────────────────────────────────
-  footerTagline: 'Process intelligence for teams that operate at scale.',
+  footerTagline: 'Management AI for founders who have better things to do.',
   footerBadges: 'SOC 2 Type II · GDPR',
   footerColumns: [
     {
@@ -71,23 +71,23 @@ export const siteConfig = {
 
   // ── Hero ───────────────────────────────────────────────
   hero: {
-    sectionLabel: 'Process Intelligence Platform',
-    title: ['Process', 'intelligence,'],
-    titleAccent: 'finally.',
+    sectionLabel: 'Management AI Platform',
+    title: ['Your business,'],
+    titleAccent: 'handled.',
     subtitle:
-      'Understand how your business processes actually execute — not how you think they do. Real-time conformance, automated root-cause analysis, and no-code automation. Connected.',
+      'mai-bap is Hindi for "the one who takes care of everything." That\'s exactly what it does — automates your ops, surfaces what matters, and keeps your team moving. No BS, no setup hell.',
     primaryCta: { label: 'Get started free', href: '/docs/quick-start' },
-    secondaryCta: { label: 'Read the docs', href: '/docs/introduction' },
+    secondaryCta: { label: 'See how it works', href: '/docs/introduction' },
     trustSignals: [
-      { label: 'SOC 2 Type II' },
-      { label: '<50ms p99 latency' },
+      { label: 'No credit card required' },
+      { label: 'Live in under 10 minutes' },
       { label: '99.9% uptime SLA' },
     ],
     statsStrip: [
-      { value: '500+', label: 'Operations teams' },
-      { value: '40M+', label: 'Events per day' },
-      { value: '94.7%', label: 'Avg conformance' },
-      { value: '<50ms', label: 'Ingest latency' },
+      { value: '12K+', label: 'Founders using mai-bap' },
+      { value: '3.2M+', label: 'Tasks automated weekly' },
+      { value: '11h', label: 'Avg hours saved per week' },
+      { value: '< 10min', label: 'Time to first automation' },
     ],
   },
 
@@ -95,39 +95,39 @@ export const siteConfig = {
   features: {
     sectionIndex: '02',
     sectionLabel: 'Capabilities',
-    title: 'Everything you need\nto operate with clarity.',
+    title: 'Everything your ops team\ndoes. Automated.',
     subtitle:
-      'From raw event data to automated exception handling — without stitching together six different tools or waiting on a consulting engagement.',
+      'From daily standups to quarterly reports — mai-bap handles the coordination, chasing, and busywork so your team can do actual work.',
     items: [
       {
-        title: 'Real-time monitoring',
+        title: 'Workflow automation',
         description:
-          'Every case evaluated as it runs. Deviations surface in milliseconds — not in the next batch report. Intervene while the case is still open.',
+          'Map any recurring process once — approvals, onboarding, reporting, handoffs. mai-bap runs it on autopilot from there. If something breaks, it tells you.',
       },
       {
-        title: 'Conformance checking',
+        title: 'Process intelligence',
         description:
-          'Measure how closely each execution aligns with your reference model. Set thresholds per process; get alerts the moment a case crosses them.',
+          'See how work actually flows through your business, not how you think it does. Spot bottlenecks, deviations, and hidden delays before they become fires.',
       },
       {
-        title: 'Root cause analysis',
+        title: 'AI reporting',
         description:
-          'When a case deviates, the cause is identified automatically — using variant analysis and ML attribution. No manual drill-down required.',
+          'Weekly ops summaries, team performance snapshots, and board-ready decks — generated automatically from your connected tools. No analyst required.',
       },
       {
-        title: 'Custom dashboards',
+        title: 'Smart task routing',
         description:
-          'Compose views from our chart library: process maps, conformance timelines, variant tables, KPI grids. Embed anywhere via signed iframe.',
+          'AI assigns tasks to the right person based on workload, skills, and context. No more "who owns this?" Slack threads that go nowhere.',
       },
       {
-        title: 'Team collaboration',
+        title: 'Meeting intelligence',
         description:
-          'Annotate cases, assign investigations, share dashboards. Process intelligence is a team sport — tooling should reflect that.',
+          'Connects to your calendar. Summarises meetings, extracts action items, and follows up automatically. Your meetings finally mean something.',
       },
       {
-        title: 'Enterprise security',
+        title: 'Enterprise-grade security',
         description:
-          'SOC 2 Type II certified. Single-tenant deployment available. SSO, RBAC, and full audit logs on all paid plans.',
+          'SOC 2 Type II certified. All data encrypted at rest and in transit. SSO, RBAC, and full audit logs available. Your data stays yours.',
       },
     ],
   },
@@ -136,104 +136,103 @@ export const siteConfig = {
   testimonials: {
     sectionIndex: '03',
     sectionLabel: 'Testimonials',
-    title: 'Hear from teams\nwho switched.',
-    logoStripLabel: 'Trusted by operations teams at',
-    logos: ['TechCorp', 'Axiom', 'Veritas', 'Arcline', 'Novus', 'Stratos'],
+    title: 'Founders who stopped\ndoing ops manually.',
+    logoStripLabel: 'Trusted by teams at',
+    logos: ['Arcline', 'Novus', 'Stratos', 'Axiom', 'Veritas', 'TechCorp'],
     items: [
       {
         quote:
-          'We went from quarterly conformance audits to real-time monitoring in a week. The impact on our SLA compliance was immediate.',
-        name: 'Sarah Chen',
-        role: 'VP Operations',
-        company: 'TechCorp',
+          'I used to spend 3 hours every Monday on status updates and follow-ups. mai-bap does all of it automatically now. I genuinely forgot what I used to do with those 3 hours.',
+        name: 'Priya Mehta',
+        role: 'Founder & CEO',
+        company: 'Arcline',
       },
       {
         quote:
-          'The automation studio alone saved us 120 analyst-hours per month. We finally stopped doing the same triage manually every day.',
-        name: 'Marcus Webb',
-        role: 'Head of Process Excellence',
-        company: 'Axiom Financial',
-      },
-      {
-        quote:
-          'Clean, fast, no consulting required. We had our first process map live within 30 minutes of connecting our ERP.',
-        name: 'Elena Kovacs',
+          'We tried Monday, Asana, Notion, and three other tools. None of them removed work — they just moved it around. mai-bap actually removes it.',
+        name: 'James Okafor',
         role: 'COO',
-        company: 'Veritas Health',
+        company: 'Novus',
+      },
+      {
+        quote:
+          '"mai-bap" literally means everything to me in Hindi, and honestly, for our ops it kind of is. Best product name in the space too.',
+        name: 'Riya Sharma',
+        role: 'Head of Operations',
+        company: 'Stratos',
       },
     ],
   },
 
   // ── Stats ──────────────────────────────────────────────
   stats: [
-    { value: '2.4B', label: 'Events processed', sub: 'total since launch' },
-    { value: '47%', label: 'Avg time saved', sub: 'on exception handling' },
+    { value: '3.2M', label: 'Tasks automated', sub: 'every week across all teams' },
+    { value: '11h', label: 'Avg saved per user', sub: 'on repetitive ops work' },
     { value: '99.97%', label: 'Platform uptime', sub: 'trailing 12 months' },
-    { value: '8min', label: 'Median time to value', sub: 'from first data source' },
+    { value: '9min', label: 'Median setup time', sub: 'from signup to first automation' },
   ],
 
   // ── Pricing ────────────────────────────────────────────
   pricing: {
     sectionIndex: '04',
     sectionLabel: 'Pricing',
-    title: 'Simple, transparent pricing.',
+    title: 'Simple pricing.\nNo surprises.',
     footnote:
       'All plans include SSL encryption, automatic backups, and GDPR-compliant processing.',
     tiers: [
       {
-        name: 'Free',
+        name: 'Starter',
         monthlyPrice: '$0',
         annualPrice: '$0',
         period: 'forever',
         annualPeriod: 'forever',
         description:
-          'For individual analysts and small teams getting their first look at process intelligence.',
+          'For solo founders and small teams who want to see what automated ops actually feels like.',
         cta: { label: 'Start free', href: '/docs/quick-start' },
         featured: false,
         features: [
-          '10,000 events / month',
-          '1 process model',
-          '7-day event history',
-          'Process discovery',
-          'Basic conformance dashboard',
+          '5 active workflows',
+          'Up to 500 tasks/month',
+          '3 connected integrations',
+          'AI task routing',
+          'Weekly summary report',
           'Community support',
         ],
       },
       {
-        name: 'Pro',
+        name: 'Growth',
         monthlyPrice: '$49',
         annualPrice: '$39',
         period: '/seat/month',
         annualPeriod: '/seat/month',
         description:
-          'For operations teams that need real-time monitoring, automation, and deeper analytics.',
+          'For growing teams that need real automation, process intelligence, and AI reporting.',
         cta: { label: 'Start 14-day trial', href: '/docs/quick-start' },
         featured: true,
         features: [
-          'Unlimited events',
-          'Up to 20 process models',
-          '90-day event history',
-          'Real-time conformance checking',
-          'Root cause analysis',
-          'Automation Studio',
+          'Unlimited workflows',
+          'Unlimited tasks',
+          'Unlimited integrations',
+          'Process intelligence dashboard',
+          'AI-generated reports',
+          'Meeting intelligence',
           'Custom dashboards',
           'REST API + webhooks',
           'Email & Slack support',
         ],
       },
       {
-        name: 'Enterprise',
+        name: 'Scale',
         monthlyPrice: 'Custom',
         annualPrice: 'Custom',
         period: '',
         annualPeriod: '',
         description:
-          'For large organizations with compliance requirements, custom deployment, and SLA needs.',
-        cta: { label: 'Talk to sales', href: '/contact' },
+          'For larger organisations with compliance requirements, custom deployments, and SLA guarantees.',
+        cta: { label: 'Talk to us', href: '/contact' },
         featured: false,
         features: [
-          'Everything in Pro',
-          'Unlimited models & history',
+          'Everything in Growth',
           'Single-tenant deployment',
           'SSO / SAML',
           'RBAC & full audit logs',
@@ -241,6 +240,7 @@ export const siteConfig = {
           'Dedicated Slack channel',
           '99.9% SLA guarantee',
           'Custom integrations',
+          'Dedicated success manager',
         ],
       },
     ],
@@ -252,31 +252,31 @@ export const siteConfig = {
     sectionLabel: 'FAQ',
     title: 'Common\nquestions.',
     subtitle:
-      "Can't find what you're looking for? Reach out to our team — we respond within 24 hours.",
+      "Can't find what you're looking for? Reach out — we respond within 24 hours.",
     items: [
       {
-        q: 'How long does setup take?',
-        a: 'Most teams connect their first data source and see a live process map within 30 minutes. No consulting engagement or multi-month implementation required.',
+        q: 'How long does setup actually take?',
+        a: 'Under 10 minutes for most teams. Connect your tools (Slack, Jira, Notion, Google Workspace, etc.), define one workflow, and mai-bap starts running it. No consultants, no implementation sprints.',
       },
       {
-        q: 'What data sources do you support?',
-        a: 'Any system that produces event logs — SAP, Salesforce, ServiceNow, Jira, custom databases, and CSV/Parquet uploads. We provide pre-built connectors for the most common platforms and a REST API for everything else.',
+        q: 'What tools does it connect to?',
+        a: 'Slack, Google Workspace, Notion, Jira, Linear, Salesforce, HubSpot, GitHub, and 40+ more. We also provide a REST API and webhooks for anything custom.',
       },
       {
         q: 'Is my data secure?',
-        a: 'Yes. All data is encrypted at rest (AES-256) and in transit (TLS 1.3). We are SOC 2 Type II certified, GDPR compliant, and offer single-tenant deployment for Enterprise customers.',
+        a: 'Yes. All data is encrypted at rest (AES-256) and in transit (TLS 1.3). We are SOC 2 Type II certified and GDPR compliant. Enterprise plans get single-tenant deployment.',
       },
       {
-        q: 'Can I try it before committing?',
-        a: "Absolutely. The Free tier is free forever with 10,000 events per month. Pro plans include a 14-day trial with full access to all features. No credit card required to start.",
+        q: 'What does "mai-bap" mean?',
+        a: '"Mai-bap" is a Hindi phrase meaning "the one who takes care of everything for you" — literally mother-father. It\'s used when someone handles all your problems. That\'s what this product does for your business operations.',
       },
       {
-        q: 'What happens when I exceed my event limit?',
-        a: "We never drop your data. Events beyond your plan limit are queued and processed when capacity frees up, or you can upgrade instantly from the dashboard.",
+        q: 'Is this just another project management tool?',
+        a: 'No. Project management tools move work around. mai-bap removes it. The goal is zero manual coordination — AI handles routing, follow-ups, reporting, and escalation automatically.',
       },
       {
-        q: 'Do you offer custom integrations?',
-        a: 'Enterprise plans include custom integration development with our engineering team. We also provide webhooks and a comprehensive REST API for self-service integration on all paid plans.',
+        q: 'Can I try before committing?',
+        a: 'The Starter plan is free forever with real features, not a crippled demo. Growth plans get a 14-day full trial. No credit card required to start either.',
       },
     ],
   },
@@ -284,24 +284,24 @@ export const siteConfig = {
   // ── CTA ────────────────────────────────────────────────
   cta: {
     sectionLabel: '06 — Get started',
-    title: ['Start understanding', 'your processes.'],
-    titleAccent: 'Today.',
+    title: ['Stop managing.', 'Start building.'],
+    titleAccent: 'Let mai-bap handle it.',
     subtitle:
-      'Connect your first data source in minutes. No consultants, no lengthy onboarding, no annual contract required.',
+      'Connect your first tool in minutes. Your first automation runs the same day. No setup fee, no annual lock-in, no consultants.',
     primaryCta: { label: 'Start free — no credit card', href: '/docs/quick-start' },
-    secondaryCta: { label: 'Read the docs', href: '/docs/introduction' },
-    trialNote: '14-day trial on Pro · Cancel anytime',
+    secondaryCta: { label: 'See how it works', href: '/docs/introduction' },
+    trialNote: '14-day trial on Growth · Cancel anytime',
   },
 
   // ── Docs ───────────────────────────────────────────────
-  docsVersion: 'v2.0',
+  docsVersion: 'v1.0',
 
   // ── Blog ───────────────────────────────────────────────
   blog: {
-    title: 'Product, design & engineering.',
-    subtitle: 'Updates, thinking, and stories from the team building Meridian.',
+    title: 'Ops, AI & building in public.',
+    subtitle: 'Thinking from the team building mai-bap. Honest, practical, no fluff.',
     sectionLabel: 'Journal',
-    categories: ['All', 'Product', 'Design', 'Case Study', 'Engineering'],
+    categories: ['All', 'Product', 'Ops', 'Case Study', 'Engineering'],
   },
 } as const
 
