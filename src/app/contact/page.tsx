@@ -40,7 +40,7 @@ export default function ContactPage() {
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="mt-8 hover:text-braun-900 transition-colors"
+                  className="mt-8 hover:text-ink-primary transition-colors"
                 >
                   <MetaLabel>Send another message</MetaLabel>
                 </button>
