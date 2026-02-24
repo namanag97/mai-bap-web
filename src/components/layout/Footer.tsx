@@ -16,7 +16,7 @@ export default function Footer() {
             >
               {siteConfig.name.toUpperCase()}
             </Link>
-            <p className="mt-4 text-xs text-braun-500 leading-relaxed max-w-[180px]">
+            <p className="mt-4 text-xs text-ink-muted leading-relaxed max-w-[180px]">
               {siteConfig.footerTagline}
             </p>
             <MetaLabel as="div" size="xxs" className="mt-5">
