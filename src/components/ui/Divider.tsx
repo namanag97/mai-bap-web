@@ -10,12 +10,12 @@ export function Divider({ className, label }: DividerProps) {
   if (label) {
     return (
       <div className={cn('flex items-center gap-4', className)}>
-        <div className="flex-1 h-px bg-border-default" />
+        <div className="flex-1 divider" />
         <MetaLabel size="xxs">{label}</MetaLabel>
-        <div className="flex-1 h-px bg-border-default" />
+        <div className="flex-1 divider" />
       </div>
     )
   }
 
-  return <div className={cn('h-px bg-border-default', className)} />
+  return <div className={cn('divider', className)} />
 }
