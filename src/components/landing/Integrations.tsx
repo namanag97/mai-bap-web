@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { siteConfig } from '@/config/site'
-import { Container, MetaLabel, SectionLabel } from '@/components/ui'
+import { Container, SectionLabel, SectionTitle } from '@/components/ui'
 
 export default function Integrations() {
   const { integrations } = siteConfig
