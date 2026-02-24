@@ -127,8 +127,9 @@ export default function ContactPage() {
           {/* Sidebar */}
           <div className="space-y-8">
             <div className="border-t border-border-default pt-6">
-              <div className="text-xs font-medium text-ink-primary uppercase tracking-wide mb-2">
-                Office
+              <div className="flex items-center gap-3 mb-3">
+                <MetaLabel as="div">Office</MetaLabel>
+                <div className="flex-1 divider" />
               </div>
               <div className="text-sm text-ink-muted leading-relaxed">
                 <p>San Francisco, CA</p>
@@ -138,8 +139,9 @@ export default function ContactPage() {
             </div>
 
             <div className="border-t border-border-default pt-6">
-              <div className="text-xs font-medium text-ink-primary uppercase tracking-wide mb-2">
-                Email
+              <div className="flex items-center gap-3 mb-3">
+                <MetaLabel as="div">Email</MetaLabel>
+                <div className="flex-1 divider" />
               </div>
               <a
                 href={`mailto:${siteConfig.email}`}
@@ -150,8 +152,9 @@ export default function ContactPage() {
             </div>
 
             <div className="border-t border-border-default pt-6">
-              <div className="text-xs font-medium text-ink-primary uppercase tracking-wide mb-2">
-                Support hours
+              <div className="flex items-center gap-3 mb-3">
+                <MetaLabel as="div">Support hours</MetaLabel>
+                <div className="flex-1 divider" />
               </div>
               <div className="text-sm text-ink-muted leading-relaxed">
                 <p>Monday&ndash;Friday, 9AM&ndash;6PM PST</p>
@@ -160,8 +163,9 @@ export default function ContactPage() {
             </div>
 
             <div className="border-t border-border-default pt-6">
-              <div className="text-xs font-medium text-ink-primary uppercase tracking-wide mb-2">
-                Response time
+              <div className="flex items-center gap-3 mb-3">
+                <MetaLabel as="div">Response time</MetaLabel>
+                <div className="flex-1 divider" />
               </div>
               <p className="text-sm text-ink-muted leading-relaxed">
                 We typically respond within 24 hours.
