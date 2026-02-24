@@ -73,7 +73,7 @@ export default async function BlogPostPage({ params }: Props) {
                 {post.author.name.charAt(0)}
               </div>
               <div>
-                <div className="text-xs font-semibold text-braun-800">{post.author.name}</div>
+                <div className="text-xs font-semibold text-ink-primary">{post.author.name}</div>
                 <MetaLabel as="div" size="xxs" color="dim">
                   {post.author.role}
                 </MetaLabel>
