@@ -7,6 +7,7 @@ import { Menu, X, Sun, Moon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { siteConfig } from '@/config/site'
 import { useTheme } from '@/components/ui/ThemeProvider'
+import { Container, ButtonLink, MetaLabel } from '@/components/ui'
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -49,7 +50,7 @@ export default function Navbar() {
           : 'bg-transparent border-b border-transparent'
       )}
     >
-      <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+      <Container className="h-14 flex items-center justify-between">
 
         {/* Logo */}
         <Link
@@ -92,12 +93,9 @@ export default function Navbar() {
           >
             {siteConfig.ctaLinks.signIn.label}
           </Link>
-          <Link
-            href={siteConfig.ctaLinks.getStarted.href}
-            className="px-4 py-2 text-[10px] font-mono font-bold uppercase tracking-widest bg-braun-900 text-white border border-braun-900 hover:bg-braun-800 transition-colors duration-200"
-          >
+          <ButtonLink href={siteConfig.ctaLinks.getStarted.href} size="sm">
             {siteConfig.ctaLinks.getStarted.label}
-          </Link>
+          </ButtonLink>
         </div>
 
         {/* Mobile toggle */}
@@ -108,7 +106,7 @@ export default function Navbar() {
         >
           {open ? <X size={18} /> : <Menu size={18} />}
         </button>
-      </div>
+      </Container>
 
       {/* Mobile menu */}
       <div
@@ -135,18 +133,14 @@ export default function Navbar() {
             >
               {theme === 'dark' ? <Sun size={14} /> : <Moon size={14} />}
             </button>
-            <Link
-              href={siteConfig.ctaLinks.signIn.href}
-              className="text-[10px] font-mono uppercase tracking-widest text-braun-400"
-            >
-              {siteConfig.ctaLinks.signIn.label}
-            </Link>
-            <Link
-              href={siteConfig.ctaLinks.getStarted.href}
-              className="px-4 py-2.5 text-[10px] font-mono font-bold uppercase tracking-widest bg-braun-900 text-white border border-braun-900 text-center"
-            >
+            <MetaLabel as="span" color="dim">
+              <Link href={siteConfig.ctaLinks.signIn.href}>
+                {siteConfig.ctaLinks.signIn.label}
+              </Link>
+            </MetaLabel>
+            <ButtonLink href={siteConfig.ctaLinks.getStarted.href} size="sm" className="text-center">
               {siteConfig.ctaLinks.getStarted.label}
-            </Link>
+            </ButtonLink>
           </div>
         </div>
       </div>
