@@ -8,10 +8,7 @@ interface FormLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
 export function FormLabel({ children, className, ...props }: FormLabelProps) {
   return (
     <label
-      className={cn(
-        'text-xs font-medium text-ink-primary uppercase tracking-wide mb-1.5 block',
-        className
-      )}
+      className={cn('form-label', className)}
       {...props}
     >
       {children}
