@@ -1,26 +1,52 @@
 /**
- * AsciiDiagram — renders ASCII art / diagrams on warm paper.
+ * AsciiDiagram — two modes:
  *
- * Why this exists instead of using <code>:
- *   ASCII art requires ALL characters to be exactly equal-width.
- *   Geist Mono is already monospace — the jank comes from letter-spacing
- *   inherited from parent styles. The .prose-diagram class sets
- *   letter-spacing:0 explicitly, which eliminates misalignment entirely.
+ * variant="block" (default)
+ *   For complex diagrams: bordered box on surface-inset.
+ *   Looks like a figure in a technical document.
  *
- * Warm paper (surface-inset) instead of dark (surface-inverse) keeps
- * diagrams feeling like part of a technical document rather than a
- * code snippet. The distinction matters for design language consistency.
+ * variant="inline"
+ *   For simple diagrams (an arrow, a short flow): no box, no background.
+ *   Just mono text in the prose column, anchored by a hairline left rule.
+ *   Feels like part of the text — because it IS part of the text.
+ *
+ * The key to eliminating ASCII jank: letter-spacing: 0.
+ * Geist Mono is monospace, so all chars are equal-width once you
+ * kill any inherited letter-spacing. The .prose-diagram* classes handle this.
  */
 import { cn } from '@/lib/utils'
 
 interface AsciiDiagramProps {
   code: string
   caption?: string
+  variant?: 'block' | 'inline'
   className?: string
 }
 
-export function AsciiDiagram({ code, caption, className }: AsciiDiagramProps) {
+export function AsciiDiagram({
+  code,
+  caption,
+  variant = 'block',
+  className,
+}: AsciiDiagramProps) {
   const trimmed = code.replace(/^\n+|\n+$/g, '')
+
+  if (variant === 'inline') {
+    return (
+      <figure className={cn('my-0', className)}>
+        <div className="border-l-2 border-border-subtle pl-5 py-1">
+          <pre className="m-0 overflow-x-auto">
+            <code className="prose-diagram-inline">{trimmed}</code>
+          </pre>
+        </div>
+        {caption && (
+          <figcaption className="mt-2 pl-5">
+            <span className="meta-label meta-label-xxs meta-label-dim">{caption}</span>
+          </figcaption>
+        )}
+      </figure>
+    )
+  }
 
   return (
     <figure className={cn('my-0', className)}>
