@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { type PostMeta } from '@/lib/mdx'
+import type { PostMeta } from '@/lib/mdx'
 import { siteConfig } from '@/config/site'
 import PostCard from '@/components/blog/PostCard'
 import { Container, MetaLabel, Divider, ToggleGroup } from '@/components/ui'
