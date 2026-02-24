@@ -78,7 +78,7 @@ export default function Pricing() {
                     )}
                   </div>
 
-                  <p className={`text-xs leading-relaxed mb-7 ${tier.featured ? 'text-braun-400' : 'text-braun-500'}`}>
+                  <p className={`text-xs leading-relaxed mb-7 ${tier.featured ? 'text-ink-muted' : 'text-ink-muted'}`}>
                     {tier.description}
                   </p>
 
