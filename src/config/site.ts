@@ -245,7 +245,6 @@ export const siteConfig = {
 
   // ── FAQ ────────────────────────────────────────────────
   faq: {
-    sectionIndex: '05',
     sectionLabel: 'FAQ',
     title: 'Common\nquestions.',
     subtitle:
