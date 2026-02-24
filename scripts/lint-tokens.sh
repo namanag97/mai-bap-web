@@ -9,8 +9,9 @@
 #   bg-surface-{ground,raised,inset,overlay,inverse}
 #   text-ink-{primary,secondary,muted,dim,inverse,accent}
 #   border-border-{default,subtle,strong}
-#   text-data-{positive,warning,negative}  bg-data-*
-#   border-data-*
+#   text-data-{positive,warning,negative,violet}
+#   bg-data-{positive,warning,negative,violet,accent}-bg
+#   border-data-{positive,warning,negative,violet,accent}-border
 #
 # BANNED in component files (src/components/**, src/app/**):
 #   text-braun-*    bg-braun-*    border-braun-*    divide-braun-*
