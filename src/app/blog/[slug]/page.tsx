@@ -97,7 +97,7 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         {/* Footer */}
-        <div className="mt-8 pt-6 border-t border-braun-200 flex items-center justify-between">
+        <div className="mt-8 pt-6 border-t border-border-default flex items-center justify-between">
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-braun-500 hover:text-braun-900 transition-colors"
