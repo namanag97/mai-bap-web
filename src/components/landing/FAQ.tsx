@@ -13,7 +13,7 @@ export default function FAQ() {
   const [titleLine1, titleLine2] = title.split('\n')
 
   return (
-    <section className="border-b border-border-default bg-surface-ground">
+    <section className="section">
       <Container className="py-24">
 
         <FadeIn>
