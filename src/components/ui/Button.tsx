@@ -20,7 +20,7 @@ const sizeCls: Record<Size, string> = {
 }
 
 const base =
-  'inline-flex items-center justify-center border font-mono font-bold uppercase tracking-widest transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-braun-900 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none'
+  'inline-flex items-center justify-center border font-mono font-bold uppercase tracking-widest transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-strong focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant
