@@ -126,7 +126,7 @@ export default function ContactPage() {
 
           {/* Sidebar */}
           <div className="space-y-8">
-            <div className="border-t border-braun-200 pt-6">
+            <div className="border-t border-border-default pt-6">
               <div className="text-xs font-medium text-braun-900 uppercase tracking-wide mb-2">
                 Office
               </div>
@@ -137,7 +137,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="border-t border-braun-200 pt-6">
+            <div className="border-t border-border-default pt-6">
               <div className="text-xs font-medium text-braun-900 uppercase tracking-wide mb-2">
                 Email
               </div>
@@ -149,7 +149,7 @@ export default function ContactPage() {
               </a>
             </div>
 
-            <div className="border-t border-braun-200 pt-6">
+            <div className="border-t border-border-default pt-6">
               <div className="text-xs font-medium text-braun-900 uppercase tracking-wide mb-2">
                 Support hours
               </div>
@@ -159,7 +159,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="border-t border-braun-200 pt-6">
+            <div className="border-t border-border-default pt-6">
               <div className="text-xs font-medium text-braun-900 uppercase tracking-wide mb-2">
                 Response time
               </div>
