@@ -1,6 +1,6 @@
 /**
  * CodeBlock — matches the DS terminal/processing view pattern exactly.
- * Dark bg-braun-900, header bar with language label, monospace body.
+ * Dark bg-surface-inverse, header bar with language label, monospace body.
  */
 import { cn } from '@/lib/utils'
 
