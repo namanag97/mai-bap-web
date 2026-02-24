@@ -1,0 +1,156 @@
+---
+title: "The root cause hiding inside your averages"
+category: Ops
+excerpt: "When you filter your operations data one dimension at a time, you are almost guaranteed to miss the actual problem. Here is why — and what finding it actually looks like."
+date: 2026-02-26
+author:
+  name: Naman Agarwal
+  role: Founder & CEO
+readTime: 6
+featured: false
+---
+
+<span className="prose-lead">When a process starts degrading — more late deliveries, longer approval times, exception rates climbing — the instinct is to find the responsible party. Which vendor? Which region? Which team? The cause always feels like it should be one thing, one place to point. It rarely is.</span>
+
+The most operationally significant problems hide not in single attributes but in their intersections. And averages, by design, are built to conceal intersections.
+
+## The one-filter trap
+
+Here is a scenario most operations teams have lived through.
+
+You pull a report on late purchase orders. 22% are arriving late, above your target. You filter by vendor — Vendor A looks slightly elevated at 38%, but not catastrophically. You filter by material type — Steel is at 36%, also slightly elevated. You filter by region, buyer group, time of year. Everything sits a few points above average. Nothing screams.
+
+You reach one of two conclusions: either there is no single root cause, just systemic underperformance. Or you pick the most elevated factor — Vendor A, probably — and schedule a supplier review meeting.
+
+<AsciiDiagram code={`
+┌ FILTERING ONE DIMENSION AT A TIME ──────────────────────────────────────────┐
+│                                                                               │
+│  Q: Why are 22% of purchase orders arriving late?                            │
+│                                                                               │
+│  Filter by Vendor:                                                            │
+│  ─────────────────────────────────────────────────────────────              │
+│  Vendor A    ████████████░░░░░░░   38% late      slightly elevated          │
+│  Vendor B    █████████░░░░░░░░░░   28% late      within normal range        │
+│  Vendor C    ███████░░░░░░░░░░░░   24% late      about average              │
+│                                                                               │
+│  Filter by Material:                                                          │
+│  ─────────────────────────────────────────────────────────────              │
+│  Steel       ████████████░░░░░░░   36% late      slightly elevated          │
+│  Aluminum    █████████░░░░░░░░░░   29% late      within normal range        │
+│  Polymer     ███████░░░░░░░░░░░░   24% late      about average              │
+│                                                                               │
+│  Conclusion:  Nothing here clearly explains the problem.                     │
+│               Both Vendor A and Steel are slightly elevated.                 │
+│               You schedule a supplier review. Hope for the best.             │
+│                                                                               │
+└───────────────────────────────────────────────────────────────────────────────┘
+`} />
+
+The problem with this analysis is not the data. The data contains the answer. The problem is that filtering one attribute at a time shows you averages — and averages erase exactly the signal you are looking for.
+
+## Why the average is lying to you
+
+Vendor A's 38% late rate is an average across everything Vendor A delivers. Steel, Aluminum, Polymer, to various plants, under various order conditions.
+
+What if Vendor A's late rate for Aluminum is 19%? And for Polymer, 21%? But for Steel, it is 93%?
+
+The average — 38% — is the blended result of a normal supplier (19%, 21%) and a catastrophic one (93%), mixed together in a single number. The catastrophic case is present in your data. The average is burying it.
+
+This is not a subtle statistical quirk. It is a fundamental property of averages: they pool dissimilar things into a single number. When the dissimilar things you are pooling include both a working case and a broken case, the number you get describes neither.
+
+<AsciiDiagram code={`
+┌ WHAT THE INTERSECTION REVEALS ──────────────────────────────────────────────┐
+│                                                                               │
+│  Now look at Vendor × Material combined:                                     │
+│                                                                               │
+│  Vendor A  ×  Aluminum  ──────────────────────────────   19% late           │
+│  Vendor A  ×  Polymer   ──────────────────────────────   21% late           │
+│  Vendor B  ×  Steel     ──────────────────────────────   31% late           │
+│  Vendor B  ×  Aluminum  ──────────────────────────────   22% late           │
+│                                                                               │
+│  Vendor A  ×  Steel     ████████████████████████████████  93% late   ◀───   │
+│                         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━                    │
+│                                                                               │
+│  This single combination — 680 orders — accounts for over                   │
+│  60% of all late deliveries in the dataset.                                  │
+│                                                                               │
+│  Vendor A alone appeared to have a 38% late problem.                        │
+│  That number was the average of a 19% case and a 93% case.                 │
+│  The average was hiding the signal.                                          │
+│                                                                               │
+└───────────────────────────────────────────────────────────────────────────────┘
+`} />
+
+## How the system finds it
+
+The combination problem is that there are too many combinations to test manually. Ten vendors, fifteen material types, eight plants, five buyer groups — the number of possible intersections runs into the thousands before you have accounted for time of year, order value, or priority flags. No one is going to build that pivot table.
+
+The system solves this by testing every combination systematically, ranking each one by how much of your problem it explains, and surfacing the most significant patterns.
+
+It starts with the full population — all your orders, 22% late. It evaluates every attribute and asks: which one, if you split the data by it, most cleanly separates the late orders from the on-time ones? Not which attribute has the highest late rate in isolation. Which split, mathematically, produces the most distinct groups. That becomes the first branch.
+
+It then takes the late-order group and repeats the question: within the orders already flagged as late, which remaining attribute best explains why those specific orders are late? This produces a second level. Then a third.
+
+<AsciiDiagram code={`
+┌ HOW THE SYSTEM NARROWS IT DOWN ─────────────────────────────────────────────┐
+│                                                                               │
+│  All purchase orders: 10,000                                                 │
+│  22% late  →  2,200 late orders                                              │
+│                         │                                                     │
+│            ─────────────┴──────────────                                      │
+│            Which attribute best separates                                     │
+│            late orders from on-time orders?                                  │
+│            ─────────────┬──────────────                                      │
+│                         │                                                     │
+│                   Material = Steel                                            │
+│                   (strongest signal)                                          │
+│                         │                                                     │
+│           ┌─────────────┴──────────────┐                                     │
+│           ▼                            ▼                                     │
+│       Not Steel                      Steel                                   │
+│       7,000 orders                   3,000 orders                            │
+│       17% late                       36% late    ← look deeper               │
+│                                           │                                   │
+│                                   Which vendor                                │
+│                                   makes Steel worse?                         │
+│                                           │                                   │
+│                              ┌────────────┴────────────┐                     │
+│                              ▼                         ▼                     │
+│                         Vendor B                   Vendor A                  │
+│                         31% late                   93% late   ◀── found it  │
+│                         monitor                    act now                   │
+│                                                                               │
+└───────────────────────────────────────────────────────────────────────────────┘
+`} />
+
+At the end of this process, you have specific, actionable findings — not "Vendor A has a problem" but "Vendor A delivering Steel is 93% late, affecting 680 orders, accounting for over half of all late deliveries in your dataset."
+
+## What you do with it
+
+The distinction between a single-attribute finding and a combination finding matters enormously for what action you take.
+
+"Vendor A has a performance problem" leads to a supplier review meeting, a written improvement plan, and a 90-day monitoring period. If the actual root cause is the Steel combination, some of that work may help at the margins. Most of it will not, because you are treating a broad symptom with a broad intervention — when the real problem is specific.
+
+"Vendor A delivering Steel to Plant 2 has a 93% late rate" leads to something targeted: a direct conversation about Vendor A's Steel supply chain, a lead time adjustment for that specific material-vendor pairing in your planning system, or a sourcing decision to route Steel for Plant 2 to a different supplier entirely.
+
+One is an action. The other is a conversation about having an action.
+
+## Why you need at least two attributes
+
+Single-attribute analysis shows you the average effect of each variable. Vendor A's average effect on lateness is 38%. But that average pools the 19% Aluminum case and the 93% Steel case together into a single number that describes neither.
+
+The moment you add a second attribute — Material — the system can separate these two populations. The hidden 93% case becomes visible. The more attributes you give it to work with, the more precisely it can triangulate.
+
+This is also why you occasionally find the root cause in an attribute you did not expect to matter. Sometimes the differentiating factor is not the vendor or the material — it is the buyer, or the order creation time, or the receiving plant — and it only becomes visible in combination with the attribute you were already investigating.
+
+## The implication
+
+Experienced operations managers have always known this intuitively. The best ones carry a mental model of which combinations to watch — built through years of firefighting. "Vendor A is usually fine. The problem is Vendor A in Q4 with urgent Steel orders." That is process knowledge acquired the hard way.
+
+Systematic root cause analysis makes this explicit and current. Instead of relying on institutional memory that lives in someone's head and walks out the door when they leave, you run the analysis on today's data and have the significant combinations ranked by impact in under a second.
+
+The knowledge does not change. Where it lives does.
+
+---
+
+*The combination analysis described here runs natively inside mai-bap's in-memory engine — no data export, no waiting for a batch job to complete. When you click "Analyse Root Cause" and select a few attributes, the result comes back before you have finished reading the question.*
