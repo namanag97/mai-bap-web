@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { type PostMeta, formatDate } from '@/lib/mdx'
+import type { PostMeta } from '@/lib/mdx'
+import { formatDate } from '@/lib/utils'
 import { Badge, MetaLabel } from '@/components/ui'
 
 type BadgeVariant = 'neutral' | 'violet' | 'success' | 'orange'
