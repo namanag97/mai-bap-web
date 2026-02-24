@@ -429,7 +429,18 @@ body::after {
   overflow-x: auto;
   font-size: 0.8125rem;
   line-height: 1.7;
-  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  /* Inset highlight + outer shadow in one declaration — eliminates the need
+     for a border while delivering a premium embedded-object feel */
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    var(--shadow-md);
+  /* Bleed slightly wider than the reading column — looks premium on blog posts */
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .prose pre code {
