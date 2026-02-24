@@ -2,7 +2,7 @@ import { forwardRef, type ButtonHTMLAttributes } from 'react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
-type Variant = 'primary' | 'secondary' | 'ghost' | 'dark'
+type Variant = 'primary' | 'secondary' | 'ghost' | 'dark' | 'dark-secondary'
 type Size    = 'sm' | 'md' | 'lg'
 
 const variantCls: Record<Variant, string> = {
