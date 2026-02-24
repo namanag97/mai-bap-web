@@ -160,7 +160,7 @@ const releases: Release[] = [
 
 export default function ChangelogPage() {
   return (
-    <div className="pt-14 min-h-screen bg-braun-50">
+    <div className="pt-14 min-h-screen bg-surface-ground">
       <PageHeader
         label="Releases"
         title="Changelog"
