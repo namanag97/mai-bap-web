@@ -3,8 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import { posts, getPost, formatDate } from '@/content/blog'
-import { Badge } from '@/components/ui/Badge'
-import { ProseRenderer } from '@/components/ui/ProseRenderer'
+import { Badge, ProseRenderer, Container, SectionTitle, MetaLabel } from '@/components/ui'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -41,7 +40,7 @@ export default async function BlogPostPage({ params }: Props) {
 
       {/* Article header — white panel, matches landing page section headers */}
       <header className="border-b border-braun-200 bg-white">
-        <div className="max-w-3xl mx-auto px-6 py-14">
+        <Container maxWidth="3xl" className="py-14">
 
           {/* Back link */}
           <Link
@@ -57,9 +56,9 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
 
           {/* Title — same font-light rule as every h1 in the project */}
-          <h1 className="text-3xl lg:text-4xl font-light tracking-tight text-braun-900 leading-tight mb-5">
+          <SectionTitle as="h1" className="mb-5">
             {post.title}
-          </h1>
+          </SectionTitle>
 
           {/* Excerpt */}
           <p className="text-base text-braun-600 font-light leading-relaxed max-w-xl mb-10">
@@ -75,23 +74,23 @@ export default async function BlogPostPage({ params }: Props) {
               </div>
               <div>
                 <div className="text-xs font-semibold text-braun-800">{post.author.name}</div>
-                <div className="text-[9px] font-mono uppercase tracking-widest text-braun-400">
+                <MetaLabel as="div" size="xxs" color="dim">
                   {post.author.role}
-                </div>
+                </MetaLabel>
               </div>
             </div>
             <div className="text-right">
               <div className="text-xs text-braun-500">{formatDate(post.date)}</div>
-              <div className="text-[9px] font-mono uppercase tracking-widest text-braun-500">
+              <MetaLabel as="div" size="xxs">
                 {post.readTime} min read
-              </div>
+              </MetaLabel>
             </div>
           </div>
-        </div>
+        </Container>
       </header>
 
       {/* Article body — white card, controlled reading width */}
-      <div className="max-w-3xl mx-auto px-6 py-12">
+      <Container maxWidth="3xl" className="py-12">
         <div className="bg-white border border-braun-200 px-8 md:px-14 py-12">
           {/* ProseRenderer — same component as docs. One shared content renderer. */}
           <ProseRenderer blocks={post.content} />
@@ -105,11 +104,11 @@ export default async function BlogPostPage({ params }: Props) {
           >
             <ArrowLeft size={10} /> All posts
           </Link>
-          <span className="text-[9px] font-mono text-braun-400 uppercase tracking-widest">
+          <MetaLabel size="xxs" color="dim">
             Meridian Journal
-          </span>
+          </MetaLabel>
         </div>
-      </div>
+      </Container>
     </div>
   )
 }
