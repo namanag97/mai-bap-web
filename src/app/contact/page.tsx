@@ -150,7 +150,9 @@ export default function ContactPage() {
             </div>
 
             <div className="border-t border-braun-200 pt-6">
-              <FormLabel as="div" className="mb-2">Support hours</FormLabel>
+              <div className="text-xs font-medium text-braun-900 uppercase tracking-wide mb-2">
+                Support hours
+              </div>
               <div className="text-sm text-braun-500 leading-relaxed">
                 <p>Monday&ndash;Friday, 9AM&ndash;6PM PST</p>
                 <p>Enterprise: 24/7 dedicated support</p>
