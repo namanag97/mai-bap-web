@@ -16,7 +16,7 @@ export default function Stats() {
               <div
                 className={`py-14 ${i === 0 ? 'pr-8' : 'px-8'} ${i === stats.length - 1 ? 'lg:pl-8 lg:pr-0' : ''}`}
               >
-                <div className="text-4xl lg:text-5xl font-mono font-light text-white tabular-nums mb-2">
+                <div className="text-4xl lg:text-5xl font-mono font-light text-ink-inverse tabular-nums mb-2">
                   {s.value}
                 </div>
                 <MetaLabel as="div" color="dim" className="mb-1">
