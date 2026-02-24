@@ -27,9 +27,10 @@ export default function Footer() {
           {/* Link columns */}
           {siteConfig.footerColumns.map(col => (
             <div key={col.heading}>
-              <MetaLabel as="h3" size="xxs" className="mb-4">
-                {col.heading}
-              </MetaLabel>
+              <div className="flex items-center gap-3 mb-4">
+                <MetaLabel as="h3" size="xxs">{col.heading}</MetaLabel>
+                <div className="flex-1 divider" />
+              </div>
               <ul className="flex flex-col gap-2.5">
                 {col.links.map(l => (
                   <li key={l.label}>
