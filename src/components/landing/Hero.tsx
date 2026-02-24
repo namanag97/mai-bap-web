@@ -137,7 +137,7 @@ export default function Hero() {
           {/* Left — typography */}
           <div>
             <FadeIn delay={0}>
-              <SectionLabel index="01" label={siteConfig.hero.sectionLabel} className="mb-10" />
+              <SectionLabel label={siteConfig.hero.sectionLabel} className="mb-10" />
             </FadeIn>
 
             <FadeIn delay={100}>
