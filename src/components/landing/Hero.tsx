@@ -39,9 +39,9 @@ function AppMockup() {
       {/* App body */}
       <div className="flex">
         {/* Micro sidebar */}
-        <div className="w-8 bg-braun-900 flex-col items-center py-3 gap-2.5 shrink-0 border-r border-braun-800 hidden sm:flex">
+        <div className="w-8 bg-surface-inverse flex-col items-center py-3 gap-2.5 shrink-0 border-r border-border-strong hidden sm:flex">
           {[true, false, false, false].map((active, i) => (
-            <div key={i} className={`w-3 h-3 ${active ? 'bg-braun-orange' : 'bg-braun-800'}`} />
+            <div key={i} className={`w-3 h-3 ${active ? 'bg-ink-accent' : 'bg-surface-inverse'}`} />
           ))}
         </div>
 
