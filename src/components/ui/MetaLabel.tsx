@@ -9,8 +9,8 @@ const sizeCls: Record<Size, string> = {
 }
 
 const colorCls: Record<Color, string> = {
-  muted: 'text-braun-500',
-  dim:   'text-braun-400',
+  muted: 'text-ink-muted',
+  dim:   'text-ink-dim',
 }
 
 interface MetaLabelProps {
