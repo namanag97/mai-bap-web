@@ -61,7 +61,7 @@ export function ProseRenderer({ blocks }: ProseRendererProps) {
                 {block.items?.map((item, j) => (
                   <li key={j} className="flex items-start gap-3">
                     {/* Em-dash bullet — Braun/Bauhaus list style */}
-                    <span className="font-mono text-braun-300 shrink-0 select-none mt-[0.1em]">
+                    <span className="font-mono text-ink-dim shrink-0 select-none mt-[0.1em]">
                       —
                     </span>
                     <span className="text-sm text-ink-secondary leading-[1.75]">{item}</span>
