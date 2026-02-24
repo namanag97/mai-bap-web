@@ -10,8 +10,8 @@ const config: Record<
   note: {
     icon: Info,
     label: 'Note',
-    cls: 'border-braun-900 bg-surface-ground text-braun-600',
-    iconCls: 'text-braun-400',
+    cls: 'border-border-strong bg-surface-ground text-ink-secondary',
+    iconCls: 'text-ink-muted',
   },
   warning: {
     icon: AlertTriangle,
