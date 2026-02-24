@@ -13,9 +13,10 @@ export default function CTA() {
       <Container className="py-32">
         {/* Section label */}
         <FadeIn>
-          <MetaLabel as="div" color="dim" className="mb-10">
-            {sectionLabel}
-          </MetaLabel>
+          <div className="flex items-center gap-3 mb-10">
+            <MetaLabel as="div" color="dim">{sectionLabel}</MetaLabel>
+            <div className="flex-1 divider" />
+          </div>
         </FadeIn>
 
         <div className="grid lg:grid-cols-[1fr_auto] gap-12 items-end">
