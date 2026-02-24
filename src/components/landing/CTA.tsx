@@ -27,7 +27,7 @@ export default function CTA() {
                   <span key={i}>{line}{i < title.length - 1 && <br />}</span>
                 ))}
                 <br />
-                <span className="text-braun-orange">{titleAccent}</span>
+                <span className="text-ink-accent">{titleAccent}</span>
               </h2>
               <p className="text-braun-500 text-base font-light leading-relaxed max-w-md">
                 {subtitle}
