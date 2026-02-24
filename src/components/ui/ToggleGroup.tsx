@@ -33,7 +33,7 @@ export function ToggleGroup<T extends string>({
             sizeCls[size],
             value === option
               ? 'bg-braun-900 text-white border-braun-900'
-              : 'bg-transparent text-braun-500 border-braun-200 hover:border-braun-900 hover:text-braun-900'
+              : 'bg-transparent text-braun-500 border-border-default hover:border-braun-900 hover:text-braun-900'
           )}
         >
           {option}
