@@ -1,6 +1,6 @@
 export default function BlogLoading() {
   return (
-    <div className="pt-14 min-h-screen bg-braun-50">
+    <div className="pt-14 min-h-screen bg-surface-ground">
       <div className="max-w-4xl mx-auto px-6 py-20">
         {/* Skeleton header */}
         <div className="h-3 w-32 bg-braun-200 animate-pulse mb-8" />
