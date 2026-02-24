@@ -75,10 +75,3 @@ export function getPostSource(slug: string): { frontmatter: PostMeta; source: st
   }
 }
 
-export function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString('en-GB', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  })
-}
