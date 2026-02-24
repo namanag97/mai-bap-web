@@ -127,7 +127,7 @@ function AppMockup() {
 
 export default function Hero() {
   return (
-    <section className="relative pt-14 bg-surface-ground border-b border-border-default overflow-hidden">
+    <section className="relative pt-14 section overflow-hidden">
       {/* Engineering grid — subtle, fades before content */}
       <div className="absolute inset-0 pointer-events-none bg-engineering-grid opacity-50" />
 
