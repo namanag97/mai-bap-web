@@ -8,7 +8,7 @@ import { siteConfig } from '@/config/site'
 const featureIcons = [Activity, CheckCircle, GitBranch, LayoutDashboard, Users, Lock]
 
 export default function Features() {
-  const { sectionIndex, sectionLabel, title, subtitle, items } = siteConfig.features
+  const { sectionLabel, title, subtitle, items } = siteConfig.features
   const [titleLine1, titleLine2] = title.split('\n')
 
   return (
