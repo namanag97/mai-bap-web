@@ -226,6 +226,7 @@ body::after {
   letter-spacing: -0.02em;
   line-height: 1.05;
   color: var(--color-ink-primary);
+  text-wrap: balance;
 }
 
 /* Article deck — the subtitle/excerpt under the title */
