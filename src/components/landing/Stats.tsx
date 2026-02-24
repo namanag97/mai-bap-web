@@ -1,6 +1,7 @@
 'use client'
 
 import { FadeIn } from '@/components/ui/FadeIn'
+import { Container, MetaLabel } from '@/components/ui'
 import { siteConfig } from '@/config/site'
 
 export default function Stats() {
@@ -8,7 +9,7 @@ export default function Stats() {
 
   return (
     <section className="border-b border-braun-200 bg-braun-900">
-      <div className="max-w-7xl mx-auto px-6">
+      <Container>
         <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-braun-800">
           {stats.map((s, i) => (
             <FadeIn key={s.label} delay={i * 100} direction="up">
@@ -18,15 +19,17 @@ export default function Stats() {
                 <div className="text-4xl lg:text-5xl font-mono font-light text-white tabular-nums mb-2">
                   {s.value}
                 </div>
-                <div className="text-[10px] font-mono uppercase tracking-widest text-braun-400 mb-1">
+                <MetaLabel as="div" color="dim" className="mb-1">
                   {s.label}
-                </div>
-                <div className="text-[10px] font-mono text-braun-500">{s.sub}</div>
+                </MetaLabel>
+                <MetaLabel as="div" className="normal-case">
+                  {s.sub}
+                </MetaLabel>
               </div>
             </FadeIn>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   )
 }
