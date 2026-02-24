@@ -16,7 +16,7 @@ const aiActions = [
 function AppMockup() {
   return (
     <div
-      className="border border-braun-200 overflow-hidden bg-white w-full"
+      className="border border-border-default overflow-hidden bg-surface-raised w-full"
       role="img"
       aria-label="mai-bap dashboard showing automated business workflows"
     >
