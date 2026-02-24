@@ -8,9 +8,9 @@ export default function BlogLoading() {
         <div className="h-4 w-1/2 bg-surface-inset animate-pulse mb-12" />
 
         {/* Skeleton cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border-default">
+        <div className="card-grid grid grid-cols-1 md:grid-cols-2 gap-px">
           {[1, 2, 3, 4].map(i => (
-            <div key={i} className="bg-surface-raised p-8">
+            <div key={i} className="card-grid-cell p-8">
               <div className="h-3 w-16 bg-surface-inset animate-pulse mb-4" />
               <div className="h-5 w-full bg-border-default animate-pulse mb-3" />
               <div className="h-3 w-3/4 bg-surface-inset animate-pulse" />
