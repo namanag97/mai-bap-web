@@ -273,6 +273,9 @@ body::after {
   align-items: center;
   gap: 0.5rem;
   line-height: 1;
+  /* Tabular + lining numerals: dates/times never jitter as values change */
+  font-feature-settings: "tnum" on, "lnum" on;
+  font-variant-numeric: tabular-nums;
 }
 
 /* The author's name — sans-serif, slightly heavier, primary colour */
