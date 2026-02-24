@@ -130,7 +130,7 @@ export default function ContactPage() {
               <div className="text-xs font-medium text-ink-primary uppercase tracking-wide mb-2">
                 Office
               </div>
-              <div className="text-sm text-braun-500 leading-relaxed">
+              <div className="text-sm text-ink-muted leading-relaxed">
                 <p>San Francisco, CA</p>
                 <p>548 Market Street, Suite 42</p>
                 <p>San Francisco, CA 94104</p>
@@ -153,7 +153,7 @@ export default function ContactPage() {
               <div className="text-xs font-medium text-ink-primary uppercase tracking-wide mb-2">
                 Support hours
               </div>
-              <div className="text-sm text-braun-500 leading-relaxed">
+              <div className="text-sm text-ink-muted leading-relaxed">
                 <p>Monday&ndash;Friday, 9AM&ndash;6PM PST</p>
                 <p>Enterprise: 24/7 dedicated support</p>
               </div>
@@ -163,7 +163,7 @@ export default function ContactPage() {
               <div className="text-xs font-medium text-ink-primary uppercase tracking-wide mb-2">
                 Response time
               </div>
-              <p className="text-sm text-braun-500 leading-relaxed">
+              <p className="text-sm text-ink-muted leading-relaxed">
                 We typically respond within 24 hours.
               </p>
             </div>
