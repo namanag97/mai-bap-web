@@ -91,7 +91,7 @@ export default function DocsSidebar() {
         {filteredNavigation.map((section, si) => (
           <div key={section.title}>
             {/* Section divider — not for first section */}
-            {si > 0 && <div className="h-px bg-braun-100 mx-2 my-3" />}
+            {si > 0 && <div className="h-px bg-border-subtle mx-2 my-3" />}
 
             {/* Section label */}
             <div className="flex items-center gap-2 px-2 mb-1.5">
