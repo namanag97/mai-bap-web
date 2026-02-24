@@ -17,6 +17,7 @@
 #   text-braun-*    bg-braun-*    border-braun-*    divide-braun-*
 #   text-white      bg-white      text-black        bg-black
 #   ring-braun-*
+#   Raw status: (text|bg|border)-(emerald|rose|amber|violet|orange)-*
 #   Hardcoded hex: text-[#...] bg-[#...] border-[#...]
 #
 # EXEMPT:
