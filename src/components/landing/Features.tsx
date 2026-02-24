@@ -17,7 +17,7 @@ export default function Features() {
 
         {/* Section header */}
         <FadeIn>
-          <div className="grid lg:grid-cols-2 gap-8 mb-16 pb-10 border-b border-braun-200">
+          <div className="grid lg:grid-cols-2 gap-8 mb-16 pb-10 border-b border-border-default">
             <div>
               <SectionLabel index={sectionIndex} label={sectionLabel} className="mb-5" />
               <SectionTitle>
