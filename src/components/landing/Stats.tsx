@@ -8,7 +8,7 @@ export default function Stats() {
   const stats = siteConfig.stats
 
   return (
-    <section className="border-b border-border-default bg-surface-inverse">
+    <section className="section-inverse">
       <Container>
         <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-border-default">
           {stats.map((s, i) => (
