@@ -5,7 +5,7 @@ import { SectionLabel, SectionTitle, Container, MetaLabel } from '@/components/u
 import { siteConfig } from '@/config/site'
 
 export default function Testimonials() {
-  const { sectionIndex, sectionLabel, title, logoStripLabel, logos, items } = siteConfig.testimonials
+  const { sectionLabel, title, logoStripLabel, logos, items } = siteConfig.testimonials
   const [titleLine1, titleLine2] = title.split('\n')
 
   return (
