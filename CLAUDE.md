@@ -107,6 +107,20 @@ These patterns are banned in ALL files under `src/` (except `globals.css`):
 | `border-braun-200` | `border-border-default` |
 | `border-braun-100` | `border-border-subtle` |
 | `border-braun-900` | `border-border-strong` |
+| `text-emerald-700` | `text-data-positive` |
+| `bg-emerald-50` | `bg-data-positive-bg` |
+| `border-emerald-200` | `border-data-positive-border` |
+| `text-amber-700` | `text-data-warning` |
+| `bg-amber-50` | `bg-data-warning-bg` |
+| `border-amber-200` | `border-data-warning-border` |
+| `text-rose-700` | `text-data-negative` |
+| `bg-rose-50` | `bg-data-negative-bg` |
+| `border-rose-200` | `border-data-negative-border` |
+| `text-violet-700` | `text-data-violet` |
+| `bg-violet-50` | `bg-data-violet-bg` |
+| `border-violet-200` | `border-data-violet-border` |
+| `bg-orange-50` | `bg-data-accent-bg` |
+| `border-orange-200` | `border-data-accent-border` |
 
 ### How to Verify
 
