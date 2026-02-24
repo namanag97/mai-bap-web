@@ -17,45 +17,23 @@ export default function BlogPage() {
   const rest = filtered.filter(p => !p.featured)
 
   return (
-    <div className="bg-surface-ground min-h-screen pt-14">
+    <div className="min-h-screen pt-14 bg-surface-ground">
 
       {/* ── Page header ────────────────────────────────────────── */}
-      <div className="section">
-        <Container className="py-16 lg:py-20">
-          <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-end">
-            <div>
-              <MetaLabel as="div" color="dim" className="mb-5">
-                {siteConfig.blog.sectionLabel}
-              </MetaLabel>
-              <h1
-                className="font-light tracking-tight text-ink-primary leading-tight"
-                style={{ fontSize: 'clamp(2rem, 4.5vw, 3.25rem)' }}
-              >
-                {siteConfig.blog.title}
-              </h1>
-              <p className="article-deck mt-5 max-w-md">
-                {siteConfig.blog.subtitle}
-              </p>
-            </div>
-
-            {/* Category filter — right-aligned on desktop */}
-            <div className="lg:pb-1">
-              <MetaLabel as="div" size="xxs" color="dim" className="mb-3 hidden lg:block">
-                Filter by
-              </MetaLabel>
-              <ToggleGroup
-                options={siteConfig.blog.categories}
-                value={activeCategory}
-                onChange={setActiveCategory}
-              />
-            </div>
-          </div>
+      <div className="border-b border-border-default">
+        <Container className="pt-16 pb-12">
+          <MetaLabel as="div" color="dim" className="mb-5">
+            {siteConfig.blog.sectionLabel}
+          </MetaLabel>
+          <h1 className="article-title mb-5">{siteConfig.blog.title}</h1>
+          <p className="article-deck max-w-md">{siteConfig.blog.subtitle}</p>
         </Container>
       </div>
 
-      {/* Mobile category filter */}
-      <div className="lg:hidden border-b border-border-default bg-surface-ground">
-        <Container className="py-4">
+      {/* ── Category filter bar ────────────────────────────────── */}
+      <div className="border-b border-border-subtle">
+        <Container className="h-12 flex items-center gap-6">
+          <MetaLabel as="span" size="xxs" color="dim">Filter</MetaLabel>
           <ToggleGroup
             options={siteConfig.blog.categories}
             value={activeCategory}
@@ -64,6 +42,7 @@ export default function BlogPage() {
         </Container>
       </div>
 
+      {/* ── Posts ──────────────────────────────────────────────── */}
       <Container className="py-14">
         {filtered.length === 0 ? (
           <div className="py-24 text-center">
@@ -71,18 +50,16 @@ export default function BlogPage() {
           </div>
         ) : (
           <>
-            {/* Featured */}
             {featured && (
-              <div className="mb-14">
+              <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <MetaLabel as="span" size="xxs" color="dim">Featured</MetaLabel>
+                  <MetaLabel size="xxs" color="dim">Featured</MetaLabel>
                   <span className="section-label-rule" />
                 </div>
                 <PostCard post={featured} featured />
               </div>
             )}
 
-            {/* All posts */}
             {rest.length > 0 && (
               <>
                 <Divider label="All posts" className="mb-10" />
