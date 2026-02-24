@@ -20,7 +20,7 @@ export default function PrivacyPage() {
         <MetaLabel as="p" className="mb-12">
           Last updated: February 1, 2026
         </MetaLabel>
-        <div className="bg-white border border-braun-200 p-8 lg:p-12 space-y-8 text-sm text-braun-600 leading-relaxed">
+        <div className="bg-surface-raised border border-border-default p-8 lg:p-12 space-y-8 text-sm text-braun-600 leading-relaxed">
           <section>
             <h2 className="text-xs font-mono font-bold uppercase tracking-widest text-braun-900 mb-3">1. Information We Collect</h2>
             <p>When you create a {siteConfig.name} account, we collect personal information necessary to provide and improve our services. This includes your name, email address, organization name, job title, and billing information. If you sign up using a third-party identity provider (such as Google or Microsoft SSO), we receive the profile information you authorize that provider to share with us.</p>
