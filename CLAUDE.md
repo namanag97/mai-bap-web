@@ -34,12 +34,52 @@ The build will FAIL if you use raw palette colors. Run `npm run lint:tokens` to 
 | `--color-border-subtle` | `border-border-subtle` | Very light separators |
 | `--color-border-strong` | `border-border-strong` | Emphasis borders, focus rings |
 
-**Data/Status:**
+**Data/Status (text):**
 | Token | Tailwind Class | Use For |
 |-------|---------------|---------|
 | `--color-data-positive` | `text-data-positive` | Success states |
 | `--color-data-warning` | `text-data-warning` | Warning states |
 | `--color-data-negative` | `text-data-negative` | Error states |
+| `--color-data-violet` | `text-data-violet` | Violet/info states |
+
+**Data/Status (backgrounds & borders):**
+| Token | Tailwind Class | Use For |
+|-------|---------------|---------|
+| `--color-data-positive-bg` | `bg-data-positive-bg` | Success background |
+| `--color-data-positive-border` | `border-data-positive-border` | Success border |
+| `--color-data-warning-bg` | `bg-data-warning-bg` | Warning background |
+| `--color-data-warning-border` | `border-data-warning-border` | Warning border |
+| `--color-data-negative-bg` | `bg-data-negative-bg` | Error background |
+| `--color-data-negative-border` | `border-data-negative-border` | Error border |
+| `--color-data-violet-bg` | `bg-data-violet-bg` | Violet background |
+| `--color-data-violet-border` | `border-data-violet-border` | Violet border |
+| `--color-data-accent-bg` | `bg-data-accent-bg` | Accent background |
+| `--color-data-accent-border` | `border-data-accent-border` | Accent border |
+
+**Shadows:**
+| Token | Tailwind Class | Use For |
+|-------|---------------|---------|
+| `--shadow-xs` | `shadow-xs` | Subtle card elevation |
+| `--shadow-sm` | `shadow-sm` | Hover states, hover-lift |
+| `--shadow-md` | `shadow-md` | Dropdowns, popovers |
+| `--shadow-lg` | `shadow-lg` | Modals, overlays |
+
+**Z-index:**
+| Token | Value | Use For |
+|-------|-------|---------|
+| `--z-base` | `0` | Default stacking |
+| `--z-raised` | `1` | Slightly elevated |
+| `--z-dropdown` | `100` | Dropdowns |
+| `--z-sticky` | `200` | Sticky navbar |
+| `--z-overlay` | `300` | Overlays |
+| `--z-modal` | `400` | Modals |
+| `--z-toast` | `500` | Toasts |
+
+**Layout:**
+| Token | Value | Use For |
+|-------|-------|---------|
+| `--navbar-height` | `3.5rem` | Navbar height |
+| `--sidebar-width` | `16rem` | Sidebar width |
 
 ### BANNED — Will Fail Build
 
