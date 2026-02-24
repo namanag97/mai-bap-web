@@ -55,7 +55,7 @@ function AppMockup() {
             ].map(k => (
               <div key={k.label} className="px-2 sm:px-3 py-2.5">
                 <div className="text-[7px] sm:text-[7.5px] font-mono uppercase tracking-widest text-ink-muted mb-1">{k.label}</div>
-                <div className="text-[13px] sm:text-[15px] font-mono text-braun-900 leading-none tabular-nums">{k.value}</div>
+                <div className="text-[13px] sm:text-[15px] font-mono text-ink-primary leading-none tabular-nums">{k.value}</div>
                 <div className={`text-[7px] sm:text-[7.5px] font-mono mt-1 ${k.up ? 'text-data-positive' : 'text-data-negative'}`}>
                   {k.delta}
                 </div>
@@ -148,7 +148,7 @@ export default function Hero() {
             </FadeIn>
 
             <FadeIn delay={100}>
-              <h1 className="text-[clamp(3rem,7vw,6rem)] font-light tracking-tight leading-[0.92] text-braun-900 mb-8">
+              <h1 className="text-[clamp(3rem,7vw,6rem)] font-light tracking-tight leading-[0.92] text-ink-primary mb-8">
                 {siteConfig.hero.title.map((line, i) => (
                   <span key={i}>{line}{i < siteConfig.hero.title.length - 1 && <br />}</span>
                 ))}
@@ -204,7 +204,7 @@ export default function Hero() {
         <Container className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-border-default">
           {siteConfig.hero.statsStrip.map((s) => (
             <div key={s.label} className="py-5 px-6 bg-surface-raised">
-              <div className="text-2xl lg:text-3xl font-mono font-light text-braun-900 tabular-nums">
+              <div className="text-2xl lg:text-3xl font-mono font-light text-ink-primary tabular-nums">
                 {s.value}
               </div>
               <MetaLabel as="div" className="mt-1">
