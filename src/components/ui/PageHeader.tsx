@@ -23,9 +23,10 @@ export function PageHeader({
   return (
     <div className={cn('section', className)}>
       <Container maxWidth={maxWidth} className="py-16">
-        <MetaLabel as="div" color="dim" className="mb-4">
-          {label}
-        </MetaLabel>
+        <div className="flex items-center gap-3 mb-4">
+          <MetaLabel as="div" color="dim">{label}</MetaLabel>
+          <div className="flex-1 divider" />
+        </div>
         <SectionTitle as="h1" className="mb-3">
           {title}
         </SectionTitle>
