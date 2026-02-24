@@ -16,8 +16,8 @@ export function SectionLabel({ index, label, className }: SectionLabelProps) {
     <div className={cn('flex items-center gap-3', className)}>
       {index && (
         <>
-          <span className="text-[10px] font-mono text-ink-muted tabular-nums">{index}</span>
-          <span className="h-px w-6 bg-border-default inline-block" />
+          <span className="section-label-index">{index}</span>
+          <span className="section-label-rule" />
         </>
       )}
       <MetaLabel>{label}</MetaLabel>
