@@ -163,6 +163,23 @@
   --opacity-overlay: 0.8;
 }
 
+/* ── Color-math derivations ────────────────────────────────────
+   Borders and state overlays derive from a single --color-ink-base.
+   @theme keeps hex values for Tailwind utility generation; these
+   :root overrides win at runtime via cascade order (later = wins).
+   In dark mode only --color-ink-base needs to change — all borders
+   and states update automatically through the color-mix() functions.
+   ─────────────────────────────────────────────────────────────── */
+:root {
+  --color-ink-base: #1a1918;
+  --color-border-default: color-mix(in srgb, var(--color-ink-base) 10%, transparent);
+  --color-border-subtle:  color-mix(in srgb, var(--color-ink-base) 5%,  transparent);
+  --color-border-strong:  color-mix(in srgb, var(--color-ink-base) 20%, transparent);
+  --color-border-heavy:   color-mix(in srgb, var(--color-ink-base) 35%, transparent);
+  --color-state-hover:    color-mix(in srgb, var(--color-ink-base) 4%,  transparent);
+  --color-state-active:   color-mix(in srgb, var(--color-ink-base) 8%,  transparent);
+}
+
 /* ── Reset ─────────────────────────────────────────────────── */
 *,
 *::before,
