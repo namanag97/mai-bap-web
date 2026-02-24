@@ -63,7 +63,7 @@ export default function DocsIndexPage() {
                       href={`/docs/${page.slug.join('/')}`}
                       className="text-xs text-braun-400 hover:text-braun-900 transition-colors duration-200 flex items-center gap-2"
                     >
-                      <span className="w-1 h-1 bg-braun-200 shrink-0" />
+                      <span className="w-1 h-1 bg-border-default shrink-0" />
                       {page.title}
                     </Link>
                   </li>
