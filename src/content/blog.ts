@@ -26,8 +26,8 @@ export const posts: BlogPost[] = [
     featured: true,
     content: [
       {
-        type: 'p',
-        text: "Two years ago, we set out to build the process intelligence platform we wished existed. One that doesn't require a six-month consulting engagement to configure, treats conformance as an operational metric rather than a quarterly audit, and gives engineers the same visibility into business processes that APM tools give into code. Today, we're releasing Meridian 2.0.",
+        type: 'lead',
+        text: "Two years ago, we set out to build the process intelligence platform we wished existed. One that doesn't require a six-month consulting engagement to configure, treats conformance as an operational metric rather than a quarterly audit, and gives engineers the same visibility into business processes that APM tools give into code. Today, we're releasing mai-bap 2.0.",
       },
       { type: 'h2', text: "What's new in 2.0" },
       {
