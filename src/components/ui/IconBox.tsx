@@ -16,7 +16,7 @@ export function IconBox({
   return (
     <div
       className={cn(
-        'w-9 h-9 border border-braun-200 flex items-center justify-center',
+        'w-9 h-9 border border-border-default flex items-center justify-center',
         interactive && 'group-hover:border-braun-900 group-hover:bg-braun-900 transition-colors duration-300',
         className
       )}
