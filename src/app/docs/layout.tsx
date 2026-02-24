@@ -49,7 +49,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
         </div>
 
         {/* Right gutter — only on XL */}
-        <div className="hidden xl:block w-64 shrink-0 bg-braun-50" />
+        <div className="hidden xl:block w-64 shrink-0 bg-surface-ground" />
       </div>
     </div>
   )
