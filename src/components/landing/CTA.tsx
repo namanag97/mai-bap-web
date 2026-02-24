@@ -9,7 +9,7 @@ export default function CTA() {
   const { sectionLabel, title, titleAccent, subtitle, primaryCta, secondaryCta, trialNote } = siteConfig.cta
 
   return (
-    <section className="border-b border-border-default bg-braun-900">
+    <section className="border-b border-border-default bg-surface-inverse">
       <Container className="py-32">
         {/* Section label */}
         <FadeIn>
