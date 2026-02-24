@@ -519,10 +519,6 @@ body::after {
   --shadow-md: 0 4px 6px #00000033, 0 2px 4px #00000026;
   --shadow-lg: 0 10px 15px #00000033, 0 4px 6px #00000026;
 
-  /* Interactive states */
-  --color-state-hover: rgba(245, 243, 239, 0.06);
-  --color-state-active: rgba(245, 243, 239, 0.1);
-
   /* Status bg/border — slightly higher alpha for dark */
   --color-data-positive-bg: #05966918;
   --color-data-positive-border: #05966930;
