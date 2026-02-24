@@ -67,7 +67,7 @@ export default async function DocPage({ params }: Props) {
       >
         <Link
           href="/docs/introduction"
-          className="text-[9px] font-mono uppercase tracking-widest text-braun-500 hover:text-braun-900 transition-colors"
+          className="text-[9px] font-mono uppercase tracking-widest text-ink-muted hover:text-ink-primary transition-colors"
         >
           Docs
         </Link>
