@@ -15,11 +15,11 @@ import { Input } from '@/components/ui/Input'
  *
  * Design decisions (aligned with DS):
  * - Section labels: 9px mono uppercase tracked — same as DS table headers
- * - Active item: left accent line (braun-orange) + text-ink-primary
- *   (NOT bg-braun-900/white — that's for app shell, not document nav)
+ * - Active item: left accent line (ink-accent) + text-ink-primary
+ *   (NOT bg-surface-inverse/inverse — that's for app shell, not document nav)
  * - Inactive: text-ink-muted, hover: text-ink-primary
- * - Hover background: bg-braun-50 — same as DS nav hover
- * - Dividers: border-braun-100 between sections
+ * - Hover background: bg-surface-ground — same as DS nav hover
+ * - Dividers: border-border-subtle between sections
  * - Section dot indicator: matches DS sidebar group dot pattern
  */
 export default function DocsSidebar() {
