@@ -250,9 +250,9 @@ body {
 
 /* Lead paragraph — opening of an article, slightly larger + lighter */
 .prose .prose-lead {
-  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
   font-weight: 300;
-  line-height: 1.8;
+  line-height: 1.75;
   color: var(--color-ink-secondary);
   margin-top: 0;
 }
