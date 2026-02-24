@@ -13,7 +13,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
   }, [sidebarOpen])
 
   return (
-    <div className="pt-14 min-h-screen bg-braun-50">
+    <div className="pt-14 min-h-screen bg-surface-ground">
       {/* Mobile docs nav toggle */}
       <div className="lg:hidden border-b border-braun-200 bg-white px-6 h-11 flex items-center">
         <button
