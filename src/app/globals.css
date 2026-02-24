@@ -509,9 +509,9 @@ body::after {
   /* Accent is more luminous in dark mode so orange pops on near-black */
   --color-ink-accent: #e56b25;
 
-  --color-border-default: rgba(245, 243, 239, 0.1);
-  --color-border-subtle: rgba(245, 243, 239, 0.05);
-  --color-border-strong: rgba(245, 243, 239, 0.2);
+  /* Single base flip — all borders and states derive automatically
+     via the color-mix() :root block above. No rgba management needed. */
+  --color-ink-base: #f5f3ef;
 
   /* Shadows — deeper for dark mode */
   --shadow-xs: 0 1px 2px #00000026;
