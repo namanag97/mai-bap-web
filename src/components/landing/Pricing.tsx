@@ -97,7 +97,7 @@ export default function Pricing() {
                       <li key={f} className="flex items-start gap-2.5">
                         <Check
                           size={12}
-                          className={`mt-0.5 shrink-0 ${tier.featured ? 'text-braun-orange' : 'text-braun-900'}`}
+                          className={`mt-0.5 shrink-0 ${tier.featured ? 'text-ink-accent' : 'text-ink-primary'}`}
                         />
                         <span className={`text-xs leading-relaxed ${tier.featured ? 'text-braun-400' : 'text-braun-600'}`}>
                           {f}
