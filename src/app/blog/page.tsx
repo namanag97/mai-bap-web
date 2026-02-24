@@ -36,7 +36,7 @@ export default function BlogPage() {
 
       <Container className="py-12">
         {filtered.length === 0 ? (
-          <p className="text-sm text-braun-500 py-12 text-center">
+          <p className="text-sm text-ink-muted py-12 text-center">
             No posts in this category yet.
           </p>
         ) : (
