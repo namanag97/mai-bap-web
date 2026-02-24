@@ -14,7 +14,7 @@ export function SectionTitle({
   return (
     <Tag
       className={cn(
-        'text-3xl lg:text-4xl font-light tracking-tight text-braun-900 leading-tight',
+        'text-3xl lg:text-4xl font-light tracking-tight text-ink-primary leading-tight',
         className
       )}
     >
