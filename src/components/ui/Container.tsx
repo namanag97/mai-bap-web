@@ -1,10 +1,11 @@
 import { cn } from '@/lib/utils'
 
-type MaxWidth = '7xl' | '3xl'
+type MaxWidth = '7xl' | '3xl' | '2xl'
 
 const maxWidthCls: Record<MaxWidth, string> = {
   '7xl': 'max-w-7xl',
   '3xl': 'max-w-3xl',
+  '2xl': 'max-w-2xl',
 }
 
 interface ContainerProps {
