@@ -437,6 +437,63 @@ body {
   background-color: var(--color-surface-inverse);
 }
 
+/* ── Typography component classes ─────────────────────────── */
+
+/* Section title — large light heading */
+.section-title {
+  font-size: clamp(1.875rem, 3vw, 2.25rem);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--color-ink-primary);
+}
+
+/* Meta label — tiny mono uppercase label (default: muted) */
+.meta-label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 10px;
+  color: var(--color-ink-muted);
+}
+.meta-label-xxs {
+  font-size: 9px;
+}
+.meta-label-dim {
+  color: var(--color-ink-dim);
+}
+
+/* Section label — "01 —— CAPABILITIES" numbered index pattern */
+.section-label-index {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10px;
+  color: var(--color-ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+.section-label-rule {
+  height: 1px;
+  width: 1.5rem;
+  background-color: var(--color-border-default);
+  display: inline-block;
+}
+
+/* Form label */
+.form-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-primary);
+  margin-bottom: 0.375rem;
+  display: block;
+}
+
+/* Divider — horizontal rule */
+.divider {
+  height: 1px;
+  background-color: var(--color-border-default);
+}
+
 /* Dark prose adjustments */
 [data-theme="dark"] .prose pre {
   background: var(--color-surface-inset);
