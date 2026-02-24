@@ -1,0 +1,176 @@
+---
+title: "Here's What Happens in the 200 Milliseconds After You Hit Enter"
+category: Engineering
+excerpt: "You type a question about your process. A graph appears. In between, something genuinely interesting happens — and it has nothing to do with magic."
+date: 2026-02-20
+author:
+  name: Daniel Kim
+  role: Engineering Lead
+readTime: 9
+featured: false
+---
+
+<span className="prose-lead">You type something like "show me all orders over $1,000 and how they moved through our system." You hit enter. A graph appears. That gap — between question and picture — is what this post is about.</span>
+
+Nothing in that gap is magic. It's a sequence of steps that each do one specific job. Let me walk through them, because once you see it, you'll have a much better intuition for why the tool behaves the way it does.
+
+## Step 1 — Reading your question
+
+The first thing that happens is the system reads what you wrote. Not as a whole sentence, but broken apart into pieces — like unpacking a box.
+
+```
+YOU WRITE:
+  "show me  orders over $1000  →  how did they flow?"
+       │       │         │              │
+       │       │         │              └─ "give me the path each one took"
+       │       │         └─ "only the expensive ones"
+       │       └─ "the thing I care about"
+       └─ "I want to see"
+```
+
+This step is called parsing. Think of it like a librarian who reads your request and pulls apart what you're actually asking for — the subject, the filter, and the output you want. The system builds a little mental model of your question before doing anything else.
+
+Nothing has touched your data yet. We're just making sure we understood the question correctly.
+
+## Step 2 — Planning before doing
+
+Here's where it gets smart. Before touching a single row of your data, the system asks: what's the most efficient way to answer this?
+
+Your event log might have 50 million rows. If we filter *after* processing all of them, that's slow. If we filter *first*, we might throw away 95% of the data before the real work starts.
+
+```
+  NAIVE PLAN (what you'd do if you weren't thinking):
+  ┌──────────────────────────────────────────────┐
+  │  1. Load all 50 million rows                 │
+  │  2. Build the process graph                  │
+  │  3. Then filter: "only orders over $1,000"   │  ← you threw away 47.5M rows
+  └──────────────────────────────────────────────┘  at the very end. Wild.
+
+  SMART PLAN (what Meridian actually does):
+  ┌──────────────────────────────────────────────┐
+  │  1. Filter: amount > $1,000                  │  ← now you have 2.5M rows
+  │  2. Load only the columns you need           │  ← ignore everything else
+  │  3. Build the graph from those 2.5M          │
+  └──────────────────────────────────────────────┘
+```
+
+This reordering happens automatically, before execution starts. The system looks at your query and rearranges the steps into the order that requires the least work. You don't configure this — it just happens.
+
+<Callout type="tip">
+This is why adding more specific filters makes the tool faster — not just because there's less to show, but because the planner can eliminate more data at the very start before any graph computation happens.
+</Callout>
+
+## Step 3 — Scanning the data
+
+Now we actually touch the rows. The system goes through your event log and applies the filter.
+
+```
+  YOUR 50M ROWS (simplified):
+
+  ┌─────────┬────────────┬──────────┬──────────┐
+  │ Case ID │ Activity   │ Time     │ Amount   │
+  ├─────────┼────────────┼──────────┼──────────┤
+  │ #00001  │ Order      │ 09:00    │ $5,200   │  ← KEEP
+  │ #00002  │ Order      │ 09:01    │ $180     │  ← skip
+  │ #00003  │ Order      │ 09:01    │ $14,000  │  ← KEEP
+  │ #00004  │ Order      │ 09:02    │ $320     │  ← skip
+  │ #00005  │ Order      │ 09:02    │ $2,900   │  ← KEEP
+  │  ...    │  ...       │  ...     │  ...     │
+  └─────────┴────────────┴──────────┴──────────┘
+
+  This comparison runs on 64 rows simultaneously,
+  not one at a time. That's what makes it fast.
+```
+
+The rows that survive become the input for the next step. Everything else is discarded.
+
+## Step 4 — Tracing the path each case took
+
+This is the part that's unique to process mining — the part that turns a table of rows into something a human can actually look at.
+
+Each "case" (each order, in our example) is really a sequence of steps that happened over time. We need to reconstruct that journey.
+
+```
+  STEP A — group the surviving rows by Case ID,
+            then sort each group by time:
+
+  Case #00001:  Order (9:00) → Validate (9:15) → Approve (11:00) → Invoice (11:30)
+  Case #00003:  Order (9:01) → Invoice (9:45)
+                ↑
+                no Validate, no Approve — went straight to Invoice
+
+  Case #00005:  Order (9:02) → Validate (9:20) → Reject (10:05)
+```
+
+Now we have the sequence of events for each case. Next: count which transitions happen most often.
+
+```
+  STEP B — count every "A followed by B" pair across all cases:
+
+  Order → Validate    ·····················  8,200 times
+  Order → Invoice     ··········            1,800 times   ← the shortcut path
+  Validate → Approve  ···················   6,100 times
+  Validate → Reject   ·····               1,100 times
+  Approve → Invoice   ··················    5,900 times
+  Invoice → Close     ·····················  9,600 times
+```
+
+That table of counts is your process graph. All we have to do now is draw it.
+
+## Step 5 — Drawing the graph
+
+Turn the counts into nodes and arrows. The thicker the arrow, the more cases took that path.
+
+```
+               ┌───────────┐
+               │   Order   │
+               └─────┬─────┘
+                     │
+          82%        │       18%
+       ┌─────────────┘        └──────────────┐
+       │                                     │
+       v                                     v
+  ┌──────────┐                        ┌───────────┐
+  │ Validate │                        │  Invoice  │
+  └────┬─────┘                        └─────┬─────┘
+       │                                    │
+  85%  │   15%                              │
+  ─────┴─────                               │
+  │        │                                │
+  v        v                                │
+Approve  Reject                             │
+  │                                         │
+  └───────────────────┐                     │
+                      v                     v
+                 ┌─────────────────────────────┐
+                 │           Close             │
+                 └─────────────────────────────┘
+```
+
+This is what appears on your screen. The branching, the thick vs thin arrows, the percentages — all of it came from counting transitions in step 4.
+
+## What this tells you that a spreadsheet never could
+
+If you'd filtered those same 2.5 million rows in Excel, you'd have a very long table. You'd know *what* happened but not *how*. You couldn't see that 18% of orders skipped validation entirely. You couldn't see that 15% of validated orders got rejected. You'd have to write pivot tables and then guess at the story.
+
+```
+  A SPREADSHEET SHOWS YOU:
+  rows, columns, totals.
+
+  A PROCESS GRAPH SHOWS YOU:
+  the story those rows are telling.
+```
+
+The query step, the planning step, the execution step, the graph step — they're all in service of that one thing. Turning your event log from a pile of rows into a picture of what actually happened.
+
+That's what Meridian does in 200 milliseconds.
+
+<Callout type="note" title="Why this matters operationally">
+Every time you add a filter, narrow a date range, or drill into a subprocess — this entire pipeline reruns. The reason it stays fast isn't caching (though that helps). It's that the planner gets smarter about throwing away irrelevant data at step 2, before the expensive graph work in steps 4 and 5.
+</Callout>
+
+---
+
+#### If this made you curious
+
+The engine described here sits underneath every view in Meridian — the process map, the variant explorer, the conformance dashboard. They're all asking slightly different questions, but going through the same five steps. Next time a graph loads, you'll know what's happening inside it.
