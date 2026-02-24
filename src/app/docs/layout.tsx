@@ -44,7 +44,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto bg-surface-raised lg:border-r lg:border-border-default">
+        <div className="flex-1 overflow-y-auto bg-surface-ground lg:border-r lg:border-border-default">
           {children}
         </div>
 
