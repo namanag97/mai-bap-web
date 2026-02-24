@@ -35,6 +35,7 @@ export interface ContentBlock {
   text?: string
   items?: string[]
   lang?: string
-  caption?: string       // diagram: caption below the box
-  attribution?: string   // blockquote: attribution line
+  caption?: string                  // diagram: caption below
+  attribution?: string              // blockquote: attribution line
+  variant?: 'block' | 'inline'      // diagram: 'block' = boxed (complex), 'inline' = flows with text (simple)
 }
