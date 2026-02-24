@@ -10,8 +10,9 @@ export default function Stats() {
   return (
     <section className="section-deep">
       <Container>
-        <div className="py-4 pb-0 pt-6">
+        <div className="flex items-center gap-3 pt-6 pb-0">
           <MetaLabel as="div" color="dim">Platform metrics</MetaLabel>
+          <div className="flex-1 divider" />
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-border-default">
           {stats.map((s, i) => (
