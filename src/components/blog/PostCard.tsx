@@ -32,7 +32,7 @@ export default function PostCard({ post, featured = false }: Props) {
             <Badge variant={variant} className="mb-5">
               {post.category}
             </Badge>
-            <h2 className="text-xl lg:text-2xl font-light tracking-tight text-ink-primary leading-snug mb-4 group-hover:text-braun-orange transition-colors duration-300">
+            <h2 className="text-xl lg:text-2xl font-light tracking-tight text-ink-primary leading-snug mb-4 group-hover:text-ink-accent transition-colors duration-300">
               {post.title}
             </h2>
             <p className="text-sm text-braun-500 leading-relaxed">{post.excerpt}</p>
@@ -75,7 +75,7 @@ export default function PostCard({ post, featured = false }: Props) {
         <Badge variant={variant} className="mb-4 self-start">
           {post.category}
         </Badge>
-        <h3 className="text-sm font-semibold tracking-tight text-ink-primary leading-snug mb-3 flex-1 group-hover:text-braun-orange transition-colors duration-300">
+        <h3 className="text-sm font-semibold tracking-tight text-ink-primary leading-snug mb-3 flex-1 group-hover:text-ink-accent transition-colors duration-300">
           {post.title}
         </h3>
         <p className="text-xs text-braun-500 leading-relaxed line-clamp-3">{post.excerpt}</p>
