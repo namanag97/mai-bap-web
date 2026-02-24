@@ -41,7 +41,7 @@ export default function FAQ() {
                       aria-controls={`faq-answer-${i}`}
                       id={`faq-question-${i}`}
                     >
-                      <span className="text-sm font-medium text-braun-900 group-hover:text-braun-orange transition-colors duration-200">
+                      <span className="text-sm font-medium text-ink-primary group-hover:text-ink-accent transition-colors duration-200">
                         {faq.q}
                       </span>
                       <ChevronDown
