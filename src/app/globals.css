@@ -289,6 +289,7 @@ body::after {
   color: var(--color-ink-secondary);
   font-size: clamp(1rem, 1.4vw, 1.125rem);
   line-height: 1.8;
+  max-width: 65ch;
 }
 
 /* Vertical rhythm — space between all direct children */
