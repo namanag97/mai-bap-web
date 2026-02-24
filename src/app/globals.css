@@ -353,10 +353,10 @@ body {
   --color-border-strong: rgba(245, 243, 239, 0.20);
 
   /* Shadows — deeper for dark mode */
-  --shadow-xs: 0 1px 2px #00000033;
-  --shadow-sm: 0 2px 4px #00000033, 0 1px 2px #0000001A;
-  --shadow-md: 0 4px 12px #00000040, 0 2px 4px #00000026;
-  --shadow-lg: 0 8px 24px #0000004D, 0 4px 8px #00000033;
+  --shadow-xs: 0 1px 2px #00000026;
+  --shadow-sm: 0 1px 3px #00000033, 0 1px 2px #0000001A;
+  --shadow-md: 0 4px 6px #00000033, 0 2px 4px #00000026;
+  --shadow-lg: 0 10px 15px #00000033, 0 4px 6px #00000026;
 
   /* Interactive states */
   --color-state-hover: rgba(245, 243, 239, 0.06);
