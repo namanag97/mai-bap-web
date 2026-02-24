@@ -169,7 +169,7 @@ export default function ChangelogPage() {
 
       {/* Timeline */}
       <Container maxWidth="3xl" className="py-12">
-        <div className="border-l border-braun-200 pl-8 space-y-10">
+        <div className="border-l border-border-default pl-8 space-y-10">
           {releases.map((release) => (
             <div key={release.version} className="relative">
               {/* Timeline dot */}
