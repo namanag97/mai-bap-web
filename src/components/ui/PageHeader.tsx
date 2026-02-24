@@ -21,7 +21,7 @@ export function PageHeader({
   className,
 }: PageHeaderProps) {
   return (
-    <div className={cn('border-b border-border-default bg-surface-ground', className)}>
+    <div className={cn('section', className)}>
       <Container maxWidth={maxWidth} className="py-16">
         <MetaLabel as="div" color="dim" className="mb-4">
           {label}
