@@ -14,7 +14,7 @@ export default function Testimonials() {
 
         {/* Logo strip */}
         <FadeIn>
-          <div className="mb-16 pb-10 border-b border-braun-200">
+          <div className="mb-16 pb-10 border-b border-border-default">
             <MetaLabel as="div" color="dim" className="mb-8 text-center">
               {logoStripLabel}
             </MetaLabel>
