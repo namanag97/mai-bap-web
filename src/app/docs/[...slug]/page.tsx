@@ -91,7 +91,7 @@ export default async function DocPage({ params }: Props) {
       )}
 
       {/* Page title — font-light, tracking-tight. Same typographic rule as all h1s. */}
-      <h1 className="text-3xl font-light tracking-tight text-braun-900 leading-tight mb-3">
+      <h1 className="text-3xl font-light tracking-tight text-ink-primary leading-tight mb-3">
         {page.title}
       </h1>
 
