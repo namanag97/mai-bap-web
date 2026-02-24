@@ -3,7 +3,7 @@
 import { cn } from '@/lib/utils'
 
 interface ToggleGroupProps<T extends string> {
-  options: T[]
+  options: readonly T[]
   value: T
   onChange: (value: T) => void
   size?: 'sm' | 'md'
