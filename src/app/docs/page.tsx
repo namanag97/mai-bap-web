@@ -29,7 +29,7 @@ export default function DocsIndexPage() {
         <h1 className="text-2xl lg:text-3xl font-light tracking-tight text-ink-primary mb-3">
           Documentation
         </h1>
-        <p className="text-sm text-braun-500 font-light leading-relaxed max-w-lg">
+        <p className="text-sm text-ink-muted font-light leading-relaxed max-w-lg">
           Everything you need to get started with Meridian — from installation to building custom dashboards and automation workflows.
         </p>
       </div>
@@ -51,7 +51,7 @@ export default function DocsIndexPage() {
               </h2>
 
               {/* Description */}
-              <p className="text-xs text-braun-500 leading-relaxed mb-5">
+              <p className="text-xs text-ink-muted leading-relaxed mb-5">
                 {sectionDescriptions[section.title]}
               </p>
 
@@ -73,7 +73,7 @@ export default function DocsIndexPage() {
               {/* Section CTA */}
               <Link
                 href={href}
-                className="text-[10px] font-mono font-bold uppercase tracking-widest text-braun-500 hover:text-ink-primary transition-colors duration-200"
+                className="text-[10px] font-mono font-bold uppercase tracking-widest text-ink-muted hover:text-ink-primary transition-colors duration-200"
               >
                 Start reading &rarr;
               </Link>
@@ -89,19 +89,19 @@ export default function DocsIndexPage() {
         </MetaLabel>
         <Link
           href="/docs/quick-start"
-          className="text-[10px] font-mono uppercase tracking-widest text-braun-500 hover:text-ink-primary transition-colors"
+          className="text-[10px] font-mono uppercase tracking-widest text-ink-muted hover:text-ink-primary transition-colors"
         >
           Quick Start
         </Link>
         <Link
           href="/docs/api/rest"
-          className="text-[10px] font-mono uppercase tracking-widest text-braun-500 hover:text-ink-primary transition-colors"
+          className="text-[10px] font-mono uppercase tracking-widest text-ink-muted hover:text-ink-primary transition-colors"
         >
           REST API
         </Link>
         <Link
           href="/docs/guides/integrations"
-          className="text-[10px] font-mono uppercase tracking-widest text-braun-500 hover:text-ink-primary transition-colors"
+          className="text-[10px] font-mono uppercase tracking-widest text-ink-muted hover:text-ink-primary transition-colors"
         >
           Integrations
         </Link>
