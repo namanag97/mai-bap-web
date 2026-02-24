@@ -143,7 +143,7 @@ export default function ContactPage() {
               </div>
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="text-sm text-braun-900 underline hover:text-braun-orange transition-colors"
+                className="text-sm text-ink-primary underline hover:text-ink-accent transition-colors"
               >
                 {siteConfig.email}
               </a>
