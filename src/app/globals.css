@@ -17,16 +17,16 @@
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
   /* ── Private Palette (DO NOT use in components) ────────── */
-  --color-braun-50:     #fafafa;
-  --color-braun-100:    #f4f4f5;
-  --color-braun-200:    #e4e4e7;
-  --color-braun-300:    #d4d4d8;
-  --color-braun-400:    #a1a1aa;
-  --color-braun-500:    #71717a;
-  --color-braun-600:    #52525b;
-  --color-braun-700:    #3f3f46;
-  --color-braun-800:    #27272a;
-  --color-braun-900:    #09090b;
+  --color-braun-50: #F5F3EF;
+  --color-braun-100: #ECEAE5;
+  --color-braun-200: #DDD9D3;
+  --color-braun-300: #C5C0BA;
+  --color-braun-400: #B5B0AA;
+  --color-braun-500: #8A8580;
+  --color-braun-600: #4A4744;
+  --color-braun-700: #33302E;
+  --color-braun-800: #1E1D1B;
+  --color-braun-900: #1A1918;
   --color-braun-orange: #ea580c;
 
   /* ── Surfaces ──────────────────────────────────────────── */
@@ -35,10 +35,10 @@
   /* bg-surface-inset   — alternate sections, code blocks     */
   /* bg-surface-overlay — glassmorphic nav, modals            */
   /* bg-surface-inverse — dark sections (Stats, CTA)          */
-  --color-surface-ground:  #fafafa;
-  --color-surface-raised:  #ffffff;
-  --color-surface-inset:   #f4f4f5;
-  --color-surface-overlay: rgba(255, 255, 255, 0.80);
+  --color-surface-ground: #fafafa;
+  --color-surface-raised: #ffffff;
+  --color-surface-inset: #f4f4f5;
+  --color-surface-overlay: rgba(255, 255, 255, 0.8);
   --color-surface-inverse: #09090b;
 
   /* ── Ink (text colors) ─────────────────────────────────── */
@@ -48,26 +48,26 @@
   /* text-ink-dim       — placeholders, disabled              */
   /* text-ink-inverse   — text on dark/inverse surfaces       */
   /* text-ink-accent    — interactive highlights, links        */
-  --color-ink-primary:   #09090b;
+  --color-ink-primary: #09090b;
   --color-ink-secondary: #52525b;
-  --color-ink-muted:     #71717a;
-  --color-ink-dim:       #a1a1aa;
-  --color-ink-inverse:   #fafafa;
-  --color-ink-accent:    #ea580c;
+  --color-ink-muted: #71717a;
+  --color-ink-dim: #a1a1aa;
+  --color-ink-inverse: #fafafa;
+  --color-ink-accent: #ea580c;
 
   /* ── Borders ───────────────────────────────────────────── */
   /* border-border-default — standard borders                 */
   /* border-border-subtle  — very light separators            */
   /* border-border-strong  — emphasis, focus rings            */
   --color-border-default: #e4e4e7;
-  --color-border-subtle:  #f4f4f5;
-  --color-border-strong:  #09090b;
+  --color-border-subtle: #f4f4f5;
+  --color-border-strong: #09090b;
 
   /* ── Data / status colors ──────────────────────────────── */
   --color-data-positive: #059669;
-  --color-data-warning:  #d97706;
+  --color-data-warning: #d97706;
   --color-data-negative: #e11d48;
-  --color-data-violet:   #7c3aed;
+  --color-data-violet: #7c3aed;
 
   /* ── Radius ────────────────────────────────────────────── */
   --radius: 4px;
@@ -75,38 +75,38 @@
   --radius-lg: 8px;
 
   /* ── Typography scale ──────────────────────────────────── */
-  --text-display:    clamp(3rem, 7vw, 6rem);
-  --text-title:      clamp(1.875rem, 3vw, 2.25rem);
-  --text-heading:    1.125rem;
+  --text-display: clamp(3rem, 7vw, 6rem);
+  --text-title: clamp(1.875rem, 3vw, 2.25rem);
+  --text-heading: 1.125rem;
   --text-subheading: 0.9375rem;
-  --text-body:       1rem;
-  --text-body-sm:    0.875rem;
-  --text-caption:    0.75rem;
-  --text-meta:       0.625rem;
-  --text-micro:      0.5625rem;
-  --text-code:       0.8125rem;
+  --text-body: 1rem;
+  --text-body-sm: 0.875rem;
+  --text-caption: 0.75rem;
+  --text-meta: 0.625rem;
+  --text-micro: 0.5625rem;
+  --text-code: 0.8125rem;
 
   /* ── Line heights ──────────────────────────────────────── */
   --leading-display: 0.92;
-  --leading-tight:   1.1;
-  --leading-snug:    1.4;
-  --leading-body:    1.75;
+  --leading-tight: 1.1;
+  --leading-snug: 1.4;
+  --leading-body: 1.75;
   --leading-relaxed: 1.7;
 
   /* ── Letter spacing ────────────────────────────────────── */
-  --tracking-tight:  -0.01em;
+  --tracking-tight: -0.01em;
   --tracking-normal: 0;
-  --tracking-wide:   0.05em;
+  --tracking-wide: 0.05em;
   --tracking-widest: 0.1em;
-  --tracking-logo:   0.2em;
+  --tracking-logo: 0.2em;
 
   /* ── Spacing scale ─────────────────────────────────────── */
-  --space-section:    6rem;
+  --space-section: 6rem;
   --space-section-lg: 8rem;
-  --space-block:      3rem;
-  --space-element:    1.5rem;
-  --space-inline:     0.75rem;
-  --space-gutter:     1.5rem;
+  --space-block: 3rem;
+  --space-element: 1.5rem;
+  --space-inline: 0.75rem;
+  --space-gutter: 1.5rem;
 
   /* ── Transitions ───────────────────────────────────────── */
   --ease-default: cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -116,7 +116,11 @@
 }
 
 /* ── Reset ─────────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 html {
   -webkit-font-smoothing: antialiased;
@@ -141,10 +145,19 @@ body {
 }
 
 /* ── Scrollbar ─────────────────────────────────────────────── */
-::-webkit-scrollbar        { width: 5px; height: 5px; }
-::-webkit-scrollbar-track  { background: transparent; }
-::-webkit-scrollbar-thumb  { background: var(--color-border-default); }
-::-webkit-scrollbar-thumb:hover  { background: var(--color-border-strong); }
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-default);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-strong);
+}
 
 /* ── Prose — blog & docs reading typography ────────────────── */
 .prose {
@@ -198,7 +211,7 @@ body {
 }
 
 .prose ul li::before {
-  content: '—';
+  content: "—";
   position: absolute;
   left: -1.25rem;
   color: var(--color-ink-dim);
@@ -261,7 +274,7 @@ body {
 /* ── Dark mode ──────────────────────────────────────────────── */
 [data-theme="dark"] {
   /* Private palette inversion */
-  --color-braun-50:  #09090b;
+  --color-braun-50: #09090b;
   --color-braun-100: #18181b;
   --color-braun-200: #27272a;
   --color-braun-300: #3f3f46;
@@ -274,22 +287,22 @@ body {
   --color-braun-orange: #ea580c;
 
   /* Semantic token overrides */
-  --color-surface-ground:  #09090b;
-  --color-surface-raised:  #18181b;
-  --color-surface-inset:   #27272a;
-  --color-surface-overlay: rgba(9, 9, 11, 0.80);
+  --color-surface-ground: #09090b;
+  --color-surface-raised: #18181b;
+  --color-surface-inset: #27272a;
+  --color-surface-overlay: rgba(9, 9, 11, 0.8);
   --color-surface-inverse: #fafafa;
 
-  --color-ink-primary:   #fafafa;
+  --color-ink-primary: #fafafa;
   --color-ink-secondary: #d4d4d8;
-  --color-ink-muted:     #a1a1aa;
-  --color-ink-dim:       #71717a;
-  --color-ink-inverse:   #09090b;
-  --color-ink-accent:    #ea580c;
+  --color-ink-muted: #a1a1aa;
+  --color-ink-dim: #71717a;
+  --color-ink-inverse: #09090b;
+  --color-ink-accent: #ea580c;
 
   --color-border-default: #27272a;
-  --color-border-subtle:  #18181b;
-  --color-border-strong:  #fafafa;
+  --color-border-subtle: #18181b;
+  --color-border-strong: #fafafa;
 }
 
 /* Dark mode surface raised elements */
