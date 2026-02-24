@@ -128,8 +128,8 @@ function AppMockup() {
 export default function Hero() {
   return (
     <section className="relative pt-14 bg-surface-ground border-b border-border-default overflow-hidden">
-      {/* Engineering grid */}
-      <div className="absolute inset-0 pointer-events-none bg-engineering-grid" />
+      {/* Engineering grid — subtle, fades before content */}
+      <div className="absolute inset-0 pointer-events-none bg-engineering-grid opacity-50" />
 
       <Container className="relative">
         <div className="grid lg:grid-cols-[1fr_460px] xl:grid-cols-[1fr_520px] gap-12 xl:gap-20 py-24 lg:py-32 xl:py-40 items-center">
