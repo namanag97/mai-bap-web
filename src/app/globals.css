@@ -248,7 +248,7 @@ body {
 
 .prose .note.warning {
   border-left-color: var(--color-data-negative);
-  background: color-mix(in srgb, var(--color-data-negative) 8%, var(--color-surface-ground));
+  background: var(--color-surface-inset);
 }
 
 /* ── Smooth transitions ───────────────────────────────────── */
