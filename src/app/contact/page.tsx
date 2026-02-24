@@ -35,7 +35,7 @@ export default function ContactPage() {
                 <h2 className="text-lg font-semibold text-ink-primary tracking-tight mb-2">
                   Message received.
                 </h2>
-                <p className="text-sm text-braun-500 max-w-xs">
+                <p className="text-sm text-ink-muted max-w-xs">
                   Thank you for reaching out. We&apos;ll get back to you within 24 hours.
                 </p>
                 <button
