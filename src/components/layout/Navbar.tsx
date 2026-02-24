@@ -130,11 +130,9 @@ export default function Navbar() {
             >
               {theme === 'dark' ? <Sun size={14} /> : <Moon size={14} />}
             </button>
-            <MetaLabel as="span" color="dim">
-              <Link href={siteConfig.ctaLinks.signIn.href}>
-                {siteConfig.ctaLinks.signIn.label}
-              </Link>
-            </MetaLabel>
+            <ButtonLink href={siteConfig.ctaLinks.bookDemo.href} variant="secondary" size="sm" className="text-center">
+              {siteConfig.ctaLinks.bookDemo.label}
+            </ButtonLink>
             <ButtonLink href={siteConfig.ctaLinks.getStarted.href} size="sm" className="text-center">
               {siteConfig.ctaLinks.getStarted.label}
             </ButtonLink>
