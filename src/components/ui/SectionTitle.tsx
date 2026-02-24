@@ -12,12 +12,7 @@ export function SectionTitle({
   className,
 }: SectionTitleProps) {
   return (
-    <Tag
-      className={cn(
-        'text-3xl lg:text-4xl font-light tracking-tight text-ink-primary leading-tight',
-        className
-      )}
-    >
+    <Tag className={cn('section-title', className)}>
       {children}
     </Tag>
   )
