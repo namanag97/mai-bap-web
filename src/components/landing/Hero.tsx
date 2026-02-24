@@ -114,7 +114,7 @@ function AppMockup() {
               <div key={i} className="flex items-center gap-2 px-2 sm:px-3 py-2 border-b border-braun-50 last:border-0">
                 <div className={`w-1.5 h-1.5 shrink-0 ${d.type === 'done' ? 'bg-data-positive' : 'bg-data-warning'}`} />
                 <span className="text-[7px] sm:text-[8px] font-mono text-ink-muted shrink-0 w-12 sm:w-16">{d.id}</span>
-                <span className="text-[8px] sm:text-[8.5px] font-mono text-braun-600 flex-1 truncate">{d.activity}</span>
+                <span className="text-[8px] sm:text-[8.5px] font-mono text-ink-secondary flex-1 truncate">{d.activity}</span>
                 <span className="text-[7px] font-mono text-ink-muted shrink-0 hidden sm:block">{d.time}</span>
               </div>
             ))}
@@ -158,7 +158,7 @@ export default function Hero() {
             </FadeIn>
 
             <FadeIn delay={200}>
-              <p className="text-[1.0625rem] text-braun-600 font-light leading-[1.7] max-w-[420px] mb-10">
+              <p className="text-[1.0625rem] text-ink-secondary font-light leading-[1.7] max-w-[420px] mb-10">
                 {siteConfig.hero.subtitle}
               </p>
             </FadeIn>
