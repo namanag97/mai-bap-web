@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { PageHeader, Container, Badge, MetaLabel } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: 'Changelog',
@@ -160,23 +161,14 @@ const releases: Release[] = [
 export default function ChangelogPage() {
   return (
     <div className="pt-14 min-h-screen bg-braun-50">
-      {/* Page header */}
-      <div className="border-b border-braun-200 bg-white">
-        <div className="max-w-7xl mx-auto px-6 py-16">
-          <div className="text-[10px] font-mono uppercase tracking-widest text-braun-400 mb-4">
-            Releases
-          </div>
-          <h1 className="text-3xl lg:text-4xl font-light tracking-tight text-braun-900 mb-3 leading-tight">
-            Changelog
-          </h1>
-          <p className="text-sm text-braun-500 max-w-sm leading-relaxed">
-            New features, improvements, and fixes shipped to Meridian.
-          </p>
-        </div>
-      </div>
+      <PageHeader
+        label="Releases"
+        title="Changelog"
+        subtitle="New features, improvements, and fixes shipped to Meridian."
+      />
 
       {/* Timeline */}
-      <div className="max-w-3xl mx-auto px-6 py-12">
+      <Container maxWidth="3xl" className="py-12">
         <div className="border-l border-braun-200 pl-8 space-y-10">
           {releases.map((release) => (
             <div key={release.version} className="relative">
@@ -186,18 +178,12 @@ export default function ChangelogPage() {
               <div className="bg-white border border-braun-200 p-8 hover-lift">
                 {/* Version + date row */}
                 <div className="flex items-center gap-3 mb-3">
-                  <span
-                    className={`inline-block text-[10px] font-mono font-bold uppercase tracking-widest px-2 py-0.5 border ${
-                      release.featured
-                        ? 'bg-braun-900 text-white border-braun-900'
-                        : 'border-braun-200 text-braun-600'
-                    }`}
-                  >
+                  <Badge variant={release.featured ? 'primary' : 'neutral'} className="font-bold">
                     {release.version}
-                  </span>
-                  <span className="text-[10px] font-mono text-braun-500 uppercase tracking-widest">
+                  </Badge>
+                  <MetaLabel>
                     {release.date}
-                  </span>
+                  </MetaLabel>
                 </div>
 
                 {/* Title */}
@@ -209,11 +195,9 @@ export default function ChangelogPage() {
                 <div className="space-y-5">
                   {release.changes.map((group) => (
                     <div key={group.label}>
-                      <div
-                        className={`text-[9px] font-mono uppercase tracking-widest ${group.color} mb-2`}
-                      >
+                      <MetaLabel as="div" size="xxs" className={`${group.color} mb-2`}>
                         {group.label}
-                      </div>
+                      </MetaLabel>
                       <ul className="space-y-1.5">
                         {group.items.map((item) => (
                           <li
@@ -231,7 +215,7 @@ export default function ChangelogPage() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </div>
   )
 }
