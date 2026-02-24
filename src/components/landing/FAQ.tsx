@@ -9,7 +9,7 @@ import { siteConfig } from '@/config/site'
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
-  const { sectionIndex, sectionLabel, title, subtitle, items } = siteConfig.faq
+  const { sectionLabel, title, subtitle, items } = siteConfig.faq
   const [titleLine1, titleLine2] = title.split('\n')
 
   return (
