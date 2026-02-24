@@ -9,11 +9,11 @@ export default function CTA() {
   const { sectionLabel, title, titleAccent, subtitle, primaryCta, secondaryCta, trialNote } = siteConfig.cta
 
   return (
-    <section className="section-inverse">
+    <section className="section-deep">
       <Container className="py-32">
         {/* Section label */}
         <FadeIn>
-          <MetaLabel as="div" className="mb-10">
+          <MetaLabel as="div" color="dim" className="mb-10">
             {sectionLabel}
           </MetaLabel>
         </FadeIn>
@@ -22,7 +22,7 @@ export default function CTA() {
           {/* Left: headline */}
           <FadeIn delay={100}>
             <div>
-              <h2 className="text-4xl lg:text-5xl xl:text-6xl font-light tracking-tight text-ink-inverse leading-[0.95] mb-6">
+              <h2 className="text-4xl lg:text-5xl xl:text-6xl font-light tracking-tight text-ink-primary leading-[0.95] mb-6">
                 {title.map((line, i) => (
                   <span key={i}>{line}{i < title.length - 1 && <br />}</span>
                 ))}
@@ -38,14 +38,14 @@ export default function CTA() {
           {/* Right: actions */}
           <FadeIn delay={200} direction="left">
             <div className="flex flex-col gap-3">
-              <ButtonLink href={primaryCta.href} variant="dark" size="lg" className="whitespace-nowrap">
+              <ButtonLink href={primaryCta.href} variant="primary" size="lg" className="whitespace-nowrap">
                 {primaryCta.label}
                 <ArrowRight size={13} />
               </ButtonLink>
-              <ButtonLink href={secondaryCta.href} variant="dark-secondary" size="lg">
+              <ButtonLink href={secondaryCta.href} variant="secondary" size="lg">
                 {secondaryCta.label}
               </ButtonLink>
-              <MetaLabel as="p" className="text-center mt-1">
+              <MetaLabel as="p" color="dim" className="text-center mt-1">
                 {trialNote}
               </MetaLabel>
             </div>
