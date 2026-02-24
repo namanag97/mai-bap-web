@@ -39,7 +39,7 @@ export default async function BlogPostPage({ params }: Props) {
     <div className="bg-surface-ground min-h-screen pt-14">
 
       {/* Article header — white panel, matches landing page section headers */}
-      <header className="border-b border-braun-200 bg-white">
+      <header className="border-b border-border-default bg-surface-raised">
         <Container maxWidth="3xl" className="py-14">
 
           {/* Back link */}
