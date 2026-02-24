@@ -195,9 +195,10 @@ export default function ChangelogPage() {
                 <div className="space-y-5">
                   {release.changes.map((group) => (
                     <div key={group.label}>
-                      <MetaLabel as="div" size="xxs" className={`${group.color} mb-2`}>
-                        {group.label}
-                      </MetaLabel>
+                      <div className="flex items-center gap-3 mb-2">
+                        <MetaLabel as="div" size="xxs" className={group.color}>{group.label}</MetaLabel>
+                        <div className="flex-1 divider" />
+                      </div>
                       <ul className="space-y-1.5">
                         {group.items.map((item) => (
                           <li
