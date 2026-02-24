@@ -13,7 +13,10 @@ export default function Integrations() {
         {/* Header */}
         <div className="grid lg:grid-cols-2 gap-8 mb-14 pb-10 border-b border-border-default">
           <div>
-            <SectionLabel label={integrations.sectionLabel} className="mb-5" />
+            <div className="flex items-center gap-3 mb-5">
+              <SectionLabel label={integrations.sectionLabel} />
+              <div className="flex-1 divider" />
+            </div>
             <SectionTitle>
               {integrations.title.split('\n')[0]}<br />{integrations.title.split('\n')[1]}
             </SectionTitle>
