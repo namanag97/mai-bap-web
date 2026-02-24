@@ -108,11 +108,11 @@
   --space-inline: 0.75rem;
   --space-gutter: 1.5rem;
 
-  /* ── Shadows (warm-tinted) ─────────────────────────────── */
-  --shadow-xs: 0 1px 2px #1A191808;
-  --shadow-sm: 0 2px 4px #1A191808, 0 1px 2px #1A191805;
-  --shadow-md: 0 4px 12px #1A19180F, 0 2px 4px #1A191808;
-  --shadow-lg: 0 8px 24px #1A191814, 0 4px 8px #1A19180A;
+  /* ── Shadows (warm-tinted, actually visible) ──────────── */
+  --shadow-xs: 0 1px 2px #1A19180D;
+  --shadow-sm: 0 1px 3px #1A19181A, 0 1px 2px #1A19180D;
+  --shadow-md: 0 4px 6px #1A19181A, 0 2px 4px #1A191810;
+  --shadow-lg: 0 10px 15px #1A19181A, 0 4px 6px #1A191810;
 
   /* ── Z-index ─────────────────────────────────────────── */
   --z-base: 0;
