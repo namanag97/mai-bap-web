@@ -119,7 +119,7 @@ export default async function DocPage({ params }: Props) {
             <MetaLabel as="span" size="xxs" color="dim" className="flex items-center gap-1.5">
               <ArrowLeft size={9} /> Previous
             </MetaLabel>
-            <span className="text-xs font-medium text-braun-700 group-hover:text-braun-900 transition-colors leading-snug">
+            <span className="text-xs font-medium text-ink-secondary group-hover:text-ink-primary transition-colors leading-snug">
               {prev.title}
             </span>
           </Link>
@@ -133,7 +133,7 @@ export default async function DocPage({ params }: Props) {
             <MetaLabel as="span" size="xxs" color="dim" className="flex items-center justify-end gap-1.5">
               Next <ArrowRight size={9} />
             </MetaLabel>
-            <span className="text-xs font-medium text-braun-700 group-hover:text-braun-900 transition-colors leading-snug">
+            <span className="text-xs font-medium text-ink-secondary group-hover:text-ink-primary transition-colors leading-snug">
               {next.title}
             </span>
           </Link>
