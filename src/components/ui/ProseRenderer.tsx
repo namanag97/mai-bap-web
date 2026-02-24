@@ -70,6 +70,7 @@ export function ProseRenderer({ blocks }: ProseRendererProps) {
                 key={i}
                 code={block.text ?? ''}
                 caption={block.caption}
+                variant={block.variant ?? 'block'}
               />
             )
 
