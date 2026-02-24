@@ -682,6 +682,8 @@ body::after {
   letter-spacing: 0.1em;
   font-size: 10px;
   color: var(--color-ink-muted);
+  font-feature-settings: "tnum" on, "lnum" on;
+  font-variant-numeric: tabular-nums;
 }
 .meta-label-xxs {
   font-size: 9px;
