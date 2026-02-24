@@ -114,7 +114,7 @@ export default async function DocPage({ params }: Props) {
         {prev ? (
           <Link
             href={`/docs/${prev.slug.join('/')}`}
-            className="group flex flex-col gap-1.5 p-4 border border-border-default hover:border-braun-900 transition-colors duration-200"
+            className="group flex flex-col gap-1.5 p-4 border border-border-default hover:border-border-strong transition-colors duration-200"
           >
             <MetaLabel as="span" size="xxs" color="dim" className="flex items-center gap-1.5">
               <ArrowLeft size={9} /> Previous
@@ -128,7 +128,7 @@ export default async function DocPage({ params }: Props) {
         {next ? (
           <Link
             href={`/docs/${next.slug.join('/')}`}
-            className="group flex flex-col gap-1.5 p-4 border border-border-default hover:border-braun-900 transition-colors duration-200 text-right"
+            className="group flex flex-col gap-1.5 p-4 border border-border-default hover:border-border-strong transition-colors duration-200 text-right"
           >
             <MetaLabel as="span" size="xxs" color="dim" className="flex items-center justify-end gap-1.5">
               Next <ArrowRight size={9} />
