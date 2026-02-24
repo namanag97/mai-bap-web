@@ -45,7 +45,7 @@ export default function Pricing() {
         </FadeIn>
 
         {/* Tier grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 border border-border-default divide-y md:divide-y-0 md:divide-x divide-border-default">
+        <div className="card-grid grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border-default">
           {tiers.map((tier, i) => {
             const price = annual ? tier.annualPrice : tier.monthlyPrice
             const period = annual ? tier.annualPeriod : tier.period
