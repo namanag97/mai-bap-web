@@ -342,8 +342,8 @@ body::after {
   padding-bottom: 0.625rem;
   margin-top: 3.5rem;
   margin-bottom: 1.5rem;
-  line-height: 1.3;
-  text-wrap: balance; /* Prevents awkward single-word wrap on last line */
+  line-height: var(--leading-heading);
+  text-wrap: balance;
 }
 
 /* H3 — subsection heading, same size as body but heavier */
