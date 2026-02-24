@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link
               href="/"
-              className="font-mono font-bold text-xs tracking-[0.2em] uppercase text-braun-900 hover:text-braun-orange transition-colors"
+              className="font-mono font-bold text-xs tracking-[0.2em] uppercase text-ink-primary hover:text-ink-accent transition-colors"
             >
               {siteConfig.name.toUpperCase()}
             </Link>
