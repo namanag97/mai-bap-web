@@ -188,19 +188,20 @@ body {
   --color-braun-800: #f4f4f5;
   --color-braun-900: #fafafa;
   --color-braun-orange: #ea580c;
+  --color-surface-warning: #1c0a10;
 }
 
 /* Surfaces using Tailwind's bg-white need to invert in dark mode */
 [data-theme="dark"] .bg-white {
-  background-color: #18181b;
+  background-color: var(--color-braun-100);
 }
 
 /* Dark prose code blocks get slightly different treatment */
 [data-theme="dark"] .prose pre {
-  background: #18181b;
-  border-color: #3f3f46;
+  background: var(--color-braun-100);
+  border-color: var(--color-braun-300);
 }
 
 [data-theme="dark"] .prose .note.warning {
-  background: #1c0a10;
+  background: var(--color-surface-warning);
 }
