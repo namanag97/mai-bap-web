@@ -87,12 +87,9 @@ export default function Navbar() {
           >
             {theme === 'dark' ? <Sun size={14} /> : <Moon size={14} />}
           </button>
-          <Link
-            href={siteConfig.ctaLinks.signIn.href}
-            className="text-[10px] font-mono uppercase tracking-widest text-ink-muted hover:text-ink-primary transition-colors duration-200"
-          >
-            {siteConfig.ctaLinks.signIn.label}
-          </Link>
+          <ButtonLink href={siteConfig.ctaLinks.bookDemo.href} variant="secondary" size="sm">
+            {siteConfig.ctaLinks.bookDemo.label}
+          </ButtonLink>
           <ButtonLink href={siteConfig.ctaLinks.getStarted.href} size="sm">
             {siteConfig.ctaLinks.getStarted.label}
           </ButtonLink>
