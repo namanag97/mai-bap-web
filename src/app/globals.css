@@ -430,6 +430,14 @@ body {
   background-color: var(--color-surface-raised);
 }
 
+/* ── Card featured — pricing highlight card, warm paper emphasis ── */
+.card-featured {
+  background-color: var(--color-surface-inset);
+  border: 1px solid var(--color-border-strong);
+  box-shadow: var(--shadow-md);
+  border-top: 2px solid var(--color-ink-primary);
+}
+
 /* ── Section — full-width content section ─────────────────── */
 .section {
   border-bottom: 1px solid var(--color-border-default);
