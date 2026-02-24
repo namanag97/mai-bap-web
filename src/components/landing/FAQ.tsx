@@ -20,7 +20,7 @@ export default function FAQ() {
           <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
             {/* Left: header */}
             <div>
-              <SectionLabel index={sectionIndex} label={sectionLabel} className="mb-5" />
+              <SectionLabel label={sectionLabel} className="mb-5" />
               <SectionTitle>
                 {titleLine1}<br />{titleLine2}
               </SectionTitle>
