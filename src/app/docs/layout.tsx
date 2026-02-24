@@ -15,7 +15,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
   return (
     <div className="pt-14 min-h-screen bg-surface-ground">
       {/* Mobile docs nav toggle */}
-      <div className="lg:hidden border-b border-braun-200 bg-white px-6 h-11 flex items-center">
+      <div className="lg:hidden border-b border-border-default bg-surface-raised px-6 h-11 flex items-center">
         <button
           onClick={() => setSidebarOpen(v => !v)}
           className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-braun-500 hover:text-braun-900 transition-colors"
