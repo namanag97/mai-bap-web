@@ -821,6 +821,93 @@ body::after {
   display: block;
 }
 
+/* ── TOC Tickers — fixed left-side section indicators ─────── */
+/*
+ * Visible only at xl+ (≥1280px). Each ticker is a tiny dot
+ * connected by a 1px vertical line. The active dot bounces.
+ * All transitions use the project's spring cubic-bezier.
+ */
+.toc-tickers {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .toc-tickers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    position: fixed;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: var(--z-raised);
+    /* Fade-in driven by JS opacity toggle */
+    transition: opacity 350ms cubic-bezier(0.2, 0, 0, 1);
+    pointer-events: auto;
+  }
+}
+
+/* Vertical connecting line behind the dots */
+.toc-tickers-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  background-color: var(--color-border-subtle);
+  pointer-events: none;
+}
+
+/* Each dot */
+.toc-ticker-dot {
+  position: relative;
+  z-index: 1;
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background-color: var(--color-ink-muted);
+  opacity: 0.18;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition:
+    opacity 350ms cubic-bezier(0.2, 0, 0, 1),
+    transform 350ms cubic-bezier(0.2, 0, 0, 1),
+    background-color 350ms cubic-bezier(0.2, 0, 0, 1);
+  /* Enlarge hit target without changing visual size */
+  outline: none;
+}
+.toc-ticker-dot::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+}
+.toc-ticker-dot:hover {
+  opacity: 0.4;
+  transform: scale(1.5);
+}
+
+/* Active state — bounces into view */
+.toc-ticker-dot--active {
+  background-color: var(--color-ink-primary);
+  opacity: 0.6;
+  animation: ticker-bounce 400ms cubic-bezier(0.2, 0, 0, 1) forwards;
+}
+
+@keyframes ticker-bounce {
+  0%   { transform: scale(1)   translateY(0); }
+  40%  { transform: scale(2.0) translateY(-2px); }
+  70%  { transform: scale(1.6) translateY(-1px); }
+  100% { transform: scale(1.75) translateY(-1px); }
+}
+
+/* Dark mode adjustments for tickers */
+[data-theme="dark"] .toc-ticker-dot--active {
+  background-color: var(--color-ink-primary);
+}
+
 /* Grain is far more visible on near-black — halve the opacity in dark mode */
 [data-theme="dark"] body::after {
   opacity: 0.4;
