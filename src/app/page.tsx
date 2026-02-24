@@ -1,5 +1,6 @@
 import Hero from '@/components/landing/Hero'
 import Features from '@/components/landing/Features'
+import Integrations from '@/components/landing/Integrations'
 import Testimonials from '@/components/landing/Testimonials'
 import Stats from '@/components/landing/Stats'
 import Pricing from '@/components/landing/Pricing'
@@ -11,6 +12,7 @@ export default function HomePage() {
     <>
       <Hero />
       <Features />
+      <Integrations />
       <Testimonials />
       <Stats />
       <Pricing />
