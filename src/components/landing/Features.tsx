@@ -12,7 +12,7 @@ export default function Features() {
   const [titleLine1, titleLine2] = title.split('\n')
 
   return (
-    <section id="features" className="border-b border-border-default bg-surface-ground">
+    <section id="features" className="section">
       <Container className="py-24">
 
         {/* Section header */}
