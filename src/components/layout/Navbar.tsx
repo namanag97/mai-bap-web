@@ -46,7 +46,7 @@ export default function Navbar() {
       className={cn(
         'fixed top-0 inset-x-0 z-50 transition-[background-color,border-color] duration-300',
         scrolled
-          ? 'bg-white border-b border-braun-200'
+          ? 'bg-surface-raised border-b border-border-default'
           : 'bg-transparent border-b border-transparent'
       )}
     >
