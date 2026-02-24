@@ -134,7 +134,7 @@ export default function DocsSidebar() {
       </nav>
 
       {/* Sidebar footer */}
-      <div className="px-5 py-4 border-t border-braun-100">
+      <div className="px-5 py-4 border-t border-border-subtle">
         <MetaLabel as="div" size="xxs">
           {siteConfig.docsVersion} &middot; {siteConfig.name} Docs
         </MetaLabel>
