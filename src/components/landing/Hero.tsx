@@ -64,7 +64,7 @@ function AppMockup() {
           </div>
 
           {/* Automation pipeline */}
-          <div className="bg-braun-50 border-b border-braun-200 px-2 sm:px-3 pt-3 pb-2">
+          <div className="bg-surface-ground border-b border-border-default px-2 sm:px-3 pt-3 pb-2">
             <div className="text-[7.5px] font-mono uppercase tracking-widest text-braun-500 mb-2">
               Automation Pipeline
             </div>
