@@ -107,7 +107,7 @@ export default function TermsPage() {
             <p className="mt-3">{siteConfig.name} legal notices should be sent to: {siteConfig.name}, Attn: Legal Department, 251 Little Falls Drive, Wilmington, DE 19808, United States. We will make commercially reasonable efforts to respond to all legal inquiries within ten (10) business days.</p>
           </section>
         </div>
-      </div>
+      </Container>
     </div>
   )
 }
