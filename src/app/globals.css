@@ -90,11 +90,15 @@
   --text-code: 0.8125rem;
 
   /* ── Line heights ──────────────────────────────────────── */
-  --leading-display: 0.92;
+  /* Law: as size increases, leading must decrease.           */
+  --leading-display: 0.92;  /* Hero titles only                */
   --leading-tight: 1.1;
+  --leading-heading: 1.2;   /* H2, H3 — new token              */
   --leading-snug: 1.4;
-  --leading-body: 1.75;
+  --leading-body: 1.65;     /* Paragraphs (was 1.75, tighter   */
+                            /* suits 65ch reading columns)     */
   --leading-relaxed: 1.7;
+  --leading-mono: 1.5;      /* Code blocks, ASCII — rigid      */
 
   /* ── Letter spacing ────────────────────────────────────── */
   --tracking-tight: -0.01em;
