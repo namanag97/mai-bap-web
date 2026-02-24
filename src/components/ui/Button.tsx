@@ -9,6 +9,7 @@ const variantCls: Record<Variant, string> = {
   primary:   'bg-braun-900 text-white border-braun-900 hover:bg-braun-800',
   secondary: 'bg-transparent text-braun-800 border-braun-200 hover:border-braun-900 hover:text-braun-900',
   ghost:     'bg-transparent text-braun-500 border-transparent hover:text-braun-900 hover:bg-braun-50',
+  dark:      'bg-white text-braun-900 border-white hover:bg-braun-100',
 }
 
 const sizeCls: Record<Size, string> = {
