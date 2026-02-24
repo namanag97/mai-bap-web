@@ -50,7 +50,7 @@ export default function DocsSidebar() {
     : navigation
 
   return (
-    <aside className="w-64 shrink-0 flex flex-col bg-white border-r border-braun-200 overflow-y-auto">
+    <aside className="w-64 shrink-0 flex flex-col bg-surface-raised border-r border-border-default overflow-y-auto">
       {/* Sidebar header */}
       <div className="px-5 py-5 border-b border-braun-100">
         <MetaLabel as="div">
