@@ -129,7 +129,7 @@ export default function Navbar() {
             <button
               onClick={toggle}
               aria-label="Toggle theme"
-              className="p-2 border border-border-default hover:border-braun-900 transition-colors text-braun-500 hover:text-braun-900 self-start"
+              className="p-2 border border-border-default hover:border-border-strong transition-colors text-ink-muted hover:text-ink-primary self-start"
             >
               {theme === 'dark' ? <Sun size={14} /> : <Moon size={14} />}
             </button>
