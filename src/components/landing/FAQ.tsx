@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { FadeIn } from '@/components/ui/FadeIn'
-import { SectionLabel } from '@/components/ui'
+import { SectionLabel, SectionTitle, Container } from '@/components/ui'
 import { cn } from '@/lib/utils'
 import { siteConfig } from '@/config/site'
 
@@ -14,16 +14,16 @@ export default function FAQ() {
 
   return (
     <section className="border-b border-braun-200 bg-white">
-      <div className="max-w-7xl mx-auto px-6 py-24">
+      <Container className="py-24">
 
         <FadeIn>
           <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
             {/* Left: header */}
             <div>
               <SectionLabel index={sectionIndex} label={sectionLabel} className="mb-5" />
-              <h2 className="text-3xl lg:text-4xl font-light tracking-tight text-braun-900 leading-tight">
+              <SectionTitle>
                 {titleLine1}<br />{titleLine2}
-              </h2>
+              </SectionTitle>
               <p className="text-sm text-braun-500 leading-relaxed mt-4 max-w-sm">
                 {subtitle}
               </p>
@@ -71,7 +71,7 @@ export default function FAQ() {
             </div>
           </div>
         </FadeIn>
-      </div>
+      </Container>
     </section>
   )
 }
