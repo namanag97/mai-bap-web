@@ -25,7 +25,7 @@ export default function Features() {
               </SectionTitle>
             </div>
             <div className="flex items-end">
-              <p className="text-sm text-braun-500 leading-relaxed max-w-sm lg:ml-auto">
+              <p className="text-sm text-ink-muted leading-relaxed max-w-sm lg:ml-auto">
                 {subtitle}
               </p>
             </div>
