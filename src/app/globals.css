@@ -454,12 +454,13 @@ body::after {
   --color-braun-900: #f5f3ef;
   --color-braun-orange: #c2571a;
 
-  /* Semantic token overrides */
-  --color-surface-ground: #141312;
-  --color-surface-raised: #1e1d1b;
-  --color-surface-inset: #252320;
-  --color-surface-deep: #252320;
-  --color-surface-overlay: rgba(20, 19, 18, 0.8);
+  /* Semantic token overrides — shifted toward deep tungsten for OLED clarity
+     (less brown, more neutral) while keeping a whisper of warm tint */
+  --color-surface-ground: #0a0a09;
+  --color-surface-raised: #121211;
+  --color-surface-inset: #1a1a18;
+  --color-surface-deep: #1c1c1a;
+  --color-surface-overlay: rgba(10, 10, 9, 0.85);
   --color-surface-inverse: #f5f3ef;
 
   --color-ink-primary: #f5f3ef;
@@ -467,7 +468,8 @@ body::after {
   --color-ink-muted: #8a8580;
   --color-ink-dim: #5a5550;
   --color-ink-inverse: #1a1918;
-  --color-ink-accent: #c2571a;
+  /* Accent is more luminous in dark mode so orange pops on near-black */
+  --color-ink-accent: #e56b25;
 
   --color-border-default: rgba(245, 243, 239, 0.1);
   --color-border-subtle: rgba(245, 243, 239, 0.05);
