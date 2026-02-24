@@ -594,6 +594,18 @@ body {
   display: block;
 }
 
+/* Inline diagram — no box, no background, just mono in the text flow.
+   Feels like text, not an image. A left hairline anchors it visually. */
+.prose-diagram-inline {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  letter-spacing: 0;
+  white-space: pre;
+  color: var(--color-ink-muted);
+  display: block;
+}
+
 /* Dark prose adjustments */
 [data-theme="dark"] .prose pre {
   background: var(--color-surface-inset);
