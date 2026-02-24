@@ -36,9 +36,9 @@ export default async function BlogPostPage({ params }: Props) {
     categoryVariant[post.category as keyof typeof categoryVariant] ?? 'neutral'
 
   return (
-    <div className="bg-surface-ground min-h-screen pt-14">
+    <div className="min-h-screen pt-14 bg-surface-ground">
 
-      {/* ── Slim nav bar ───────────────────────────────────────── */}
+      {/* ── Slim breadcrumb ────────────────────────────────────── */}
       <div className="border-b border-border-subtle">
         <Container maxWidth="2xl" className="h-11 flex items-center justify-between">
           <Link
@@ -56,31 +56,16 @@ export default async function BlogPostPage({ params }: Props) {
       <header className="border-b border-border-default">
         <Container maxWidth="2xl" className="pt-14 pb-12">
 
-          {/* Title — editorial large */}
-          <h1 className="article-title mb-6">
-            {post.title}
-          </h1>
+          <h1 className="article-title mb-6">{post.title}</h1>
 
-          {/* Deck / excerpt */}
-          <p className="article-deck mb-10 max-w-lg">
-            {post.excerpt}
-          </p>
+          <p className="article-deck mb-10 max-w-lg">{post.excerpt}</p>
 
-          {/* Byline — single flowing line, all meta together */}
+          {/* Byline — all meta in one line, no inline styles */}
           <div className="article-byline">
-            {/* Initial mark */}
-            <span
-              className="inline-flex items-center justify-center w-6 h-6 bg-surface-inverse text-ink-inverse font-mono font-bold select-none shrink-0"
-              style={{ fontSize: '9px' }}
-              aria-hidden="true"
-            >
+            <span className="article-byline-mark" aria-hidden="true">
               {post.author.name.charAt(0)}
             </span>
-
-            <span className="text-ink-primary font-medium" style={{ fontFamily: 'var(--font-sans)', fontSize: '0.75rem' }}>
-              {post.author.name}
-            </span>
-
+            <span className="article-byline-name">{post.author.name}</span>
             <span className="article-byline-sep">·</span>
             <span>{post.author.role}</span>
             <span className="article-byline-sep">·</span>
@@ -96,7 +81,7 @@ export default async function BlogPostPage({ params }: Props) {
         <ProseRenderer blocks={post.content} />
       </Container>
 
-      {/* ── Article footer ──────────────────────────────────────── */}
+      {/* ── Footer nav ─────────────────────────────────────────── */}
       <div className="border-t border-border-subtle">
         <Container maxWidth="2xl" className="h-12 flex items-center justify-between">
           <Link
