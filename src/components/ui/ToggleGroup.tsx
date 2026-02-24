@@ -32,8 +32,8 @@ export function ToggleGroup<T extends string>({
             'font-mono font-bold uppercase tracking-widest border transition-colors duration-200',
             sizeCls[size],
             value === option
-              ? 'bg-braun-900 text-white border-braun-900'
-              : 'bg-transparent text-braun-500 border-border-default hover:border-braun-900 hover:text-braun-900'
+              ? 'bg-surface-inverse text-ink-inverse border-border-strong'
+              : 'bg-transparent text-ink-muted border-border-default hover:border-border-strong hover:text-ink-primary'
           )}
         >
           {option}
