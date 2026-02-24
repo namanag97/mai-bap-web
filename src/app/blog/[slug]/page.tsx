@@ -80,7 +80,7 @@ export default async function BlogPostPage({ params }: Props) {
               </div>
             </div>
             <div className="text-right">
-              <div className="text-xs text-braun-500">{formatDate(post.date)}</div>
+              <div className="text-xs text-ink-muted">{formatDate(post.date)}</div>
               <MetaLabel as="div" size="xxs">
                 {post.readTime} min read
               </MetaLabel>
