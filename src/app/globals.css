@@ -453,7 +453,7 @@ body::after {
   padding: 1.25rem 1.5rem;
   overflow-x: auto;
   font-size: 0.8125rem;
-  line-height: 1.7;
+  line-height: var(--leading-mono);
   border-radius: var(--radius-lg);
   /* Inset highlight + outer shadow in one declaration — eliminates the need
      for a border while delivering a premium embedded-object feel */
