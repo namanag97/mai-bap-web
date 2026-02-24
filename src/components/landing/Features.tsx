@@ -38,7 +38,7 @@ export default function Features() {
             const Icon = featureIcons[i] ?? Activity
             return (
               <FadeIn key={feature.title} delay={i * 80} direction="up">
-                <div className="bg-white p-8 group cursor-default h-full hover-lift">
+                <div className="bg-surface-raised p-8 group cursor-default h-full hover-lift">
                   <IconBox icon={Icon} className="mb-6" />
                   <h3 className="text-sm font-semibold text-braun-900 mb-2 tracking-tight">{feature.title}</h3>
                   <p className="text-xs text-braun-500 leading-relaxed">{feature.description}</p>
