@@ -17,7 +17,7 @@ import { Input } from '@/components/ui/Input'
  * - Section labels: 9px mono uppercase tracked — same as DS table headers
  * - Active item: left accent line (braun-orange) + text-braun-900
  *   (NOT bg-braun-900/white — that's for app shell, not document nav)
- * - Inactive: text-braun-400, hover: text-braun-900
+ * - Inactive: text-ink-muted, hover: text-braun-900
  * - Hover background: bg-braun-50 — same as DS nav hover
  * - Dividers: border-braun-100 between sections
  * - Section dot indicator: matches DS sidebar group dot pattern
@@ -57,7 +57,7 @@ export default function DocsSidebar() {
           Documentation
         </MetaLabel>
         <div className="mt-3 relative">
-          <Search size={12} className="absolute left-3 top-1/2 -translate-y-1/2 text-braun-400" />
+          <Search size={12} className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-muted" />
           <Input
             ref={searchRef}
             type="text"
@@ -69,12 +69,12 @@ export default function DocsSidebar() {
           {query ? (
             <button
               onClick={() => setQuery('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-braun-400 hover:text-braun-900"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-ink-muted hover:text-braun-900"
             >
               <X size={12} />
             </button>
           ) : (
-            <kbd className="absolute right-3 top-1/2 -translate-y-1/2 text-[8px] font-mono text-braun-400 border border-border-default px-1 py-0.5">
+            <kbd className="absolute right-3 top-1/2 -translate-y-1/2 text-[8px] font-mono text-ink-muted border border-border-default px-1 py-0.5">
               ⌘K
             </kbd>
           )}
@@ -120,7 +120,7 @@ export default function DocsSidebar() {
                         active
                           ? // Active: left accent line, dark text — document navigation pattern
                             'border-l-2 border-braun-orange pl-[calc(0.5rem-2px)] text-braun-900 font-medium bg-surface-ground'
-                          : 'border-l-2 border-transparent pl-[calc(0.5rem-2px)] text-braun-400 hover:text-braun-900 hover:bg-surface-ground'
+                          : 'border-l-2 border-transparent pl-[calc(0.5rem-2px)] text-ink-muted hover:text-braun-900 hover:bg-surface-ground'
                       )}
                     >
                       {page.title}
