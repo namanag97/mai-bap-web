@@ -14,7 +14,7 @@ export default function Pricing() {
   const annual = billing === 'Annual'
 
   return (
-    <section id="pricing" className="border-b border-braun-200 bg-braun-50">
+    <section id="pricing" className="border-b border-border-default bg-surface-ground">
       <Container className="py-24">
 
         {/* Header */}
