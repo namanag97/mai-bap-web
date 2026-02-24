@@ -26,7 +26,7 @@ export default function DocsIndexPage() {
         <MetaLabel as="div" color="dim" className="mb-4">
           Reference
         </MetaLabel>
-        <h1 className="text-2xl lg:text-3xl font-light tracking-tight text-braun-900 mb-3">
+        <h1 className="text-2xl lg:text-3xl font-light tracking-tight text-ink-primary mb-3">
           Documentation
         </h1>
         <p className="text-sm text-braun-500 font-light leading-relaxed max-w-lg">
@@ -46,7 +46,7 @@ export default function DocsIndexPage() {
               <IconBox icon={Icon} className="mb-5" />
 
               {/* Section title */}
-              <h2 className="text-sm font-semibold text-braun-900 tracking-tight mb-2">
+              <h2 className="text-sm font-semibold text-ink-primary tracking-tight mb-2">
                 {section.title}
               </h2>
 
@@ -61,7 +61,7 @@ export default function DocsIndexPage() {
                   <li key={page.slug.join('/')}>
                     <Link
                       href={`/docs/${page.slug.join('/')}`}
-                      className="text-xs text-braun-400 hover:text-braun-900 transition-colors duration-200 flex items-center gap-2"
+                      className="text-xs text-braun-400 hover:text-ink-primary transition-colors duration-200 flex items-center gap-2"
                     >
                       <span className="w-1 h-1 bg-border-default shrink-0" />
                       {page.title}
@@ -73,7 +73,7 @@ export default function DocsIndexPage() {
               {/* Section CTA */}
               <Link
                 href={href}
-                className="text-[10px] font-mono font-bold uppercase tracking-widest text-braun-500 hover:text-braun-900 transition-colors duration-200"
+                className="text-[10px] font-mono font-bold uppercase tracking-widest text-braun-500 hover:text-ink-primary transition-colors duration-200"
               >
                 Start reading &rarr;
               </Link>
@@ -89,19 +89,19 @@ export default function DocsIndexPage() {
         </MetaLabel>
         <Link
           href="/docs/quick-start"
-          className="text-[10px] font-mono uppercase tracking-widest text-braun-500 hover:text-braun-900 transition-colors"
+          className="text-[10px] font-mono uppercase tracking-widest text-braun-500 hover:text-ink-primary transition-colors"
         >
           Quick Start
         </Link>
         <Link
           href="/docs/api/rest"
-          className="text-[10px] font-mono uppercase tracking-widest text-braun-500 hover:text-braun-900 transition-colors"
+          className="text-[10px] font-mono uppercase tracking-widest text-braun-500 hover:text-ink-primary transition-colors"
         >
           REST API
         </Link>
         <Link
           href="/docs/guides/integrations"
-          className="text-[10px] font-mono uppercase tracking-widest text-braun-500 hover:text-braun-900 transition-colors"
+          className="text-[10px] font-mono uppercase tracking-widest text-braun-500 hover:text-ink-primary transition-colors"
         >
           Integrations
         </Link>
