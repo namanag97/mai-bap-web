@@ -133,7 +133,6 @@ export const siteConfig = {
 
   // ── Testimonials ───────────────────────────────────────
   testimonials: {
-    sectionIndex: '03',
     sectionLabel: 'Testimonials',
     title: 'Founders who stopped\ndoing ops manually.',
     logoStripLabel: 'Trusted by teams at',
