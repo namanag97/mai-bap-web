@@ -89,7 +89,7 @@ export default function Navbar() {
           </button>
           <Link
             href={siteConfig.ctaLinks.signIn.href}
-            className="text-[10px] font-mono uppercase tracking-widest text-braun-400 hover:text-braun-900 transition-colors duration-200"
+            className="text-[10px] font-mono uppercase tracking-widest text-ink-muted hover:text-ink-primary transition-colors duration-200"
           >
             {siteConfig.ctaLinks.signIn.label}
           </Link>
