@@ -72,7 +72,7 @@ export default function Pricing() {
                       {price}
                     </span>
                     {period && (
-                      <span className={`text-xs font-mono ${tier.featured ? 'text-braun-500' : 'text-braun-400'}`}>
+                      <span className={`text-xs font-mono ${tier.featured ? 'text-ink-muted' : 'text-ink-muted'}`}>
                         {period}
                       </span>
                     )}
