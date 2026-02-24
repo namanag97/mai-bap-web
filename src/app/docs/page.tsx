@@ -22,7 +22,7 @@ export default function DocsIndexPage() {
   return (
     <div className="px-8 lg:px-16 py-16">
       {/* Header */}
-      <div className="mb-12 pb-8 border-b border-braun-200">
+      <div className="mb-12 pb-8 border-b border-border-default">
         <MetaLabel as="div" color="dim" className="mb-4">
           Reference
         </MetaLabel>
