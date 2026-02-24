@@ -24,6 +24,67 @@
   --color-data-negative: #e11d48;
   --color-data-violet:   #7c3aed;
   --color-data-muted:    #a1a1aa;
+
+  /* ── Semantic surface tokens ────────────────────────── */
+  --color-surface-primary:   #fafafa;
+  --color-surface-secondary: #ffffff;
+  --color-surface-inverse:   #09090b;
+  --color-surface-warning:   color-mix(in srgb, #e11d48 8%, #fafafa);
+
+  /* ── Semantic text tokens ───────────────────────────── */
+  --color-text-primary:   #09090b;
+  --color-text-secondary: #52525b;
+  --color-text-muted:     #71717a;
+  --color-text-dim:       #a1a1aa;
+  --color-text-inverse:   #fafafa;
+  --color-text-accent:    #ea580c;
+
+  /* ── Semantic border tokens ─────────────────────────── */
+  --color-border-default: #e4e4e7;
+  --color-border-subtle:  #f4f4f5;
+  --color-border-strong:  #09090b;
+
+  /* ── Typography scale ───────────────────────────────── */
+  --text-display: clamp(3rem, 7vw, 6rem);
+  --text-title:   clamp(1.875rem, 3vw, 2.25rem);
+  --text-heading:  1.125rem;
+  --text-subheading: 0.9375rem;
+  --text-body:     1rem;
+  --text-body-sm:  0.875rem;
+  --text-caption:  0.75rem;
+  --text-meta:     0.625rem;
+  --text-micro:    0.5625rem;
+  --text-code:     0.8125rem;
+
+  /* ── Line heights ───────────────────────────────────── */
+  --leading-display: 0.92;
+  --leading-tight:   1.1;
+  --leading-snug:    1.4;
+  --leading-body:    1.75;
+  --leading-relaxed: 1.7;
+
+  /* ── Letter spacing ─────────────────────────────────── */
+  --tracking-tight:  -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.05em;
+  --tracking-widest: 0.1em;
+  --tracking-logo:   0.2em;
+
+  /* ── Spacing scale ──────────────────────────────────── */
+  --space-section:   6rem;
+  --space-section-lg: 8rem;
+  --space-block:     3rem;
+  --space-element:   1.5rem;
+  --space-inline:    0.75rem;
+  --space-gutter:    1.5rem;
+
+  /* ── Transitions ────────────────────────────────────── */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring:  cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+  --duration-enter: 500ms;
 }
 
 /* ── Reset ─────────────────────────────────────────────── */
