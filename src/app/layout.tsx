@@ -66,7 +66,7 @@ export default function RootLayout({
       <head>
         <ThemeScript />
       </head>
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} ${GeistSans.variable} ${GeistMono.variable} font-sans antialiased`}>
         <ThemeProvider>
           <Navbar />
           <main>{children}</main>
