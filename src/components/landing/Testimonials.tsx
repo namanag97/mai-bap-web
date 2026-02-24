@@ -9,7 +9,7 @@ export default function Testimonials() {
   const [titleLine1, titleLine2] = title.split('\n')
 
   return (
-    <section className="border-b border-braun-200 bg-braun-50">
+    <section className="border-b border-border-default bg-surface-ground">
       <Container className="py-24">
 
         {/* Logo strip */}
