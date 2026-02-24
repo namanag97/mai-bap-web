@@ -69,7 +69,7 @@ export default function PostCard({ post, featured = false }: Props) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group flex flex-col bg-white border border-braun-200 hover:border-braun-900 transition-colors duration-300 hover-lift"
+      className="group flex flex-col bg-surface-raised border border-border-default hover:border-braun-900 transition-colors duration-300 hover-lift"
     >
       <div className="p-6 flex flex-col flex-1">
         <Badge variant={variant} className="mb-4 self-start">
