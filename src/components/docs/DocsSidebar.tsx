@@ -119,7 +119,7 @@ export default function DocsSidebar() {
                         'group flex items-center gap-2.5 px-2 py-1.5 text-xs transition-colors duration-150',
                         active
                           ? // Active: left accent line, dark text — document navigation pattern
-                            'border-l-2 border-braun-orange pl-[calc(0.5rem-2px)] text-braun-900 font-medium bg-surface-ground'
+                            'border-l-2 border-ink-accent pl-[calc(0.5rem-2px)] text-braun-900 font-medium bg-surface-ground'
                           : 'border-l-2 border-transparent pl-[calc(0.5rem-2px)] text-ink-muted hover:text-ink-primary hover:bg-surface-ground'
                       )}
                     >
