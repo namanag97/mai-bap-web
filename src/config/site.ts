@@ -279,7 +279,7 @@ export const siteConfig = {
 
   // ── CTA ────────────────────────────────────────────────
   cta: {
-    sectionLabel: '06 — Get started',
+    sectionLabel: 'Get started',
     title: ['Stop managing.', 'Start building.'],
     titleAccent: 'Let mai-bap handle it.',
     subtitle:
