@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Clock } from 'lucide-react'
 import { posts, getPost, formatDate } from '@/content/blog'
-import { Badge, ProseRenderer, Container, SectionTitle, MetaLabel } from '@/components/ui'
+import { Badge, ProseRenderer, Container, MetaLabel } from '@/components/ui'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -38,77 +38,88 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <div className="bg-surface-ground min-h-screen pt-14">
 
-      {/* Article header — white panel, matches landing page section headers */}
-      <header className="border-b border-border-default bg-surface-ground">
-        <Container maxWidth="3xl" className="py-14">
-
-          {/* Back link */}
+      {/* ── Breadcrumb nav ─────────────────────────────────────── */}
+      <div className="border-b border-border-subtle bg-surface-ground">
+        <Container maxWidth="2xl" className="py-4 flex items-center justify-between">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-ink-muted hover:text-ink-primary transition-colors mb-10"
+            className="inline-flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-ink-muted hover:text-ink-primary transition-colors duration-200"
           >
-            <ArrowLeft size={10} /> Journal
+            <ArrowLeft size={9} />
+            Journal
           </Link>
+          <Badge variant={badgeVariant}>{post.category}</Badge>
+        </Container>
+      </div>
 
-          {/* Category badge — using Badge component */}
-          <div className="mb-5">
-            <Badge variant={badgeVariant}>{post.category}</Badge>
-          </div>
+      {/* ── Article header ─────────────────────────────────────── */}
+      <header className="section">
+        <Container maxWidth="2xl" className="pt-16 pb-12">
 
-          {/* Title — same font-light rule as every h1 in the project */}
-          <SectionTitle as="h1" className="mb-5">
+          {/* Title */}
+          <h1 className="article-title mb-7 max-w-xl">
             {post.title}
-          </SectionTitle>
+          </h1>
 
-          {/* Excerpt */}
-          <p className="text-base text-ink-secondary font-light leading-relaxed max-w-xl mb-10">
+          {/* Excerpt / deck */}
+          <p className="article-deck max-w-lg mb-12">
             {post.excerpt}
           </p>
 
-          {/* Author + meta — DS separator pattern */}
-          <div className="flex items-center justify-between pt-6 border-t border-border-subtle">
+          {/* Author + meta row */}
+          <div className="flex items-center justify-between pt-7 border-t border-border-default">
             <div className="flex items-center gap-3">
-              {/* Initial avatar — DS avatar pattern */}
-              <div className="w-8 h-8 bg-surface-inverse text-ink-inverse flex items-center justify-center text-xs font-mono font-bold shrink-0">
+              {/* Initial avatar */}
+              <div className="w-9 h-9 bg-surface-inverse text-ink-inverse flex items-center justify-center font-mono font-bold text-xs shrink-0 select-none">
                 {post.author.name.charAt(0)}
               </div>
               <div>
-                <div className="text-xs font-semibold text-ink-primary">{post.author.name}</div>
+                <div className="text-sm font-medium text-ink-primary leading-none mb-1">
+                  {post.author.name}
+                </div>
                 <MetaLabel as="div" size="xxs" color="dim">
                   {post.author.role}
                 </MetaLabel>
               </div>
             </div>
-            <div className="text-right">
+
+            <div className="text-right space-y-1">
               <div className="text-xs text-ink-muted">{formatDate(post.date)}</div>
-              <MetaLabel as="div" size="xxs">
-                {post.readTime} min read
-              </MetaLabel>
+              <div className="flex items-center justify-end gap-1.5">
+                <Clock size={9} className="text-ink-dim" />
+                <MetaLabel as="span" size="xxs" color="dim">
+                  {post.readTime} min read
+                </MetaLabel>
+              </div>
             </div>
           </div>
         </Container>
       </header>
 
-      {/* Article body — white card, controlled reading width */}
-      <Container maxWidth="3xl" className="py-12">
-        <div className="card px-8 md:px-14 py-12">
-          {/* ProseRenderer — same component as docs. One shared content renderer. */}
-          <ProseRenderer blocks={post.content} />
-        </div>
+      {/* ── Article body — text directly on warm ground ─────────── */}
+      <Container maxWidth="2xl" as="article" className="py-14">
+        <ProseRenderer blocks={post.content} />
+      </Container>
 
-        {/* Footer */}
-        <div className="mt-8 pt-6 border-t border-border-default flex items-center justify-between">
+      {/* ── Article footer ──────────────────────────────────────── */}
+      <div className="border-t border-border-default bg-surface-ground">
+        <Container maxWidth="2xl" className="py-8 flex items-center justify-between">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-ink-muted hover:text-ink-primary transition-colors"
+            className="inline-flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-ink-muted hover:text-ink-primary transition-colors duration-200"
           >
-            <ArrowLeft size={10} /> All posts
+            <ArrowLeft size={9} />
+            All posts
           </Link>
-          <MetaLabel size="xxs" color="dim">
-            mai-bap Journal
-          </MetaLabel>
-        </div>
-      </Container>
+          <div className="flex items-center gap-4">
+            <MetaLabel size="xxs" color="dim">
+              mai-bap Journal
+            </MetaLabel>
+            <ArrowRight size={10} className="text-ink-dim" />
+          </div>
+        </Container>
+      </div>
+
     </div>
   )
 }
