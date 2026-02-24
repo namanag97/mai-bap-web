@@ -22,7 +22,7 @@ export default function CTA() {
           {/* Left: headline */}
           <FadeIn delay={100}>
             <div>
-              <h2 className="text-4xl lg:text-5xl xl:text-6xl font-light tracking-tight text-white leading-[0.95] mb-6">
+              <h2 className="text-4xl lg:text-5xl xl:text-6xl font-light tracking-tight text-ink-inverse leading-[0.95] mb-6">
                 {title.map((line, i) => (
                   <span key={i}>{line}{i < title.length - 1 && <br />}</span>
                 ))}
