@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Premium Diagram Styles — mai-bap</title>
+  <script src="https://unpkg.com/roughjs@4.6.6/bundled/rough.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #f5f3ef;
+      color: #1a1918;
+      padding: 3rem 2rem;
+    }
+
+    h1 {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: #8a8580;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a1918;
+      letter-spacing: -.01em;
+      margin-bottom: 0.25rem;
+    }
+    p.sub {
+      font-size: 11px;
+      color: #8a8580;
+      margin-bottom: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(26,25,24,.1);
+      border: 1px solid rgba(26,25,24,.1);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 4rem;
+    }
+    .pane {
+      background: #faf9f7;
+      padding: 2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .pane-label {
+      font-family: 'Courier New', monospace;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: #b5b0aa;
+      margin-bottom: 1.25rem;
+    }
+    .pane svg { display: block; }
+
+    /* ── STYLE 1: Engineering Blueprint ── */
+    .blueprint { background: #0f1923; }
+    .blueprint .pane-label { color: rgba(180,210,255,.35); }
+    .blueprint svg text { fill: rgba(180,210,255,.8); }
+
+    /* ── STYLE 3: Warm editorial ── */
+  </style>
+</head>
+<body>
+
+<h1>mai-bap / diagram rendering test</h1>
+<br>
+
+<!-- ══════════════════════════════════════════════════════════
+     CHART: TCO vs Complexity
+     ══════════════════════════════════════════════════════════ -->
+
+<h2>TCO ($) vs Complexity — rendered four ways</h2>
+<p class="sub">Same data. Deciding which rendering style fits the brand.</p>
+
+<div class="grid">
+
+  <!-- STYLE 1 — Clean Editorial (FT / Bloomberg) -->
+  <div class="pane">
+    <div class="pane-label">Style 1 — Clean editorial (FT / Bloomberg)</div>
+    <svg id="chart-clean" viewBox="0 0 560 380" width="560" height="380"></svg>
+  </div>
+
+  <!-- STYLE 2 — Rough / Hand-drafted (Excalidraw precision) -->
+  <div class="pane">
+    <div class="pane-label">Style 2 — Hand-drafted precision (Rough.js)</div>
+    <canvas id="chart-rough" width="560" height="380" style="max-width:100%;"></canvas>
+  </div>
+
+  <!-- STYLE 3 — Blueprint / Engineering schematic -->
+  <div class="pane blueprint">
+    <div class="pane-label">Style 3 — Engineering blueprint</div>
+    <svg id="chart-blueprint" viewBox="0 0 560 380" width="560" height="380"></svg>
+  </div>
+
+  <!-- STYLE 4 — Minimal / Instrument (Bauhaus) -->
+  <div class="pane">
+    <div class="pane-label">Style 4 — Minimal Bauhaus instrument</div>
+    <svg id="chart-bauhaus" viewBox="0 0 560 380" width="560" height="380"></svg>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     BOX: Delta NBV Formula
+     ══════════════════════════════════════════════════════════ -->
+
+<h2>Delta NBV formula — rendered two ways</h2>
+<p class="sub">Mathematical notation that feels designed, not typed.</p>
+
+<div class="grid">
+  <div class="pane">
+    <div class="pane-label">Style 1 — Clean editorial formula box</div>
+    <svg id="formula-clean" viewBox="0 0 560 260" width="560" height="260"></svg>
+  </div>
+  <div class="pane">
+    <div class="pane-label">Style 2 — Hand-drafted formula box</div>
+    <canvas id="formula-rough" width="560" height="260" style="max-width:100%;"></canvas>
+  </div>
+</div>
+
+
+<script>
+// ─────────────────────────────────────────────────────────
+// SHARED DATA
+// ─────────────────────────────────────────────────────────
+const W = 560, H = 380
+const M = { top: 48, right: 80, bottom: 64, left: 64 }
+const PW = W - M.left - M.right   // 416
+const PH = H - M.top - M.bottom   // 268
+
+const N = 120
+const xMax = 10
+
+// BI: exponential cost curve
+// PM: linear cost (flat premium + slight slope)
+function biCost(x) { return 0.06 * Math.exp(0.42 * x) }
+function pmCost(x) { return 0.22 + 0.025 * x }
+
+// Crossover: solve biCost(x) = pmCost(x) numerically
+let crossX = 0
+for (let x = 0; x <= xMax; x += 0.01) {
+  if (biCost(x) >= pmCost(x)) { crossX = x; break }
+}
+const crossY = pmCost(crossX)
+const yMax = biCost(xMax) * 1.05
+
+// Map data → SVG pixel coordinates
+function px(x) { return M.left + (x / xMax) * PW }
+function py(y) { return M.top + PH - (y / yMax) * PH }
+
+// Generate SVG path data for a function
+function pathD(fn) {
+  let d = ''
+  for (let i = 0; i <= N; i++) {
+    const x = (i / N) * xMax
+    const y = fn(x)
+    if (y > yMax * 1.1) break
+    d += (i === 0 ? 'M' : 'L') + `${px(x).toFixed(1)},${py(y).toFixed(1)} `
+  }
+  return d
+}
+
+// Generate array of [px, py] points
+function points(fn) {
+  const pts = []
+  for (let i = 0; i <= N; i++) {
+    const x = (i / N) * xMax
+    const y = fn(x)
+    if (y > yMax * 1.1) break
+    pts.push([px(x), py(y)])
+  }
+  return pts
+}
+
+// ─────────────────────────────────────────────────────────
+// SVG helpers
+// ─────────────────────────────────────────────────────────
+function svgEl(tag, attrs, text) {
+  const ns = 'http://www.w3.org/2000/svg'
+  const el = document.createElementNS(ns, tag)
+  for (const [k, v] of Object.entries(attrs || {})) el.setAttribute(k, v)
+  if (text) el.textContent = text
+  return el
+}
+
+function addDefs(svg, id, color) {
+  const defs = svgEl('defs')
+  const marker = svgEl('marker', {
+    id, markerWidth: '8', markerHeight: '8',
+    refX: '6', refY: '3', orient: 'auto'
+  })
+  const poly = svgEl('polygon', {
+    points: '0 0, 7 3, 0 6',
+    fill: color
+  })
+  marker.appendChild(poly)
+  defs.appendChild(marker)
+  svg.appendChild(defs)
+}
+
+// ─────────────────────────────────────────────────────────
+// STYLE 1 — Clean Editorial
+// ─────────────────────────────────────────────────────────
+;(function buildClean() {
+  const svg = document.getElementById('chart-clean')
+  const ink = '#1a1918'
+  const muted = '#8a8580'
+  const dim = '#c5c0ba'
+  const accent = '#c2571a'
+  const biColor = '#1a1918'
+  const pmColor = '#c2571a'
+
+  addDefs(svg, 'arr-bi', biColor)
+  addDefs(svg, 'arr-pm', pmColor)
+  addDefs(svg, 'arr-cross', accent)
+
+  // Grid lines (faint)
+  for (let i = 1; i <= 4; i++) {
+    const y = M.top + (i / 4) * PH
+    svg.appendChild(svgEl('line', {
+      x1: M.left, y1: y, x2: M.left + PW, y2: y,
+      stroke: dim, 'stroke-width': '.5', 'stroke-dasharray': '3 4'
+    }))
+  }
+
+  // Axes
+  svg.appendChild(svgEl('line', {
+    x1: M.left, y1: M.top, x2: M.left, y2: M.top + PH + 12,
+    stroke: ink, 'stroke-width': '1.5', 'marker-end': 'url(#arr-bi)'
+  }))
+  svg.appendChild(svgEl('line', {
+    x1: M.left - 12, y1: M.top + PH, x2: M.left + PW + 16, y2: M.top + PH,
+    stroke: ink, 'stroke-width': '1.5', 'marker-end': 'url(#arr-pm)'
+  }))
+
+  // Axis labels
+  svg.appendChild(svgEl('text', {
+    x: M.left - 12, y: M.top - 12,
+    'font-family': 'monospace', 'font-size': '11',
+    fill: muted, 'text-anchor': 'middle'
+  }, 'TCO ($)'))
+  svg.appendChild(svgEl('text', {
+    x: M.left + PW + 20, y: M.top + PH + 4,
+    'font-family': 'monospace', 'font-size': '11',
+    fill: muted, 'text-anchor': 'start'
+  }, 'Complexity'))
+  svg.appendChild(svgEl('text', {
+    x: M.left + PW - 10, y: M.top + PH + 24,
+    'font-family': 'monospace', 'font-size': '10',
+    fill: dim, 'text-anchor': 'end'
+  }, '(S, V, Q) →'))
+
+  // BI curve
+  svg.appendChild(svgEl('path', {
+    d: pathD(biCost),
+    fill: 'none', stroke: biColor, 'stroke-width': '2',
+    'stroke-linecap': 'round', 'stroke-linejoin': 'round'
+  }))
+
+  // PM line (area fill under PM line, very faint)
+  const pmPts = points(pmCost)
+  const areaD = `M${px(0)},${py(0)} ` +
+    pmPts.map(([x,y]) => `L${x},${y}`).join(' ') +
+    ` L${px(xMax)},${py(0)} Z`
+  svg.appendChild(svgEl('path', {
+    d: areaD, fill: pmColor, opacity: '.06'
+  }))
+  svg.appendChild(svgEl('path', {
+    d: pathD(pmCost),
+    fill: 'none', stroke: pmColor, 'stroke-width': '2',
+    'stroke-dasharray': '6 3',
+    'stroke-linecap': 'round'
+  }))
+
+  // Crossover vertical drop
+  svg.appendChild(svgEl('line', {
+    x1: px(crossX), y1: py(crossY),
+    x2: px(crossX), y2: M.top + PH,
+    stroke: accent, 'stroke-width': '1', 'stroke-dasharray': '3 3'
+  }))
+  svg.appendChild(svgEl('circle', {
+    cx: px(crossX), cy: py(crossY), r: '5',
+    fill: '#faf9f7', stroke: accent, 'stroke-width': '2'
+  }))
+
+  // Labels — BI
+  svg.appendChild(svgEl('text', {
+    x: px(8.5), y: py(biCost(8.5)) - 10,
+    'font-family': 'monospace', 'font-size': '10',
+    fill: biColor, 'text-anchor': 'middle', 'font-weight': '600'
+  }, 'BI COST'))
+  svg.appendChild(svgEl('text', {
+    x: px(8.5), y: py(biCost(8.5)) + 4,
+    'font-family': 'monospace', 'font-size': '9',
+    fill: muted, 'text-anchor': 'middle'
+  }, '(exponential)'))
+
+  // Labels — PM
+  svg.appendChild(svgEl('text', {
+    x: px(9), y: py(pmCost(9)) - 10,
+    'font-family': 'monospace', 'font-size': '10',
+    fill: pmColor, 'text-anchor': 'middle', 'font-weight': '600'
+  }, 'PM COST'))
+  svg.appendChild(svgEl('text', {
+    x: px(9), y: py(pmCost(9)) + 4,
+    'font-family': 'monospace', 'font-size': '9',
+    fill: muted, 'text-anchor': 'middle'
+  }, '(linear)'))
+
+  // Crossover annotation
+  svg.appendChild(svgEl('text', {
+    x: px(crossX) + 8, y: py(crossY) - 14,
+    'font-family': 'monospace', 'font-size': '9',
+    fill: accent, 'font-weight': '700'
+  }, 'CROSSOVER'))
+  svg.appendChild(svgEl('text', {
+    x: px(crossX) + 8, y: py(crossY),
+    'font-family': 'monospace', 'font-size': '9',
+    fill: muted
+  }, 'PM cheaper here →'))
+
+  // Origin
+  svg.appendChild(svgEl('text', {
+    x: M.left - 8, y: M.top + PH + 18,
+    'font-family': 'monospace', 'font-size': '10',
+    fill: dim, 'text-anchor': 'middle'
+  }, '0'))
+
+})()
+
+// ─────────────────────────────────────────────────────────
+// STYLE 2 — Rough / Hand-drafted
+// ─────────────────────────────────────────────────────────
+;(function buildRough() {
+  const canvas = document.getElementById('chart-rough')
+  const ctx = canvas.getContext('2d')
+  const rc = rough.canvas(canvas)
+
+  const ink = '#1a1918'
+  const muted = '#8a8580'
+  const dim = '#c5c0ba'
+  const accent = '#c2571a'
+
+  ctx.clearRect(0, 0, W, H)
+
+  // Grid
+  for (let i = 1; i <= 4; i++) {
+    const y = M.top + (i / 4) * PH
+    rc.line(M.left, y, M.left + PW, y, {
+      stroke: dim, strokeWidth: 0.6,
+      roughness: 0.3, lineDash: [4, 6]
+    })
+  }
+
+  // Axes
+  rc.line(M.left, M.top - 10, M.left, M.top + PH + 8, {
+    stroke: ink, strokeWidth: 1.8, roughness: 0.5
+  })
+  rc.line(M.left - 8, M.top + PH, M.left + PW + 12, M.top + PH, {
+    stroke: ink, strokeWidth: 1.8, roughness: 0.5
+  })
+
+  // Arrow heads (manual)
+  ctx.fillStyle = ink
+  ctx.beginPath()
+  ctx.moveTo(M.left, M.top - 14)
+  ctx.lineTo(M.left - 5, M.top - 4)
+  ctx.lineTo(M.left + 5, M.top - 4)
+  ctx.closePath(); ctx.fill()
+  ctx.beginPath()
+  ctx.moveTo(M.left + PW + 16, M.top + PH)
+  ctx.lineTo(M.left + PW + 6, M.top + PH - 5)
+  ctx.lineTo(M.left + PW + 6, M.top + PH + 5)
+  ctx.closePath(); ctx.fill()
+
+  // BI curve — rough polyline
+  const biPts = points(biCost).filter(([,y]) => y > M.top - 10)
+  rc.linearPath(biPts, {
+    stroke: ink, strokeWidth: 2.2, roughness: 0.8,
+    disableMultiStroke: false
+  })
+
+  // PM line — rough dashed
+  const pmPts = points(pmCost)
+  rc.linearPath(pmPts, {
+    stroke: accent, strokeWidth: 2, roughness: 0.6,
+    lineDash: [8, 5]
+  })
+
+  // Crossover circle
+  rc.circle(px(crossX), py(crossY), 12, {
+    stroke: accent, strokeWidth: 1.8, roughness: 1.2,
+    fill: '#faf9f7', fillStyle: 'solid'
+  })
+
+  // Crossover drop line
+  rc.line(px(crossX), py(crossY) + 6, px(crossX), M.top + PH, {
+    stroke: accent, strokeWidth: 1, roughness: 0.4, lineDash: [4, 4]
+  })
+
+  // Labels
+  ctx.font = '600 10px monospace'
+  ctx.fillStyle = ink
+  ctx.fillText('BI COST', px(7.5) - 24, py(biCost(7.5)) - 10)
+  ctx.font = '10px monospace'
+  ctx.fillStyle = muted
+  ctx.fillText('(exponential)', px(7.5) - 38, py(biCost(7.5)) + 4)
+
+  ctx.font = '600 10px monospace'
+  ctx.fillStyle = accent
+  ctx.fillText('PM COST', px(8.5) - 26, py(pmCost(8.5)) - 10)
+  ctx.font = '10px monospace'
+  ctx.fillStyle = muted
+  ctx.fillText('(linear)', px(8.5) - 20, py(pmCost(8.5)) + 4)
+
+  ctx.font = '700 9px monospace'
+  ctx.fillStyle = accent
+  ctx.fillText('CROSSOVER', px(crossX) + 10, py(crossY) - 8)
+  ctx.font = '9px monospace'
+  ctx.fillStyle = muted
+  ctx.fillText('PM cheaper →', px(crossX) + 10, py(crossY) + 6)
+
+  ctx.font = '11px monospace'
+  ctx.fillStyle = muted
+  ctx.fillText('TCO ($)', M.left - 10, M.top - 18)
+  ctx.fillText('Complexity (S, V, Q) →', M.left + PW - 40, M.top + PH + 28)
+
+})()
+
+// ─────────────────────────────────────────────────────────
+// STYLE 3 — Engineering Blueprint
+// ─────────────────────────────────────────────────────────
+;(function buildBlueprint() {
+  const svg = document.getElementById('chart-blueprint')
+  svg.style.background = '#0f1923'
+
+  const ink = 'rgba(180,210,255,0.9)'
+  const grid = 'rgba(100,140,200,0.15)'
+  const muted = 'rgba(140,175,220,0.55)'
+  const accent = '#4FC3F7'
+  const pmColor = '#80CBC4'
+
+  // Grid — dense blueprint crosshatch
+  for (let i = 0; i <= 10; i++) {
+    const x = M.left + (i / 10) * PW
+    svg.appendChild(svgEl('line', {
+      x1: x, y1: M.top, x2: x, y2: M.top + PH,
+      stroke: grid, 'stroke-width': '.5'
+    }))
+  }
+  for (let i = 0; i <= 8; i++) {
+    const y = M.top + (i / 8) * PH
+    svg.appendChild(svgEl('line', {
+      x1: M.left, y1: y, x2: M.left + PW, y2: y,
+      stroke: grid, 'stroke-width': '.5'
+    }))
+  }
+
+  // Tick marks on axes
+  for (let i = 1; i <= 10; i++) {
+    const x = M.left + (i / 10) * PW
+    svg.appendChild(svgEl('line', {
+      x1: x, y1: M.top + PH - 4, x2: x, y2: M.top + PH + 4,
+      stroke: muted, 'stroke-width': '1'
+    }))
+  }
+
+  // Axes with proper engineering terminations
+  svg.appendChild(svgEl('line', {
+    x1: M.left, y1: M.top - 8, x2: M.left, y2: M.top + PH,
+    stroke: ink, 'stroke-width': '1.5'
+  }))
+  svg.appendChild(svgEl('line', {
+    x1: M.left, y1: M.top + PH, x2: M.left + PW + 8, y2: M.top + PH,
+    stroke: ink, 'stroke-width': '1.5'
+  }))
+
+  // Arrow terminators
+  svg.appendChild(svgEl('polygon', {
+    points: `${M.left},${M.top-14} ${M.left-4},${M.top-4} ${M.left+4},${M.top-4}`,
+    fill: ink
+  }))
+  svg.appendChild(svgEl('polygon', {
+    points: `${M.left+PW+14},${M.top+PH} ${M.left+PW+4},${M.top+PH-4} ${M.left+PW+4},${M.top+PH+4}`,
+    fill: ink
+  }))
+
+  // BI curve
+  svg.appendChild(svgEl('path', {
+    d: pathD(biCost),
+    fill: 'none', stroke: 'rgba(180,210,255,0.7)', 'stroke-width': '1.5',
+    'stroke-linecap': 'round'
+  }))
+  // BI glow
+  svg.appendChild(svgEl('path', {
+    d: pathD(biCost),
+    fill: 'none', stroke: 'rgba(180,210,255,0.2)', 'stroke-width': '5',
+    'stroke-linecap': 'round'
+  }))
+
+  // PM line
+  svg.appendChild(svgEl('path', {
+    d: pathD(pmCost),
+    fill: 'none', stroke: pmColor, 'stroke-width': '1.5',
+    'stroke-dasharray': '8 4', 'stroke-linecap': 'round'
+  }))
+  // PM glow
+  svg.appendChild(svgEl('path', {
+    d: pathD(pmCost),
+    fill: 'none', stroke: 'rgba(128,203,196,0.18)', 'stroke-width': '5',
+  }))
+
+  // Crossover
+  svg.appendChild(svgEl('line', {
+    x1: px(crossX), y1: py(crossY),
+    x2: px(crossX), y2: M.top + PH,
+    stroke: accent, 'stroke-width': '.8', 'stroke-dasharray': '3 3'
+  }))
+  svg.appendChild(svgEl('circle', {
+    cx: px(crossX), cy: py(crossY), r: '5',
+    fill: '#0f1923', stroke: accent, 'stroke-width': '1.5'
+  }))
+  svg.appendChild(svgEl('circle', {
+    cx: px(crossX), cy: py(crossY), r: '2',
+    fill: accent
+  }))
+
+  // Labels
+  function bpText(x, y, str, opts = {}) {
+    svg.appendChild(svgEl('text', {
+      x, y, 'font-family': 'monospace',
+      'font-size': opts.size || '10',
+      fill: opts.fill || muted,
+      'text-anchor': opts.anchor || 'start',
+      'font-weight': opts.bold ? '700' : 'normal',
+      ...opts.extra
+    }, str))
+  }
+
+  bpText(px(8.2), py(biCost(8.2)) - 12, 'BI COST', { fill: 'rgba(180,210,255,0.85)', bold: true })
+  bpText(px(8.2), py(biCost(8.2)) + 2, '(exponential growth)')
+
+  bpText(px(8.8), py(pmCost(8.8)) - 12, 'PM COST', { fill: pmColor, bold: true })
+  bpText(px(8.8), py(pmCost(8.8)) + 2, '(linear scaling)')
+
+  bpText(px(crossX) + 8, py(crossY) - 10, 'CROSSOVER', { fill: accent, bold: true, size: '9' })
+
+  bpText(M.left - 8, M.top - 18, 'TCO ($)', { fill: ink, anchor: 'middle' })
+  bpText(M.left + PW - 20, M.top + PH + 26, 'COMPLEXITY (S, V, Q)', { fill: muted, size: '9' })
+
+  // Dimension tick — crossover X
+  bpText(px(crossX), M.top + PH + 16, '▲', { fill: accent, size: '9', anchor: 'middle' })
+
+})()
+
+// ─────────────────────────────────────────────────────────
+// STYLE 4 — Minimal Bauhaus
+// ─────────────────────────────────────────────────────────
+;(function buildBauhaus() {
+  const svg = document.getElementById('chart-bauhaus')
+  const ink = '#1a1918'
+  const muted = '#8a8580'
+  const dim = '#c5c0ba'
+  const accent = '#c2571a'
+
+  // No grid. Pure signal.
+
+  // Heavy axis rule — just two lines, thick
+  svg.appendChild(svgEl('line', {
+    x1: M.left, y1: M.top - 4, x2: M.left, y2: M.top + PH,
+    stroke: ink, 'stroke-width': '2.5'
+  }))
+  svg.appendChild(svgEl('line', {
+    x1: M.left, y1: M.top + PH, x2: M.left + PW, y2: M.top + PH,
+    stroke: ink, 'stroke-width': '2.5'
+  }))
+
+  // BI curve — ultra-clean, heavy
+  svg.appendChild(svgEl('path', {
+    d: pathD(biCost),
+    fill: 'none', stroke: ink, 'stroke-width': '3',
+    'stroke-linecap': 'square', 'stroke-linejoin': 'miter'
+  }))
+
+  // PM line — accent, equal weight
+  svg.appendChild(svgEl('path', {
+    d: pathD(pmCost),
+    fill: 'none', stroke: accent, 'stroke-width': '3',
+    'stroke-linecap': 'square'
+  }))
+
+  // Crossover — thick vertical drop, no decoration
+  svg.appendChild(svgEl('line', {
+    x1: px(crossX), y1: py(crossY),
+    x2: px(crossX), y2: M.top + PH,
+    stroke: accent, 'stroke-width': '1.5'
+  }))
+
+  // Crossover dot — large, filled
+  svg.appendChild(svgEl('circle', {
+    cx: px(crossX), cy: py(crossY), r: '7',
+    fill: accent
+  }))
+
+  // Labels — brutally minimal, uppercase
+  function bText(x, y, str, opts = {}) {
+    svg.appendChild(svgEl('text', {
+      x, y,
+      'font-family': 'monospace',
+      'font-size': opts.size || '11',
+      fill: opts.fill || muted,
+      'text-anchor': opts.anchor || 'start',
+      'font-weight': opts.bold ? '700' : 'normal',
+      'letter-spacing': '0.06em'
+    }, str))
+  }
+
+  bText(M.left - 8, M.top - 14, 'TCO', { fill: ink, bold: true, size: '12', anchor: 'middle' })
+  bText(M.left + PW - 4, M.top + PH + 20, 'COMPLEXITY', { fill: ink, bold: true, size: '11', anchor: 'end' })
+
+  bText(px(7.5) - 30, py(biCost(7.5)) - 14, 'BI', { fill: ink, bold: true, size: '13' })
+  bText(px(8.5) - 12, py(pmCost(8.5)) + 20, 'PM', { fill: accent, bold: true, size: '13' })
+
+  // Crossover label — single line, no fluff
+  bText(px(crossX) + 12, py(crossY) + 4, '← INFLECTION', { fill: accent, size: '10', bold: true })
+
+  // Axis end ticks (Bauhaus notation)
+  svg.appendChild(svgEl('line', {
+    x1: M.left - 6, y1: M.top + PH,
+    x2: M.left + 6, y2: M.top + PH,
+    stroke: ink, 'stroke-width': '2.5'
+  }))
+  svg.appendChild(svgEl('line', {
+    x1: M.left, y1: M.top - 4,
+    x2: M.left, y2: M.top + 8,
+    stroke: ink, 'stroke-width': '2.5'
+  }))
+
+  // Y axis label — rotated
+  const t = svgEl('text', {
+    'font-family': 'monospace', 'font-size': '10',
+    fill: muted, 'text-anchor': 'middle', 'letter-spacing': '0.08em',
+    transform: `rotate(-90, ${M.left - 36}, ${M.top + PH/2})`
+  }, 'TOTAL COST OF OWNERSHIP')
+  t.setAttribute('x', M.left - 36)
+  t.setAttribute('y', M.top + PH/2)
+  svg.appendChild(t)
+
+})()
+
+// ─────────────────────────────────────────────────────────
+// FORMULA BOX — Clean
+// ─────────────────────────────────────────────────────────
+;(function buildFormulaClean() {
+  const svg = document.getElementById('formula-clean')
+  const ink = '#1a1918'
+  const muted = '#8a8580'
+  const dim = '#c5c0ba'
+  const accent = '#c2571a'
+  const W2 = 560, H2 = 260
+
+  // Outer box
+  svg.appendChild(svgEl('rect', {
+    x: 32, y: 24, width: 496, height: 212,
+    fill: '#faf9f7', stroke: ink, 'stroke-width': '1.5',
+    rx: '4'
+  }))
+
+  // Top label bar
+  svg.appendChild(svgEl('rect', {
+    x: 32, y: 24, width: 496, height: 28,
+    fill: ink, rx: '4'
+  }))
+  svg.appendChild(svgEl('rect', {
+    x: 32, y: 44, width: 496, height: 8,
+    fill: ink
+  }))
+  svg.appendChild(svgEl('text', {
+    x: 48, y: 43,
+    'font-family': 'monospace', 'font-size': '11',
+    fill: '#faf9f7', 'font-weight': '700', 'letter-spacing': '0.08em'
+  }, 'Δ NBV — BUSINESS VALUE CALCULATION'))
+
+  // Main formula
+  svg.appendChild(svgEl('text', {
+    x: 48, y: 90,
+    'font-family': 'monospace', 'font-size': '15',
+    fill: ink, 'font-weight': '700'
+  }, 'Δ NBV  =  NBV'))
+  svg.appendChild(svgEl('text', {
+    x: 218, y: 97,
+    'font-family': 'monospace', 'font-size': '10',
+    fill: muted
+  }, 'PM'))
+  svg.appendChild(svgEl('text', {
+    x: 242, y: 90,
+    'font-family': 'monospace', 'font-size': '15',
+    fill: ink
+  }, '−  NBV'))
+  svg.appendChild(svgEl('text', {
+    x: 318, y: 97,
+    'font-family': 'monospace', 'font-size': '10',
+    fill: muted
+  }, 'BI'))
+
+  // Expanded formula
+  svg.appendChild(svgEl('text', {
+    x: 48, y: 130,
+    'font-family': 'monospace', 'font-size': '13',
+    fill: ink
+  }, '= L × [ (D'))
+  svg.appendChild(svgEl('text', {
+    x: 146, y: 137,
+    'font-family': 'monospace', 'font-size': '10', fill: muted
+  }, 'PM'))
+  svg.appendChild(svgEl('text', {
+    x: 170, y: 130,
+    'font-family': 'monospace', 'font-size': '13', fill: ink
+  }, '× A'))
+  svg.appendChild(svgEl('text', {
+    x: 202, y: 137,
+    'font-family': 'monospace', 'font-size': '10', fill: muted
+  }, 'PM'))
+  svg.appendChild(svgEl('text', {
+    x: 224, y: 130,
+    'font-family': 'monospace', 'font-size': '13', fill: ink
+  }, ') − (D'))
+  svg.appendChild(svgEl('text', {
+    x: 294, y: 137,
+    'font-family': 'monospace', 'font-size': '10', fill: muted
+  }, 'BI'))
+  svg.appendChild(svgEl('text', {
+    x: 314, y: 130,
+    'font-family': 'monospace', 'font-size': '13', fill: ink
+  }, '× A'))
+  svg.appendChild(svgEl('text', {
+    x: 344, y: 137,
+    'font-family': 'monospace', 'font-size': '10', fill: muted
+  }, 'BI'))
+  svg.appendChild(svgEl('text', {
+    x: 366, y: 130,
+    'font-family': 'monospace', 'font-size': '13', fill: ink
+  }, ') ]  −  [ TCO'))
+  svg.appendChild(svgEl('text', {
+    x: 494, y: 137,
+    'font-family': 'monospace', 'font-size': '10', fill: muted
+  }, 'PM'))
+
+  // Under-brace regions
+  // Left bracket annotation
+  svg.appendChild(svgEl('line', {
+    x1: 48, y1: 148, x2: 390, y2: 148,
+    stroke: '#c5c0ba', 'stroke-width': '1'
+  }))
+  svg.appendChild(svgEl('line', {
+    x1: 48, y1: 148, x2: 48, y2: 156,
+    stroke: dim, 'stroke-width': '1'
+  }))
+  svg.appendChild(svgEl('line', {
+    x1: 390, y1: 148, x2: 390, y2: 156,
+    stroke: dim, 'stroke-width': '1'
+  }))
+  svg.appendChild(svgEl('text', {
+    x: 219, y: 172,
+    'font-family': 'monospace', 'font-size': '9',
+    fill: muted, 'text-anchor': 'middle', 'letter-spacing': '0.04em'
+  }, 'VALUE PM RECOVERS'))
+
+  // Right bracket annotation
+  svg.appendChild(svgEl('line', {
+    x1: 404, y1: 148, x2: 528, y2: 148,
+    stroke: dim, 'stroke-width': '1'
+  }))
+  svg.appendChild(svgEl('line', {
+    x1: 404, y1: 148, x2: 404, y2: 156,
+    stroke: dim, 'stroke-width': '1'
+  }))
+  svg.appendChild(svgEl('line', {
+    x1: 528, y1: 148, x2: 528, y2: 156,
+    stroke: dim, 'stroke-width': '1'
+  }))
+  svg.appendChild(svgEl('text', {
+    x: 466, y: 172,
+    'font-family': 'monospace', 'font-size': '9',
+    fill: muted, 'text-anchor': 'middle', 'letter-spacing': '0.04em'
+  }, 'PREMIUM COST'))
+
+  // Conclusion bar
+  svg.appendChild(svgEl('rect', {
+    x: 48, y: 186, width: 464, height: 36,
+    fill: '#eceae5', rx: '2'
+  }))
+  svg.appendChild(svgEl('text', {
+    x: 280, y: 200,
+    'font-family': 'monospace', 'font-size': '9',
+    fill: muted, 'text-anchor': 'middle', 'letter-spacing': '0.06em'
+  }, 'ΔNBV > 0  →  BUY PM PLATFORM'))
+  svg.appendChild(svgEl('text', {
+    x: 280, y: 215,
+    'font-family': 'monospace', 'font-size': '9',
+    fill: dim, 'text-anchor': 'middle', 'letter-spacing': '0.06em'
+  }, 'ΔNBV < 0  →  STAY WITH BI TOOLS'))
+})()
+
+// ─────────────────────────────────────────────────────────
+// FORMULA BOX — Rough
+// ─────────────────────────────────────────────────────────
+;(function buildFormulaRough() {
+  const canvas = document.getElementById('formula-rough')
+  const ctx = canvas.getContext('2d')
+  const rc = rough.canvas(canvas)
+
+  rc.rectangle(32, 24, 496, 212, {
+    fill: '#faf9f7', fillStyle: 'solid',
+    stroke: '#1a1918', strokeWidth: 1.8, roughness: 0.9
+  })
+  rc.rectangle(32, 24, 496, 28, {
+    fill: '#1a1918', fillStyle: 'solid',
+    stroke: 'none', roughness: 0.6
+  })
+  rc.line(48, 148, 390, 148, { stroke: '#c5c0ba', strokeWidth: 1, roughness: 0.5 })
+  rc.line(48, 148, 48, 156, { stroke: '#c5c0ba', strokeWidth: 1, roughness: 0.3 })
+  rc.line(390, 148, 390, 156, { stroke: '#c5c0ba', strokeWidth: 1, roughness: 0.3 })
+  rc.line(404, 148, 528, 148, { stroke: '#c5c0ba', strokeWidth: 1, roughness: 0.5 })
+  rc.line(404, 148, 404, 156, { stroke: '#c5c0ba', strokeWidth: 1, roughness: 0.3 })
+  rc.line(528, 148, 528, 156, { stroke: '#c5c0ba', strokeWidth: 1, roughness: 0.3 })
+  rc.rectangle(48, 186, 464, 36, {
+    fill: '#eceae5', fillStyle: 'solid', stroke: 'none', roughness: 0.5
+  })
+
+  ctx.fillStyle = '#f5f3ef'
+  ctx.font = '700 11px monospace'
+  ctx.fillText('Δ NBV — BUSINESS VALUE CALCULATION', 48, 43)
+
+  ctx.fillStyle = '#1a1918'
+  ctx.font = '700 15px monospace'
+  ctx.fillText('Δ NBV  =  NBV', 48, 90)
+  ctx.font = '10px monospace'
+  ctx.fillStyle = '#8a8580'
+  ctx.fillText('PM', 218, 97)
+  ctx.fillStyle = '#1a1918'
+  ctx.font = '15px monospace'
+  ctx.fillText('−  NBV', 242, 90)
+  ctx.font = '10px monospace'
+  ctx.fillStyle = '#8a8580'
+  ctx.fillText('BI', 318, 97)
+
+  ctx.fillStyle = '#1a1918'
+  ctx.font = '13px monospace'
+  ctx.fillText('= L × [ (D', 48, 130)
+  ctx.font = '10px monospace'
+  ctx.fillStyle = '#8a8580'
+  ctx.fillText('PM', 146, 137)
+  ctx.fillStyle = '#1a1918'
+  ctx.font = '13px monospace'
+  ctx.fillText('× A', 170, 130)
+  ctx.font = '10px monospace'
+  ctx.fillStyle = '#8a8580'
+  ctx.fillText('PM', 202, 137)
+  ctx.fillStyle = '#1a1918'
+  ctx.font = '13px monospace'
+  ctx.fillText(') − (D', 224, 130)
+  ctx.font = '10px monospace'
+  ctx.fillStyle = '#8a8580'
+  ctx.fillText('BI', 294, 137)
+  ctx.fillStyle = '#1a1918'
+  ctx.font = '13px monospace'
+  ctx.fillText('× A', 314, 130)
+  ctx.font = '10px monospace'
+  ctx.fillStyle = '#8a8580'
+  ctx.fillText('BI', 344, 137)
+  ctx.fillStyle = '#1a1918'
+  ctx.font = '13px monospace'
+  ctx.fillText(') ]  −  [ TCO', 366, 130)
+  ctx.font = '10px monospace'
+  ctx.fillStyle = '#8a8580'
+  ctx.fillText('PM', 494, 137)
+
+  ctx.font = '9px monospace'
+  ctx.fillStyle = '#8a8580'
+  ctx.textAlign = 'center'
+  ctx.fillText('VALUE PM RECOVERS', 219, 172)
+  ctx.fillText('PREMIUM COST', 466, 172)
+  ctx.fillText('ΔNBV > 0  →  BUY PM PLATFORM', 280, 200)
+  ctx.fillStyle = '#c5c0ba'
+  ctx.fillText('ΔNBV < 0  →  STAY WITH BI TOOLS', 280, 216)
+})()
+
+</script>
+</body>
+</html>
