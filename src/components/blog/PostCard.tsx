@@ -56,7 +56,7 @@ export default function PostCard({ post, featured = false }: Props) {
                 </MetaLabel>
                 <ArrowRight
                   size={13}
-                  className="text-braun-300 group-hover:text-ink-primary group-hover:translate-x-1 transition-all duration-300"
+                  className="text-ink-dim group-hover:text-ink-primary group-hover:translate-x-1 transition-all duration-300"
                 />
               </div>
             </div>
