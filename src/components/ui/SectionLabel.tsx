@@ -3,6 +3,7 @@
  * used consistently across landing, blog, docs headers.
  */
 import { cn } from '@/lib/utils'
+import { MetaLabel } from './MetaLabel'
 
 interface SectionLabelProps {
   index?: string     // e.g. "01"
@@ -19,9 +20,7 @@ export function SectionLabel({ index, label, className }: SectionLabelProps) {
           <span className="h-px w-6 bg-braun-200 inline-block" />
         </>
       )}
-      <span className="text-[10px] font-mono uppercase tracking-widest text-braun-500">
-        {label}
-      </span>
+      <MetaLabel>{label}</MetaLabel>
     </div>
   )
 }
