@@ -84,16 +84,16 @@ npm run build          # Lint runs automatically before build
 
 ## Design Language
 
-- Background: neutral `#fafafa` (clean, no warm tint)
-- Text: `#09090b` primary, zinc-based greyscale
-- Borders: solid `#e4e4e7`
+- Background: warm paper `#F5F3EF` with subtle SVG noise texture
+- Text: `#1A1918` primary, warm greyscale (`#4A4744` secondary, `#8A8580` muted, `#B5B0AA` dim)
+- Borders: translucent `rgba(26,25,24, 0.10/0.05/0.20)` (default/subtle/strong)
 - Accent: `#ea580c` (orange, surgical use only)
 - Border radius: 4px everywhere (`--radius`)
 - Spacing: 4px base grid, all values multiples of 4
 - Animation: one curve `cubic-bezier(0.25, 0.1, 0.25, 1)`, three durations (120/200/350ms)
 - Fonts: Geist Sans + Geist Mono
 
-**DO NOT change these values without explicit user approval.** The design language discussion happened but the warm paper palette (#F5F3EF) was rejected. These are the approved values.
+**DO NOT change these values without explicit user approval.**
 
 ## Architecture
 
