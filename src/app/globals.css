@@ -638,15 +638,16 @@ body {
   display: block;
 }
 
-/* Inline diagram — no box, no background, just mono in the text flow.
-   Feels like text, not an image. A left hairline anchors it visually. */
+/* Inline diagram — no box, no background, no border.
+   Pure mono text indented from the left margin. Feels like the text itself.
+   The only distinction is the typeface (mono) and a small left indent. */
 .prose-diagram-inline {
   font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.8125rem;
-  line-height: 1.6;
+  font-size: 0.875rem;
+  line-height: 1.65;
   letter-spacing: 0;
   white-space: pre;
-  color: var(--color-ink-muted);
+  color: var(--color-ink-secondary);
   display: block;
 }
 
