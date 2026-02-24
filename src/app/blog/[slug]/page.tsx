@@ -69,7 +69,7 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="flex items-center justify-between pt-6 border-t border-border-subtle">
             <div className="flex items-center gap-3">
               {/* Initial avatar — DS avatar pattern */}
-              <div className="w-8 h-8 bg-braun-900 text-white flex items-center justify-center text-xs font-mono font-bold shrink-0">
+              <div className="w-8 h-8 bg-surface-inverse text-ink-inverse flex items-center justify-center text-xs font-mono font-bold shrink-0">
                 {post.author.name.charAt(0)}
               </div>
               <div>
