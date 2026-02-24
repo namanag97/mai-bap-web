@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chart Style Test — mai-bap design system</title>
+
+  <!-- Geist — the ACTUAL fonts from the site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Exact tokens from globals.css ───────────────────────── */
+    :root {
+      --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
+      --font-mono: 'Geist Mono', ui-monospace, monospace;
+
+      --color-surface-ground:  #f5f3ef;
+      --color-surface-raised:  #faf9f7;
+      --color-surface-inset:   #eceae5;
+      --color-surface-deep:    #e5e2dc;
+
+      --color-ink-primary:     #1a1918;
+      --color-ink-secondary:   #4a4744;
+      --color-ink-muted:       #8a8580;
+      --color-ink-dim:         #b5b0aa;
+      --color-ink-accent:      #c2571a;
+
+      --color-border-default:  rgba(26,25,24,.10);
+      --color-border-subtle:   rgba(26,25,24,.05);
+      --color-border-strong:   rgba(26,25,24,.20);
+
+      --radius:    4px;
+      --radius-lg: 8px;
+
+      --leading-body:    1.65;
+      --leading-heading: 1.2;
+      --leading-mono:    1.5;
+    }
+
+    /* ── Reset ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background: var(--color-surface-ground);
+      color: var(--color-ink-primary);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: var(--leading-body);
+    }
+
+    /* ── Noise — matches the site exactly ──────────────────── */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+
+    /* ── Article shell — matches the real blog page ─────────── */
+    .page-shell {
+      min-height: 100vh;
+      padding-top: 3.5rem; /* navbar height */
+    }
+
+    /* Breadcrumb bar */
+    .breadcrumb {
+      border-bottom: 1px solid var(--color-border-subtle);
+      padding: 0 1.5rem;
+      height: 2.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .breadcrumb-link {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--color-ink-muted);
+      text-decoration: none;
+    }
+
+    /* Article header */
+    .article-header {
+      border-bottom: 1px solid var(--color-border-default);
+      padding: 3.5rem 1.5rem 3rem;
+      max-width: 80rem;
+      margin: 0 auto;
+    }
+
+    .meta-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--color-ink-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .article-title {
+      font-size: clamp(1.875rem, 4.5vw, 3.25rem);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--color-ink-primary);
+      text-wrap: balance;
+      margin-bottom: 1.5rem;
+      max-width: 22ch;
+    }
+
+    .article-deck {
+      font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--color-ink-secondary);
+      max-width: 42ch;
+      margin-bottom: 2.5rem;
+    }
+
+    .byline {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: .04em;
+      color: var(--color-ink-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-feature-settings: "tnum" on, "lnum" on;
+    }
+    .byline-mark {
+      width: 1.5rem;
+      height: 1.5rem;
+      background: var(--color-ink-primary);
+      color: var(--color-surface-ground);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: 700;
+    }
+    .byline-name { font-family: var(--font-sans); font-size: .75rem; font-weight: 500; color: var(--color-ink-primary); }
+    .byline-sep  { color: var(--color-ink-dim); }
+
+    /* Article body */
+    .article-body {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    /* Prose column — 65ch, matches globals.css */
+    .prose {
+      max-width: 65ch;
+      color: var(--color-ink-secondary);
+      font-size: clamp(1rem, 1.4vw, 1.125rem);
+      line-height: var(--leading-body);
+    }
+    .prose > * + * { margin-top: 1.5em; }
+
+    .prose h2 {
+      font-size: clamp(1.125rem, 1.6vw, 1.375rem);
+      font-weight: 600;
+      color: var(--color-ink-primary);
+      letter-spacing: -0.015em;
+      line-height: var(--leading-heading);
+      border-bottom: 1px solid var(--color-border-default);
+      padding-bottom: 0.625rem;
+      margin-top: 3.5rem;
+      margin-bottom: 1.5rem;
+      text-wrap: balance;
+    }
+    .prose p {
+      color: var(--color-ink-secondary);
+      text-wrap: pretty;
+    }
+
+    /* ── THE CHART COMPONENT ────────────────────────────────────
+       This is what gets built as a React component.
+       Author writes: <CostChart /> in MDX.
+       The component ALWAYS renders like this.
+       ──────────────────────────────────────────────────────── */
+    .chart-figure {
+      /* Bleeds slightly wider than the prose column — premium look */
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+      margin-left:  -1.5rem;
+      margin-right: -1.5rem;
+    }
+
+    .chart-header {
+      padding: 0 1.5rem 1.25rem;
+    }
+    .chart-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--color-ink-dim);
+      margin-bottom: 0.375rem;
+    }
+    .chart-title {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--color-ink-primary);
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      margin-bottom: 0.25rem;
+      text-wrap: balance;
+      max-width: 52ch;
+    }
+    .chart-subtitle {
+      font-size: 0.8125rem;
+      color: var(--color-ink-muted);
+      line-height: 1.5;
+    }
+
+    .chart-canvas-wrap {
+      background: var(--color-surface-raised);
+      border-top: 1px solid var(--color-border-default);
+      border-bottom: 1px solid var(--color-border-default);
+      padding: 2rem 1.5rem 1.5rem;
+      overflow: hidden;
+    }
+
+    .chart-footer {
+      padding: 0.875rem 1.5rem 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+    .chart-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--color-ink-muted);
+    }
+    .chart-legend-line {
+      width: 20px;
+      height: 2px;
+      flex-shrink: 0;
+    }
+    .chart-source {
+      margin-left: auto;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--color-ink-dim);
+      letter-spacing: .06em;
+    }
+
+    svg { display: block; overflow: visible; }
+  </style>
+</head>
+<body>
+<div class="page-shell">
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a class="breadcrumb-link" href="#">← Journal</a>
+    <span style="color:var(--color-ink-dim);font-size:10px;">·</span>
+    <span class="breadcrumb-link">Engineering</span>
+  </div>
+
+  <!-- Article header -->
+  <header class="article-header">
+    <div class="meta-label">04 — Engineering</div>
+    <h1 class="article-title">The mathematics of build vs. buy in process intelligence</h1>
+    <p class="article-deck">At low complexity, BI tools are sufficient. At scale, the total cost of ownership crosses over — and the calculus changes entirely.</p>
+    <div class="byline">
+      <span class="byline-mark">NA</span>
+      <span class="byline-name">Naman Agarwal</span>
+      <span class="byline-sep">·</span>
+      <span>Founder & CEO</span>
+      <span class="byline-sep">·</span>
+      <span>Feb 24, 2026</span>
+      <span class="byline-sep">·</span>
+      <span>8 min read</span>
+    </div>
+  </header>
+
+  <!-- Article body -->
+  <main class="article-body">
+    <div class="prose">
+
+      <p class="prose-lead" style="font-size:clamp(1.0625rem,1.6vw,1.25rem);font-weight:300;line-height:1.75;color:var(--color-ink-secondary);">
+        Every VP of Operations eventually asks the same question: why pay for a dedicated process mining platform when we already have a BI stack? The answer is a crossover function — and knowing where your organisation sits on that curve determines the right answer.
+      </p>
+
+      <h2>The total cost of ownership model</h2>
+
+      <p>
+        Building process intelligence on top of a BI stack is not free. It requires sustained engineering investment in ETL pipelines, data modelling, and custom conformance logic. As process complexity grows — more variants, more systems, more edge cases — this cost grows exponentially.
+      </p>
+
+      <p>
+        A dedicated PM platform, by contrast, is priced linearly. The base cost is higher, but the marginal cost of adding complexity is near-zero. The two curves cross at a predictable point.
+      </p>
+
+      <!-- ════════════════════════════════════════════════════
+           CHART COMPONENT — what <CostChart /> renders
+           Authors write one line of MDX. This is the output.
+           ════════════════════════════════════════════════════ -->
+      <figure class="chart-figure">
+
+        <div class="chart-header">
+          <div class="chart-label">Exhibit 1</div>
+          <div class="chart-title">PM platforms become cost-advantaged at moderate operational complexity</div>
+          <div class="chart-subtitle">Total cost of ownership (indexed), BI stack vs process mining platform</div>
+        </div>
+
+        <div class="chart-canvas-wrap">
+          <svg id="chart" viewBox="0 0 640 340" width="100%" style="max-width:640px;"></svg>
+        </div>
+
+        <div class="chart-footer">
+          <div class="chart-legend-item">
+            <div class="chart-legend-line" style="background:var(--color-ink-primary);"></div>
+            BI stack (exponential)
+          </div>
+          <div class="chart-legend-item">
+            <div class="chart-legend-line" style="background:var(--color-ink-accent);border-top:1px dashed var(--color-ink-accent);height:0;border-bottom:none;"></div>
+            PM platform (linear)
+          </div>
+          <div class="chart-source">mai-bap internal model, 2026</div>
+        </div>
+
+      </figure>
+
+      <p>
+        The crossover point is not a fixed number. It is a function of three variables: process <em>scope</em> (S), process <em>variability</em> (V), and the number of integrated <em>systems</em> (Q). Organisations with narrow, stable, single-system processes rarely cross it. Organisations running end-to-end, multi-system, frequently changing processes almost always do.
+      </p>
+
+      <h2>Calculating the Delta NBV</h2>
+
+      <p>
+        To make the build-vs-buy decision rigorous, we model the net business value differential — the delta between what PM recovers versus what BI recovers, net of platform cost.
+      </p>
+
+      <!-- ════════════════════════════════════════════════════
+           FORMULA COMPONENT — what <FormulaBlock /> renders
+           ════════════════════════════════════════════════════ -->
+      <figure class="chart-figure">
+
+        <div class="chart-header">
+          <div class="chart-label">Definition 1</div>
+          <div class="chart-title">Net Business Value differential (Δ NBV)</div>
+        </div>
+
+        <div class="chart-canvas-wrap">
+          <svg id="formula" viewBox="0 0 640 220" width="100%" style="max-width:640px;"></svg>
+        </div>
+
+      </figure>
+
+      <p>
+        When Δ NBV is positive, the PM platform creates more value than it costs relative to the BI alternative. When it is negative, BI tooling is the rational choice. The framework removes the politics from the decision.
+      </p>
+
+    </div>
+  </main>
+
+</div>
+
+<script>
+// ── Shared SVG helpers ────────────────────────────────────────
+const NS = 'http://www.w3.org/2000/svg'
+const ink     = '#1a1918'
+const muted   = '#8a8580'
+const dim     = '#b5b0aa'
+const accent  = '#c2571a'
+const raised  = '#faf9f7'
+const border  = 'rgba(26,25,24,.10)'
+const borderS = 'rgba(26,25,24,.05)'
+
+function el(tag, attrs = {}, text) {
+  const e = document.createElementNS(NS, tag)
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v)
+  if (text !== undefined) e.textContent = text
+  return e
+}
+
+// ── CHART ─────────────────────────────────────────────────────
+;(function() {
+  const svg = document.getElementById('chart')
+  const W = 640, H = 340
+  const M = { top: 24, right: 160, bottom: 56, left: 56 }
+  const PW = W - M.left - M.right  // 424
+  const PH = H - M.top - M.bottom  // 260
+  const xN = 10
+
+  function biCost(x) { return 0.055 * Math.exp(0.43 * x) }
+  function pmCost(x) { return 0.20 + 0.022 * x }
+
+  // Crossover
+  let crossX = 0
+  for (let x = 0; x <= xN; x += 0.01) {
+    if (biCost(x) >= pmCost(x)) { crossX = x; break }
+  }
+  const yMax = biCost(xN) * 1.08
+
+  function px(x) { return M.left + (x / xN) * PW }
+  function py(y) { return M.top + PH - (Math.min(y, yMax * 1.5) / yMax) * PH }
+
+  function curvePath(fn, steps = 200) {
+    let d = ''
+    for (let i = 0; i <= steps; i++) {
+      const x = (i / steps) * xN
+      const y = fn(x)
+      if (py(y) < M.top - 10) break
+      d += (i === 0 ? 'M' : 'L') + `${px(x).toFixed(2)},${py(y).toFixed(2)} `
+    }
+    return d.trim()
+  }
+
+  // ── Defs: arrowhead markers ──
+  const defs = el('defs')
+
+  function mkArrow(id, color) {
+    const m = el('marker', { id, markerWidth:'6', markerHeight:'6', refX:'5', refY:'3', orient:'auto' })
+    m.appendChild(el('path', { d:'M0,0.5 L5.5,3 L0,5.5', fill:'none', stroke:color, 'stroke-width':'1.2', 'stroke-linejoin':'round' }))
+    defs.appendChild(m)
+  }
+  mkArrow('a-ink', ink)
+  mkArrow('a-acc', accent)
+  svg.appendChild(defs)
+
+  // ── Horizontal grid lines (horizontal only — McKinsey standard) ──
+  const yTicks = [0.25, 0.5, 0.75, 1.0]
+  yTicks.forEach(t => {
+    const y = py(t * yMax)
+    if (y < M.top) return
+    svg.appendChild(el('line', {
+      x1: M.left, y1: y, x2: M.left + PW, y2: y,
+      stroke: borderS, 'stroke-width': '1'
+    }))
+    // Tick value
+    svg.appendChild(el('text', {
+      x: M.left - 8, y: y + 4,
+      'font-family': "'Geist Mono', monospace",
+      'font-size': '10', fill: dim,
+      'text-anchor': 'end'
+    }, t === 1.0 ? 'High' : t === 0.5 ? 'Mid' : ''))
+  })
+
+  // ── Axes ──
+  // Y axis
+  svg.appendChild(el('line', {
+    x1: M.left, y1: M.top - 8, x2: M.left, y2: M.top + PH,
+    stroke: ink, 'stroke-width': '1', 'marker-end': 'url(#a-ink)'
+  }))
+  // X axis
+  svg.appendChild(el('line', {
+    x1: M.left, y1: M.top + PH, x2: M.left + PW + 8, y2: M.top + PH,
+    stroke: ink, 'stroke-width': '1', 'marker-end': 'url(#a-ink)'
+  }))
+
+  // Axis labels
+  const yLabelG = el('g', { transform: `rotate(-90, ${M.left - 34}, ${M.top + PH/2})` })
+  yLabelG.appendChild(el('text', {
+    x: M.left - 34, y: M.top + PH/2 + 4,
+    'font-family': "'Geist Mono', monospace", 'font-size': '9.5',
+    fill: muted, 'text-anchor': 'middle', 'letter-spacing': '0.06em'
+  }, 'TCO (INDEXED)'))
+  svg.appendChild(yLabelG)
+
+  svg.appendChild(el('text', {
+    x: M.left + PW / 2, y: M.top + PH + 42,
+    'font-family': "'Geist Mono', monospace", 'font-size': '9.5',
+    fill: muted, 'text-anchor': 'middle', 'letter-spacing': '0.06em'
+  }, 'OPERATIONAL COMPLEXITY (S, V, Q)  →'))
+
+  // X axis complexity labels
+  ;['Low', 'Moderate', 'High'].forEach((label, i) => {
+    const x = M.left + ((i + 1) / 3.5) * PW
+    svg.appendChild(el('line', {
+      x1: x, y1: M.top + PH - 3, x2: x, y2: M.top + PH + 3,
+      stroke: dim, 'stroke-width': '1'
+    }))
+  })
+
+  // ── PM area fill (very faint) ──
+  const pmPts = []
+  for (let i = 0; i <= 200; i++) {
+    const x = (i / 200) * xN
+    pmPts.push(`${px(x).toFixed(2)},${py(pmCost(x)).toFixed(2)}`)
+  }
+  const areaD = `M${px(0)},${py(0)} ` + pmPts.join(' ') + ` L${px(xN)},${py(0)} Z`
+  svg.appendChild(el('path', { d: areaD, fill: accent, opacity: '.05' }))
+
+  // ── BI curve ──
+  svg.appendChild(el('path', {
+    d: curvePath(biCost),
+    fill: 'none', stroke: ink, 'stroke-width': '1.75',
+    'stroke-linecap': 'round', 'stroke-linejoin': 'round'
+  }))
+
+  // ── PM line (dashed accent) ──
+  svg.appendChild(el('path', {
+    d: curvePath(pmCost),
+    fill: 'none', stroke: accent, 'stroke-width': '1.75',
+    'stroke-dasharray': '7 4', 'stroke-linecap': 'round'
+  }))
+
+  // ── Crossover vertical ──
+  svg.appendChild(el('line', {
+    x1: px(crossX), y1: py(pmCost(crossX)),
+    x2: px(crossX), y2: M.top + PH,
+    stroke: dim, 'stroke-width': '1', 'stroke-dasharray': '3 3'
+  }))
+  // Crossover dot — precise, small
+  svg.appendChild(el('circle', {
+    cx: px(crossX), cy: py(pmCost(crossX)), r: '4',
+    fill: raised, stroke: ink, 'stroke-width': '1.5'
+  }))
+  svg.appendChild(el('circle', {
+    cx: px(crossX), cy: py(pmCost(crossX)), r: '1.5',
+    fill: ink
+  }))
+
+  // ── Right-side line labels ──
+  const labelX = M.left + PW + 12
+
+  // BI label
+  const biEndY = py(biCost(xN))
+  svg.appendChild(el('line', {
+    x1: M.left + PW, y1: biEndY,
+    x2: labelX - 2, y2: biEndY,
+    stroke: ink, 'stroke-width': '0.75'
+  }))
+  svg.appendChild(el('text', {
+    x: labelX, y: biEndY - 5,
+    'font-family': "'Geist Mono', monospace", 'font-size': '10',
+    fill: ink, 'font-weight': '600'
+  }, 'BI Stack'))
+  svg.appendChild(el('text', {
+    x: labelX, y: biEndY + 8,
+    'font-family': "'Geist Mono', monospace", 'font-size': '9',
+    fill: muted
+  }, 'exponential'))
+
+  // PM label
+  const pmEndY = py(pmCost(xN))
+  svg.appendChild(el('line', {
+    x1: M.left + PW, y1: pmEndY,
+    x2: labelX - 2, y2: pmEndY,
+    stroke: accent, 'stroke-width': '0.75'
+  }))
+  svg.appendChild(el('text', {
+    x: labelX, y: pmEndY - 5,
+    'font-family': "'Geist Mono', monospace", 'font-size': '10',
+    fill: accent, 'font-weight': '600'
+  }, 'PM Platform'))
+  svg.appendChild(el('text', {
+    x: labelX, y: pmEndY + 8,
+    'font-family': "'Geist Mono', monospace", 'font-size': '9',
+    fill: muted
+  }, 'linear'))
+
+  // ── Crossover callout ──
+  // Leader line from crossover point to annotation
+  const annX = px(crossX) + 36
+  const annY = py(pmCost(crossX)) - 52
+  svg.appendChild(el('line', {
+    x1: px(crossX), y1: py(pmCost(crossX)) - 5,
+    x2: annX - 4, y2: annY + 28,
+    stroke: dim, 'stroke-width': '0.75'
+  }))
+  svg.appendChild(el('text', {
+    x: annX, y: annY + 12,
+    'font-family': "'Geist Mono', monospace", 'font-size': '9.5',
+    fill: ink, 'font-weight': '600', 'letter-spacing': '0.04em'
+  }, 'BREAK-EVEN'))
+  svg.appendChild(el('text', {
+    x: annX, y: annY + 26,
+    'font-family': "'Geist Mono', monospace", 'font-size': '9',
+    fill: muted
+  }, 'PM cheaper beyond'))
+  svg.appendChild(el('text', {
+    x: annX, y: annY + 38,
+    'font-family': "'Geist Mono', monospace", 'font-size': '9',
+    fill: muted
+  }, 'this threshold'))
+
+  // Origin zero
+  svg.appendChild(el('text', {
+    x: M.left - 6, y: M.top + PH + 14,
+    'font-family': "'Geist Mono', monospace", 'font-size': '9',
+    fill: dim, 'text-anchor': 'middle'
+  }, '0'))
+
+})()
+
+// ── FORMULA ───────────────────────────────────────────────────
+;(function() {
+  const svg = document.getElementById('formula')
+
+  function t(x, y, text, opts = {}) {
+    svg.appendChild(el('text', {
+      x, y,
+      'font-family': `'Geist Mono', monospace`,
+      'font-size': opts.size || '13',
+      fill: opts.fill || ink,
+      'text-anchor': opts.anchor || 'start',
+      'font-weight': opts.bold ? '600' : 'normal',
+      'letter-spacing': opts.tracking || '0',
+      ...opts.extra
+    }, text))
+  }
+
+  // Container rule — top border only (editorial feel, not a box)
+  svg.appendChild(el('line', {
+    x1: 32, y1: 28, x2: 608, y2: 28,
+    stroke: ink, 'stroke-width': '2'
+  }))
+
+  // Section label
+  t(32, 22, 'FORMAL DEFINITION', { size: '9', fill: muted, tracking: '0.1em' })
+
+  // Main formula line 1
+  t(32, 68, 'Δ NBV', { size: '20', bold: true })
+  t(104, 68, '=', { size: '20', fill: muted })
+  t(122, 68, 'NBV', { size: '20' })
+  t(175, 76, 'PM', { size: '10', fill: muted })  // subscript
+  t(206, 68, '−', { size: '20', fill: muted })
+  t(228, 68, 'NBV', { size: '20' })
+  t(281, 76, 'BI', { size: '10', fill: muted })  // subscript
+
+  // Expansion line
+  t(32, 108, '=  L', { size: '14' })
+  t(72, 108, ' × [ (D', { size: '14', fill: muted })
+  t(137, 115, 'PM', { size: '9', fill: dim })
+  t(158, 108, '× A', { size: '14' })
+  t(188, 115, 'PM', { size: '9', fill: dim })
+  t(207, 108, ')  −  (D', { size: '14', fill: muted })
+  t(285, 115, 'BI', { size: '9', fill: dim })
+  t(302, 108, '× A', { size: '14' })
+  t(332, 115, 'BI', { size: '9', fill: dim })
+  t(349, 108, ') ]  −  ΔTCO', { size: '14', fill: muted })
+
+  // Bracket annotations
+  const brY = 126
+  // Left bracket: value PM recovers
+  ;[[32, 390]].forEach(([x1, x2]) => {
+    svg.appendChild(el('line', { x1, y1: brY, x2, y2: brY, stroke: dim, 'stroke-width': '0.75' }))
+    svg.appendChild(el('line', { x1, y1: brY, x2: x1, y2: brY + 7, stroke: dim, 'stroke-width': '0.75' }))
+    svg.appendChild(el('line', { x1: x2, y1: brY, x2, y2: brY + 7, stroke: dim, 'stroke-width': '0.75' }))
+    t((x1 + x2) / 2, brY + 19, 'Value PM recovers', { size: '9.5', fill: muted, anchor: 'middle' })
+  })
+  // Right bracket: premium cost
+  ;[[402, 600]].forEach(([x1, x2]) => {
+    svg.appendChild(el('line', { x1, y1: brY, x2, y2: brY, stroke: dim, 'stroke-width': '0.75' }))
+    svg.appendChild(el('line', { x1, y1: brY, x2: x1, y2: brY + 7, stroke: dim, 'stroke-width': '0.75' }))
+    svg.appendChild(el('line', { x1: x2, y1: brY, x2, y2: brY + 7, stroke: dim, 'stroke-width': '0.75' }))
+    t((x1 + x2) / 2, brY + 19, 'Platform premium', { size: '9.5', fill: muted, anchor: 'middle' })
+  })
+
+  // Bottom rule + decision strip
+  svg.appendChild(el('line', {
+    x1: 32, y1: 160, x2: 608, y2: 160,
+    stroke: borderS, 'stroke-width': '1'
+  }))
+
+  t(32, 180, 'Δ NBV > 0', { size: '12', bold: true })
+  t(122, 180, '→  Buy the PM platform', { size: '12', fill: muted })
+
+  t(32, 200, 'Δ NBV < 0', { size: '12', fill: dim })
+  t(122, 200, '→  BI tooling is sufficient', { size: '12', fill: dim })
+
+  // Bottom border
+  svg.appendChild(el('line', {
+    x1: 32, y1: 214, x2: 608, y2: 214,
+    stroke: borderS, 'stroke-width': '1'
+  }))
+
+})()
+</script>
+</body>
+</html>
