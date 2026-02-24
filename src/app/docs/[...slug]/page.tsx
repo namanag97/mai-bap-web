@@ -71,13 +71,13 @@ export default async function DocPage({ params }: Props) {
         >
           Docs
         </Link>
-        <ChevronRight size={9} className="text-braun-200" />
+        <ChevronRight size={9} className="text-ink-dim" />
         {section && (
           <>
             <MetaLabel size="xxs">
               {section.title}
             </MetaLabel>
-            <ChevronRight size={9} className="text-braun-200" />
+            <ChevronRight size={9} className="text-ink-dim" />
           </>
         )}
         <MetaLabel size="xxs">
