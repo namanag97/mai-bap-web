@@ -108,11 +108,52 @@
   --space-inline: 0.75rem;
   --space-gutter: 1.5rem;
 
+  /* ── Shadows (warm-tinted) ─────────────────────────────── */
+  --shadow-xs: 0 1px 2px #1A191808;
+  --shadow-sm: 0 2px 4px #1A191808, 0 1px 2px #1A191805;
+  --shadow-md: 0 4px 12px #1A19180F, 0 2px 4px #1A191808;
+  --shadow-lg: 0 8px 24px #1A191814, 0 4px 8px #1A19180A;
+
+  /* ── Z-index ─────────────────────────────────────────── */
+  --z-base: 0;
+  --z-raised: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+
+  /* ── Interactive state overlays ───────────────────────── */
+  --color-state-hover: #1A191808;
+  --color-state-active: #1A191812;
+
+  /* ── Status color backgrounds & borders ──────────────── */
+  --color-data-positive-bg: #05966912;
+  --color-data-positive-border: #05966926;
+  --color-data-warning-bg: #d9770612;
+  --color-data-warning-border: #d9770626;
+  --color-data-negative-bg: #e11d4812;
+  --color-data-negative-border: #e11d4826;
+  --color-data-violet-bg: #7c3aed12;
+  --color-data-violet-border: #7c3aed26;
+  --color-data-accent-bg: #ea580c12;
+  --color-data-accent-border: #ea580c26;
+
+  /* ── Layout ──────────────────────────────────────────── */
+  --navbar-height: 3.5rem;
+  --sidebar-width: 16rem;
+
   /* ── Transitions ───────────────────────────────────────── */
   --ease-default: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --duration-fast: 120ms;
   --duration-base: 200ms;
   --duration-slow: 350ms;
+
+  /* ── Opacity ─────────────────────────────────────────── */
+  --opacity-disabled: 0.5;
+  --opacity-overlay: 0.8;
 }
 
 /* ── Reset ─────────────────────────────────────────────────── */
