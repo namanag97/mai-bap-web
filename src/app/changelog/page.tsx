@@ -173,7 +173,7 @@ export default function ChangelogPage() {
           {releases.map((release) => (
             <div key={release.version} className="relative">
               {/* Timeline dot */}
-              <div className="absolute -left-[calc(2rem+4.5px)] top-8 w-[9px] h-[9px] border border-braun-200 bg-white rounded-full" />
+              <div className="absolute -left-[calc(2rem+4.5px)] top-8 w-[9px] h-[9px] border border-border-default bg-surface-raised rounded-full" />
 
               <div className="bg-white border border-braun-200 p-8 hover-lift">
                 {/* Version + date row */}
