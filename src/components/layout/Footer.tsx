@@ -4,7 +4,7 @@ import { Container, MetaLabel } from '@/components/ui'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-braun-200 bg-white">
+    <footer className="border-t border-border-default bg-surface-raised">
       <Container className="pt-16 pb-10">
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-14">
