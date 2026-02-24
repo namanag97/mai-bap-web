@@ -10,7 +10,7 @@ export default function BlogLoading() {
         {/* Skeleton cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border-default">
           {[1, 2, 3, 4].map(i => (
-            <div key={i} className="bg-white p-8">
+            <div key={i} className="bg-surface-raised p-8">
               <div className="h-3 w-16 bg-braun-100 animate-pulse mb-4" />
               <div className="h-5 w-full bg-braun-200 animate-pulse mb-3" />
               <div className="h-3 w-3/4 bg-braun-100 animate-pulse" />
