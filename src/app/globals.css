@@ -345,6 +345,7 @@ body::after {
 .prose p {
   margin-bottom: 0;
   color: var(--color-ink-secondary);
+  text-wrap: pretty; /* Modern: prevents single-word orphans on last line */
 }
 
 /* Unordered list — em-dash bullets */
