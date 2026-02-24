@@ -77,29 +77,29 @@ function AppMockup() {
               ].map((n, i) => (
                 <g key={i}>
                   <rect x={n.x} y={4} width={70} height={30}
-                    fill={n.dark ? '#09090b' : '#ffffff'}
-                    stroke={n.dark ? '#09090b' : '#e4e4e7'}
+                    fill={n.dark ? 'var(--color-surface-inverse)' : 'var(--color-surface-raised)'}
+                    stroke={n.dark ? 'var(--color-surface-inverse)' : 'var(--color-border-default)'}
                     strokeWidth="1" />
                   <text x={n.x + 35} y={15} textAnchor="middle" fontSize="6"
-                    fill="#71717a" fontFamily="monospace">
+                    fill="var(--color-ink-muted)" fontFamily="monospace">
                     {n.label}
                   </text>
                   <text x={n.x + 35} y={27} textAnchor="middle" fontSize="8"
-                    fill={n.dark ? '#ffffff' : '#09090b'} fontFamily="monospace" fontWeight="600">
+                    fill={n.dark ? 'var(--color-ink-inverse)' : 'var(--color-ink-primary)'} fontFamily="monospace" fontWeight="600">
                     {n.count}
                   </text>
                 </g>
               ))}
               {[70, 163, 256].map((x, i) => (
                 <g key={i}>
-                  <line x1={x} y1={19} x2={x + 21} y2={19} stroke="#a1a1aa" strokeWidth="1" />
-                  <polygon points={`${x + 21},16 ${x + 25},19 ${x + 21},22`} fill="#a1a1aa" />
+                  <line x1={x} y1={19} x2={x + 21} y2={19} stroke="var(--color-ink-dim)" strokeWidth="1" />
+                  <polygon points={`${x + 21},16 ${x + 25},19 ${x + 21},22`} fill="var(--color-ink-dim)" />
                 </g>
               ))}
-              <path d="M 133 34 Q 186 52 239 34" fill="none" stroke="#ea580c"
+              <path d="M 133 34 Q 186 52 239 34" fill="none" stroke="var(--color-ink-accent)"
                 strokeWidth="0.9" strokeDasharray="2,1.5" />
               <text x="186" y="58" textAnchor="middle" fontSize="5.5"
-                fill="#ea580c" fontFamily="monospace">46 escalated to human</text>
+                fill="var(--color-ink-accent)" fontFamily="monospace">46 escalated to human</text>
             </svg>
           </div>
 
