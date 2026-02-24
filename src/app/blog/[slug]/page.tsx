@@ -105,7 +105,7 @@ export default async function BlogPostPage({ params }: Props) {
             <ArrowLeft size={10} /> All posts
           </Link>
           <MetaLabel size="xxs" color="dim">
-            Meridian Journal
+            mai-bap Journal
           </MetaLabel>
         </div>
       </Container>
