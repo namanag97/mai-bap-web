@@ -390,14 +390,12 @@ body {
   transform: translateY(-1px);
 }
 
-/* ── Engineering grid ──────────────────────────────────────── */
+/* ── Engineering grid — subtle single-scale, barely visible ── */
 .bg-engineering-grid {
   background-image:
-    linear-gradient(var(--color-border-default) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-border-default) 1px, transparent 1px),
-    linear-gradient(var(--color-border-subtle) 0.5px, transparent 0.5px),
-    linear-gradient(90deg, var(--color-border-subtle) 0.5px, transparent 0.5px);
-  background-size: 80px 80px, 80px 80px, 16px 16px, 16px 16px;
+    linear-gradient(var(--color-border-subtle) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border-subtle) 1px, transparent 1px);
+  background-size: 80px 80px;
 }
 
 /* Dark prose adjustments */
