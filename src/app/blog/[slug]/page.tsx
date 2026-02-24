@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, Clock } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import { posts, getPost, formatDate } from '@/content/blog'
-import { Badge, ProseRenderer, Container, MetaLabel } from '@/components/ui'
+import { Badge, ProseRenderer, Container } from '@/components/ui'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -38,12 +38,12 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <div className="bg-surface-ground min-h-screen pt-14">
 
-      {/* ── Breadcrumb nav ─────────────────────────────────────── */}
-      <div className="border-b border-border-subtle bg-surface-ground">
-        <Container maxWidth="2xl" className="py-4 flex items-center justify-between">
+      {/* ── Slim nav bar ───────────────────────────────────────── */}
+      <div className="border-b border-border-subtle">
+        <Container maxWidth="2xl" className="h-11 flex items-center justify-between">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-ink-muted hover:text-ink-primary transition-colors duration-200"
+            className="inline-flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-ink-muted hover:text-ink-primary transition-colors duration-200"
           >
             <ArrowLeft size={9} />
             Journal
@@ -53,70 +53,62 @@ export default async function BlogPostPage({ params }: Props) {
       </div>
 
       {/* ── Article header ─────────────────────────────────────── */}
-      <header className="section">
-        <Container maxWidth="2xl" className="pt-16 pb-12">
+      <header className="border-b border-border-default">
+        <Container maxWidth="2xl" className="pt-14 pb-12">
 
-          {/* Title */}
-          <h1 className="article-title mb-7 max-w-xl">
+          {/* Title — editorial large */}
+          <h1 className="article-title mb-6">
             {post.title}
           </h1>
 
-          {/* Excerpt / deck */}
-          <p className="article-deck max-w-lg mb-12">
+          {/* Deck / excerpt */}
+          <p className="article-deck mb-10 max-w-lg">
             {post.excerpt}
           </p>
 
-          {/* Author + meta row */}
-          <div className="flex items-center justify-between pt-7 border-t border-border-default">
-            <div className="flex items-center gap-3">
-              {/* Initial avatar */}
-              <div className="w-9 h-9 bg-surface-inverse text-ink-inverse flex items-center justify-center font-mono font-bold text-xs shrink-0 select-none">
-                {post.author.name.charAt(0)}
-              </div>
-              <div>
-                <div className="text-sm font-medium text-ink-primary leading-none mb-1">
-                  {post.author.name}
-                </div>
-                <MetaLabel as="div" size="xxs" color="dim">
-                  {post.author.role}
-                </MetaLabel>
-              </div>
-            </div>
+          {/* Byline — single flowing line, all meta together */}
+          <div className="article-byline">
+            {/* Initial mark */}
+            <span
+              className="inline-flex items-center justify-center w-6 h-6 bg-surface-inverse text-ink-inverse font-mono font-bold select-none shrink-0"
+              style={{ fontSize: '9px' }}
+              aria-hidden="true"
+            >
+              {post.author.name.charAt(0)}
+            </span>
 
-            <div className="text-right space-y-1">
-              <div className="text-xs text-ink-muted">{formatDate(post.date)}</div>
-              <div className="flex items-center justify-end gap-1.5">
-                <Clock size={9} className="text-ink-dim" />
-                <MetaLabel as="span" size="xxs" color="dim">
-                  {post.readTime} min read
-                </MetaLabel>
-              </div>
-            </div>
+            <span className="text-ink-primary font-medium" style={{ fontFamily: 'var(--font-sans)', fontSize: '0.75rem' }}>
+              {post.author.name}
+            </span>
+
+            <span className="article-byline-sep">·</span>
+            <span>{post.author.role}</span>
+            <span className="article-byline-sep">·</span>
+            <span>{formatDate(post.date)}</span>
+            <span className="article-byline-sep">·</span>
+            <span>{post.readTime} min read</span>
           </div>
         </Container>
       </header>
 
-      {/* ── Article body — text directly on warm ground ─────────── */}
-      <Container maxWidth="2xl" as="article" className="py-14">
+      {/* ── Article body ───────────────────────────────────────── */}
+      <Container maxWidth="2xl" as="article" className="py-16">
         <ProseRenderer blocks={post.content} />
       </Container>
 
       {/* ── Article footer ──────────────────────────────────────── */}
-      <div className="border-t border-border-default bg-surface-ground">
-        <Container maxWidth="2xl" className="py-8 flex items-center justify-between">
+      <div className="border-t border-border-subtle">
+        <Container maxWidth="2xl" className="h-12 flex items-center justify-between">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-ink-muted hover:text-ink-primary transition-colors duration-200"
+            className="inline-flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-ink-muted hover:text-ink-primary transition-colors duration-200"
           >
             <ArrowLeft size={9} />
             All posts
           </Link>
-          <div className="flex items-center gap-4">
-            <MetaLabel size="xxs" color="dim">
-              mai-bap Journal
-            </MetaLabel>
-            <ArrowRight size={10} className="text-ink-dim" />
-          </div>
+          <span className="text-[9px] font-mono uppercase tracking-widest text-ink-dim">
+            mai-bap Journal
+          </span>
         </Container>
       </div>
 
