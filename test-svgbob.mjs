@@ -63,38 +63,124 @@ try {
 }
 
 // --- generate preview HTML ---
+// Style the raw SVG output to use brand colors
+function styleSvg(svg) {
+  return svg
+    // Container background: warm paper
+    .replace(/style="[^"]*background[^"]*"/g, '')
+    // Stroke = ink-primary (#1a1918)
+    .replace(/stroke="[^"]*"/g, 'stroke="#1a1918"')
+    // Fill on rects/paths = surface-raised (#faf9f7)
+    .replace(/<rect([^/]*?)fill="[^"]*"/g, '<rect$1fill="#faf9f7"')
+    // Text color
+    .replace(/fill="[^"]*"(?=[^<]*<\/text>)/g, 'fill="#1a1918"')
+    // Arrow markers: use accent orange
+    .replace(/marker-end="url\(#[^"]+\)"/g, (m) => m)
+}
+
 const html = `<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>svgbob test</title>
+  <title>svgbob test — mai-bap design tokens</title>
   <style>
-    body { font-family: monospace; background: #f5f3ef; padding: 2rem; }
-    h2 { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: #8a8580; margin-top: 3rem; }
-    .box { background: #faf9f7; border: 1px solid #1a19181a; padding: 1.5rem; margin-top: 1rem; border-radius: 4px; }
-    svg { max-width: 100%; }
-    pre { font-size: 12px; color: #4a4744; white-space: pre-wrap; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+      background: #f5f3ef;
+      color: #1a1918;
+      padding: 3rem 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: #8a8580;
+      margin-bottom: 3rem;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: #1a19181a;
+      border: 1px solid #1a19181a;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+    .cell {
+      background: #faf9f7;
+      padding: 1.5rem;
+    }
+    .cell-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: #b5b0aa;
+      margin-bottom: 1rem;
+      font-family: 'Geist Mono', ui-monospace, monospace;
+    }
+    pre {
+      font-family: 'Geist Mono', ui-monospace, monospace;
+      font-size: 10px;
+      line-height: 1.5;
+      color: #4a4744;
+      white-space: pre;
+      overflow-x: auto;
+    }
+    svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    /* Override svgbob default styles for brand feel */
+    svg text { font-family: 'Geist Mono', ui-monospace, monospace !important; font-size: 14px !important; fill: #1a1918 !important; }
+    svg line, svg path, svg polyline { stroke: #1a1918 !important; stroke-width: 1.5 !important; }
+    svg rect { fill: #faf9f7 !important; stroke: #1a1918 !important; }
+    svg polygon { fill: #1a1918 !important; stroke: #1a1918 !important; }
+    svg circle { fill: #1a1918 !important; stroke: #1a1918 !important; }
+    /* Axis lines slightly muted */
+    svg { background: transparent !important; }
+    h3 { font-size: 12px; font-weight: 600; color: #1a1918; margin-bottom: 2rem; letter-spacing: -.01em; }
   </style>
 </head>
 <body>
 
-<h2>INPUT ASCII — Chart</h2>
-<div class="box"><pre>${ASCII.replace(/</g,'&lt;')}</pre></div>
+<h1>svgbob rendering test — mai-bap design system</h1>
 
-<h2>svgbob-wasm → Chart</h2>
-<div class="box">${svg1}</div>
+<h3>Diagram A — TCO vs Complexity Chart</h3>
+<div class="row">
+  <div class="cell">
+    <div class="cell-label">Raw ASCII input</div>
+    <pre>${ASCII.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</pre>
+  </div>
+  <div class="cell">
+    <div class="cell-label">svgbob-wasm render</div>
+    ${svg1}
+  </div>
+  <div class="cell">
+    <div class="cell-label">bob-wasm render</div>
+    ${svg3}
+  </div>
+</div>
 
-<h2>bob-wasm → Chart</h2>
-<div class="box">${svg3}</div>
-
-<h2>INPUT ASCII — Formula Box</h2>
-<div class="box"><pre>${ASCII2.replace(/</g,'&lt;')}</pre></div>
-
-<h2>svgbob-wasm → Formula Box</h2>
-<div class="box">${svg2}</div>
-
-<h2>bob-wasm → Formula Box</h2>
-<div class="box">${svg4}</div>
+<h3>Diagram B — Delta NBV Formula Box</h3>
+<div class="row">
+  <div class="cell">
+    <div class="cell-label">Raw ASCII input</div>
+    <pre>${ASCII2.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</pre>
+  </div>
+  <div class="cell">
+    <div class="cell-label">svgbob-wasm render</div>
+    ${svg2}
+  </div>
+  <div class="cell">
+    <div class="cell-label">bob-wasm render</div>
+    ${svg4}
+  </div>
+</div>
 
 </body>
 </html>`
