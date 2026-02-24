@@ -16,19 +16,19 @@ const config: Record<
   warning: {
     icon: AlertTriangle,
     label: 'Warning',
-    cls: 'border-data-negative bg-rose-50 text-rose-700',
+    cls: 'border-data-negative-border bg-data-negative-bg text-ink-secondary',
     iconCls: 'text-data-negative',
   },
   tip: {
     icon: Lightbulb,
     label: 'Tip',
-    cls: 'border-data-positive bg-emerald-50 text-emerald-700',
+    cls: 'border-data-positive-border bg-data-positive-bg text-ink-secondary',
     iconCls: 'text-data-positive',
   },
   error: {
     icon: AlertTriangle,
     label: 'Error',
-    cls: 'border-data-negative bg-rose-50 text-rose-800',
+    cls: 'border-data-negative-border bg-data-negative-bg text-ink-secondary',
     iconCls: 'text-data-negative',
   },
 }
