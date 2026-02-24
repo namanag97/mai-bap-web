@@ -1,8 +1,8 @@
 'use client'
 
-import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { FadeIn } from '@/components/ui/FadeIn'
+import { Container, MetaLabel, ButtonLink } from '@/components/ui'
 import { siteConfig } from '@/config/site'
 
 export default function CTA() {
@@ -10,12 +10,12 @@ export default function CTA() {
 
   return (
     <section className="border-b border-braun-200 bg-braun-900">
-      <div className="max-w-7xl mx-auto px-6 py-32">
+      <Container className="py-32">
         {/* Section label */}
         <FadeIn>
-          <div className="text-[10px] font-mono uppercase tracking-widest text-braun-500 mb-10">
+          <MetaLabel as="div" className="mb-10">
             {sectionLabel}
-          </div>
+          </MetaLabel>
         </FadeIn>
 
         <div className="grid lg:grid-cols-[1fr_auto] gap-12 items-end">
@@ -38,26 +38,20 @@ export default function CTA() {
           {/* Right: actions */}
           <FadeIn delay={200} direction="left">
             <div className="flex flex-col gap-3">
-              <Link
-                href={primaryCta.href}
-                className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 bg-white text-braun-900 border border-white hover:bg-braun-100 transition-colors text-[11px] font-mono font-bold uppercase tracking-widest whitespace-nowrap"
-              >
+              <ButtonLink href={primaryCta.href} variant="dark" size="lg" className="whitespace-nowrap">
                 {primaryCta.label}
                 <ArrowRight size={13} />
-              </Link>
-              <Link
-                href={secondaryCta.href}
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-transparent text-braun-500 border border-braun-800 hover:border-braun-600 hover:text-braun-300 transition-colors text-[11px] font-mono font-bold uppercase tracking-widest"
-              >
+              </ButtonLink>
+              <ButtonLink href={secondaryCta.href} variant="dark-secondary" size="lg">
                 {secondaryCta.label}
-              </Link>
-              <p className="text-[10px] font-mono text-braun-500 uppercase tracking-widest text-center mt-1">
+              </ButtonLink>
+              <MetaLabel as="p" className="text-center mt-1">
                 {trialNote}
-              </p>
+              </MetaLabel>
             </div>
           </FadeIn>
         </div>
-      </div>
+      </Container>
     </section>
   )
 }
