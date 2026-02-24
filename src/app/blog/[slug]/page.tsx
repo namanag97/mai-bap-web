@@ -61,7 +61,7 @@ export default async function BlogPostPage({ params }: Props) {
           </SectionTitle>
 
           {/* Excerpt */}
-          <p className="text-base text-braun-600 font-light leading-relaxed max-w-xl mb-10">
+          <p className="text-base text-ink-secondary font-light leading-relaxed max-w-xl mb-10">
             {post.excerpt}
           </p>
 
