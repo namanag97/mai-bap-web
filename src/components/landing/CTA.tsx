@@ -29,7 +29,7 @@ export default function CTA() {
                 <br />
                 <span className="text-ink-accent">{titleAccent}</span>
               </h2>
-              <p className="text-braun-500 text-base font-light leading-relaxed max-w-md">
+              <p className="text-ink-muted text-base font-light leading-relaxed max-w-md">
                 {subtitle}
               </p>
             </div>
