@@ -2,7 +2,7 @@ import { ButtonLink, MetaLabel } from '@/components/ui'
 
 export default function NotFound() {
   return (
-    <div className="pt-14 min-h-screen bg-braun-50 flex items-center justify-center">
+    <div className="pt-14 min-h-screen bg-surface-ground flex items-center justify-center">
       <div className="text-center px-6">
         <MetaLabel as="div" className="mb-6">
           Error 404
