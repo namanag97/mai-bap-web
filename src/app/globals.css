@@ -650,7 +650,7 @@ body::after {
   background-color: var(--color-border-default);
 }
 
-/* ASCII diagram — monospace block on warm paper, letter-spacing:0 kills the jank */
+/* ASCII diagram — embedded object treatment with inset box, not raw text */
 .prose-diagram {
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.8125rem;
@@ -659,6 +659,13 @@ body::after {
   white-space: pre;
   color: var(--color-ink-secondary);
   display: block;
+  background: var(--color-surface-inset);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-subtle);
+  overflow-x: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 /* Inline diagram — no box, no background, no border.
