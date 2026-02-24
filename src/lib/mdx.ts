@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+export { formatDate } from '@/lib/utils'
 
 const POSTS_DIR = path.join(process.cwd(), 'src/content/posts')
 
