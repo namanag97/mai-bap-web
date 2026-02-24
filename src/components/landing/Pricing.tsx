@@ -1,60 +1,45 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 import { Check } from 'lucide-react'
 import { FadeIn } from '@/components/ui/FadeIn'
-import { SectionLabel } from '@/components/ui'
+import { SectionLabel, SectionTitle, Container, MetaLabel, ButtonLink, ToggleGroup } from '@/components/ui'
 import { siteConfig } from '@/config/site'
-import { cn } from '@/lib/utils'
+
+const billingOptions = ['Monthly', 'Annual'] as const
 
 export default function Pricing() {
   const { sectionIndex, sectionLabel, title, footnote, tiers } = siteConfig.pricing
-  const [annual, setAnnual] = useState(false)
+  const [billing, setBilling] = useState<'Monthly' | 'Annual'>('Monthly')
+  const annual = billing === 'Annual'
 
   return (
     <section id="pricing" className="border-b border-braun-200 bg-braun-50">
-      <div className="max-w-7xl mx-auto px-6 py-24">
+      <Container className="py-24">
 
         {/* Header */}
         <FadeIn>
           <div className="mb-12 pb-8 border-b border-braun-200">
             <SectionLabel index={sectionIndex} label={sectionLabel} className="mb-5" />
-            <h2 className="text-3xl lg:text-4xl font-light tracking-tight text-braun-900">
+            <SectionTitle>
               {title}
-            </h2>
+            </SectionTitle>
           </div>
         </FadeIn>
 
         {/* Billing toggle */}
         <FadeIn>
           <div className="flex items-center justify-center gap-1 mb-10">
-            <button
-              onClick={() => setAnnual(false)}
-              className={cn(
-                'px-4 py-2 text-[10px] font-mono font-bold uppercase tracking-widest border transition-colors duration-200',
-                !annual
-                  ? 'bg-braun-900 text-white border-braun-900'
-                  : 'bg-transparent text-braun-500 border-braun-200 hover:border-braun-900 hover:text-braun-900'
-              )}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setAnnual(true)}
-              className={cn(
-                'px-4 py-2 text-[10px] font-mono font-bold uppercase tracking-widest border transition-colors duration-200',
-                annual
-                  ? 'bg-braun-900 text-white border-braun-900'
-                  : 'bg-transparent text-braun-500 border-braun-200 hover:border-braun-900 hover:text-braun-900'
-              )}
-            >
-              Annual
-            </button>
+            <ToggleGroup
+              options={billingOptions}
+              value={billing}
+              onChange={setBilling}
+              size="md"
+            />
             {annual && (
-              <span className="ml-2 text-[9px] font-mono uppercase tracking-widest text-braun-orange">
+              <MetaLabel size="xxs" className="ml-2 text-braun-orange">
                 Save 20%
-              </span>
+              </MetaLabel>
             )}
           </div>
         </FadeIn>
@@ -71,15 +56,15 @@ export default function Pricing() {
                   className={`flex flex-col p-8 h-full hover-lift ${tier.featured ? 'bg-braun-900' : 'bg-white'}`}
                 >
                   {tier.featured && (
-                    <div className="text-[9px] font-mono uppercase tracking-widest text-braun-orange border border-braun-orange/40 px-2 py-0.5 self-start mb-5">
+                    <MetaLabel as="div" size="xxs" className="text-braun-orange border border-braun-orange/40 px-2 py-0.5 self-start mb-5">
                       Most popular
-                    </div>
+                    </MetaLabel>
                   )}
 
                   {/* Name */}
-                  <div className={`text-[10px] font-mono uppercase tracking-widest mb-2 ${tier.featured ? 'text-braun-500' : 'text-braun-400'}`}>
+                  <MetaLabel as="div" className={`mb-2 ${tier.featured ? 'text-braun-500' : 'text-braun-400'}`}>
                     {tier.name}
-                  </div>
+                  </MetaLabel>
 
                   {/* Price */}
                   <div className="flex items-baseline gap-1 mb-1">
@@ -97,17 +82,14 @@ export default function Pricing() {
                     {tier.description}
                   </p>
 
-                  <Link
+                  <ButtonLink
                     href={tier.cta.href}
-                    className={[
-                      'px-4 py-2.5 text-[11px] font-mono font-bold uppercase tracking-widest border text-center transition-colors mb-8 block',
-                      tier.featured
-                        ? 'bg-white text-braun-900 border-white hover:bg-braun-100'
-                        : 'bg-braun-900 text-white border-braun-900 hover:bg-braun-800',
-                    ].join(' ')}
+                    variant={tier.featured ? 'dark' : 'primary'}
+                    size="md"
+                    className="mb-8 text-center block"
                   >
                     {tier.cta.label}
-                  </Link>
+                  </ButtonLink>
 
                   {/* Features */}
                   <ul className="flex flex-col gap-2.5 mt-auto">
@@ -129,10 +111,10 @@ export default function Pricing() {
           })}
         </div>
 
-        <p className="mt-6 text-center text-[10px] font-mono text-braun-400 uppercase tracking-widest">
+        <MetaLabel as="p" color="dim" className="mt-6 text-center">
           {footnote}
-        </p>
-      </div>
+        </MetaLabel>
+      </Container>
     </section>
   )
 }
