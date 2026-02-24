@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { type BlogPost, formatDate } from '@/content/blog'
+import { type PostMeta, formatDate } from '@/lib/mdx'
 import { Badge, MetaLabel } from '@/components/ui'
 
 type BadgeVariant = 'neutral' | 'violet' | 'success' | 'orange'
@@ -13,7 +13,7 @@ const categoryBadge: Record<string, BadgeVariant> = {
 }
 
 interface Props {
-  post: BlogPost
+  post: PostMeta
   featured?: boolean
 }
 
