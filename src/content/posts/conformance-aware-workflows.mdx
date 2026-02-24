@@ -1,0 +1,66 @@
+---
+title: "Building Conformance-Aware Workflows in Enterprise Systems"
+category: Engineering
+excerpt: "A deep dive into how Meridian's conformance engine works, and how to design workflows that remain aligned to your reference model under real-world conditions."
+date: 2025-12-22
+author:
+  name: Daniel Kim
+  role: Engineering Lead
+readTime: 10
+featured: false
+---
+
+<span className="prose-lead">Conformance checking is often treated as a post-hoc audit function — you run it on historical logs to understand what happened. Meridian takes a different view: conformance should be part of the operational loop, not a retrospective report.</span>
+
+## How conformance checking works
+
+At its core, conformance checking compares an observed process execution (event log) against a reference model (process model). The degree of fit is expressed as a conformance score between 0 and 1. Every case flowing through your system produces a trace — a timestamped sequence of events. The conformance engine aligns that trace against the reference model and counts deviations.
+
+<ProcessFlow steps="Receive --> Validate --> Approve --> Close" caption="Fig. 1 — reference model: the expected happy path" />
+
+<Callout type="tip">
+A conformance score above 0.95 is generally considered "in control" for business-critical processes. Set your alert threshold per-process — not globally.
+</Callout>
+
+### Alignment computation
+
+The alignment algorithm finds the minimum-cost mapping between the observed trace and the reference model. Each move is classified as synchronous (both model and trace agree), log-only (the trace did something the model didn't expect), or model-only (the model expected something that didn't happen). Deviation cost is the count of non-synchronous moves.
+
+```typescript
+// Conformance score computation (simplified)
+function computeConformance(trace: Event[], model: ProcessModel): number {
+  const alignment = computeAlignment(trace, model)
+  const deviationCost = alignment.moves.filter(
+    m => m.type !== 'synchronous'
+  ).length
+  const maxCost = trace.length + model.transitions.length
+  return 1 - deviationCost / maxCost
+}
+```
+
+## The operational loop
+
+Traditional conformance tooling operates offline — you export event logs, run analysis, get a report. The insight we acted on is that this delay is the problem. By the time you see the deviation, the case is closed and the damage is done. Real-time conformance changes the intervention window.
+
+<ProcessFlow steps="Business Process --> Event Stream --> Conformance Engine --> Automation Rules" caption="Real-time conformance as a closed operational loop" />
+
+> We used to review conformance reports every quarter. Now we catch deviations in the same hour they happen. The difference in outcome quality is not incremental — it's categorical.
+>
+> — Head of Operations, Fortune 500 logistics firm
+
+## Designing conformance-aware workflows
+
+The key insight is to treat your reference model as a first-class operational artifact — version-controlled, reviewed, and maintained alongside your procedures and automation rules.
+
+- Version your process models alongside your code in source control
+- Set conformance thresholds per process, not globally — invoice processing tolerates less deviation than employee onboarding
+- Use variant analysis to distinguish structural deviations (wrong path) from timing deviations (right path, wrong speed)
+- Instrument your automation to emit events that feed back into the conformance engine for closed-loop measurement
+
+---
+
+#### Further reading
+
+- Process Mining: Data Science in Action — van der Aalst (2016)
+- Conformance Checking: Relating Processes and Models — Carmona et al. (2018)
+- Meridian Docs: Conformance Engine Reference
