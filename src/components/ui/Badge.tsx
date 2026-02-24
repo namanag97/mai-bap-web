@@ -12,11 +12,11 @@ type BadgeVariant =
 const variantCls: Record<BadgeVariant, string> = {
   neutral: 'text-ink-secondary bg-surface-inset border-border-default',
   primary: 'text-ink-inverse bg-surface-inverse border-border-strong',
-  success: 'text-emerald-700 bg-emerald-50 border-emerald-200',
-  warning: 'text-amber-700 bg-amber-50 border-amber-200',
-  error:   'text-rose-700 bg-rose-50 border-rose-200',
-  violet:  'text-violet-700 bg-violet-50 border-violet-200',
-  orange:  'text-ink-accent bg-orange-50 border-orange-200',
+  success: 'text-data-positive bg-data-positive-bg border-data-positive-border',
+  warning: 'text-data-warning bg-data-warning-bg border-data-warning-border',
+  error:   'text-data-negative bg-data-negative-bg border-data-negative-border',
+  violet:  'text-data-violet bg-data-violet-bg border-data-violet-border',
+  orange:  'text-ink-accent bg-data-accent-bg border-data-accent-border',
 }
 
 interface BadgeProps {
