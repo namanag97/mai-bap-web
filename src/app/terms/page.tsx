@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { siteConfig } from '@/config/site'
+import { Container, MetaLabel, SectionTitle } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
