@@ -39,7 +39,7 @@ export default function PostCard({ post, featured = false }: Props) {
           </div>
 
           {/* Meta */}
-          <div className="p-8 md:p-10 flex flex-col justify-between bg-braun-50">
+          <div className="p-8 md:p-10 flex flex-col justify-between bg-surface-ground">
             <MetaLabel as="div" color="dim">
               {formatDate(post.date)}
             </MetaLabel>
