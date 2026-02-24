@@ -30,7 +30,7 @@ export function PageHeader({
           {title}
         </SectionTitle>
         {subtitle && (
-          <p className="text-sm text-braun-500 max-w-sm leading-relaxed">
+          <p className="text-sm text-ink-muted max-w-sm leading-relaxed">
             {subtitle}
           </p>
         )}
