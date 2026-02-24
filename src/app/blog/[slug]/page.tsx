@@ -2,22 +2,27 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
-import { posts, getPost, formatDate } from '@/content/blog'
-import { Badge, ProseRenderer, Container } from '@/components/ui'
+import { compileMDX } from 'next-mdx-remote/rsc'
+import rehypeSlug from 'rehype-slug'
+import { getAllPosts, getPostSource, formatDate } from '@/lib/mdx'
+import { Badge, Container } from '@/components/ui'
+import { ReadingProgressBar } from '@/components/ui/ReadingProgressBar'
+import { TocTickers } from '@/components/blog/TocTickers'
+import { mdxComponents } from '@/mdx-components'
 
 interface Props {
   params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
-  return posts.map(p => ({ slug: p.slug }))
+  return getAllPosts().map(p => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const post = getPost(slug)
+  const post = getPostSource(slug)
   if (!post) return {}
-  return { title: post.title, description: post.excerpt }
+  return { title: post.frontmatter.title, description: post.frontmatter.excerpt }
 }
 
 const categoryVariant = {
@@ -29,14 +34,32 @@ const categoryVariant = {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params
-  const post = getPost(slug)
+  const post = getPostSource(slug)
   if (!post) notFound()
 
+  const { frontmatter, source } = post
+
+  const { content } = await compileMDX({
+    source,
+    components: mdxComponents,
+    options: {
+      mdxOptions: {
+        rehypePlugins: [rehypeSlug],
+      },
+    },
+  })
+
   const badgeVariant =
-    categoryVariant[post.category as keyof typeof categoryVariant] ?? 'neutral'
+    categoryVariant[frontmatter.category as keyof typeof categoryVariant] ?? 'neutral'
 
   return (
     <div className="min-h-screen pt-14 bg-surface-ground">
+
+      {/* ── Reading progress bar — fixed above everything ──────── */}
+      <ReadingProgressBar />
+
+      {/* ── Left-side TOC tickers — fixed, xl+ only ────────────── */}
+      <TocTickers />
 
       {/* ── Slim breadcrumb ────────────────────────────────────── */}
       <div className="border-b border-border-subtle">
@@ -48,7 +71,7 @@ export default async function BlogPostPage({ params }: Props) {
             <ArrowLeft size={9} />
             Journal
           </Link>
-          <Badge variant={badgeVariant}>{post.category}</Badge>
+          <Badge variant={badgeVariant}>{frontmatter.category}</Badge>
         </Container>
       </div>
 
@@ -56,29 +79,33 @@ export default async function BlogPostPage({ params }: Props) {
       <header className="border-b border-border-default">
         <Container maxWidth="2xl" className="pt-14 pb-12">
 
-          <h1 className="article-title mb-6">{post.title}</h1>
+          <h1 className="article-title mb-6" style={{ maxWidth: '20ch' }}>
+            {frontmatter.title}
+          </h1>
 
-          <p className="article-deck mb-10 max-w-lg">{post.excerpt}</p>
+          <p className="article-deck mb-10 max-w-lg">{frontmatter.excerpt}</p>
 
-          {/* Byline — all meta in one line, no inline styles */}
+          {/* Byline */}
           <div className="article-byline">
             <span className="article-byline-mark" aria-hidden="true">
-              {post.author.name.charAt(0)}
+              {frontmatter.author.name.charAt(0)}
             </span>
-            <span className="article-byline-name">{post.author.name}</span>
+            <span className="article-byline-name">{frontmatter.author.name}</span>
             <span className="article-byline-sep">·</span>
-            <span>{post.author.role}</span>
+            <span>{frontmatter.author.role}</span>
             <span className="article-byline-sep">·</span>
-            <span>{formatDate(post.date)}</span>
+            <span>{formatDate(frontmatter.date)}</span>
             <span className="article-byline-sep">·</span>
-            <span>{post.readTime} min read</span>
+            <span>{frontmatter.readTime} min read</span>
           </div>
         </Container>
       </header>
 
       {/* ── Article body ───────────────────────────────────────── */}
       <Container maxWidth="2xl" as="article" className="py-16">
-        <ProseRenderer blocks={post.content} />
+        <div className="prose">
+          {content}
+        </div>
       </Container>
 
       {/* ── Footer nav ─────────────────────────────────────────── */}
