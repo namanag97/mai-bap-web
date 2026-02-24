@@ -35,7 +35,10 @@ export default function Testimonials() {
         {/* Section header */}
         <FadeIn>
           <div className="mb-14">
-            <SectionLabel label={sectionLabel} className="mb-5" />
+            <div className="flex items-center gap-3 mb-5">
+              <SectionLabel label={sectionLabel} />
+              <div className="flex-1 divider" />
+            </div>
             <SectionTitle>
               {titleLine1}<br />{titleLine2}
             </SectionTitle>
