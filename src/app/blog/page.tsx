@@ -17,7 +17,7 @@ export default function BlogPage() {
   const rest = filtered.filter(p => !p.featured)
 
   return (
-    <div className="bg-braun-50 min-h-screen pt-14">
+    <div className="bg-surface-ground min-h-screen pt-14">
       <PageHeader
         label="Journal"
         title={<>Product, design &amp; engineering.</>}
