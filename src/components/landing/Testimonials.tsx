@@ -15,9 +15,10 @@ export default function Testimonials() {
         {/* Logo strip */}
         <FadeIn>
           <div className="mb-16 pb-10 border-b border-border-default">
-            <MetaLabel as="div" color="dim" className="mb-8 text-center">
-              {logoStripLabel}
-            </MetaLabel>
+            <div className="flex items-center gap-3 mb-8">
+              <MetaLabel as="div" color="dim">{logoStripLabel}</MetaLabel>
+              <div className="flex-1 divider" />
+            </div>
             <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
               {logos.map(name => (
                 <span
