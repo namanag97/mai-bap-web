@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { navigation } from '@/content/docs'
 import { BookOpen, Cpu, Code2, Compass } from 'lucide-react'
+import { MetaLabel, IconBox } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: 'Documentation',
@@ -22,9 +23,9 @@ export default function DocsIndexPage() {
     <div className="px-8 lg:px-16 py-16">
       {/* Header */}
       <div className="mb-12 pb-8 border-b border-braun-200">
-        <div className="text-[10px] font-mono uppercase tracking-widest text-braun-400 mb-4">
+        <MetaLabel as="div" color="dim" className="mb-4">
           Reference
-        </div>
+        </MetaLabel>
         <h1 className="text-2xl lg:text-3xl font-light tracking-tight text-braun-900 mb-3">
           Documentation
         </h1>
@@ -42,10 +43,7 @@ export default function DocsIndexPage() {
 
           return (
             <div key={section.title} className="bg-white p-8 group">
-              {/* Icon */}
-              <div className="w-9 h-9 border border-braun-200 flex items-center justify-center mb-5 group-hover:border-braun-900 group-hover:bg-braun-900 transition-colors duration-300">
-                <Icon size={15} className="text-braun-500 group-hover:text-white transition-colors duration-300" />
-              </div>
+              <IconBox icon={Icon} className="mb-5" />
 
               {/* Section title */}
               <h2 className="text-sm font-semibold text-braun-900 tracking-tight mb-2">
@@ -86,9 +84,9 @@ export default function DocsIndexPage() {
 
       {/* Quick links footer */}
       <div className="mt-8 pt-6 border-t border-braun-200 flex flex-wrap gap-6">
-        <div className="text-[10px] font-mono uppercase tracking-widest text-braun-400">
+        <MetaLabel color="dim">
           Quick links
-        </div>
+        </MetaLabel>
         <Link
           href="/docs/quick-start"
           className="text-[10px] font-mono uppercase tracking-widest text-braun-500 hover:text-braun-900 transition-colors"
