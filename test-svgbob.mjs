@@ -36,7 +36,7 @@ const ASCII2 = `
   +--------------------------------------------------+
 `
 
-// --- test svgbob-wasm ---
+// --- test svgbob-wasm (API: render(ascii)) ---
 let svg1 = '(failed to load)'
 let svg2 = '(failed to load)'
 let svg3 = '(failed to load)'
@@ -44,20 +44,19 @@ let svg4 = '(failed to load)'
 
 try {
   const mod = await import('./node_modules/svgbob-wasm/svgbob_wasm.js')
-  await mod.default()
-  svg1 = mod.convert(ASCII)
-  svg2 = mod.convert(ASCII2)
+  svg1 = mod.render(ASCII)
+  svg2 = mod.render(ASCII2)
   console.log('✓ svgbob-wasm: ok')
 } catch (e) {
   console.log('✗ svgbob-wasm:', e.message)
 }
 
-// --- test bob-wasm ---
+// --- test bob-wasm (API: Bob.loadWASM() then Bob.render(ascii)) ---
 try {
-  const { Svgbob } = await import('bob-wasm')
-  const bob = await Svgbob.initialize()
-  svg3 = bob.convert(ASCII)
-  svg4 = bob.convert(ASCII2)
+  const { default: Bob } = await import('./node_modules/bob-wasm/dist/index.js')
+  await Bob.loadWASM()
+  svg3 = Bob.render(ASCII)
+  svg4 = Bob.render(ASCII2)
   console.log('✓ bob-wasm: ok')
 } catch (e) {
   console.log('✗ bob-wasm:', e.message)
