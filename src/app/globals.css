@@ -398,11 +398,43 @@ body {
   background-size: 80px 80px;
 }
 
-/* ── Card utility — defines elevation once ────────────────── */
+/* ═══════════════════════════════════════════════════════════
+   LAYER 3 — COMPONENT CLASSES
+   Change here → every instance on the site updates.
+   Components just apply the class name, zero styling decisions.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Card — standalone elevated content block ─────────────── */
 .card {
   background-color: var(--color-surface-raised);
   border: 1px solid var(--color-border-default);
-  box-shadow: var(--shadow-xs);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Card grid — group of cells elevated as a unit ────────── */
+/* Container: shows border-color through gap-px as grid lines  */
+/* Usage: <div class="card-grid grid gap-px">                 */
+.card-grid {
+  background-color: var(--color-border-default);
+  border: 1px solid var(--color-border-default);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Card grid cell — individual cell within a card-grid ──── */
+.card-grid-cell {
+  background-color: var(--color-surface-raised);
+}
+
+/* ── Section — full-width content section ─────────────────── */
+.section {
+  border-bottom: 1px solid var(--color-border-default);
+  background-color: var(--color-surface-ground);
+}
+
+/* ── Section inverse — dark full-width section ────────────── */
+.section-inverse {
+  border-bottom: 1px solid var(--color-border-default);
+  background-color: var(--color-surface-inverse);
 }
 
 /* Dark prose adjustments */
