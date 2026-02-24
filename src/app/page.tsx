@@ -1,9 +1,9 @@
-// DEBUG: bisecting — first 3 components
+// DEBUG: bisecting — first 5 components
 import Hero from '@/components/landing/Hero'
 import Features from '@/components/landing/Features'
 import Testimonials from '@/components/landing/Testimonials'
-// import Stats from '@/components/landing/Stats'
-// import Pricing from '@/components/landing/Pricing'
+import Stats from '@/components/landing/Stats'
+import Pricing from '@/components/landing/Pricing'
 // import FAQ from '@/components/landing/FAQ'
 // import CTA from '@/components/landing/CTA'
 
@@ -13,6 +13,8 @@ export default function HomePage() {
       <Hero />
       <Features />
       <Testimonials />
+      <Stats />
+      <Pricing />
     </>
   )
 }
