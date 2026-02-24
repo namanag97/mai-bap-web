@@ -17,17 +17,17 @@
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
   /* ── Private Palette (DO NOT use in components) ────────── */
-  --color-braun-50: #F5F3EF;
-  --color-braun-100: #ECEAE5;
-  --color-braun-200: #DDD9D3;
-  --color-braun-300: #C5C0BA;
-  --color-braun-400: #B5B0AA;
-  --color-braun-500: #8A8580;
-  --color-braun-600: #4A4744;
-  --color-braun-700: #33302E;
-  --color-braun-800: #1E1D1B;
-  --color-braun-900: #1A1918;
-  --color-braun-orange: #C2571A;
+  --color-braun-50: #f5f3ef;
+  --color-braun-100: #eceae5;
+  --color-braun-200: #ddd9d3;
+  --color-braun-300: #c5c0ba;
+  --color-braun-400: #b5b0aa;
+  --color-braun-500: #8a8580;
+  --color-braun-600: #4a4744;
+  --color-braun-700: #33302e;
+  --color-braun-800: #1e1d1b;
+  --color-braun-900: #1a1918;
+  --color-braun-orange: #c2571a;
 
   /* ── Surfaces ──────────────────────────────────────────── */
   /* bg-surface-ground  — page background, default surface    */
@@ -35,12 +35,12 @@
   /* bg-surface-inset   — alternate sections, code blocks     */
   /* bg-surface-overlay — glassmorphic nav, modals            */
   /* bg-surface-inverse — dark sections (Stats, CTA)          */
-  --color-surface-ground: #F5F3EF;
-  --color-surface-raised: #FAF9F7;
-  --color-surface-inset: #ECEAE5;
-  --color-surface-deep: #E5E2DC;
-  --color-surface-overlay: #FAF9F7CC;
-  --color-surface-inverse: #1A1918;
+  --color-surface-ground: #f5f3ef;
+  --color-surface-raised: #faf9f7;
+  --color-surface-inset: #eceae5;
+  --color-surface-deep: #e5e2dc;
+  --color-surface-overlay: #faf9f7cc;
+  --color-surface-inverse: #1a1918;
 
   /* ── Ink (text colors) ─────────────────────────────────── */
   /* text-ink-primary   — headings, strong text               */
@@ -49,22 +49,22 @@
   /* text-ink-dim       — placeholders, disabled              */
   /* text-ink-inverse   — text on dark/inverse surfaces       */
   /* text-ink-accent    — interactive highlights, links        */
-  --color-ink-primary: #1A1918;
-  --color-ink-secondary: #4A4744;
-  --color-ink-muted: #8A8580;
-  --color-ink-dim: #B5B0AA;
-  --color-ink-inverse: #F5F3EF;
-  --color-ink-accent: #C2571A;
+  --color-ink-primary: #1a1918;
+  --color-ink-secondary: #4a4744;
+  --color-ink-muted: #8a8580;
+  --color-ink-dim: #b5b0aa;
+  --color-ink-inverse: #f5f3ef;
+  --color-ink-accent: #c2571a;
 
   /* ── Borders ───────────────────────────────────────────── */
   /* border-border-default — standard borders                 */
   /* border-border-subtle  — very light separators            */
   /* border-border-strong  — emphasis, focus rings            */
   /* border-border-heavy   — structural lines, section weight */
-  --color-border-default: #1A19181A;
-  --color-border-subtle: #1A19180D;
-  --color-border-strong: #1A191833;
-  --color-border-heavy: #1A191859;
+  --color-border-default: #1a19181a;
+  --color-border-subtle: #1a19180d;
+  --color-border-strong: #1a191833;
+  --color-border-heavy: #1a191859;
 
   /* ── Data / status colors ──────────────────────────────── */
   --color-data-positive: #059669;
@@ -112,10 +112,10 @@
   --space-gutter: 1.5rem;
 
   /* ── Shadows (warm-tinted, actually visible) ──────────── */
-  --shadow-xs: 0 1px 2px #1A19180D;
-  --shadow-sm: 0 1px 3px #1A19181A, 0 1px 2px #1A19180D;
-  --shadow-md: 0 4px 6px #1A19181A, 0 2px 4px #1A191810;
-  --shadow-lg: 0 10px 15px #1A19181A, 0 4px 6px #1A191810;
+  --shadow-xs: 0 1px 2px #1a19180d;
+  --shadow-sm: 0 1px 3px #1a19181a, 0 1px 2px #1a19180d;
+  --shadow-md: 0 4px 6px #1a19181a, 0 2px 4px #1a191810;
+  --shadow-lg: 0 10px 15px #1a19181a, 0 4px 6px #1a191810;
 
   /* ── Z-index ─────────────────────────────────────────── */
   --z-base: 0;
@@ -127,8 +127,8 @@
   --z-toast: 500;
 
   /* ── Interactive state overlays ───────────────────────── */
-  --color-state-hover: #1A191808;
-  --color-state-active: #1A191812;
+  --color-state-hover: #1a191808;
+  --color-state-active: #1a191812;
 
   /* ── Status color backgrounds & borders ──────────────── */
   --color-data-positive-bg: #05966912;
@@ -139,8 +139,8 @@
   --color-data-negative-border: #e11d4826;
   --color-data-violet-bg: #7c3aed12;
   --color-data-violet-border: #7c3aed26;
-  --color-data-accent-bg: #C2571A12;
-  --color-data-accent-border: #C2571A26;
+  --color-data-accent-bg: #c2571a12;
+  --color-data-accent-border: #c2571a26;
 
   /* ── Layout ──────────────────────────────────────────── */
   --navbar-height: 3.5rem;
@@ -178,12 +178,16 @@ body {
   color: var(--color-ink-primary);
 }
 
-/* Noise texture on all warm surfaces — visible paper grain */
-.bg-surface-ground,
-.bg-surface-raised,
-.bg-surface-deep,
-body {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+/* Noise texture — single fixed overlay on body::after prevents stacking
+   artifacts when multiple surfaces overlap. pointer-events: none lets all
+   clicks pass through. z-index above everything keeps grain uniform. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
 }
 
 ::selection {
@@ -439,45 +443,45 @@ body {
 [data-theme="dark"] {
   /* Private palette inversion */
   --color-braun-50: #141312;
-  --color-braun-100: #1E1D1B;
+  --color-braun-100: #1e1d1b;
   --color-braun-200: #252320;
-  --color-braun-300: #33302E;
-  --color-braun-400: #5A5550;
-  --color-braun-500: #8A8580;
-  --color-braun-600: #C5C0BA;
-  --color-braun-700: #DDD9D3;
-  --color-braun-800: #ECEAE5;
-  --color-braun-900: #F5F3EF;
-  --color-braun-orange: #C2571A;
+  --color-braun-300: #33302e;
+  --color-braun-400: #5a5550;
+  --color-braun-500: #8a8580;
+  --color-braun-600: #c5c0ba;
+  --color-braun-700: #ddd9d3;
+  --color-braun-800: #eceae5;
+  --color-braun-900: #f5f3ef;
+  --color-braun-orange: #c2571a;
 
   /* Semantic token overrides */
   --color-surface-ground: #141312;
-  --color-surface-raised: #1E1D1B;
+  --color-surface-raised: #1e1d1b;
   --color-surface-inset: #252320;
   --color-surface-deep: #252320;
   --color-surface-overlay: rgba(20, 19, 18, 0.8);
-  --color-surface-inverse: #F5F3EF;
+  --color-surface-inverse: #f5f3ef;
 
-  --color-ink-primary: #F5F3EF;
-  --color-ink-secondary: #C5C0BA;
-  --color-ink-muted: #8A8580;
-  --color-ink-dim: #5A5550;
-  --color-ink-inverse: #1A1918;
-  --color-ink-accent: #C2571A;
+  --color-ink-primary: #f5f3ef;
+  --color-ink-secondary: #c5c0ba;
+  --color-ink-muted: #8a8580;
+  --color-ink-dim: #5a5550;
+  --color-ink-inverse: #1a1918;
+  --color-ink-accent: #c2571a;
 
-  --color-border-default: rgba(245, 243, 239, 0.10);
+  --color-border-default: rgba(245, 243, 239, 0.1);
   --color-border-subtle: rgba(245, 243, 239, 0.05);
-  --color-border-strong: rgba(245, 243, 239, 0.20);
+  --color-border-strong: rgba(245, 243, 239, 0.2);
 
   /* Shadows — deeper for dark mode */
   --shadow-xs: 0 1px 2px #00000026;
-  --shadow-sm: 0 1px 3px #00000033, 0 1px 2px #0000001A;
+  --shadow-sm: 0 1px 3px #00000033, 0 1px 2px #0000001a;
   --shadow-md: 0 4px 6px #00000033, 0 2px 4px #00000026;
   --shadow-lg: 0 10px 15px #00000033, 0 4px 6px #00000026;
 
   /* Interactive states */
   --color-state-hover: rgba(245, 243, 239, 0.06);
-  --color-state-active: rgba(245, 243, 239, 0.10);
+  --color-state-active: rgba(245, 243, 239, 0.1);
 
   /* Status bg/border — slightly higher alpha for dark */
   --color-data-positive-bg: #05966918;
@@ -488,8 +492,8 @@ body {
   --color-data-negative-border: #e11d4830;
   --color-data-violet-bg: #7c3aed18;
   --color-data-violet-border: #7c3aed30;
-  --color-data-accent-bg: #C2571A18;
-  --color-data-accent-border: #C2571A30;
+  --color-data-accent-bg: #c2571a18;
+  --color-data-accent-border: #c2571a30;
 }
 
 /* Dark mode surface raised elements */
@@ -499,8 +503,9 @@ body {
 
 /* ── Hover-lift utility ────────────────────────────────────── */
 .hover-lift {
-  transition: box-shadow var(--duration-base) var(--ease-default),
-              transform var(--duration-base) var(--ease-default);
+  transition:
+    box-shadow var(--duration-base) var(--ease-default),
+    transform var(--duration-base) var(--ease-default);
 }
 .hover-lift:hover {
   box-shadow: var(--shadow-sm);
