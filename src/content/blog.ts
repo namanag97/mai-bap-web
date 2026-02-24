@@ -257,9 +257,9 @@ export function getPost(slug: string): BlogPost | undefined {
 }
 
 export function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString('en-US', {
+  return new Date(dateStr).toLocaleDateString('en-GB', {
     year: 'numeric',
-    month: 'long',
+    month: 'short',
     day: 'numeric',
   })
 }
