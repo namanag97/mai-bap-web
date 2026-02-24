@@ -10,7 +10,7 @@ const config: Record<
   note: {
     icon: Info,
     label: 'Note',
-    cls: 'border-braun-900 bg-braun-50 text-braun-600',
+    cls: 'border-braun-900 bg-surface-ground text-braun-600',
     iconCls: 'text-braun-400',
   },
   warning: {
