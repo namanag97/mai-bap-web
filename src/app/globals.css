@@ -304,5 +304,5 @@ body {
 }
 
 [data-theme="dark"] .prose .note.warning {
-  background: color-mix(in srgb, var(--color-data-negative) 12%, var(--color-surface-ground));
+  background: var(--color-surface-inset);
 }
