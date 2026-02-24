@@ -16,10 +16,11 @@
 import { cn } from '@/lib/utils'
 
 interface AsciiDiagramProps {
-  code: string
+  code?: string
   caption?: string
   variant?: 'block' | 'inline'
   className?: string
+  children?: string
 }
 
 export function AsciiDiagram({
@@ -27,8 +28,10 @@ export function AsciiDiagram({
   caption,
   variant = 'block',
   className,
+  children,
 }: AsciiDiagramProps) {
-  const trimmed = code.replace(/^\n+|\n+$/g, '')
+  const source = code ?? (typeof children === 'string' ? children : '')
+  const trimmed = source.replace(/^\n+|\n+$/g, '')
 
   if (variant === 'inline') {
     return (
