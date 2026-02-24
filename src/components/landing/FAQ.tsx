@@ -61,7 +61,7 @@ export default function FAQ() {
                         openIndex === i ? 'max-h-[500px] pb-5' : 'max-h-0'
                       )}
                     >
-                      <p className="text-xs text-braun-500 leading-relaxed pr-8">
+                      <p className="text-xs text-ink-muted leading-relaxed pr-8">
                         {faq.a}
                       </p>
                     </div>
