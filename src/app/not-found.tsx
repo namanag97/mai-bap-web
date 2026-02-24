@@ -7,7 +7,7 @@ export default function NotFound() {
         <MetaLabel as="div" className="mb-6">
           Error 404
         </MetaLabel>
-        <h1 className="text-6xl lg:text-8xl font-mono font-light text-braun-900 mb-4">
+        <h1 className="text-6xl lg:text-8xl font-mono font-light text-ink-primary mb-4">
           404
         </h1>
         <p className="text-sm text-braun-500 font-light mb-10 max-w-sm mx-auto">
