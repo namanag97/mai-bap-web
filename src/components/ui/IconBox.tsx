@@ -24,8 +24,8 @@ export function IconBox({
       <Icon
         size={size}
         className={cn(
-          'text-braun-500',
-          interactive && 'group-hover:text-white transition-colors duration-300'
+          'text-ink-muted',
+          interactive && 'group-hover:text-ink-inverse transition-colors duration-300'
         )}
       />
     </div>
