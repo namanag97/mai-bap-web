@@ -111,8 +111,8 @@ export const posts: BlogPost[] = [
     featured: false,
     content: [
       {
-        type: 'p',
-        text: "TechCorp processes 15,000 purchase orders per month across 12 regional offices. Before Meridian, their operations team manually reviewed every exception case flagged by their ERP system — a process that consumed 40% of analyst time.",
+        type: 'lead',
+        text: "TechCorp processes 15,000 purchase orders per month across 12 regional offices. Before mai-bap, their operations team manually reviewed every exception case flagged by their ERP system — a process that consumed 40% of analyst time.",
       },
       { type: 'h2', text: 'The problem' },
       {
