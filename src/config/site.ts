@@ -172,7 +172,6 @@ export const siteConfig = {
 
   // ── Pricing ────────────────────────────────────────────
   pricing: {
-    sectionIndex: '04',
     sectionLabel: 'Pricing',
     title: 'Simple pricing.\nNo surprises.',
     footnote:
