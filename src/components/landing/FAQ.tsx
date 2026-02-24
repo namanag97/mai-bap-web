@@ -24,7 +24,7 @@ export default function FAQ() {
               <SectionTitle>
                 {titleLine1}<br />{titleLine2}
               </SectionTitle>
-              <p className="text-sm text-braun-500 leading-relaxed mt-4 max-w-sm">
+              <p className="text-sm text-ink-muted leading-relaxed mt-4 max-w-sm">
                 {subtitle}
               </p>
             </div>
