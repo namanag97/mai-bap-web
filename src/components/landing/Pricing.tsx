@@ -19,7 +19,7 @@ export default function Pricing() {
 
         {/* Header */}
         <FadeIn>
-          <div className="mb-12 pb-8 border-b border-braun-200">
+          <div className="mb-12 pb-8 border-b border-border-default">
             <SectionLabel index={sectionIndex} label={sectionLabel} className="mb-5" />
             <SectionTitle>
               {title}
