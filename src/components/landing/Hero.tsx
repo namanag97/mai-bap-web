@@ -1,7 +1,7 @@
 'use client'
 
 import { ArrowRight, ShieldCheck, Zap, Globe } from 'lucide-react'
-import { ButtonLink, SectionLabel } from '@/components/ui'
+import { ButtonLink, SectionLabel, Container, MetaLabel } from '@/components/ui'
 import { FadeIn } from '@/components/ui/FadeIn'
 import { siteConfig } from '@/config/site'
 
@@ -138,7 +138,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative max-w-7xl mx-auto px-6">
+      <Container className="relative">
         <div className="grid lg:grid-cols-[1fr_460px] xl:grid-cols-[1fr_520px] gap-12 xl:gap-20 py-24 lg:py-32 xl:py-40 items-center">
 
           {/* Left — typography */}
@@ -182,9 +182,7 @@ export default function Hero() {
                   return (
                     <div key={signal.label} className="flex items-center gap-2">
                       <Icon size={11} className="text-braun-500" />
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-braun-500">
-                        {signal.label}
-                      </span>
+                      <MetaLabel>{signal.label}</MetaLabel>
                     </div>
                   )
                 })}
@@ -199,22 +197,22 @@ export default function Hero() {
             </div>
           </FadeIn>
         </div>
-      </div>
+      </Container>
 
       {/* Stats strip */}
       <div className="relative border-t border-braun-200 bg-white">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-px bg-braun-200">
+        <Container className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-braun-200">
           {siteConfig.hero.statsStrip.map((s) => (
             <div key={s.label} className="py-5 px-6 bg-white">
               <div className="text-2xl lg:text-3xl font-mono font-light text-braun-900 tabular-nums">
                 {s.value}
               </div>
-              <div className="text-[10px] font-mono uppercase tracking-widest text-braun-500 mt-1">
+              <MetaLabel as="div" className="mt-1">
                 {s.label}
-              </div>
+              </MetaLabel>
             </div>
           ))}
-        </div>
+        </Container>
       </div>
     </section>
   )
