@@ -1,7 +1,7 @@
 'use client'
 
 import { FadeIn } from '@/components/ui/FadeIn'
-import { SectionLabel } from '@/components/ui'
+import { SectionLabel, SectionTitle, Container, MetaLabel } from '@/components/ui'
 import { siteConfig } from '@/config/site'
 
 export default function Testimonials() {
@@ -10,14 +10,14 @@ export default function Testimonials() {
 
   return (
     <section className="border-b border-braun-200 bg-braun-50">
-      <div className="max-w-7xl mx-auto px-6 py-24">
+      <Container className="py-24">
 
         {/* Logo strip */}
         <FadeIn>
           <div className="mb-16 pb-10 border-b border-braun-200">
-            <div className="text-[10px] font-mono uppercase tracking-widest text-braun-400 mb-8 text-center">
+            <MetaLabel as="div" color="dim" className="mb-8 text-center">
               {logoStripLabel}
-            </div>
+            </MetaLabel>
             <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
               {logos.map(name => (
                 <span
@@ -35,9 +35,9 @@ export default function Testimonials() {
         <FadeIn>
           <div className="mb-14">
             <SectionLabel index={sectionIndex} label={sectionLabel} className="mb-5" />
-            <h2 className="text-3xl lg:text-4xl font-light tracking-tight text-braun-900">
+            <SectionTitle>
               {titleLine1}<br />{titleLine2}
-            </h2>
+            </SectionTitle>
           </div>
         </FadeIn>
 
@@ -51,15 +51,15 @@ export default function Testimonials() {
                 </blockquote>
                 <div className="pt-5 border-t border-braun-100">
                   <div className="text-xs font-semibold text-braun-900">{t.name}</div>
-                  <div className="text-[10px] font-mono text-braun-400 uppercase tracking-widest mt-0.5">
+                  <MetaLabel as="div" color="dim" className="mt-0.5">
                     {t.role} · {t.company}
-                  </div>
+                  </MetaLabel>
                 </div>
               </div>
             </FadeIn>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   )
 }
