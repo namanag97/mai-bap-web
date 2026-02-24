@@ -217,8 +217,12 @@ body::after {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-ink-primary);
-  outline-offset: 2px;
+  /* macOS/Linear-style focus ring: 2px surface-ground gap + 4px accent ring.
+     box-shadow respects border-radius. No outline to override. */
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--color-surface-ground),
+    0 0 0 4px var(--color-ink-primary);
 }
 
 /* ── Scrollbar ─────────────────────────────────────────────── */
