@@ -53,7 +53,7 @@ export default function Pricing() {
             return (
               <FadeIn key={tier.name} delay={i * 120} direction="up">
                 <div
-                  className={`flex flex-col p-8 h-full hover-lift ${tier.featured ? 'bg-surface-inverse' : 'bg-surface-raised'}`}
+                  className={`flex flex-col p-8 h-full hover-lift ${tier.featured ? 'bg-surface-inverse' : 'card-grid-cell'}`}
                 >
                   {tier.featured && (
                     <MetaLabel as="div" size="xxs" className="text-ink-accent border border-ink-accent/40 px-2 py-0.5 self-start mb-5">
