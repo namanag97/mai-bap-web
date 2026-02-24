@@ -599,7 +599,3 @@ body {
   background: var(--color-surface-inset);
   border-color: var(--color-border-default);
 }
-
-[data-theme="dark"] .prose .note.warning {
-  background: var(--color-surface-inset);
-}
