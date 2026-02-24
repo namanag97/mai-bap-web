@@ -29,7 +29,7 @@ export default function ContactPage() {
           <div className="bg-surface-raised border border-border-default p-6 sm:p-8">
             {submitted ? (
               <div className="py-16 flex flex-col items-center text-center">
-                <div className="w-12 h-12 border border-braun-200 flex items-center justify-center mb-6">
+                <div className="w-12 h-12 border border-border-default flex items-center justify-center mb-6">
                   <CheckCircle size={20} className="text-data-positive" />
                 </div>
                 <h2 className="text-lg font-semibold text-braun-900 tracking-tight mb-2">
