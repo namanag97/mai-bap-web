@@ -9,7 +9,7 @@ export function FormLabel({ children, className, ...props }: FormLabelProps) {
   return (
     <label
       className={cn(
-        'text-xs font-medium text-braun-900 uppercase tracking-wide mb-1.5 block',
+        'text-xs font-medium text-ink-primary uppercase tracking-wide mb-1.5 block',
         className
       )}
       {...props}
