@@ -46,7 +46,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="pt-6 border-t border-braun-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+        <div className="pt-6 border-t border-border-subtle flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
           <MetaLabel as="p" size="xxs">
             &copy; {siteConfig.copyrightYear} {siteConfig.name}. All rights reserved.
           </MetaLabel>
