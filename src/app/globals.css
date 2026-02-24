@@ -376,6 +376,47 @@ body::after {
   text-wrap: pretty; /* Modern: prevents single-word orphans on last line */
 }
 
+/* Editorial links — animated underline-fill reveal on hover */
+.prose a {
+  color: var(--color-ink-primary);
+  text-decoration: none;
+  /* The gradient starts as a 1px underline, expands to full height on hover */
+  background-image: linear-gradient(var(--color-ink-primary), var(--color-ink-primary));
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  transition:
+    background-size var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+.prose a:hover {
+  background-size: 100% 100%;
+  color: var(--color-ink-inverse);
+}
+
+/* Images and video — rounded object treatment with hairline border */
+.prose img,
+.prose video {
+  border-radius: var(--radius-lg);
+  box-shadow: 0 0 0 1px var(--color-border-subtle);
+  transition:
+    opacity var(--duration-base) var(--ease-default),
+    filter var(--duration-base) var(--ease-default);
+}
+
+/* Dark mode: dim bright content so it doesn't hurt eyes in a dark room */
+[data-theme="dark"] .prose img,
+[data-theme="dark"] .prose video {
+  opacity: 0.88;
+  filter: brightness(0.9) contrast(1.05);
+}
+/* Hover restores full fidelity */
+[data-theme="dark"] .prose img:hover,
+[data-theme="dark"] .prose video:hover {
+  opacity: 1;
+  filter: brightness(1) contrast(1);
+}
+
 /* Unordered list — em-dash bullets */
 .prose ul {
   padding-left: 1.5rem;
