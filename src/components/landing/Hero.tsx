@@ -105,7 +105,7 @@ function AppMockup() {
 
           {/* AI actions feed */}
           <div>
-            <div className="px-2 sm:px-3 py-1.5 bg-braun-50 border-b border-braun-100">
+            <div className="px-2 sm:px-3 py-1.5 bg-surface-ground border-b border-border-subtle">
               <span className="text-[7.5px] font-mono uppercase tracking-widest text-braun-500">
                 AI Actions — Today
               </span>
