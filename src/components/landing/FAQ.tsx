@@ -30,7 +30,7 @@ export default function FAQ() {
             </div>
 
             {/* Right: accordion */}
-            <div className="divide-y divide-braun-200 border-t border-b border-braun-200">
+            <div className="divide-y divide-border-default border-t border-b border-border-default">
               {items.map((faq, i) => (
                 <FadeIn key={i} delay={i * 60}>
                   <div>
