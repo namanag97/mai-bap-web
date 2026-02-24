@@ -194,9 +194,9 @@ export default function Hero() {
 
       {/* Stats strip */}
       <div className="relative border-t border-border-default bg-surface-ground">
-        <Container className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-border-default">
+        <Container className="card-grid grid grid-cols-2 lg:grid-cols-4 gap-px">
           {siteConfig.hero.statsStrip.map((s) => (
-            <div key={s.label} className="py-5 px-6 bg-surface-raised">
+            <div key={s.label} className="card-grid-cell py-5 px-6">
               <div className="text-2xl lg:text-3xl font-mono font-light text-ink-primary tabular-nums">
                 {s.value}
               </div>
