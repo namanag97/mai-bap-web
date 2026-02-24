@@ -21,18 +21,18 @@ function AppMockup() {
       aria-label="mai-bap dashboard showing automated business workflows"
     >
       {/* Title bar */}
-      <div className="h-9 bg-braun-900 flex items-center px-3 gap-2 shrink-0">
+      <div className="h-9 bg-surface-inverse flex items-center px-3 gap-2 shrink-0">
         <div className="flex items-center gap-1.5">
-          <div className="w-2.5 h-2.5 bg-braun-600" />
-          <div className="w-2.5 h-2.5 bg-braun-600" />
-          <div className="w-2.5 h-2.5 bg-braun-600" />
+          <div className="w-2.5 h-2.5 bg-surface-inverse" />
+          <div className="w-2.5 h-2.5 bg-surface-inverse" />
+          <div className="w-2.5 h-2.5 bg-surface-inverse" />
         </div>
-        <span className="flex-1 text-center text-[9px] font-mono text-braun-500 uppercase tracking-widest">
+        <span className="flex-1 text-center text-[9px] font-mono text-ink-muted uppercase tracking-widest">
           mai-bap — Automation Control
         </span>
         <div className="flex items-center gap-1.5">
           <span className="w-1.5 h-1.5 bg-data-positive inline-block animate-pulse" />
-          <span className="text-[8px] font-mono text-braun-500 uppercase tracking-widest">Live</span>
+          <span className="text-[8px] font-mono text-ink-muted uppercase tracking-widest">Live</span>
         </div>
       </div>
 
