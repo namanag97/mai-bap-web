@@ -6,11 +6,11 @@ type Variant = 'primary' | 'secondary' | 'ghost' | 'dark' | 'dark-secondary'
 type Size    = 'sm' | 'md' | 'lg'
 
 const variantCls: Record<Variant, string> = {
-  primary:   'bg-braun-900 text-white border-braun-900 hover:bg-braun-800',
-  secondary: 'bg-transparent text-braun-800 border-border-default hover:border-braun-900 hover:text-braun-900',
-  ghost:     'bg-transparent text-braun-500 border-transparent hover:text-braun-900 hover:bg-surface-ground',
-  dark:            'bg-surface-raised text-braun-900 border-surface-raised hover:bg-braun-100',
-  'dark-secondary': 'bg-transparent text-braun-500 border-braun-800 hover:border-braun-600 hover:text-braun-300',
+  primary:   'bg-surface-inverse text-ink-inverse border-border-strong hover:bg-surface-inverse',
+  secondary: 'bg-transparent text-ink-primary border-border-default hover:border-border-strong hover:text-ink-primary',
+  ghost:     'bg-transparent text-ink-muted border-transparent hover:text-ink-primary hover:bg-surface-ground',
+  dark:            'bg-surface-raised text-ink-primary border-surface-raised hover:bg-surface-inset',
+  'dark-secondary': 'bg-transparent text-ink-muted border-border-strong hover:border-border-default hover:text-ink-dim',
 }
 
 const sizeCls: Record<Size, string> = {
