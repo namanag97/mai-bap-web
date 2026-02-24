@@ -69,7 +69,7 @@ export default function DocsSidebar() {
           {query ? (
             <button
               onClick={() => setQuery('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-ink-muted hover:text-braun-900"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-ink-muted hover:text-ink-primary"
             >
               <X size={12} />
             </button>
@@ -120,7 +120,7 @@ export default function DocsSidebar() {
                         active
                           ? // Active: left accent line, dark text — document navigation pattern
                             'border-l-2 border-braun-orange pl-[calc(0.5rem-2px)] text-braun-900 font-medium bg-surface-ground'
-                          : 'border-l-2 border-transparent pl-[calc(0.5rem-2px)] text-ink-muted hover:text-braun-900 hover:bg-surface-ground'
+                          : 'border-l-2 border-transparent pl-[calc(0.5rem-2px)] text-ink-muted hover:text-ink-primary hover:bg-surface-ground'
                       )}
                     >
                       {page.title}
