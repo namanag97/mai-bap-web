@@ -10,7 +10,7 @@ export default function Stats() {
   return (
     <section className="border-b border-border-default bg-surface-inverse">
       <Container>
-        <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-braun-800">
+        <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-border-default">
           {stats.map((s, i) => (
             <FadeIn key={s.label} delay={i * 100} direction="up">
               <div
