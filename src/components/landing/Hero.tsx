@@ -127,7 +127,7 @@ function AppMockup() {
 
 export default function Hero() {
   return (
-    <section className="relative pt-14 bg-braun-50 border-b border-braun-200 overflow-hidden">
+    <section className="relative pt-14 bg-surface-ground border-b border-border-default overflow-hidden">
       {/* Swiss grid */}
       <div
         className="absolute inset-0 pointer-events-none"
