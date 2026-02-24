@@ -38,6 +38,7 @@ export const siteConfig = {
       heading: 'Product',
       links: [
         { label: 'Features', href: '/#features' },
+        { label: 'Integrations', href: '/integrations' },
         { label: 'Pricing', href: '/#pricing' },
         { label: 'Changelog', href: '/changelog' },
         { label: 'Blog', href: '/blog' },
