@@ -45,7 +45,7 @@ export default function PostCard({ post, featured = false }: Props) {
             </MetaLabel>
             <div className="mt-6 space-y-4">
               <div>
-                <div className="text-xs font-semibold text-braun-800">{post.author.name}</div>
+                <div className="text-xs font-semibold text-ink-primary">{post.author.name}</div>
                 <MetaLabel as="div" color="dim" className="mt-0.5">
                   {post.author.role}
                 </MetaLabel>
