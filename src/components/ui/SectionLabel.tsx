@@ -17,7 +17,7 @@ export function SectionLabel({ index, label, className }: SectionLabelProps) {
       {index && (
         <>
           <span className="text-[10px] font-mono text-braun-500 tabular-nums">{index}</span>
-          <span className="h-px w-6 bg-braun-200 inline-block" />
+          <span className="h-px w-6 bg-border-default inline-block" />
         </>
       )}
       <MetaLabel>{label}</MetaLabel>
