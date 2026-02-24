@@ -5,7 +5,7 @@ export default function Loading() {
         <div className="w-5 h-5 border border-border-strong relative">
           <div className="absolute inset-0 bg-surface-inverse origin-bottom animate-pulse" />
         </div>
-        <span className="text-[10px] font-mono uppercase tracking-widest text-braun-500">
+        <span className="text-[10px] font-mono uppercase tracking-widest text-ink-muted">
           Loading
         </span>
       </div>
