@@ -80,7 +80,7 @@ export default function PostCard({ post, featured = false }: Props) {
         </h3>
         <p className="text-xs text-braun-500 leading-relaxed line-clamp-3">{post.excerpt}</p>
       </div>
-      <div className="border-t border-braun-100 px-6 py-3 flex items-center justify-between">
+      <div className="border-t border-border-subtle px-6 py-3 flex items-center justify-between">
         <MetaLabel size="xxs" color="dim">
           {formatDate(post.date)}
         </MetaLabel>
