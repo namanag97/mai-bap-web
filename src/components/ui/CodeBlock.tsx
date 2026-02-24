@@ -29,10 +29,10 @@ export function CodeBlock({ code, lang = 'code', className }: CodeBlockProps) {
         </div>
       </div>
 
-      {/* Code body — bg-braun-900, JetBrains Mono */}
-      <pre className="bg-braun-900 px-5 py-4 overflow-x-auto m-0">
+      {/* Code body — bg-surface-inverse, JetBrains Mono */}
+      <pre className="bg-surface-inverse px-5 py-4 overflow-x-auto m-0">
         <code
-          className="text-braun-200 font-mono text-[0.8125rem] leading-[1.75]"
+          className="text-ink-dim font-mono text-[0.8125rem] leading-[1.75]"
           style={{ fontFamily: 'var(--font-mono, "JetBrains Mono", monospace)' }}
         >
           {trimmed}
