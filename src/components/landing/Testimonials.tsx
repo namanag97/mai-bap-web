@@ -34,7 +34,7 @@ export default function Testimonials() {
         {/* Section header */}
         <FadeIn>
           <div className="mb-14">
-            <SectionLabel index={sectionIndex} label={sectionLabel} className="mb-5" />
+            <SectionLabel label={sectionLabel} className="mb-5" />
             <SectionTitle>
               {titleLine1}<br />{titleLine2}
             </SectionTitle>
