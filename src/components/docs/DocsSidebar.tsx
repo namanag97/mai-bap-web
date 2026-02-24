@@ -7,6 +7,8 @@ import { Search, X } from 'lucide-react'
 import { navigation } from '@/content/docs'
 import { cn } from '@/lib/utils'
 import { siteConfig } from '@/config/site'
+import { MetaLabel } from '@/components/ui'
+import { Input } from '@/components/ui/Input'
 
 /**
  * DocsSidebar — Swiss grid document navigation.
@@ -51,18 +53,18 @@ export default function DocsSidebar() {
     <aside className="w-64 shrink-0 flex flex-col bg-white border-r border-braun-200 overflow-y-auto">
       {/* Sidebar header */}
       <div className="px-5 py-5 border-b border-braun-100">
-        <div className="text-[10px] font-mono uppercase tracking-widest text-braun-500">
+        <MetaLabel as="div">
           Documentation
-        </div>
+        </MetaLabel>
         <div className="mt-3 relative">
           <Search size={12} className="absolute left-3 top-1/2 -translate-y-1/2 text-braun-400" />
-          <input
+          <Input
             ref={searchRef}
             type="text"
             value={query}
             onChange={e => setQuery(e.target.value)}
             placeholder="Search docs..."
-            className="w-full bg-braun-50 border border-braun-200 pl-8 pr-8 py-2 text-xs text-braun-900 placeholder:text-braun-400 focus:border-braun-900 focus:ring-0 focus:outline-none"
+            className="pl-8 pr-8 py-2 text-xs"
           />
           {query ? (
             <button
@@ -83,7 +85,7 @@ export default function DocsSidebar() {
       <nav className="flex-1 px-3 py-5 space-y-1" aria-label="Documentation navigation">
         {filteredNavigation.length === 0 && (
           <div className="px-5 py-8 text-center">
-            <p className="text-[10px] font-mono text-braun-400 uppercase tracking-widest">No results found</p>
+            <MetaLabel as="p" color="dim">No results found</MetaLabel>
           </div>
         )}
         {filteredNavigation.map((section, si) => (
@@ -98,9 +100,9 @@ export default function DocsSidebar() {
                 className="w-1.5 h-1.5 rounded-full shrink-0 bg-braun-200"
                 aria-hidden="true"
               />
-              <span className="text-[9px] font-mono uppercase tracking-widest text-braun-400">
+              <MetaLabel size="xxs" color="dim">
                 {section.title}
-              </span>
+              </MetaLabel>
             </div>
 
             {/* Page links */}
@@ -133,9 +135,9 @@ export default function DocsSidebar() {
 
       {/* Sidebar footer */}
       <div className="px-5 py-4 border-t border-braun-100">
-        <div className="text-[9px] font-mono text-braun-500 uppercase tracking-widest">
+        <MetaLabel as="div" size="xxs">
           {siteConfig.docsVersion} &middot; {siteConfig.name} Docs
-        </div>
+        </MetaLabel>
       </div>
     </aside>
   )
