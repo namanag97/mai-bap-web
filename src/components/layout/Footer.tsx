@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import { siteConfig } from '@/config/site'
+import { Container, MetaLabel } from '@/components/ui'
 
 export default function Footer() {
   return (
     <footer className="border-t border-braun-200 bg-white">
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-10">
+      <Container className="pt-16 pb-10">
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-14">
           {/* Brand col */}
@@ -18,17 +19,17 @@ export default function Footer() {
             <p className="mt-4 text-xs text-braun-500 leading-relaxed max-w-[180px]">
               {siteConfig.footerTagline}
             </p>
-            <div className="mt-5 text-[9px] font-mono text-braun-500 uppercase tracking-widest">
+            <MetaLabel as="div" size="xxs" className="mt-5">
               {siteConfig.footerBadges}
-            </div>
+            </MetaLabel>
           </div>
 
           {/* Link columns */}
           {siteConfig.footerColumns.map(col => (
             <div key={col.heading}>
-              <h3 className="text-[9px] font-mono uppercase tracking-widest text-braun-500 mb-4">
+              <MetaLabel as="h3" size="xxs" className="mb-4">
                 {col.heading}
-              </h3>
+              </MetaLabel>
               <ul className="flex flex-col gap-2.5">
                 {col.links.map(l => (
                   <li key={l.label}>
@@ -46,14 +47,14 @@ export default function Footer() {
         </div>
 
         <div className="pt-6 border-t border-braun-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-          <p className="text-[9px] font-mono text-braun-500 uppercase tracking-widest">
+          <MetaLabel as="p" size="xxs">
             &copy; {siteConfig.copyrightYear} {siteConfig.name}. All rights reserved.
-          </p>
-          <p className="text-[9px] font-mono text-braun-500 uppercase tracking-widest">
+          </MetaLabel>
+          <MetaLabel as="p" size="xxs">
             System status: {siteConfig.systemStatus}
-          </p>
+          </MetaLabel>
         </div>
-      </div>
+      </Container>
     </footer>
   )
 }
