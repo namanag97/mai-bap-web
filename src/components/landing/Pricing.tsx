@@ -9,7 +9,7 @@ import { siteConfig } from '@/config/site'
 const billingOptions = ['Monthly', 'Annual'] as const
 
 export default function Pricing() {
-  const { sectionIndex, sectionLabel, title, footnote, tiers } = siteConfig.pricing
+  const { sectionLabel, title, footnote, tiers } = siteConfig.pricing
   const [billing, setBilling] = useState<'Monthly' | 'Annual'>('Monthly')
   const annual = billing === 'Annual'
 
