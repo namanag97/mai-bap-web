@@ -10,7 +10,7 @@ export default function NotFound() {
         <h1 className="text-6xl lg:text-8xl font-mono font-light text-ink-primary mb-4">
           404
         </h1>
-        <p className="text-sm text-braun-500 font-light mb-10 max-w-sm mx-auto">
+        <p className="text-sm text-ink-muted font-light mb-10 max-w-sm mx-auto">
           The page you&apos;re looking for doesn&apos;t exist or has been moved.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
