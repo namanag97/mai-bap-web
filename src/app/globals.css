@@ -345,6 +345,28 @@ body {
   --color-border-default: rgba(245, 243, 239, 0.10);
   --color-border-subtle: rgba(245, 243, 239, 0.05);
   --color-border-strong: rgba(245, 243, 239, 0.20);
+
+  /* Shadows — deeper for dark mode */
+  --shadow-xs: 0 1px 2px #00000033;
+  --shadow-sm: 0 2px 4px #00000033, 0 1px 2px #0000001A;
+  --shadow-md: 0 4px 12px #00000040, 0 2px 4px #00000026;
+  --shadow-lg: 0 8px 24px #0000004D, 0 4px 8px #00000033;
+
+  /* Interactive states */
+  --color-state-hover: rgba(245, 243, 239, 0.06);
+  --color-state-active: rgba(245, 243, 239, 0.10);
+
+  /* Status bg/border — slightly higher alpha for dark */
+  --color-data-positive-bg: #05966918;
+  --color-data-positive-border: #05966930;
+  --color-data-warning-bg: #d9770618;
+  --color-data-warning-border: #d9770630;
+  --color-data-negative-bg: #e11d4818;
+  --color-data-negative-border: #e11d4830;
+  --color-data-violet-bg: #7c3aed18;
+  --color-data-violet-border: #7c3aed30;
+  --color-data-accent-bg: #ea580c18;
+  --color-data-accent-border: #ea580c30;
 }
 
 /* Dark mode surface raised elements */
