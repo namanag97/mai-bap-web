@@ -1,18 +1,17 @@
 /**
- * AsciiDiagram — two modes:
+ * AsciiDiagram — two variants:
  *
- * variant="block" (default)
- *   For complex diagrams: bordered box on surface-inset.
- *   Looks like a figure in a technical document.
+ * variant="inline" (default for simple diagrams)
+ *   No box, no background, no border. Indented mono text that sits in the
+ *   prose column as if it's part of the sentence — because it is.
+ *   Use for: arrows, short flows, simple A → B relationships.
  *
- * variant="inline"
- *   For simple diagrams (an arrow, a short flow): no box, no background.
- *   Just mono text in the prose column, anchored by a hairline left rule.
- *   Feels like part of the text — because it IS part of the text.
+ * variant="block"
+ *   Subtle bordered box on surface-inset. Use for: complex diagrams with
+ *   many rows, ASCII tables, pipeline charts.
  *
- * The key to eliminating ASCII jank: letter-spacing: 0.
- * Geist Mono is monospace, so all chars are equal-width once you
- * kill any inherited letter-spacing. The .prose-diagram* classes handle this.
+ * The jank fix: letter-spacing: 0. Geist Mono is monospace but inheriting
+ * a non-zero letter-spacing from a parent breaks the column alignment.
  */
 import { cn } from '@/lib/utils'
 
@@ -34,7 +33,7 @@ export function AsciiDiagram({
   if (variant === 'inline') {
     return (
       <figure className={cn('my-0', className)}>
-        <div className="border-l-2 border-border-subtle pl-5 py-1">
+        <div className="pl-5">
           <pre className="m-0 overflow-x-auto">
             <code className="prose-diagram-inline">{trimmed}</code>
           </pre>
