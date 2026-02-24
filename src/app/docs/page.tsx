@@ -83,7 +83,7 @@ export default function DocsIndexPage() {
       </div>
 
       {/* Quick links footer */}
-      <div className="mt-8 pt-6 border-t border-braun-200 flex flex-wrap gap-6">
+      <div className="mt-8 pt-6 border-t border-border-default flex flex-wrap gap-6">
         <MetaLabel color="dim">
           Quick links
         </MetaLabel>
