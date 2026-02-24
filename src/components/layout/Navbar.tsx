@@ -55,7 +55,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="font-mono font-bold text-xs tracking-[0.2em] uppercase text-braun-900 hover:text-braun-orange transition-colors duration-300"
+          className="font-mono font-bold text-xs tracking-[0.2em] uppercase text-ink-primary hover:text-ink-accent transition-colors duration-300"
         >
           {siteConfig.name.toUpperCase()}
         </Link>
