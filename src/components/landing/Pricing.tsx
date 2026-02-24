@@ -37,7 +37,7 @@ export default function Pricing() {
               size="md"
             />
             {annual && (
-              <MetaLabel size="xxs" className="ml-2 text-braun-orange">
+              <MetaLabel size="xxs" className="ml-2 text-ink-accent">
                 Save 20%
               </MetaLabel>
             )}
