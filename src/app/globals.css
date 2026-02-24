@@ -314,7 +314,7 @@ body::after {
 .prose {
   color: var(--color-ink-secondary);
   font-size: clamp(1rem, 1.4vw, 1.125rem);
-  line-height: 1.8;
+  line-height: var(--leading-body);
   max-width: 65ch;
 }
 
