@@ -32,7 +32,7 @@ export default function ContactPage() {
                 <div className="w-12 h-12 border border-border-default flex items-center justify-center mb-6">
                   <CheckCircle size={20} className="text-data-positive" />
                 </div>
-                <h2 className="text-lg font-semibold text-braun-900 tracking-tight mb-2">
+                <h2 className="text-lg font-semibold text-ink-primary tracking-tight mb-2">
                   Message received.
                 </h2>
                 <p className="text-sm text-braun-500 max-w-xs">
