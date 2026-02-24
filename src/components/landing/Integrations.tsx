@@ -11,16 +11,18 @@ export default function Integrations() {
       <Container className="py-20">
 
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-14">
+        <div className="grid lg:grid-cols-2 gap-8 mb-14 pb-10 border-b border-border-default">
           <div>
-            <SectionLabel index="03" label="Integrations" className="mb-6" />
-            <h2 className="section-title whitespace-pre-line max-w-sm">
-              {integrations.title}
-            </h2>
+            <SectionLabel label={integrations.sectionLabel} className="mb-5" />
+            <SectionTitle>
+              {integrations.title.split('\n')[0]}<br />{integrations.title.split('\n')[1]}
+            </SectionTitle>
           </div>
-          <p className="text-sm text-ink-secondary leading-relaxed max-w-xs md:text-right">
-            {integrations.subtitle}
-          </p>
+          <div className="flex items-end">
+            <p className="text-sm text-ink-secondary leading-relaxed">
+              {integrations.subtitle}
+            </p>
+          </div>
         </div>
 
         {/* Integration grid */}
