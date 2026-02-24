@@ -138,7 +138,9 @@ export default function ContactPage() {
             </div>
 
             <div className="border-t border-braun-200 pt-6">
-              <FormLabel as="div" className="mb-2">Email</FormLabel>
+              <div className="text-xs font-medium text-braun-900 uppercase tracking-wide mb-2">
+                Email
+              </div>
               <a
                 href={`mailto:${siteConfig.email}`}
                 className="text-sm text-braun-900 underline hover:text-braun-orange transition-colors"
