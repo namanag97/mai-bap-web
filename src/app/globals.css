@@ -35,11 +35,11 @@
   /* bg-surface-inset   — alternate sections, code blocks     */
   /* bg-surface-overlay — glassmorphic nav, modals            */
   /* bg-surface-inverse — dark sections (Stats, CTA)          */
-  --color-surface-ground:  #F5F3EF;
-  --color-surface-raised:  #FFFFFF;
-  --color-surface-inset:   #ECEAE5;
-  --color-surface-overlay: rgba(245, 243, 239, 0.72);
-  --color-surface-inverse: #1A1918;
+  --color-surface-ground:  #fafafa;
+  --color-surface-raised:  #ffffff;
+  --color-surface-inset:   #f4f4f5;
+  --color-surface-overlay: rgba(255, 255, 255, 0.80);
+  --color-surface-inverse: #09090b;
 
   /* ── Ink (text colors) ─────────────────────────────────── */
   /* text-ink-primary   — headings, strong text               */
@@ -48,20 +48,20 @@
   /* text-ink-dim       — placeholders, disabled              */
   /* text-ink-inverse   — text on dark/inverse surfaces       */
   /* text-ink-accent    — interactive highlights, links        */
-  --color-ink-primary:   #1A1918;
-  --color-ink-secondary: #4A4744;
-  --color-ink-muted:     #8A8580;
-  --color-ink-dim:       #B5B0AA;
-  --color-ink-inverse:   #F5F3EF;
+  --color-ink-primary:   #09090b;
+  --color-ink-secondary: #52525b;
+  --color-ink-muted:     #71717a;
+  --color-ink-dim:       #a1a1aa;
+  --color-ink-inverse:   #fafafa;
   --color-ink-accent:    #ea580c;
 
   /* ── Borders ───────────────────────────────────────────── */
   /* border-border-default — standard borders                 */
   /* border-border-subtle  — very light separators            */
   /* border-border-strong  — emphasis, focus rings            */
-  --color-border-default: rgba(26, 25, 24, 0.10);
-  --color-border-subtle:  rgba(26, 25, 24, 0.05);
-  --color-border-strong:  rgba(26, 25, 24, 0.20);
+  --color-border-default: #e4e4e7;
+  --color-border-subtle:  #f4f4f5;
+  --color-border-strong:  #09090b;
 
   /* ── Data / status colors ──────────────────────────────── */
   --color-data-positive: #059669;
