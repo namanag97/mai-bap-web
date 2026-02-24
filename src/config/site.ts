@@ -301,6 +301,96 @@ export const siteConfig = {
     sectionLabel: 'Journal',
     categories: ['All', 'Product', 'Ops', 'Case Study', 'Engineering'],
   },
+
+  // ── Integrations ───────────────────────────────────────
+  integrations: {
+    sectionLabel: 'Integrations',
+    title: 'Works with the tools\nyour team already uses.',
+    subtitle:
+      'Connect Slack, Jira, Salesforce, and 40+ more tools out of the box. Two-way sync, no ETL required.',
+    allPageTitle: 'Every integration,\nout of the box.',
+    allPageSubtitle:
+      'mai-bap connects to 40+ tools your team already uses. Two-way sync, no ETL, no custom scripts.',
+    ctaLabel: 'See all integrations',
+    ctaHref: '/integrations',
+    featuredNames: [
+      'Slack', 'Jira', 'Salesforce', 'Notion',
+      'GitHub', 'HubSpot', 'Google Calendar', 'Linear',
+      'Stripe', 'Zapier', 'Datadog', 'Confluence',
+    ],
+    categories: [
+      {
+        name: 'Communication',
+        items: [
+          { name: 'Slack', description: 'Post summaries, alerts, and action items directly to channels.' },
+          { name: 'Microsoft Teams', description: 'Sync standups and approvals into team channels.' },
+          { name: 'Email', description: 'Send automated digests and escalation notices.' },
+        ],
+      },
+      {
+        name: 'Project Management',
+        items: [
+          { name: 'Jira', description: 'Create, update, and close tickets based on workflow triggers.' },
+          { name: 'Linear', description: 'Track issues and cycles alongside your automated workflows.' },
+          { name: 'Asana', description: 'Sync task assignments and due dates automatically.' },
+          { name: 'Notion', description: 'Write summaries, logs, and reports to your workspace.' },
+          { name: 'Monday.com', description: 'Update boards and automate status changes.' },
+        ],
+      },
+      {
+        name: 'CRM',
+        items: [
+          { name: 'Salesforce', description: 'Update deals, contacts, and pipeline stages automatically.' },
+          { name: 'HubSpot', description: 'Sync contacts, log activity, and trigger sequences.' },
+          { name: 'Pipedrive', description: 'Keep your pipeline current without manual entry.' },
+          { name: 'Intercom', description: 'Route customer signals to the right workflows.' },
+        ],
+      },
+      {
+        name: 'Engineering',
+        items: [
+          { name: 'GitHub', description: 'Track PRs, deployments, and incidents in your workflows.' },
+          { name: 'GitLab', description: 'Connect CI/CD events to operational processes.' },
+          { name: 'PagerDuty', description: 'Route incidents and escalations through your on-call process.' },
+          { name: 'Datadog', description: 'Trigger automation based on monitoring alerts.' },
+        ],
+      },
+      {
+        name: 'Google Workspace',
+        items: [
+          { name: 'Google Calendar', description: 'Read meetings and generate summaries and action items.' },
+          { name: 'Google Drive', description: 'Attach reports and documents to workflow outputs.' },
+          { name: 'Google Sheets', description: 'Write structured data outputs to spreadsheets.' },
+          { name: 'Gmail', description: 'Send automated follow-ups and digests.' },
+        ],
+      },
+      {
+        name: 'Finance',
+        items: [
+          { name: 'Stripe', description: 'Trigger workflows from payment and subscription events.' },
+          { name: 'QuickBooks', description: 'Automate invoice and expense approval flows.' },
+          { name: 'Xero', description: 'Connect financial events to operations workflows.' },
+          { name: 'Chargebee', description: 'Sync subscription lifecycle events to your team.' },
+        ],
+      },
+      {
+        name: 'HR & People',
+        items: [
+          { name: 'BambooHR', description: 'Automate onboarding and offboarding processes.' },
+          { name: 'Rippling', description: 'Trigger HR events through structured workflows.' },
+          { name: 'Workday', description: 'Connect people ops to your business processes.' },
+        ],
+      },
+      {
+        name: 'Custom',
+        items: [
+          { name: 'REST API', description: "Connect any service using mai-bap's REST API." },
+          { name: 'Webhooks', description: 'Trigger and receive events from any system.' },
+          { name: 'Zapier', description: 'Connect 5,000+ apps via Zapier automations.' },
+        ],
+      },
+    ],
+  },
 } as const
 
 export type SiteConfig = typeof siteConfig
