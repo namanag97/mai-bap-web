@@ -153,7 +153,7 @@ export default function Hero() {
                   <span key={i}>{line}{i < siteConfig.hero.title.length - 1 && <br />}</span>
                 ))}
                 <br />
-                <span className="text-braun-orange">{siteConfig.hero.titleAccent}</span>
+                <span className="text-ink-accent">{siteConfig.hero.titleAccent}</span>
               </h1>
             </FadeIn>
 
