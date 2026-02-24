@@ -88,6 +88,7 @@ These patterns are banned in ALL files under `src/` (except `globals.css`):
 - `text-braun-*`, `bg-braun-*`, `border-braun-*`, `divide-braun-*`, `ring-braun-*`
 - `text-white`, `bg-white`, `text-black`, `bg-black`
 - `bg-[#...]`, `text-[#...]`, `border-[#...]` (arbitrary hex values)
+- Raw Tailwind status: `(text|bg|border)-(emerald|rose|amber|violet|orange)-*`
 - Old tokens: `surface-primary`, `surface-secondary`, `text-primary`, `text-secondary`
 
 ### Migration Cheat Sheet
