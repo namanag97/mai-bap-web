@@ -515,6 +515,17 @@ body {
   background-color: var(--color-border-default);
 }
 
+/* ASCII diagram — monospace block on warm paper, letter-spacing:0 kills the jank */
+.prose-diagram {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  letter-spacing: 0;
+  white-space: pre;
+  color: var(--color-ink-secondary);
+  display: block;
+}
+
 /* Dark prose adjustments */
 [data-theme="dark"] .prose pre {
   background: var(--color-surface-inset);
