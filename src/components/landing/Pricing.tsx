@@ -56,7 +56,7 @@ export default function Pricing() {
                   className={`flex flex-col p-8 h-full hover-lift ${tier.featured ? 'bg-surface-inverse' : 'bg-surface-raised'}`}
                 >
                   {tier.featured && (
-                    <MetaLabel as="div" size="xxs" className="text-braun-orange border border-braun-orange/40 px-2 py-0.5 self-start mb-5">
+                    <MetaLabel as="div" size="xxs" className="text-ink-accent border border-ink-accent/40 px-2 py-0.5 self-start mb-5">
                       Most popular
                     </MetaLabel>
                   )}
