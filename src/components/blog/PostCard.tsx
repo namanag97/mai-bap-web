@@ -35,7 +35,7 @@ export default function PostCard({ post, featured = false }: Props) {
             <h2 className="text-xl lg:text-2xl font-light tracking-tight text-ink-primary leading-snug mb-4 group-hover:text-ink-accent transition-colors duration-300">
               {post.title}
             </h2>
-            <p className="text-sm text-braun-500 leading-relaxed">{post.excerpt}</p>
+            <p className="text-sm text-ink-muted leading-relaxed">{post.excerpt}</p>
           </div>
 
           {/* Meta */}
@@ -78,7 +78,7 @@ export default function PostCard({ post, featured = false }: Props) {
         <h3 className="text-sm font-semibold tracking-tight text-ink-primary leading-snug mb-3 flex-1 group-hover:text-ink-accent transition-colors duration-300">
           {post.title}
         </h3>
-        <p className="text-xs text-braun-500 leading-relaxed line-clamp-3">{post.excerpt}</p>
+        <p className="text-xs text-ink-muted leading-relaxed line-clamp-3">{post.excerpt}</p>
       </div>
       <div className="border-t border-border-subtle px-6 py-3 flex items-center justify-between">
         <MetaLabel size="xxs" color="dim">
