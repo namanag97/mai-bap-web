@@ -160,7 +160,9 @@ export default function ContactPage() {
             </div>
 
             <div className="border-t border-braun-200 pt-6">
-              <FormLabel as="div" className="mb-2">Response time</FormLabel>
+              <div className="text-xs font-medium text-braun-900 uppercase tracking-wide mb-2">
+                Response time
+              </div>
               <p className="text-sm text-braun-500 leading-relaxed">
                 We typically respond within 24 hours.
               </p>
