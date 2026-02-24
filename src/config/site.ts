@@ -93,7 +93,6 @@ export const siteConfig = {
 
   // ── Features ───────────────────────────────────────────
   features: {
-    sectionIndex: '02',
     sectionLabel: 'Capabilities',
     title: 'Everything your ops team\ndoes. Automated.',
     subtitle:
