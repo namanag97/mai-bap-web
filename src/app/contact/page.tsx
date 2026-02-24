@@ -15,7 +15,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="pt-14 min-h-screen bg-braun-50">
+    <div className="pt-14 min-h-screen bg-surface-ground">
       <PageHeader
         label="Contact"
         title="Get in touch."
