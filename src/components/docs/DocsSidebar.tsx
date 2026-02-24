@@ -97,7 +97,7 @@ export default function DocsSidebar() {
             <div className="flex items-center gap-2 px-2 mb-1.5">
               {/* Colour dot — matches DS sidebar group dots */}
               <span
-                className="w-1.5 h-1.5 rounded-full shrink-0 bg-braun-200"
+                className="w-1.5 h-1.5 rounded-full shrink-0 bg-border-default"
                 aria-hidden="true"
               />
               <MetaLabel size="xxs" color="dim">
