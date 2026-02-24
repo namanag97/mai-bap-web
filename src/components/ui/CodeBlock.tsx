@@ -15,7 +15,7 @@ export function CodeBlock({ code, lang = 'code', className }: CodeBlockProps) {
   const trimmed = code.replace(/^\n+|\n+$/g, '')
 
   return (
-    <div className={cn('border border-braun-200 overflow-hidden', className)}>
+    <div className={cn('border border-border-default overflow-hidden', className)}>
       {/* Header bar — bg-braun-800 matches DS terminal header */}
       <div className="flex items-center justify-between px-4 py-2 bg-braun-800 border-b border-braun-700">
         <span className="text-[9px] font-mono uppercase tracking-widest text-braun-400">
