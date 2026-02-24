@@ -120,7 +120,7 @@ export default function Navbar() {
             <Link
               key={l.href}
               href={l.href}
-              className="text-[10px] font-mono uppercase tracking-widest text-braun-500 hover:text-braun-900 transition-colors py-1"
+              className="text-[10px] font-mono uppercase tracking-widest text-ink-muted hover:text-ink-primary transition-colors py-1"
             >
               {l.label}
             </Link>
