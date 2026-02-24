@@ -202,7 +202,7 @@ export default function ChangelogPage() {
                         {group.items.map((item) => (
                           <li
                             key={item}
-                            className="text-sm text-braun-600 leading-relaxed"
+                            className="text-sm text-ink-secondary leading-relaxed"
                           >
                             {item}
                           </li>
