@@ -68,7 +68,7 @@ export default function Pricing() {
 
                   {/* Price */}
                   <div className="flex items-baseline gap-1 mb-1">
-                    <span className={`text-4xl font-mono font-light tabular-nums ${tier.featured ? 'text-white' : 'text-braun-900'}`}>
+                    <span className={`text-4xl font-mono font-light tabular-nums ${tier.featured ? 'text-ink-inverse' : 'text-ink-primary'}`}>
                       {price}
                     </span>
                     {period && (
