@@ -48,7 +48,7 @@ export function ProseRenderer({ blocks }: ProseRendererProps) {
             return (
               <p
                 key={i}
-                className="text-sm text-braun-600 leading-[1.75]"
+                className="text-sm text-ink-secondary leading-[1.75]"
               >
                 {block.text}
               </p>
@@ -64,7 +64,7 @@ export function ProseRenderer({ blocks }: ProseRendererProps) {
                     <span className="font-mono text-braun-300 shrink-0 select-none mt-[0.1em]">
                       —
                     </span>
-                    <span className="text-sm text-braun-600 leading-[1.75]">{item}</span>
+                    <span className="text-sm text-ink-secondary leading-[1.75]">{item}</span>
                   </li>
                 ))}
               </ul>
