@@ -91,7 +91,7 @@ export default async function BlogPostPage({ params }: Props) {
 
       {/* Article body — white card, controlled reading width */}
       <Container maxWidth="3xl" className="py-12">
-        <div className="bg-surface-raised border border-border-default shadow-xs px-8 md:px-14 py-12">
+        <div className="card px-8 md:px-14 py-12">
           {/* ProseRenderer — same component as docs. One shared content renderer. */}
           <ProseRenderer blocks={post.content} />
         </div>
