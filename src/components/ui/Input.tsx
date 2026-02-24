@@ -2,7 +2,7 @@ import { forwardRef } from 'react'
 import { cn } from '@/lib/utils'
 
 const formControlBase =
-  'w-full bg-braun-50 border border-braun-200 px-4 py-3 text-sm text-braun-900 placeholder:text-braun-400 focus:border-braun-900 focus:ring-0 focus:outline-none font-sans'
+  'w-full bg-surface-ground border border-border-default px-4 py-3 text-sm text-braun-900 placeholder:text-braun-400 focus:border-braun-900 focus:ring-0 focus:outline-none font-sans'
 
 export const Input = forwardRef<
   HTMLInputElement,
