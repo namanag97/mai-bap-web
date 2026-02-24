@@ -274,22 +274,22 @@ body {
   --color-braun-orange: #ea580c;
 
   /* Semantic token overrides */
-  --color-surface-ground:  #1C1B19;
-  --color-surface-raised:  #252420;
-  --color-surface-inset:   #141310;
-  --color-surface-overlay: rgba(28, 27, 25, 0.72);
-  --color-surface-inverse: #F5F3EF;
+  --color-surface-ground:  #09090b;
+  --color-surface-raised:  #18181b;
+  --color-surface-inset:   #27272a;
+  --color-surface-overlay: rgba(9, 9, 11, 0.80);
+  --color-surface-inverse: #fafafa;
 
-  --color-ink-primary:   #F5F3EF;
-  --color-ink-secondary: #B5B0AA;
-  --color-ink-muted:     #8A8580;
-  --color-ink-dim:       #4A4744;
-  --color-ink-inverse:   #1C1B19;
+  --color-ink-primary:   #fafafa;
+  --color-ink-secondary: #d4d4d8;
+  --color-ink-muted:     #a1a1aa;
+  --color-ink-dim:       #71717a;
+  --color-ink-inverse:   #09090b;
   --color-ink-accent:    #ea580c;
 
-  --color-border-default: rgba(245, 243, 239, 0.10);
-  --color-border-subtle:  rgba(245, 243, 239, 0.05);
-  --color-border-strong:  rgba(245, 243, 239, 0.20);
+  --color-border-default: #27272a;
+  --color-border-subtle:  #18181b;
+  --color-border-strong:  #fafafa;
 }
 
 /* Dark mode surface raised elements */
