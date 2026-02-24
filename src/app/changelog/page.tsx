@@ -187,7 +187,7 @@ export default function ChangelogPage() {
                 </div>
 
                 {/* Title */}
-                <h2 className="text-lg font-semibold text-braun-900 tracking-tight mb-6">
+                <h2 className="text-lg font-semibold text-ink-primary tracking-tight mb-6">
                   {release.title}
                 </h2>
 
