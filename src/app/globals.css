@@ -60,9 +60,11 @@
   /* border-border-default — standard borders                 */
   /* border-border-subtle  — very light separators            */
   /* border-border-strong  — emphasis, focus rings            */
+  /* border-border-heavy   — structural lines, section weight */
   --color-border-default: #1A19181A;
   --color-border-subtle: #1A19180D;
   --color-border-strong: #1A191833;
+  --color-border-heavy: #1A191859;
 
   /* ── Data / status colors ──────────────────────────────── */
   --color-data-positive: #059669;
