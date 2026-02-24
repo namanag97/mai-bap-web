@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { siteConfig } from '@/config/site'
+import { Container, MetaLabel, SectionTitle } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -9,16 +10,16 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <div className="pt-14 min-h-screen bg-braun-50">
-      <div className="max-w-3xl mx-auto px-6 py-20">
-        <div className="text-[10px] font-mono uppercase tracking-widest text-braun-500 mb-6">
+      <Container maxWidth="3xl" className="py-20">
+        <MetaLabel as="div" className="mb-6">
           Legal
-        </div>
-        <h1 className="text-3xl lg:text-4xl font-light tracking-tight text-braun-900 mb-4">
+        </MetaLabel>
+        <SectionTitle as="h1" className="mb-4">
           Privacy Policy
-        </h1>
-        <p className="text-[10px] font-mono text-braun-500 uppercase tracking-widest mb-12">
+        </SectionTitle>
+        <MetaLabel as="p" className="mb-12">
           Last updated: February 1, 2026
-        </p>
+        </MetaLabel>
         <div className="bg-white border border-braun-200 p-8 lg:p-12 space-y-8 text-sm text-braun-600 leading-relaxed">
           <section>
             <h2 className="text-xs font-mono font-bold uppercase tracking-widest text-braun-900 mb-3">1. Information We Collect</h2>
@@ -91,7 +92,7 @@ export default function PrivacyPage() {
             <p className="mt-3">If you are located in the EEA and believe that our processing of your personal data infringes applicable law, you have the right to lodge a complaint with your local supervisory authority. A list of EU Data Protection Authorities and their contact details is available at <span className="text-braun-900">edpb.europa.eu</span>. We would, however, appreciate the opportunity to address your concerns before you approach a supervisory authority, so please contact us first.</p>
           </section>
         </div>
-      </div>
+      </Container>
     </div>
   )
 }
