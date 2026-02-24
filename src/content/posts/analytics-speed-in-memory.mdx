@@ -1,0 +1,104 @@
+---
+title: "What changes when your analytics answers in under a second"
+category: Product
+excerpt: "Most analytics tools make you wait because the data has to travel. When data lives where the thinking happens, something fundamentally changes about how you work."
+date: 2026-02-24
+author:
+  name: Naman Agarwal
+  role: Founder & CEO
+readTime: 5
+featured: false
+---
+
+<span className="prose-lead">You click a filter. A spinner appears. You open another tab. By the time the result loads, you've lost the thread. This is not just an annoying product experience — it is the difference between a tool that supports how you think and one that constantly interrupts it.</span>
+
+There is a structural reason most analytics platforms are slow. And there is a specific, architectural reason the best ones are not.
+
+## The cost of moving data
+
+Traditional analytics platforms were designed around a separation that made sense twenty years ago: your data lives in one place — a database on a server — and the tool that helps you understand it lives somewhere else entirely.
+
+When you click a filter, the tool sends a request to the database, retrieves the relevant rows, ships that data across the network to its analysis engine, runs the calculation, and sends you back the result.
+
+Each handoff takes time. The shipping step is usually the bottleneck. When you are working with millions of rows — which is normal for any real operations dataset — moving that data between systems adds seconds to every single click.
+
+<AsciiDiagram code={`
+┌ HOW MOST ANALYTICS TOOLS WORK ───────────────────────────────────────────────┐
+│                                                                               │
+│  You click a filter                                                           │
+│         │                                                                     │
+│         ▼                                                                     │
+│    ┌─────────┐   request   ┌───────────────┐   ship rows   ┌──────────────┐  │
+│    │  Click  │────────────▶│  Database     │──────────────▶│   Analysis   │  │
+│    └─────────┘             │  (on disk)    │   3 – 8 sec   │   Engine     │  │
+│                            └───────────────┘               └──────────────┘  │
+│                                                                     │         │
+│                                                              calculate         │
+│                                                              5 – 30 sec       │
+│                                                                     │         │
+│         ▲                                                           │         │
+│   You've opened                             Your answer ◀───────────┘         │
+│   two other tabs                            (at last)                         │
+│                                                                               │
+│  Total: anywhere from 15 seconds to 2 minutes. For every single click.       │
+│                                                                               │
+└───────────────────────────────────────────────────────────────────────────────┘
+`} />
+
+The effect is insidious. You adapt to the wait without realising it. You stop exploring and start planning. Instead of following a thread of curiosity — "I wonder if region matters here" — you begin batching questions and submitting them like a form. The slow tool has quietly changed how you think about analysis.
+
+## When the data lives where the thinking happens
+
+The architectural alternative is simple to describe, though technically demanding to build: keep your data and your analysis engine in the same memory space, on the same machine. No shipping. No network. No handoffs.
+
+When you click a filter, the engine reads directly from the data that is already right there. The full calculation — across millions of rows — completes before you have time to reach for another tab.
+
+<AsciiDiagram code={`
+┌ HOW IN-MEMORY ANALYTICS WORKS ──────────────────────────────────────────────┐
+│                                                                               │
+│  You click a filter                                                           │
+│         │                                                                     │
+│         ▼                                                                     │
+│    ┌──────────────────────────────────────────────────────────────┐          │
+│    │                    EVERYTHING IN MEMORY                      │          │
+│    │                                                              │          │
+│    │   Your data                   The analysis engine           │          │
+│    │   ─────────────────────       ──────────────────────        │          │
+│    │   Vendor    ████████████ ◀──── reads directly               │          │
+│    │   Region    ████████████ ◀──── no network, no shipping      │          │
+│    │   Timestamp ████████████ ◀──── calculates in place          │          │
+│    │                                                              │          │
+│    └────────────────────────────────┬─────────────────────────────┘          │
+│                                     │                                         │
+│                                     ▼                                         │
+│                               Your answer                                     │
+│                               in under 0.1 seconds                           │
+│                                                                               │
+└───────────────────────────────────────────────────────────────────────────────┘
+`} />
+
+This is not a performance optimisation layered on top of the same architecture. It is a fundamentally different architecture with a different relationship between data and computation.
+
+## The compression that makes it possible at scale
+
+The natural concern is obvious: if you have a full year of operations data, it might look like several gigabytes. How does a system keep that in memory without requiring an enormous server?
+
+The answer is that most of the bulk in your data is repetition, not information. Your vendor names, material codes, plant locations, and status labels repeat millions of times across your dataset. A smart in-memory system recognises this immediately.
+
+Every unique value — "Acme Corp," "Steel," "In Transit" — gets assigned a small number internally. The system stores the number everywhere instead of the text, and keeps a single lookup table to translate back whenever it needs to show you the result. The information is identical. The space it occupies is a fraction of the original.
+
+A dataset that looks like a gigabyte on disk might occupy 150 megabytes in memory after this compression. And modern processors can scan 150 megabytes in a few milliseconds.
+
+This is why you can load twelve months of purchase order history and still get answers that feel instantaneous. The scale is real. The speed is real. The compression is why both can coexist.
+
+## What this actually changes about your work
+
+When results return in under a second, you stop batch-submitting queries and start having a conversation with your data. You click, you observe, and you click differently based on what you just saw. Hypotheses change mid-session. You follow threads you would previously have dismissed as not worth the wait.
+
+Most operations analysts carry a mental backlog of questions — things they know would be worth investigating but have never asked because the tooling makes each question feel expensive. Fast analytics collapses that backlog. The questions were always there. The friction was the only thing stopping them.
+
+That is the real change. Not the number on a benchmark. The willingness to be curious.
+
+---
+
+*The architecture described here — keeping data resident in memory alongside a native computation engine — is how mai-bap delivers sub-second results across datasets with millions of process events. No data leaves your workspace. No queries wait in a queue.*
