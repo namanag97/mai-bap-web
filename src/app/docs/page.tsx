@@ -42,7 +42,7 @@ export default function DocsIndexPage() {
           const href = `/docs/${firstPage.slug.join('/')}`
 
           return (
-            <div key={section.title} className="bg-white p-8 group">
+            <div key={section.title} className="bg-surface-raised p-8 group">
               <IconBox icon={Icon} className="mb-5" />
 
               {/* Section title */}
