@@ -19,7 +19,10 @@ export default function Features() {
         <FadeIn>
           <div className="grid lg:grid-cols-2 gap-8 mb-16 pb-10 border-b border-border-default">
             <div>
-              <SectionLabel label={sectionLabel} className="mb-5" />
+              <div className="flex items-center gap-3 mb-5">
+                <SectionLabel label={sectionLabel} />
+                <div className="flex-1 divider" />
+              </div>
               <SectionTitle>
                 {titleLine1}<br />{titleLine2}
               </SectionTitle>
