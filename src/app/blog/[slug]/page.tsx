@@ -45,7 +45,7 @@ export default async function BlogPostPage({ params }: Props) {
           {/* Back link */}
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-braun-500 hover:text-braun-900 transition-colors mb-10"
+            className="inline-flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-ink-muted hover:text-ink-primary transition-colors mb-10"
           >
             <ArrowLeft size={10} /> Journal
           </Link>
@@ -100,7 +100,7 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="mt-8 pt-6 border-t border-border-default flex items-center justify-between">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-braun-500 hover:text-braun-900 transition-colors"
+            className="inline-flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-ink-muted hover:text-ink-primary transition-colors"
           >
             <ArrowLeft size={10} /> All posts
           </Link>
