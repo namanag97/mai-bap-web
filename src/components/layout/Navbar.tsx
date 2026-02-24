@@ -69,8 +69,8 @@ export default function Navbar() {
               className={cn(
                 'text-[10px] font-mono uppercase tracking-widest transition-colors duration-200',
                 isActive(l.href)
-                  ? 'text-braun-900'
-                  : 'text-braun-400 hover:text-braun-900'
+                  ? 'text-ink-primary'
+                  : 'text-ink-muted hover:text-ink-primary'
               )}
             >
               {l.label}
