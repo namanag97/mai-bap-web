@@ -20,7 +20,10 @@ export default function FAQ() {
           <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
             {/* Left: header */}
             <div>
-              <SectionLabel label={sectionLabel} className="mb-5" />
+              <div className="flex items-center gap-3 mb-5">
+                <SectionLabel label={sectionLabel} />
+                <div className="flex-1 divider" />
+              </div>
               <SectionTitle>
                 {titleLine1}<br />{titleLine2}
               </SectionTitle>
