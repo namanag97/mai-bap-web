@@ -657,6 +657,11 @@ body::after {
   display: block;
 }
 
+/* Grain is far more visible on near-black — halve the opacity in dark mode */
+[data-theme="dark"] body::after {
+  opacity: 0.4;
+}
+
 /* Dark prose adjustments */
 [data-theme="dark"] .prose pre {
   background: var(--color-surface-inset);
