@@ -42,7 +42,7 @@ export default function Testimonials() {
         </FadeIn>
 
         {/* Testimonial grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-braun-200">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border-default">
           {items.map((t, i) => (
             <FadeIn key={t.name} delay={i * 120} direction="up">
               <div className="bg-white p-8 flex flex-col h-full hover-lift">
