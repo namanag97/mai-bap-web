@@ -4,12 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "bash scripts/lint-tokens.sh && next build",
+    "build:skip-lint": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "lint:tokens": "bash scripts/lint-tokens.sh"
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "geist": "^1.7.0",
     "lucide-react": "^0.574.0",
     "next": "16.1.6",
     "react": "19.2.3",
