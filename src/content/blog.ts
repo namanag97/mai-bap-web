@@ -145,20 +145,46 @@ export const posts: BlogPost[] = [
     title: 'Building Conformance-Aware Workflows in Enterprise Systems',
     category: 'Engineering',
     excerpt:
-      "A deep dive into how Meridian's conformance engine works, and how to design workflows that remain aligned to your reference model under real-world conditions.",
+      "A deep dive into how mai-bap's conformance engine works, and how to design workflows that remain aligned to your reference model under real-world conditions.",
     date: '2025-12-22',
     author: { name: 'Daniel Kim', role: 'Engineering Lead' },
     readTime: 10,
     featured: false,
     content: [
       {
-        type: 'p',
-        text: "Conformance checking is often treated as a post-hoc audit function — you run it on historical logs to understand what happened. Meridian takes a different view: conformance should be part of the operational loop, not a retrospective report.",
+        type: 'lead',
+        text: "Conformance checking is often treated as a post-hoc audit function — you run it on historical logs to understand what happened. mai-bap takes a different view: conformance should be part of the operational loop, not a retrospective report.",
       },
       { type: 'h2', text: 'How conformance checking works' },
       {
         type: 'p',
-        text: "At its core, conformance checking compares an observed process execution (event log) against a reference model (process model). The degree of fit is expressed as a conformance score between 0 and 1.",
+        text: "At its core, conformance checking compares an observed process execution (event log) against a reference model (process model). The degree of fit is expressed as a conformance score between 0 and 1. Every case flowing through your system produces a trace — a timestamped sequence of events. The conformance engine aligns that trace against the reference model and counts deviations.",
+      },
+      {
+        type: 'diagram',
+        caption: 'Conformance check: observed trace aligned to reference model',
+        text: `Reference model:
+  ┌─────────┐    ┌─────────┐    ┌─────────┐    ┌─────────┐
+  │ Receive │───▶│Validate │───▶│ Approve │───▶│  Close  │
+  └─────────┘    └─────────┘    └─────────┘    └─────────┘
+
+Observed trace (Case #4821):
+  ┌─────────┐    ┌─────────┐    ╔═════════╗    ┌─────────┐
+  │ Receive │───▶│Validate │───▶║  Skip!  ║───▶│  Close  │
+  └─────────┘    └─────────┘    ╚═════════╝    └─────────┘
+                                     │
+                                     ▼
+                              deviation cost: 1
+                              conformance score: 0.80`,
+      },
+      {
+        type: 'tip',
+        text: 'A conformance score above 0.95 is generally considered "in control" for business-critical processes. Set your alert threshold per-process — not globally.',
+      },
+      { type: 'h3', text: 'Alignment computation' },
+      {
+        type: 'p',
+        text: "The alignment algorithm finds the minimum-cost mapping between the observed trace and the reference model. Each move is classified as synchronous (both model and trace agree), log-only (the trace did something the model didn't expect), or model-only (the model expected something that didn't happen). Deviation cost is the count of non-synchronous moves.",
       },
       {
         type: 'code',
@@ -173,6 +199,31 @@ function computeConformance(trace: Event[], model: ProcessModel): number {
   return 1 - deviationCost / maxCost
 }`,
       },
+      { type: 'h2', text: 'The operational loop' },
+      {
+        type: 'p',
+        text: "Traditional conformance tooling operates offline — you export event logs, run analysis, get a report. The insight we acted on is that this delay is the problem. By the time you see the deviation, the case is closed and the damage is done. Real-time conformance changes the intervention window.",
+      },
+      {
+        type: 'diagram',
+        caption: 'Real-time conformance as a closed operational loop',
+        text: `  ┌──────────────────────────────────────────────────────┐
+  │                  Operational Loop                    │
+  │                                                      │
+  │  Business     Event      Conformance    Automation   │
+  │  Process  ──▶ Stream ──▶   Engine   ──▶   Rules      │
+  │     ▲                         │              │       │
+  │     │                         ▼              ▼       │
+  │     │                     Deviation      Alert /     │
+  │     └─────────────────── detected  ◀── Escalate      │
+  │                                                      │
+  └──────────────────────────────────────────────────────┘`,
+      },
+      {
+        type: 'blockquote',
+        text: "We used to review conformance reports every quarter. Now we catch deviations in the same hour they happen. The difference in outcome quality is not incremental — it's categorical.",
+        attribution: 'Head of Operations, Fortune 500 logistics firm',
+      },
       { type: 'h2', text: 'Designing conformance-aware workflows' },
       {
         type: 'p',
@@ -185,6 +236,16 @@ function computeConformance(trace: Event[], model: ProcessModel): number {
           'Set conformance thresholds per process, not globally — invoice processing tolerates less deviation than employee onboarding',
           'Use variant analysis to distinguish structural deviations (wrong path) from timing deviations (right path, wrong speed)',
           'Instrument your automation to emit events that feed back into the conformance engine for closed-loop measurement',
+        ],
+      },
+      { type: 'divider' },
+      { type: 'h4', text: 'Further reading' },
+      {
+        type: 'list',
+        items: [
+          'Process Mining: Data Science in Action — van der Aalst (2016)',
+          'Conformance Checking: Relating Processes and Models — Carmona et al. (2018)',
+          'mai-bap Docs: Conformance Engine Reference',
         ],
       },
     ],
