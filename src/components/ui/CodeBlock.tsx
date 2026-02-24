@@ -16,16 +16,16 @@ export function CodeBlock({ code, lang = 'code', className }: CodeBlockProps) {
 
   return (
     <div className={cn('border border-border-default overflow-hidden', className)}>
-      {/* Header bar — bg-braun-800 matches DS terminal header */}
-      <div className="flex items-center justify-between px-4 py-2 bg-braun-800 border-b border-braun-700">
-        <span className="text-[9px] font-mono uppercase tracking-widest text-braun-400">
+      {/* Header bar — bg-surface-inverse matches DS terminal header */}
+      <div className="flex items-center justify-between px-4 py-2 bg-surface-inverse border-b border-border-default">
+        <span className="text-[9px] font-mono uppercase tracking-widest text-ink-muted">
           {lang}
         </span>
         {/* Decorative dots — matches DS window chrome */}
         <div className="flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-sm bg-braun-700" />
-          <span className="w-1.5 h-1.5 rounded-sm bg-braun-700" />
-          <span className="w-1.5 h-1.5 rounded-sm bg-braun-700" />
+          <span className="w-1.5 h-1.5 rounded-sm bg-surface-inverse" />
+          <span className="w-1.5 h-1.5 rounded-sm bg-surface-inverse" />
+          <span className="w-1.5 h-1.5 rounded-sm bg-surface-inverse" />
         </div>
       </div>
 
