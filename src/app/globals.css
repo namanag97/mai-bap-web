@@ -278,6 +278,18 @@ body::after {
   --color-braun-900: #fafafa;
   --color-braun-orange: #ea580c;
   --color-surface-warning: #1c0a10;
+  --color-surface-ground: #1C1B19;
+  --color-surface-raised: #27261F;
+  --color-surface-inset: #141310;
+  --color-surface-overlay: rgba(28, 27, 25, 0.72);
+  --color-ink-primary: #F5F3EF;
+  --color-ink-secondary: #B5B0AA;
+  --color-ink-muted: #8A8580;
+  --color-ink-dim: #4A4744;
+  --color-ink-inverse: #1C1B19;
+  --color-border-default: rgba(245, 243, 239, 0.10);
+  --color-border-subtle: rgba(245, 243, 239, 0.05);
+  --color-border-strong: rgba(245, 243, 239, 0.20);
 }
 
 /* Surfaces using Tailwind's bg-white need to invert in dark mode */
