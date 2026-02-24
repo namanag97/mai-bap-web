@@ -35,7 +35,7 @@ export default function DocsIndexPage() {
       </div>
 
       {/* Section cards grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-braun-200">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border-default">
         {navigation.map((section, i) => {
           const Icon = sectionIcons[i]
           const firstPage = section.pages[0]
