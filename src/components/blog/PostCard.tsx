@@ -50,7 +50,7 @@ export default function PostCard({ post, featured = false }: Props) {
                   {post.author.role}
                 </MetaLabel>
               </div>
-              <div className="flex items-center justify-between pt-4 border-t border-braun-200">
+              <div className="flex items-center justify-between pt-4 border-t border-border-default">
                 <MetaLabel color="dim">
                   {post.readTime} min read
                 </MetaLabel>
