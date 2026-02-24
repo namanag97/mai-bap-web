@@ -47,7 +47,7 @@ function AppMockup() {
 
         <div className="flex-1 min-w-0">
           {/* KPI strip */}
-          <div className="grid grid-cols-3 border-b border-braun-200 divide-x divide-braun-200">
+          <div className="grid grid-cols-3 border-b border-border-default divide-x divide-border-default">
             {[
               { label: 'Tasks automated', value: '1,247', delta: '+18%',  up: true },
               { label: 'Hours saved',     value: '83h',   delta: '↑ 11h', up: true },
