@@ -28,7 +28,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
       {/* Mobile sidebar overlay */}
       {sidebarOpen && (
         <div className="lg:hidden fixed inset-0 z-40 pt-[calc(56px+44px)]">
-          <div className="absolute inset-0 bg-braun-900/20" onClick={() => setSidebarOpen(false)} />
+          <div className="absolute inset-0 bg-surface-inverse/20" onClick={() => setSidebarOpen(false)} />
           <div className="relative max-h-[calc(100vh-100px)] max-w-xs bg-surface-raised border-r border-border-default overflow-y-auto">
             <div onClick={() => setSidebarOpen(false)}>
               <DocsSidebar />
