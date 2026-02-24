@@ -128,15 +128,8 @@ function AppMockup() {
 export default function Hero() {
   return (
     <section className="relative pt-14 bg-surface-ground border-b border-border-default overflow-hidden">
-      {/* Swiss grid */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(228,228,231,0.55) 1px, transparent 1px), linear-gradient(90deg, rgba(228,228,231,0.55) 1px, transparent 1px)',
-          backgroundSize: '80px 80px',
-        }}
-      />
+      {/* Engineering grid */}
+      <div className="absolute inset-0 pointer-events-none bg-engineering-grid" />
 
       <Container className="relative">
         <div className="grid lg:grid-cols-[1fr_460px] xl:grid-cols-[1fr_520px] gap-12 xl:gap-20 py-24 lg:py-32 xl:py-40 items-center">
