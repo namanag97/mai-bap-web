@@ -369,6 +369,7 @@ body::after {
   content: "—";
   position: absolute;
   left: -1.5rem;
+  top: -0.05em; /* Optical alignment: nudges dash to visual center of text baseline */
   color: var(--color-ink-dim);
   font-family: var(--font-mono), monospace;
 }
