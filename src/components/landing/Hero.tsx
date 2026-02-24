@@ -54,7 +54,7 @@ function AppMockup() {
               { label: 'Workflows live',  value: '24',    delta: '+3',     up: true },
             ].map(k => (
               <div key={k.label} className="px-2 sm:px-3 py-2.5">
-                <div className="text-[7px] sm:text-[7.5px] font-mono uppercase tracking-widest text-braun-500 mb-1">{k.label}</div>
+                <div className="text-[7px] sm:text-[7.5px] font-mono uppercase tracking-widest text-ink-muted mb-1">{k.label}</div>
                 <div className="text-[13px] sm:text-[15px] font-mono text-braun-900 leading-none tabular-nums">{k.value}</div>
                 <div className={`text-[7px] sm:text-[7.5px] font-mono mt-1 ${k.up ? 'text-data-positive' : 'text-data-negative'}`}>
                   {k.delta}
@@ -65,7 +65,7 @@ function AppMockup() {
 
           {/* Automation pipeline */}
           <div className="bg-surface-ground border-b border-border-default px-2 sm:px-3 pt-3 pb-2">
-            <div className="text-[7.5px] font-mono uppercase tracking-widest text-braun-500 mb-2">
+            <div className="text-[7.5px] font-mono uppercase tracking-widest text-ink-muted mb-2">
               Automation Pipeline
             </div>
             <svg viewBox="0 0 350 58" className="w-full" style={{ height: 52 }}>
@@ -106,16 +106,16 @@ function AppMockup() {
           {/* AI actions feed */}
           <div>
             <div className="px-2 sm:px-3 py-1.5 bg-surface-ground border-b border-border-subtle">
-              <span className="text-[7.5px] font-mono uppercase tracking-widest text-braun-500">
+              <span className="text-[7.5px] font-mono uppercase tracking-widest text-ink-muted">
                 AI Actions — Today
               </span>
             </div>
             {aiActions.map((d, i) => (
               <div key={i} className="flex items-center gap-2 px-2 sm:px-3 py-2 border-b border-braun-50 last:border-0">
                 <div className={`w-1.5 h-1.5 shrink-0 ${d.type === 'done' ? 'bg-data-positive' : 'bg-data-warning'}`} />
-                <span className="text-[7px] sm:text-[8px] font-mono text-braun-500 shrink-0 w-12 sm:w-16">{d.id}</span>
+                <span className="text-[7px] sm:text-[8px] font-mono text-ink-muted shrink-0 w-12 sm:w-16">{d.id}</span>
                 <span className="text-[8px] sm:text-[8.5px] font-mono text-braun-600 flex-1 truncate">{d.activity}</span>
-                <span className="text-[7px] font-mono text-braun-500 shrink-0 hidden sm:block">{d.time}</span>
+                <span className="text-[7px] font-mono text-ink-muted shrink-0 hidden sm:block">{d.time}</span>
               </div>
             ))}
           </div>
@@ -181,7 +181,7 @@ export default function Hero() {
                   const Icon = trustIcons[i] ?? ShieldCheck
                   return (
                     <div key={signal.label} className="flex items-center gap-2">
-                      <Icon size={11} className="text-braun-500" />
+                      <Icon size={11} className="text-ink-muted" />
                       <MetaLabel>{signal.label}</MetaLabel>
                     </div>
                   )
