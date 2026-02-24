@@ -18,7 +18,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
       <div className="lg:hidden border-b border-border-default bg-surface-raised px-6 h-11 flex items-center">
         <button
           onClick={() => setSidebarOpen(v => !v)}
-          className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-braun-500 hover:text-braun-900 transition-colors"
+          className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-ink-muted hover:text-ink-primary transition-colors"
         >
           {sidebarOpen ? <X size={14} /> : <Menu size={14} />}
           {sidebarOpen ? 'Close menu' : 'Documentation menu'}
