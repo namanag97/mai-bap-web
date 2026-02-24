@@ -20,7 +20,7 @@ export default function TermsPage() {
         <MetaLabel as="p" className="mb-12">
           Last updated: February 1, 2026
         </MetaLabel>
-        <div className="bg-surface-raised border border-border-default p-8 lg:p-12 space-y-8 text-sm text-ink-secondary leading-relaxed">
+        <div className="card p-8 lg:p-12 space-y-8 text-sm text-ink-secondary leading-relaxed">
           <section>
             <h2 className="text-xs font-mono font-bold uppercase tracking-widest text-ink-primary mb-3">1. Acceptance of Terms</h2>
             <p>By accessing, browsing, or using the {siteConfig.name} platform (the &quot;Service&quot;), you acknowledge that you have read, understood, and agree to be bound by these Terms of Service (the &quot;Terms&quot;). These Terms constitute a legally binding agreement between you (or the organization you represent) and {siteConfig.name}. If you do not agree to these Terms, you must not access or use the Service.</p>
