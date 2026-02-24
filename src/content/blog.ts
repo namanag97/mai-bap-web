@@ -162,20 +162,11 @@ export const posts: BlogPost[] = [
       },
       {
         type: 'diagram',
-        caption: 'Conformance check: observed trace aligned to reference model',
-        text: `Reference model:
-  ┌─────────┐    ┌─────────┐    ┌─────────┐    ┌─────────┐
-  │ Receive │───▶│Validate │───▶│ Approve │───▶│  Close  │
-  └─────────┘    └─────────┘    └─────────┘    └─────────┘
-
-Observed trace (Case #4821):
-  ┌─────────┐    ┌─────────┐    ╔═════════╗    ┌─────────┐
-  │ Receive │───▶│Validate │───▶║  Skip!  ║───▶│  Close  │
-  └─────────┘    └─────────┘    ╚═════════╝    └─────────┘
-                                     │
-                                     ▼
-                              deviation cost: 1
-                              conformance score: 0.80`,
+        variant: 'inline',
+        caption: 'Fig. 1 — observed trace (bottom) deviates from reference model (top) at step 3',
+        text: `reference:   Receive ──▶ Validate ──▶ Approve ──▶ Close
+                                           ↑ deviation
+observed:    Receive ──▶ Validate ──▶  [skip]  ──▶ Close`,
       },
       {
         type: 'tip',
