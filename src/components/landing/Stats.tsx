@@ -22,9 +22,7 @@ export default function Stats() {
                 <MetaLabel as="div" color="dim" className="mb-1">
                   {s.label}
                 </MetaLabel>
-                <MetaLabel as="div" className="normal-case">
-                  {s.sub}
-                </MetaLabel>
+                <div className="text-[10px] font-mono text-braun-500">{s.sub}</div>
               </div>
             </FadeIn>
           ))}
