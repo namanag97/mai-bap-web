@@ -35,14 +35,14 @@ export default function DocsIndexPage() {
       </div>
 
       {/* Section cards grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border-default">
+      <div className="card-grid grid grid-cols-1 sm:grid-cols-2 gap-px">
         {navigation.map((section, i) => {
           const Icon = sectionIcons[i]
           const firstPage = section.pages[0]
           const href = `/docs/${firstPage.slug.join('/')}`
 
           return (
-            <div key={section.title} className="bg-surface-raised p-8 group">
+            <div key={section.title} className="card-grid-cell p-8 group">
               <IconBox icon={Icon} className="mb-5" />
 
               {/* Section title */}
