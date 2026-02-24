@@ -27,6 +27,7 @@ export const siteConfig = {
   ctaLinks: {
     signIn: { label: 'Sign in', href: '/docs/quick-start' },
     getStarted: { label: 'Get started', href: '/docs/quick-start' },
+    bookDemo: { label: 'Book a demo', href: '/contact' },
   },
 
   // ── Footer ─────────────────────────────────────────────
