@@ -59,9 +59,9 @@
   /* border-border-default — standard borders                 */
   /* border-border-subtle  — very light separators            */
   /* border-border-strong  — emphasis, focus rings            */
-  --color-border-default: #e4e4e7;
-  --color-border-subtle: #f4f4f5;
-  --color-border-strong: #09090b;
+  --color-border-default: #1A19181A;
+  --color-border-subtle: #1A19180D;
+  --color-border-strong: #1A191833;
 
   /* ── Data / status colors ──────────────────────────────── */
   --color-data-positive: #059669;
