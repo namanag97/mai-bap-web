@@ -111,7 +111,7 @@ function AppMockup() {
               </span>
             </div>
             {aiActions.map((d, i) => (
-              <div key={i} className="flex items-center gap-2 px-2 sm:px-3 py-2 border-b border-braun-50 last:border-0">
+              <div key={i} className="flex items-center gap-2 px-2 sm:px-3 py-2 border-b border-border-subtle last:border-0">
                 <div className={`w-1.5 h-1.5 shrink-0 ${d.type === 'done' ? 'bg-data-positive' : 'bg-data-warning'}`} />
                 <span className="text-[7px] sm:text-[8px] font-mono text-ink-muted shrink-0 w-12 sm:w-16">{d.id}</span>
                 <span className="text-[8px] sm:text-[8.5px] font-mono text-ink-secondary flex-1 truncate">{d.activity}</span>
