@@ -46,7 +46,7 @@ export default function Testimonials() {
           {items.map((t, i) => (
             <FadeIn key={t.name} delay={i * 120} direction="up">
               <div className="bg-surface-raised p-8 flex flex-col h-full hover-lift">
-                <blockquote className="text-sm text-braun-600 leading-relaxed flex-1 mb-8">
+                <blockquote className="text-sm text-ink-secondary leading-relaxed flex-1 mb-8">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
                 <div className="pt-5 border-t border-border-subtle">
