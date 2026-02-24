@@ -99,7 +99,7 @@ export default function Pricing() {
                           size={12}
                           className={`mt-0.5 shrink-0 ${tier.featured ? 'text-ink-accent' : 'text-ink-primary'}`}
                         />
-                        <span className={`text-xs leading-relaxed ${tier.featured ? 'text-braun-400' : 'text-braun-600'}`}>
+                        <span className={`text-xs leading-relaxed ${tier.featured ? 'text-ink-muted' : 'text-ink-secondary'}`}>
                           {f}
                         </span>
                       </li>
