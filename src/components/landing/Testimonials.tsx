@@ -50,7 +50,7 @@ export default function Testimonials() {
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
                 <div className="pt-5 border-t border-border-subtle">
-                  <div className="text-xs font-semibold text-braun-900">{t.name}</div>
+                  <div className="text-xs font-semibold text-ink-primary">{t.name}</div>
                   <MetaLabel as="div" color="dim" className="mt-0.5">
                     {t.role} · {t.company}
                   </MetaLabel>
