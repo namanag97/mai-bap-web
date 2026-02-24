@@ -176,7 +176,7 @@ export default function Hero() {
 
             {/* Trust signals */}
             <FadeIn delay={400}>
-              <div className="flex flex-wrap gap-6 pt-6 border-t border-braun-200">
+              <div className="flex flex-wrap gap-6 pt-6 border-t border-border-default">
                 {siteConfig.hero.trustSignals.map((signal, i) => {
                   const Icon = trustIcons[i] ?? ShieldCheck
                   return (
