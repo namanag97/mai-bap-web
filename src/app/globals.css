@@ -275,35 +275,35 @@ body {
 /* ── Dark mode ──────────────────────────────────────────────── */
 [data-theme="dark"] {
   /* Private palette inversion */
-  --color-braun-50: #09090b;
-  --color-braun-100: #18181b;
-  --color-braun-200: #27272a;
-  --color-braun-300: #3f3f46;
-  --color-braun-400: #71717a;
-  --color-braun-500: #a1a1aa;
-  --color-braun-600: #d4d4d8;
-  --color-braun-700: #e4e4e7;
-  --color-braun-800: #f4f4f5;
-  --color-braun-900: #fafafa;
+  --color-braun-50: #141312;
+  --color-braun-100: #1E1D1B;
+  --color-braun-200: #252320;
+  --color-braun-300: #33302E;
+  --color-braun-400: #5A5550;
+  --color-braun-500: #8A8580;
+  --color-braun-600: #C5C0BA;
+  --color-braun-700: #DDD9D3;
+  --color-braun-800: #ECEAE5;
+  --color-braun-900: #F5F3EF;
   --color-braun-orange: #ea580c;
 
   /* Semantic token overrides */
-  --color-surface-ground: #09090b;
-  --color-surface-raised: #18181b;
-  --color-surface-inset: #27272a;
-  --color-surface-overlay: rgba(9, 9, 11, 0.8);
-  --color-surface-inverse: #fafafa;
+  --color-surface-ground: #141312;
+  --color-surface-raised: #1E1D1B;
+  --color-surface-inset: #252320;
+  --color-surface-overlay: rgba(20, 19, 18, 0.8);
+  --color-surface-inverse: #F5F3EF;
 
-  --color-ink-primary: #fafafa;
-  --color-ink-secondary: #d4d4d8;
-  --color-ink-muted: #a1a1aa;
-  --color-ink-dim: #71717a;
-  --color-ink-inverse: #09090b;
+  --color-ink-primary: #F5F3EF;
+  --color-ink-secondary: #C5C0BA;
+  --color-ink-muted: #8A8580;
+  --color-ink-dim: #5A5550;
+  --color-ink-inverse: #1A1918;
   --color-ink-accent: #ea580c;
 
-  --color-border-default: #27272a;
-  --color-border-subtle: #18181b;
-  --color-border-strong: #fafafa;
+  --color-border-default: rgba(245, 243, 239, 0.10);
+  --color-border-subtle: rgba(245, 243, 239, 0.05);
+  --color-border-strong: rgba(245, 243, 239, 0.20);
 }
 
 /* Dark mode surface raised elements */
