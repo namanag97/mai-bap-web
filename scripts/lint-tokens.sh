@@ -142,6 +142,12 @@ check_pattern \
   'Old semantic tokens (replaced by ink-*/surface-*)' \
   'surface-{ground,raised,inset} or ink-{primary,secondary,muted,dim}'
 
+# Raw Tailwind status colors — must use semantic data tokens
+check_pattern \
+  '(text|bg|border)-(emerald|rose|amber|violet|orange)-[0-9]' \
+  'Raw Tailwind status color' \
+  'text-data-{positive,warning,negative,violet} bg-data-*-bg border-data-*-border'
+
 # ── Report ───────────────────────────────────────────────────
 
 echo "───────────────────────────────────────────────────"
