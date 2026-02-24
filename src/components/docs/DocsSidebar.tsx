@@ -15,9 +15,9 @@ import { Input } from '@/components/ui/Input'
  *
  * Design decisions (aligned with DS):
  * - Section labels: 9px mono uppercase tracked — same as DS table headers
- * - Active item: left accent line (braun-orange) + text-braun-900
+ * - Active item: left accent line (braun-orange) + text-ink-primary
  *   (NOT bg-braun-900/white — that's for app shell, not document nav)
- * - Inactive: text-ink-muted, hover: text-braun-900
+ * - Inactive: text-ink-muted, hover: text-ink-primary
  * - Hover background: bg-braun-50 — same as DS nav hover
  * - Dividers: border-braun-100 between sections
  * - Section dot indicator: matches DS sidebar group dot pattern
@@ -119,7 +119,7 @@ export default function DocsSidebar() {
                         'group flex items-center gap-2.5 px-2 py-1.5 text-xs transition-colors duration-150',
                         active
                           ? // Active: left accent line, dark text — document navigation pattern
-                            'border-l-2 border-ink-accent pl-[calc(0.5rem-2px)] text-braun-900 font-medium bg-surface-ground'
+                            'border-l-2 border-ink-accent pl-[calc(0.5rem-2px)] text-ink-primary font-medium bg-surface-ground'
                           : 'border-l-2 border-transparent pl-[calc(0.5rem-2px)] text-ink-muted hover:text-ink-primary hover:bg-surface-ground'
                       )}
                     >
