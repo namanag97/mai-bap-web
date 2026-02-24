@@ -16,7 +16,7 @@ const variantCls: Record<BadgeVariant, string> = {
   warning: 'text-amber-700 bg-amber-50 border-amber-200',
   error:   'text-rose-700 bg-rose-50 border-rose-200',
   violet:  'text-violet-700 bg-violet-50 border-violet-200',
-  orange:  'text-braun-orange bg-orange-50 border-orange-200',
+  orange:  'text-ink-accent bg-orange-50 border-orange-200',
 }
 
 interface BadgeProps {
