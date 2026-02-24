@@ -68,8 +68,8 @@ export const posts: BlogPost[] = [
     featured: false,
     content: [
       {
-        type: 'p',
-        text: "When we started designing Meridian, the obvious references were other analytics platforms — dense dashboards, rainbow color palettes, notification bells everywhere. We went a different direction entirely.",
+        type: 'lead',
+        text: "When we started designing mai-bap, the obvious references were other analytics platforms — dense dashboards, rainbow color palettes, notification bells everywhere. We went a different direction entirely.",
       },
       { type: 'h2', text: 'The Bauhaus argument' },
       {
