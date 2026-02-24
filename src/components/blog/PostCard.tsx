@@ -26,7 +26,7 @@ export default function PostCard({ post, featured = false }: Props) {
         href={`/blog/${post.slug}`}
         className="group block bg-surface-raised border border-border-default hover:border-braun-900 transition-colors duration-300 hover-lift"
       >
-        <div className="grid md:grid-cols-[1fr_320px] gap-0 divide-y md:divide-y-0 md:divide-x divide-braun-200">
+        <div className="grid md:grid-cols-[1fr_320px] gap-0 divide-y md:divide-y-0 md:divide-x divide-border-default">
           {/* Main content */}
           <div className="p-8 md:p-10">
             <Badge variant={variant} className="mb-5">
