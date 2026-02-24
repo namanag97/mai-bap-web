@@ -374,6 +374,26 @@ body {
   background-color: var(--color-surface-raised);
 }
 
+/* ── Hover-lift utility ────────────────────────────────────── */
+.hover-lift {
+  transition: box-shadow var(--duration-base) var(--ease-default),
+              transform var(--duration-base) var(--ease-default);
+}
+.hover-lift:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+/* ── Engineering grid ──────────────────────────────────────── */
+.bg-engineering-grid {
+  background-image:
+    linear-gradient(var(--color-border-default) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border-default) 1px, transparent 1px),
+    linear-gradient(var(--color-border-subtle) 0.5px, transparent 0.5px),
+    linear-gradient(90deg, var(--color-border-subtle) 0.5px, transparent 0.5px);
+  background-size: 80px 80px, 80px 80px, 16px 16px, 16px 16px;
+}
+
 /* Dark prose adjustments */
 [data-theme="dark"] .prose pre {
   background: var(--color-surface-inset);
