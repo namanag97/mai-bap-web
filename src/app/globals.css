@@ -232,7 +232,7 @@ body {
   color: var(--color-ink-secondary);
 }
 
-/* Article byline — single-line meta: author · role · date · readtime */
+/* Article byline — single flowing line: author · role · date · readtime */
 .article-byline {
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.6875rem;
@@ -245,6 +245,32 @@ body {
   line-height: 1;
 }
 
+/* The author's name — sans-serif, slightly heavier, primary colour */
+.article-byline-name {
+  font-family: var(--font-sans), ui-sans-serif, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-ink-primary);
+  letter-spacing: 0;
+}
+
+/* Small square initial mark beside the name */
+.article-byline-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--color-surface-inverse);
+  color: var(--color-ink-inverse);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.5625rem;
+  font-weight: 700;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+/* Separator dot between byline segments */
 .article-byline-sep {
   color: var(--color-ink-dim);
   user-select: none;
