@@ -36,7 +36,7 @@ export default async function BlogPostPage({ params }: Props) {
     categoryVariant[post.category as keyof typeof categoryVariant] ?? 'neutral'
 
   return (
-    <div className="bg-braun-50 min-h-screen pt-14">
+    <div className="bg-surface-ground min-h-screen pt-14">
 
       {/* Article header — white panel, matches landing page section headers */}
       <header className="border-b border-braun-200 bg-white">
