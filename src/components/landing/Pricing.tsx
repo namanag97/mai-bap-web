@@ -62,7 +62,7 @@ export default function Pricing() {
                   )}
 
                   {/* Name */}
-                  <MetaLabel as="div" className={`mb-2 ${tier.featured ? 'text-braun-500' : 'text-braun-400'}`}>
+                  <MetaLabel as="div" className={`mb-2 ${tier.featured ? 'text-ink-muted' : 'text-ink-muted'}`}>
                     {tier.name}
                   </MetaLabel>
 
