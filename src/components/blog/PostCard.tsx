@@ -26,39 +26,68 @@ export default function PostCard({ post, featured = false }: Props) {
         href={`/blog/${post.slug}`}
         className="group block card hover:border-border-strong transition-colors duration-300 hover-lift"
       >
-        <div className="grid md:grid-cols-[1fr_320px] gap-0 divide-y md:divide-y-0 md:divide-x divide-border-default">
+        <div className="grid md:grid-cols-[1fr_280px] divide-y md:divide-y-0 md:divide-x divide-border-default">
+
           {/* Main content */}
-          <div className="p-8 md:p-10">
-            <Badge variant={variant} className="mb-5">
-              {post.category}
-            </Badge>
-            <h2 className="text-xl lg:text-2xl font-light tracking-tight text-ink-primary leading-snug mb-4 group-hover:text-ink-accent transition-colors duration-300">
-              {post.title}
-            </h2>
-            <p className="text-sm text-ink-muted leading-relaxed">{post.excerpt}</p>
+          <div className="p-10 md:p-12 flex flex-col justify-between gap-10">
+            <div>
+              <div className="flex items-center gap-3 mb-7">
+                <Badge variant={variant}>{post.category}</Badge>
+                <MetaLabel as="span" size="xxs" color="dim">
+                  {formatDate(post.date)}
+                </MetaLabel>
+              </div>
+
+              <h2
+                className="font-light tracking-tight text-ink-primary leading-tight mb-5 group-hover:text-ink-accent transition-colors duration-300"
+                style={{ fontSize: 'clamp(1.375rem, 2.75vw, 2rem)' }}
+              >
+                {post.title}
+              </h2>
+
+              <p className="text-sm text-ink-muted leading-relaxed max-w-md">
+                {post.excerpt}
+              </p>
+            </div>
+
+            {/* Read more */}
+            <div className="flex items-center gap-2">
+              <span className="text-[9px] font-mono uppercase tracking-widest text-ink-muted group-hover:text-ink-primary transition-colors duration-200">
+                Read article
+              </span>
+              <ArrowRight
+                size={11}
+                className="text-ink-dim group-hover:text-ink-primary group-hover:translate-x-1 transition-all duration-300"
+              />
+            </div>
           </div>
 
-          {/* Meta */}
-          <div className="p-8 md:p-10 flex flex-col justify-between bg-surface-ground">
-            <MetaLabel as="div" color="dim">
-              {formatDate(post.date)}
-            </MetaLabel>
-            <div className="mt-6 space-y-4">
-              <div>
-                <div className="text-xs font-semibold text-ink-primary">{post.author.name}</div>
-                <MetaLabel as="div" color="dim" className="mt-0.5">
-                  {post.author.role}
-                </MetaLabel>
+          {/* Meta sidebar */}
+          <div className="p-10 bg-surface-ground flex flex-col justify-between gap-8">
+            <div>
+              <MetaLabel as="div" size="xxs" color="dim" className="mb-5">Author</MetaLabel>
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-surface-inverse text-ink-inverse flex items-center justify-center font-mono font-bold text-xs shrink-0 select-none">
+                  {post.author.name.charAt(0)}
+                </div>
+                <div>
+                  <div className="text-xs font-semibold text-ink-primary leading-none mb-1">
+                    {post.author.name}
+                  </div>
+                  <MetaLabel as="div" size="xxs" color="dim">
+                    {post.author.role}
+                  </MetaLabel>
+                </div>
               </div>
-              <div className="flex items-center justify-between pt-4 border-t border-border-default">
-                <MetaLabel color="dim">
-                  {post.readTime} min read
-                </MetaLabel>
-                <ArrowRight
-                  size={13}
-                  className="text-ink-dim group-hover:text-ink-primary group-hover:translate-x-1 transition-all duration-300"
-                />
-              </div>
+            </div>
+
+            <div className="border-t border-border-subtle pt-6 space-y-2">
+              <MetaLabel size="xxs" color="dim" as="div">
+                {formatDate(post.date)}
+              </MetaLabel>
+              <MetaLabel size="xxs" as="div">
+                {post.readTime} min read
+              </MetaLabel>
             </div>
           </div>
         </div>
@@ -66,27 +95,39 @@ export default function PostCard({ post, featured = false }: Props) {
     )
   }
 
+  /* Regular card */
   return (
     <Link
       href={`/blog/${post.slug}`}
       className="group flex flex-col card hover:border-border-strong transition-colors duration-300 hover-lift"
     >
-      <div className="p-6 flex flex-col flex-1">
-        <Badge variant={variant} className="mb-4 self-start">
-          {post.category}
-        </Badge>
-        <h3 className="text-sm font-semibold tracking-tight text-ink-primary leading-snug mb-3 flex-1 group-hover:text-ink-accent transition-colors duration-300">
-          {post.title}
-        </h3>
-        <p className="text-xs text-ink-muted leading-relaxed line-clamp-3">{post.excerpt}</p>
+      <div className="p-7 flex flex-col flex-1 gap-5">
+        <div className="flex items-start justify-between gap-3">
+          <Badge variant={variant}>{post.category}</Badge>
+          <MetaLabel size="xxs" color="dim" as="span">{post.readTime} min</MetaLabel>
+        </div>
+
+        <div className="flex-1">
+          <h3
+            className="font-semibold tracking-tight text-ink-primary leading-snug mb-3 group-hover:text-ink-accent transition-colors duration-300"
+            style={{ fontSize: 'clamp(0.9375rem, 1.25vw, 1.0625rem)' }}
+          >
+            {post.title}
+          </h3>
+          <p className="text-xs text-ink-muted leading-relaxed line-clamp-3">
+            {post.excerpt}
+          </p>
+        </div>
       </div>
-      <div className="border-t border-border-subtle px-6 py-3 flex items-center justify-between">
+
+      <div className="border-t border-border-subtle px-7 py-4 flex items-center justify-between">
         <MetaLabel size="xxs" color="dim">
           {formatDate(post.date)}
         </MetaLabel>
-        <MetaLabel size="xxs">
-          {post.readTime} min
-        </MetaLabel>
+        <div className="flex items-center gap-1.5 text-ink-dim group-hover:text-ink-primary transition-colors duration-200">
+          <span className="text-[8px] font-mono uppercase tracking-widest">Read</span>
+          <ArrowRight size={10} className="group-hover:translate-x-0.5 transition-transform duration-200" />
+        </div>
       </div>
     </Link>
   )
