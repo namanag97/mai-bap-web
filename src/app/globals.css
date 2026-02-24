@@ -1,11 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  /* Fonts */
+  /* ════════════════════════════════════════════════════════════
+     DESIGN TOKENS — Single source of truth
+
+     RULES:
+     1. Components MUST use semantic tokens (surface-*, ink-*, border-*)
+     2. The braun-* palette is PRIVATE — only referenced by semantic tokens
+        and globals.css itself. Never use braun-* in component files.
+     3. Never use text-white, bg-white, text-black, bg-black in components.
+     4. Run `npm run lint:tokens` to verify compliance.
+     ════════════════════════════════════════════════════════════ */
+
+  /* ── Fonts ─────────────────────────────────────────────── */
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
-  /* Braun Palette — exact match */
+  /* ── Private Palette (DO NOT use in components) ────────── */
   --color-braun-50:     #fafafa;
   --color-braun-100:    #f4f4f5;
   --color-braun-200:    #e4e4e7;
@@ -18,92 +29,93 @@
   --color-braun-900:    #09090b;
   --color-braun-orange: #ea580c;
 
-  /* Semantic data tokens */
+  /* ── Surfaces ──────────────────────────────────────────── */
+  /* bg-surface-ground  — page background, default surface    */
+  /* bg-surface-raised  — cards, dropdowns, elevated content  */
+  /* bg-surface-inset   — alternate sections, code blocks     */
+  /* bg-surface-overlay — glassmorphic nav, modals            */
+  /* bg-surface-inverse — dark sections (Stats, CTA)          */
+  --color-surface-ground:  #F5F3EF;
+  --color-surface-raised:  #FFFFFF;
+  --color-surface-inset:   #ECEAE5;
+  --color-surface-overlay: rgba(245, 243, 239, 0.72);
+  --color-surface-inverse: #1A1918;
+
+  /* ── Ink (text colors) ─────────────────────────────────── */
+  /* text-ink-primary   — headings, strong text               */
+  /* text-ink-secondary — body paragraphs                     */
+  /* text-ink-muted     — captions, secondary info            */
+  /* text-ink-dim       — placeholders, disabled              */
+  /* text-ink-inverse   — text on dark/inverse surfaces       */
+  /* text-ink-accent    — interactive highlights, links        */
+  --color-ink-primary:   #1A1918;
+  --color-ink-secondary: #4A4744;
+  --color-ink-muted:     #8A8580;
+  --color-ink-dim:       #B5B0AA;
+  --color-ink-inverse:   #F5F3EF;
+  --color-ink-accent:    #ea580c;
+
+  /* ── Borders ───────────────────────────────────────────── */
+  /* border-border-default — standard borders                 */
+  /* border-border-subtle  — very light separators            */
+  /* border-border-strong  — emphasis, focus rings            */
+  --color-border-default: rgba(26, 25, 24, 0.10);
+  --color-border-subtle:  rgba(26, 25, 24, 0.05);
+  --color-border-strong:  rgba(26, 25, 24, 0.20);
+
+  /* ── Data / status colors ──────────────────────────────── */
   --color-data-positive: #059669;
   --color-data-warning:  #d97706;
   --color-data-negative: #e11d48;
   --color-data-violet:   #7c3aed;
-  --color-data-muted:    #a1a1aa;
 
-  /* ── Semantic surface tokens ────────────────────────── */
-  --color-surface-primary:   #fafafa;
-  --color-surface-secondary: #ffffff;
-  --color-surface-inverse:   #09090b;
-  --color-surface-warning:   color-mix(in srgb, #e11d48 8%, #fafafa);
-
-  /* Surface palette */
-  --color-surface-ground: #F5F3EF;
-  --color-surface-raised: #FFFFFF;
-  --color-surface-inset: #ECEAE5;
-  --color-surface-overlay: rgba(255, 255, 255, 0.72);
-
-  /* ── Semantic text tokens ───────────────────────────── */
-  --color-text-primary:   #09090b;
-  --color-text-secondary: #52525b;
-  --color-text-muted:     #71717a;
-  --color-text-dim:       #a1a1aa;
-  --color-text-inverse:   #fafafa;
-  --color-text-accent:    #ea580c;
-
-  /* Ink palette — warm text tones */
-  --color-ink-primary: #1A1918;
-  --color-ink-secondary: #4A4744;
-  --color-ink-muted: #8A8580;
-  --color-ink-dim: #B5B0AA;
-  --color-ink-inverse: #F5F3EF;
-
-  /* ── Semantic border tokens ─────────────────────────── */
-  --color-border-default: rgba(26, 25, 24, 0.10);
-  --color-border-subtle: rgba(26, 25, 24, 0.05);
-  --color-border-strong: rgba(26, 25, 24, 0.20);
-
-  /* ── Radius ───────────────────────────────────────── */
+  /* ── Radius ────────────────────────────────────────────── */
   --radius: 4px;
+  --radius-sm: 2px;
+  --radius-lg: 8px;
 
-  /* ── Typography scale ───────────────────────────────── */
-  --text-display: clamp(3rem, 7vw, 6rem);
-  --text-title:   clamp(1.875rem, 3vw, 2.25rem);
-  --text-heading:  1.125rem;
+  /* ── Typography scale ──────────────────────────────────── */
+  --text-display:    clamp(3rem, 7vw, 6rem);
+  --text-title:      clamp(1.875rem, 3vw, 2.25rem);
+  --text-heading:    1.125rem;
   --text-subheading: 0.9375rem;
-  --text-body:     1rem;
-  --text-body-sm:  0.875rem;
-  --text-caption:  0.75rem;
-  --text-meta:     0.625rem;
-  --text-micro:    0.5625rem;
-  --text-code:     0.8125rem;
+  --text-body:       1rem;
+  --text-body-sm:    0.875rem;
+  --text-caption:    0.75rem;
+  --text-meta:       0.625rem;
+  --text-micro:      0.5625rem;
+  --text-code:       0.8125rem;
 
-  /* ── Line heights ───────────────────────────────────── */
+  /* ── Line heights ──────────────────────────────────────── */
   --leading-display: 0.92;
   --leading-tight:   1.1;
   --leading-snug:    1.4;
   --leading-body:    1.75;
   --leading-relaxed: 1.7;
 
-  /* ── Letter spacing ─────────────────────────────────── */
+  /* ── Letter spacing ────────────────────────────────────── */
   --tracking-tight:  -0.01em;
   --tracking-normal: 0;
   --tracking-wide:   0.05em;
   --tracking-widest: 0.1em;
   --tracking-logo:   0.2em;
 
-  /* ── Spacing scale ──────────────────────────────────── */
-  --space-section:   6rem;
+  /* ── Spacing scale ─────────────────────────────────────── */
+  --space-section:    6rem;
   --space-section-lg: 8rem;
-  --space-block:     3rem;
-  --space-element:   1.5rem;
-  --space-inline:    0.75rem;
-  --space-gutter:    1.5rem;
+  --space-block:      3rem;
+  --space-element:    1.5rem;
+  --space-inline:     0.75rem;
+  --space-gutter:     1.5rem;
 
-  /* ── Transitions ────────────────────────────────────── */
-  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-spring:  cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --duration-fast: 150ms;
+  /* ── Transitions ───────────────────────────────────────── */
+  --ease-default: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --duration-fast: 120ms;
   --duration-base: 200ms;
-  --duration-slow: 300ms;
-  --duration-enter: 500ms;
+  --duration-slow: 350ms;
 }
 
-/* ── Reset ─────────────────────────────────────────────── */
+/* ── Reset ─────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
@@ -118,6 +130,7 @@ body {
   color: var(--color-ink-primary);
 }
 
+/* Paper noise texture — fixed, does not scroll */
 body::after {
   content: "";
   position: fixed;
@@ -131,25 +144,24 @@ body::after {
 }
 
 ::selection {
-  background-color: var(--color-braun-900);
-  color: var(--color-braun-50);
+  background-color: var(--color-ink-primary);
+  color: var(--color-surface-ground);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-braun-900);
+  outline: 2px solid var(--color-ink-primary);
   outline-offset: 2px;
 }
 
-/* ── Scrollbar ─────────────────────────────────────────── */
+/* ── Scrollbar ─────────────────────────────────────────────── */
 ::-webkit-scrollbar        { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track  { background: transparent; }
-::-webkit-scrollbar-thumb  { background: var(--color-braun-200); }
-::-webkit-scrollbar-thumb:hover  { background: var(--color-braun-400); }
-::-webkit-scrollbar-thumb:active { background: var(--color-braun-500); }
+::-webkit-scrollbar-thumb  { background: var(--color-border-default); }
+::-webkit-scrollbar-thumb:hover  { background: var(--color-border-strong); }
 
-/* ── Prose — blog & docs reading typography ────────────── */
+/* ── Prose — blog & docs reading typography ────────────────── */
 .prose {
-  color: var(--color-braun-600);
+  color: var(--color-ink-secondary);
   font-size: 1rem;
   line-height: 1.75;
 }
@@ -161,9 +173,9 @@ body::after {
 .prose h2 {
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--color-braun-900);
+  color: var(--color-ink-primary);
   letter-spacing: -0.01em;
-  border-bottom: 1px solid var(--color-braun-200);
+  border-bottom: 1px solid var(--color-border-default);
   padding-bottom: 0.5rem;
   margin-top: 2.5rem;
   margin-bottom: 0.875rem;
@@ -173,7 +185,7 @@ body::after {
 .prose h3 {
   font-size: 0.9375rem;
   font-weight: 600;
-  color: var(--color-braun-800);
+  color: var(--color-ink-primary);
   margin-top: 1.75rem;
   margin-bottom: 0.5rem;
   line-height: 1.4;
@@ -181,7 +193,7 @@ body::after {
 
 .prose p {
   margin-bottom: 0;
-  color: var(--color-braun-600);
+  color: var(--color-ink-secondary);
 }
 
 .prose ul {
@@ -194,7 +206,7 @@ body::after {
 
 .prose ul li {
   position: relative;
-  color: var(--color-braun-600);
+  color: var(--color-ink-secondary);
   line-height: 1.7;
 }
 
@@ -202,18 +214,19 @@ body::after {
   content: '—';
   position: absolute;
   left: -1.25rem;
-  color: var(--color-braun-400);
+  color: var(--color-ink-dim);
   font-family: var(--font-mono), monospace;
 }
 
 .prose pre {
-  background: var(--color-braun-900);
-  color: var(--color-braun-200);
+  background: var(--color-surface-inverse);
+  color: var(--color-ink-inverse);
   padding: 1.25rem 1.5rem;
   overflow-x: auto;
   font-size: 0.8125rem;
   line-height: 1.7;
-  border: 1px solid var(--color-braun-800);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius);
 }
 
 .prose code {
@@ -228,44 +241,39 @@ body::after {
 
 /* Inline code */
 .prose :not(pre) > code {
-  background: var(--color-braun-100);
-  border: 1px solid var(--color-braun-200);
+  background: var(--color-surface-inset);
+  border: 1px solid var(--color-border-default);
   padding: 0.125em 0.375em;
   font-size: 0.8125rem;
-  color: var(--color-braun-800);
+  color: var(--color-ink-primary);
+  border-radius: var(--radius-sm);
 }
 
 .prose .note {
-  border-left: 2px solid var(--color-braun-900);
-  background: var(--color-braun-100);
+  border-left: 2px solid var(--color-ink-primary);
+  background: var(--color-surface-inset);
   padding: 0.875rem 1.125rem;
   font-size: 0.875rem;
-  color: var(--color-braun-600);
+  color: var(--color-ink-secondary);
   line-height: 1.65;
+  border-radius: var(--radius);
 }
 
 .prose .note.warning {
   border-left-color: var(--color-data-negative);
-  background: color-mix(in srgb, var(--color-data-negative) 8%, var(--color-braun-50));
+  background: color-mix(in srgb, var(--color-data-negative) 8%, var(--color-surface-ground));
 }
 
-/* ── Hover lift — subtle card interaction ──────────────── */
-.hover-lift {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.hover-lift:hover {
-  transform: translateY(-2px);
-}
-
-/* ── Smooth transitions ───────────────────────────────── */
+/* ── Smooth transitions ───────────────────────────────────── */
 @media (prefers-reduced-motion: no-preference) {
   @view-transition {
     navigation: auto;
   }
 }
 
-/* ── Dark mode ──────────────────────────────────────────── */
+/* ── Dark mode ──────────────────────────────────────────────── */
 [data-theme="dark"] {
+  /* Private palette inversion */
   --color-braun-50:  #09090b;
   --color-braun-100: #18181b;
   --color-braun-200: #27272a;
@@ -277,32 +285,37 @@ body::after {
   --color-braun-800: #f4f4f5;
   --color-braun-900: #fafafa;
   --color-braun-orange: #ea580c;
-  --color-surface-warning: #1c0a10;
-  --color-surface-ground: #1C1B19;
-  --color-surface-raised: #27261F;
-  --color-surface-inset: #141310;
+
+  /* Semantic token overrides */
+  --color-surface-ground:  #1C1B19;
+  --color-surface-raised:  #252420;
+  --color-surface-inset:   #141310;
   --color-surface-overlay: rgba(28, 27, 25, 0.72);
-  --color-ink-primary: #F5F3EF;
+  --color-surface-inverse: #F5F3EF;
+
+  --color-ink-primary:   #F5F3EF;
   --color-ink-secondary: #B5B0AA;
-  --color-ink-muted: #8A8580;
-  --color-ink-dim: #4A4744;
-  --color-ink-inverse: #1C1B19;
+  --color-ink-muted:     #8A8580;
+  --color-ink-dim:       #4A4744;
+  --color-ink-inverse:   #1C1B19;
+  --color-ink-accent:    #ea580c;
+
   --color-border-default: rgba(245, 243, 239, 0.10);
-  --color-border-subtle: rgba(245, 243, 239, 0.05);
-  --color-border-strong: rgba(245, 243, 239, 0.20);
+  --color-border-subtle:  rgba(245, 243, 239, 0.05);
+  --color-border-strong:  rgba(245, 243, 239, 0.20);
 }
 
-/* Surfaces using Tailwind's bg-white need to invert in dark mode */
-[data-theme="dark"] .bg-white {
-  background-color: var(--color-braun-100);
+/* Dark mode surface raised elements */
+[data-theme="dark"] .bg-surface-raised {
+  background-color: var(--color-surface-raised);
 }
 
-/* Dark prose code blocks get slightly different treatment */
+/* Dark prose adjustments */
 [data-theme="dark"] .prose pre {
-  background: var(--color-braun-100);
-  border-color: var(--color-braun-300);
+  background: var(--color-surface-inset);
+  border-color: var(--color-border-default);
 }
 
 [data-theme="dark"] .prose .note.warning {
-  background: var(--color-surface-warning);
+  background: color-mix(in srgb, var(--color-data-negative) 12%, var(--color-surface-ground));
 }
