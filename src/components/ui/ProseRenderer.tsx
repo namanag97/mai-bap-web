@@ -37,7 +37,7 @@ export function ProseRenderer({ blocks }: ProseRendererProps) {
             return (
               <h3
                 key={i}
-                className="text-sm font-semibold text-braun-800 pt-2 mt-6 first:mt-0 leading-snug"
+                className="text-sm font-semibold text-ink-primary pt-2 mt-6 first:mt-0 leading-snug"
               >
                 {block.text}
               </h3>
