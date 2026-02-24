@@ -10,8 +10,8 @@ type BadgeVariant =
   | 'orange'
 
 const variantCls: Record<BadgeVariant, string> = {
-  neutral: 'text-braun-600 bg-braun-100 border-border-default',
-  primary: 'text-white bg-braun-900 border-braun-900',
+  neutral: 'text-ink-secondary bg-surface-inset border-border-default',
+  primary: 'text-ink-inverse bg-surface-inverse border-border-strong',
   success: 'text-emerald-700 bg-emerald-50 border-emerald-200',
   warning: 'text-amber-700 bg-amber-50 border-amber-200',
   error:   'text-rose-700 bg-rose-50 border-rose-200',
