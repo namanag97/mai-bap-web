@@ -45,7 +45,7 @@ export default function Pricing() {
         </FadeIn>
 
         {/* Tier grid */}
-        <div className="card-grid grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border-default">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {tiers.map((tier, i) => {
             const price = annual ? tier.annualPrice : tier.monthlyPrice
             const period = annual ? tier.annualPeriod : tier.period
@@ -53,38 +53,38 @@ export default function Pricing() {
             return (
               <FadeIn key={tier.name} delay={i * 120} direction="up">
                 <div
-                  className={`flex flex-col p-8 h-full hover-lift ${tier.featured ? 'bg-surface-inverse' : 'card-grid-cell'}`}
+                  className={`flex flex-col p-8 h-full hover-lift ${tier.featured ? 'card-featured' : 'card'}`}
                 >
                   {tier.featured && (
-                    <MetaLabel as="div" size="xxs" className="text-ink-accent border border-ink-accent/40 px-2 py-0.5 self-start mb-5">
+                    <MetaLabel as="div" size="xxs" className="border border-border-default px-2 py-0.5 self-start mb-5">
                       Most popular
                     </MetaLabel>
                   )}
 
                   {/* Name */}
-                  <MetaLabel as="div" className={`mb-2 ${tier.featured ? 'text-ink-muted' : 'text-ink-muted'}`}>
+                  <MetaLabel as="div" color="dim" className="mb-2">
                     {tier.name}
                   </MetaLabel>
 
                   {/* Price */}
                   <div className="flex items-baseline gap-1 mb-1">
-                    <span className={`text-4xl font-mono font-light tabular-nums ${tier.featured ? 'text-ink-inverse' : 'text-ink-primary'}`}>
+                    <span className="text-4xl font-mono font-light tabular-nums text-ink-primary">
                       {price}
                     </span>
                     {period && (
-                      <span className={`text-xs font-mono ${tier.featured ? 'text-ink-muted' : 'text-ink-muted'}`}>
+                      <span className="text-xs font-mono text-ink-muted">
                         {period}
                       </span>
                     )}
                   </div>
 
-                  <p className={`text-xs leading-relaxed mb-7 ${tier.featured ? 'text-ink-muted' : 'text-ink-muted'}`}>
+                  <p className="text-xs leading-relaxed mb-7 text-ink-muted">
                     {tier.description}
                   </p>
 
                   <ButtonLink
                     href={tier.cta.href}
-                    variant={tier.featured ? 'dark' : 'primary'}
+                    variant="primary"
                     size="md"
                     className="mb-8 text-center block"
                   >
@@ -97,9 +97,9 @@ export default function Pricing() {
                       <li key={f} className="flex items-start gap-2.5">
                         <Check
                           size={12}
-                          className={`mt-0.5 shrink-0 ${tier.featured ? 'text-ink-accent' : 'text-ink-primary'}`}
+                          className="mt-0.5 shrink-0 text-ink-primary"
                         />
-                        <span className={`text-xs leading-relaxed ${tier.featured ? 'text-ink-muted' : 'text-ink-secondary'}`}>
+                        <span className="text-xs leading-relaxed text-ink-secondary">
                           {f}
                         </span>
                       </li>
