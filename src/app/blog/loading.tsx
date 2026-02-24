@@ -8,7 +8,7 @@ export default function BlogLoading() {
         <div className="h-4 w-1/2 bg-braun-100 animate-pulse mb-12" />
 
         {/* Skeleton cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-braun-200">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border-default">
           {[1, 2, 3, 4].map(i => (
             <div key={i} className="bg-white p-8">
               <div className="h-3 w-16 bg-braun-100 animate-pulse mb-4" />
