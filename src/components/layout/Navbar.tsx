@@ -111,7 +111,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div
         className={cn(
-          'md:hidden border-t border-border-default bg-surface-raised overflow-hidden transition-[max-height,opacity] duration-300',
+          'md:hidden border-t border-border-default bg-surface-overlay backdrop-blur-lg overflow-hidden transition-[max-height,opacity] duration-300',
           open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         )}
       >
