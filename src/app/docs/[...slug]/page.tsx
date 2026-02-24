@@ -3,8 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ChevronRight, ArrowLeft, ArrowRight } from 'lucide-react'
 import { getDocPage, getAllDocSlugs, navigation } from '@/content/docs'
-import { ProseRenderer } from '@/components/ui/ProseRenderer'
-import { SectionLabel } from '@/components/ui/SectionLabel'
+import { ProseRenderer, SectionLabel, MetaLabel, Divider } from '@/components/ui'
 
 interface Props {
   params: Promise<{ slug: string[] }>
@@ -75,15 +74,15 @@ export default async function DocPage({ params }: Props) {
         <ChevronRight size={9} className="text-braun-200" />
         {section && (
           <>
-            <span className="text-[9px] font-mono uppercase tracking-widest text-braun-500">
+            <MetaLabel size="xxs">
               {section.title}
-            </span>
+            </MetaLabel>
             <ChevronRight size={9} className="text-braun-200" />
           </>
         )}
-        <span className="text-[9px] font-mono uppercase tracking-widest text-braun-500">
+        <MetaLabel size="xxs">
           {page.title}
-        </span>
+        </MetaLabel>
       </nav>
 
       {/* Section label — same component as landing page sections */}
@@ -101,14 +100,14 @@ export default async function DocPage({ params }: Props) {
         {page.description}
       </p>
 
-      {/* Separator — same as DS divider component */}
-      <div className="h-px bg-braun-200 mb-10" />
+      {/* Separator */}
+      <Divider className="mb-10" />
 
       {/* Content — rendered via ProseRenderer, which uses CodeBlock, Callout, etc. */}
       <ProseRenderer blocks={page.content} />
 
       {/* Bottom separator */}
-      <div className="h-px bg-braun-200 mt-14 mb-8" />
+      <Divider className="mt-14 mb-8" />
 
       {/* Prev / Next navigation */}
       <div className="grid grid-cols-2 gap-4">
@@ -117,9 +116,9 @@ export default async function DocPage({ params }: Props) {
             href={`/docs/${prev.slug.join('/')}`}
             className="group flex flex-col gap-1.5 p-4 border border-braun-200 hover:border-braun-900 transition-colors duration-200"
           >
-            <span className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-braun-400">
+            <MetaLabel as="span" size="xxs" color="dim" className="flex items-center gap-1.5">
               <ArrowLeft size={9} /> Previous
-            </span>
+            </MetaLabel>
             <span className="text-xs font-medium text-braun-700 group-hover:text-braun-900 transition-colors leading-snug">
               {prev.title}
             </span>
@@ -131,9 +130,9 @@ export default async function DocPage({ params }: Props) {
             href={`/docs/${next.slug.join('/')}`}
             className="group flex flex-col gap-1.5 p-4 border border-braun-200 hover:border-braun-900 transition-colors duration-200 text-right"
           >
-            <span className="flex items-center justify-end gap-1.5 text-[9px] font-mono uppercase tracking-widest text-braun-400">
+            <MetaLabel as="span" size="xxs" color="dim" className="flex items-center justify-end gap-1.5">
               Next <ArrowRight size={9} />
-            </span>
+            </MetaLabel>
             <span className="text-xs font-medium text-braun-700 group-hover:text-braun-900 transition-colors leading-snug">
               {next.title}
             </span>
