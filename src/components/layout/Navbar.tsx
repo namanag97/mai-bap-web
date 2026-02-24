@@ -44,9 +44,9 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        'fixed top-0 inset-x-0 z-50 transition-[background-color,border-color] duration-300',
+        'fixed top-0 inset-x-0 z-[200] transition-all duration-300',
         scrolled
-          ? 'bg-surface-raised border-b border-border-default'
+          ? 'bg-surface-overlay backdrop-blur-lg border-b border-border-default shadow-xs'
           : 'bg-transparent border-b border-transparent'
       )}
     >
