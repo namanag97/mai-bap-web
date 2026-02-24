@@ -27,7 +27,7 @@ export function ProseRenderer({ blocks }: ProseRendererProps) {
             return (
               <h2
                 key={i}
-                className="text-base font-semibold text-braun-900 tracking-tight border-b border-braun-200 pb-2.5 pt-6 mt-10 first:mt-0 leading-snug"
+                className="text-base font-semibold text-braun-900 tracking-tight border-b border-border-default pb-2.5 pt-6 mt-10 first:mt-0 leading-snug"
               >
                 {block.text}
               </h2>
