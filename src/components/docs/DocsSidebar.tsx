@@ -74,7 +74,7 @@ export default function DocsSidebar() {
               <X size={12} />
             </button>
           ) : (
-            <kbd className="absolute right-3 top-1/2 -translate-y-1/2 text-[8px] font-mono text-braun-400 border border-braun-200 px-1 py-0.5">
+            <kbd className="absolute right-3 top-1/2 -translate-y-1/2 text-[8px] font-mono text-braun-400 border border-border-default px-1 py-0.5">
               ⌘K
             </kbd>
           )}
