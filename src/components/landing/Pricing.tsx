@@ -89,7 +89,7 @@ export default function Pricing() {
                     href={tier.cta.href}
                     variant="primary"
                     size="md"
-                    className="mb-8 text-center block"
+                    className="mb-md text-center block"
                   >
                     {tier.cta.label}
                   </ButtonLink>
