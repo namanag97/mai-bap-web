@@ -714,7 +714,7 @@ body::after {
 .meta-label {
   font-family: var(--font-mono), ui-monospace, monospace;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--tracking-label);   /* 0.0618em (was 0.1em) */
   font-size: 10px;
   color: var(--color-ink-muted);
   font-feature-settings: "tnum" on, "lnum" on;
