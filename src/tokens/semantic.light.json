@@ -1,0 +1,48 @@
+{
+  "surface": {
+    "ground":   { "value": "{braun.50}",   "type": "color", "description": "Page background. Default section bg. The base." },
+    "raised":   { "value": "#faf9f7",      "type": "color", "description": "Cards, dropdowns, elevated content." },
+    "inset":    { "value": "{braun.100}",  "type": "color", "description": "Code blocks, wells, alternate fills. Darker than ground." },
+    "deep":     { "value": "#e5e2dc",      "type": "color", "description": "Weighted sections (stats bars, sub-headers). Heavier warm." },
+    "overlay":  { "value": "rgba(250,249,247,0.8)", "type": "color", "description": "Glassmorphic navbar and modals. 80% opacity raised." },
+    "inverse":  { "value": "{braun.900}",  "type": "color", "description": "Dark sections. Near-black. Text must be ink/inverse here." }
+  },
+
+  "ink": {
+    "primary":   { "value": "{braun.900}", "type": "color", "description": "Headings, strong text, primary labels." },
+    "secondary": { "value": "{braun.600}", "type": "color", "description": "Body paragraphs, descriptions." },
+    "muted":     { "value": "{braun.500}", "type": "color", "description": "Captions, meta labels, secondary info." },
+    "dim":       { "value": "{braun.400}", "type": "color", "description": "Placeholders, disabled, very secondary." },
+    "inverse":   { "value": "{braun.50}",  "type": "color", "description": "Text on inverse/dark surfaces." },
+    "accent":    { "value": "{braun.orange}", "type": "color", "description": "Links, CTAs, interactive highlights, brand orange." }
+  },
+
+  "border": {
+    "subtle":  { "value": "rgba(26,25,24,0.05)", "type": "color", "description": "5% ink. Very light separators, image outlines." },
+    "default": { "value": "rgba(26,25,24,0.10)", "type": "color", "description": "10% ink. Standard borders on cards, inputs, dividers." },
+    "strong":  { "value": "rgba(26,25,24,0.20)", "type": "color", "description": "20% ink. Emphasis, focus rings, featured card top." },
+    "heavy":   { "value": "rgba(26,25,24,0.35)", "type": "color", "description": "35% ink. Structural lines, section-deep top border." }
+  },
+
+  "data": {
+    "positive":        { "value": "#059669", "type": "color", "description": "Green — success, healthy, complete." },
+    "positive-bg":     { "value": "rgba(5,150,105,0.07)",  "type": "color" },
+    "positive-border": { "value": "rgba(5,150,105,0.15)",  "type": "color" },
+    "warning":         { "value": "#d97706", "type": "color", "description": "Amber — caution, degraded, pending." },
+    "warning-bg":      { "value": "rgba(217,119,6,0.07)",  "type": "color" },
+    "warning-border":  { "value": "rgba(217,119,6,0.15)",  "type": "color" },
+    "negative":        { "value": "#e11d48", "type": "color", "description": "Rose red — error, failure, critical." },
+    "negative-bg":     { "value": "rgba(225,29,72,0.07)",  "type": "color" },
+    "negative-border": { "value": "rgba(225,29,72,0.15)",  "type": "color" },
+    "violet":          { "value": "#7c3aed", "type": "color", "description": "Purple — info, neutral status, special." },
+    "violet-bg":       { "value": "rgba(124,58,237,0.07)", "type": "color" },
+    "violet-border":   { "value": "rgba(124,58,237,0.15)", "type": "color" },
+    "accent-bg":       { "value": "rgba(194,87,26,0.07)",  "type": "color" },
+    "accent-border":   { "value": "rgba(194,87,26,0.15)",  "type": "color" }
+  },
+
+  "state": {
+    "hover":  { "value": "rgba(26,25,24,0.04)", "type": "color", "description": "4% ink. Hover background overlay." },
+    "active": { "value": "rgba(26,25,24,0.08)", "type": "color", "description": "8% ink. Active/pressed background overlay." }
+  }
+}
