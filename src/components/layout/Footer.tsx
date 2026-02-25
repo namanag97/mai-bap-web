@@ -5,7 +5,7 @@ import { Container, MetaLabel } from '@/components/ui'
 export default function Footer() {
   return (
     <footer className="section border-t border-b-0">
-      <Container>
+      <Container className="pt-2xl pb-xl">
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-lg mb-xl">
           {/* Brand col */}
