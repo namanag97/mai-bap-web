@@ -190,6 +190,14 @@
 :root {
   --color-ink-base: #1a1918;
   --color-border-default: color-mix(in srgb, var(--color-ink-base) 10%, transparent);
+  /* φ-scale derived constants */
+  --phi: 1.618;
+  --phi-half: 1.272;      /* √φ */
+  --phi-quarter: 1.128;   /* φ^0.25 */
+  --phi-eighth: 1.062;    /* φ^0.125 */
+  --display-offset: calc(4.236rem * calc(1.128 / 1.618));
+  --heading-offset: calc(1.128rem * calc(1.272 / 1.618));
+  --body-offset: calc(1rem / 1.618);
   --color-border-subtle:  color-mix(in srgb, var(--color-ink-base) 5%,  transparent);
   --color-border-strong:  color-mix(in srgb, var(--color-ink-base) 20%, transparent);
   --color-border-heavy:   color-mix(in srgb, var(--color-ink-base) 35%, transparent);
