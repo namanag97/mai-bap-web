@@ -1,15 +1,15 @@
 {
   "braun": {
-    "50":     { "value": "#f5f3ef", "type": "color", "description": "Warm paper white — page background" },
-    "100":    { "value": "#eceae5", "type": "color", "description": "Light warm grey" },
-    "200":    { "value": "#ddd9d3", "type": "color", "description": "Mid-light warm grey" },
-    "300":    { "value": "#c5c0ba", "type": "color", "description": "Warm grey" },
-    "400":    { "value": "#b5b0aa", "type": "color", "description": "Medium warm grey" },
-    "500":    { "value": "#8a8580", "type": "color", "description": "True mid grey (warm)" },
-    "600":    { "value": "#4a4744", "type": "color", "description": "Dark warm grey" },
-    "700":    { "value": "#33302e", "type": "color", "description": "Deeper warm grey" },
-    "800":    { "value": "#1e1d1b", "type": "color", "description": "Near black warm" },
-    "900":    { "value": "#1a1918", "type": "color", "description": "Primary near black" },
-    "orange": { "value": "#c2571a", "type": "color", "description": "Warm rust accent" }
+    "50":     { "value": "#f5f3ef", "type": "color" },
+    "100":    { "value": "#eceae5", "type": "color" },
+    "200":    { "value": "#ddd9d3", "type": "color" },
+    "300":    { "value": "#c5c0ba", "type": "color" },
+    "400":    { "value": "#b5b0aa", "type": "color" },
+    "500":    { "value": "#8a8580", "type": "color" },
+    "600":    { "value": "#4a4744", "type": "color" },
+    "700":    { "value": "#33302e", "type": "color" },
+    "800":    { "value": "#1e1d1b", "type": "color" },
+    "900":    { "value": "#1a1918", "type": "color" },
+    "orange": { "value": "#c2571a", "type": "color" }
   }
 }
