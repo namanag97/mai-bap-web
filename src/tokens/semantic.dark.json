@@ -1,48 +1,44 @@
 {
   "surface": {
-    "ground":   { "value": "#0a0a09",              "type": "color", "description": "Deep OLED near-black." },
-    "raised":   { "value": "#121211",              "type": "color" },
-    "inset":    { "value": "#1a1a18",              "type": "color" },
-    "deep":     { "value": "#1c1c1a",              "type": "color" },
-    "overlay":  { "value": "rgba(10,10,9,0.85)",   "type": "color" },
-    "inverse":  { "value": "#f5f3ef",              "type": "color", "description": "Flips to warm paper in dark mode." }
+    "ground":   { "value": "#0a0a09",   "type": "color" },
+    "raised":   { "value": "#121211",   "type": "color" },
+    "inset":    { "value": "#1a1a18",   "type": "color" },
+    "deep":     { "value": "#1c1c1a",   "type": "color" },
+    "overlay":  { "value": "#0a0a09d9", "type": "color" },
+    "inverse":  { "value": "#f5f3ef",   "type": "color" }
   },
-
   "ink": {
     "primary":   { "value": "#f5f3ef", "type": "color" },
     "secondary": { "value": "#c5c0ba", "type": "color" },
     "muted":     { "value": "#8a8580", "type": "color" },
     "dim":       { "value": "#5a5550", "type": "color" },
     "inverse":   { "value": "#1a1918", "type": "color" },
-    "accent":    { "value": "#e56b25", "type": "color", "description": "More luminous orange — pops on near-black." }
+    "accent":    { "value": "#e56b25", "type": "color" }
   },
-
   "border": {
-    "subtle":  { "value": "rgba(245,243,239,0.05)", "type": "color" },
-    "default": { "value": "rgba(245,243,239,0.10)", "type": "color" },
-    "strong":  { "value": "rgba(245,243,239,0.20)", "type": "color" },
-    "heavy":   { "value": "rgba(245,243,239,0.35)", "type": "color" }
+    "subtle":  { "value": "#f5f3ef0d", "type": "color" },
+    "default": { "value": "#f5f3ef1a", "type": "color" },
+    "strong":  { "value": "#f5f3ef33", "type": "color" },
+    "heavy":   { "value": "#f5f3ef59", "type": "color" }
   },
-
   "data": {
     "positive":        { "value": "#059669", "type": "color" },
-    "positive-bg":     { "value": "rgba(5,150,105,0.09)",   "type": "color" },
-    "positive-border": { "value": "rgba(5,150,105,0.19)",   "type": "color" },
+    "positive-bg":     { "value": "#05966918", "type": "color" },
+    "positive-border": { "value": "#05966930", "type": "color" },
     "warning":         { "value": "#d97706", "type": "color" },
-    "warning-bg":      { "value": "rgba(217,119,6,0.09)",   "type": "color" },
-    "warning-border":  { "value": "rgba(217,119,6,0.19)",   "type": "color" },
+    "warning-bg":      { "value": "#d9770618", "type": "color" },
+    "warning-border":  { "value": "#d9770630", "type": "color" },
     "negative":        { "value": "#e11d48", "type": "color" },
-    "negative-bg":     { "value": "rgba(225,29,72,0.09)",   "type": "color" },
-    "negative-border": { "value": "rgba(225,29,72,0.19)",   "type": "color" },
+    "negative-bg":     { "value": "#e11d4818", "type": "color" },
+    "negative-border": { "value": "#e11d4830", "type": "color" },
     "violet":          { "value": "#7c3aed", "type": "color" },
-    "violet-bg":       { "value": "rgba(124,58,237,0.09)",  "type": "color" },
-    "violet-border":   { "value": "rgba(124,58,237,0.19)",  "type": "color" },
-    "accent-bg":       { "value": "rgba(194,87,26,0.09)",   "type": "color" },
-    "accent-border":   { "value": "rgba(194,87,26,0.19)",   "type": "color" }
+    "violet-bg":       { "value": "#7c3aed18", "type": "color" },
+    "violet-border":   { "value": "#7c3aed30", "type": "color" },
+    "accent-bg":       { "value": "#c2571a18", "type": "color" },
+    "accent-border":   { "value": "#c2571a30", "type": "color" }
   },
-
   "state": {
-    "hover":  { "value": "rgba(245,243,239,0.04)", "type": "color" },
-    "active": { "value": "rgba(245,243,239,0.08)", "type": "color" }
+    "hover":  { "value": "#f5f3ef0a", "type": "color" },
+    "active": { "value": "#f5f3ef14", "type": "color" }
   }
 }
