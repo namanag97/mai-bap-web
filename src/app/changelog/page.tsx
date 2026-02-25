@@ -177,7 +177,7 @@ export default function ChangelogPage() {
 
               <div className="card hover-lift">
                 {/* Version + date row */}
-                <div className="flex items-center gap-3 mb-3">
+                <div className="flex items-center gap-xs mb-3">
                   <Badge variant={release.featured ? 'primary' : 'neutral'} className="font-bold">
                     {release.version}
                   </Badge>
