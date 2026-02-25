@@ -1,0 +1,48 @@
+{
+  "surface": {
+    "ground":   { "value": "#0a0a09",              "type": "color", "description": "Deep OLED near-black." },
+    "raised":   { "value": "#121211",              "type": "color" },
+    "inset":    { "value": "#1a1a18",              "type": "color" },
+    "deep":     { "value": "#1c1c1a",              "type": "color" },
+    "overlay":  { "value": "rgba(10,10,9,0.85)",   "type": "color" },
+    "inverse":  { "value": "#f5f3ef",              "type": "color", "description": "Flips to warm paper in dark mode." }
+  },
+
+  "ink": {
+    "primary":   { "value": "#f5f3ef", "type": "color" },
+    "secondary": { "value": "#c5c0ba", "type": "color" },
+    "muted":     { "value": "#8a8580", "type": "color" },
+    "dim":       { "value": "#5a5550", "type": "color" },
+    "inverse":   { "value": "#1a1918", "type": "color" },
+    "accent":    { "value": "#e56b25", "type": "color", "description": "More luminous orange — pops on near-black." }
+  },
+
+  "border": {
+    "subtle":  { "value": "rgba(245,243,239,0.05)", "type": "color" },
+    "default": { "value": "rgba(245,243,239,0.10)", "type": "color" },
+    "strong":  { "value": "rgba(245,243,239,0.20)", "type": "color" },
+    "heavy":   { "value": "rgba(245,243,239,0.35)", "type": "color" }
+  },
+
+  "data": {
+    "positive":        { "value": "#059669", "type": "color" },
+    "positive-bg":     { "value": "rgba(5,150,105,0.09)",   "type": "color" },
+    "positive-border": { "value": "rgba(5,150,105,0.19)",   "type": "color" },
+    "warning":         { "value": "#d97706", "type": "color" },
+    "warning-bg":      { "value": "rgba(217,119,6,0.09)",   "type": "color" },
+    "warning-border":  { "value": "rgba(217,119,6,0.19)",   "type": "color" },
+    "negative":        { "value": "#e11d48", "type": "color" },
+    "negative-bg":     { "value": "rgba(225,29,72,0.09)",   "type": "color" },
+    "negative-border": { "value": "rgba(225,29,72,0.19)",   "type": "color" },
+    "violet":          { "value": "#7c3aed", "type": "color" },
+    "violet-bg":       { "value": "rgba(124,58,237,0.09)",  "type": "color" },
+    "violet-border":   { "value": "rgba(124,58,237,0.19)",  "type": "color" },
+    "accent-bg":       { "value": "rgba(194,87,26,0.09)",   "type": "color" },
+    "accent-border":   { "value": "rgba(194,87,26,0.19)",   "type": "color" }
+  },
+
+  "state": {
+    "hover":  { "value": "rgba(245,243,239,0.04)", "type": "color" },
+    "active": { "value": "rgba(245,243,239,0.08)", "type": "color" }
+  }
+}
