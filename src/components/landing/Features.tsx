@@ -13,13 +13,13 @@ export default function Features() {
 
   return (
     <section id="features" className="section">
-      <Container className="py-24">
+      <Container>
 
         {/* Section header */}
         <FadeIn>
-          <div className="grid lg:grid-cols-2 gap-8 mb-16 pb-10 border-b border-border-default">
+          <div className="grid lg:grid-cols-2 gap-lg mb-xl pb-lg border-b border-border-default">
             <div>
-              <div className="flex items-center gap-3 mb-5">
+              <div className="flex items-center gap-xs mb-md">
                 <SectionLabel label={sectionLabel} />
                 <div className="flex-1 divider" />
               </div>
