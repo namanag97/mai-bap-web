@@ -666,6 +666,8 @@ body::after {
 
 /* ── Card featured — pricing highlight card, warm paper emphasis ── */
 .card-featured {
+  padding: var(--space-element);
+  border-radius: var(--radius);
   background-color: var(--color-surface-inset);
   border: 1px solid var(--color-border-strong);
   box-shadow: var(--shadow-md);
