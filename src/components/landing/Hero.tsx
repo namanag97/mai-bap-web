@@ -160,7 +160,7 @@ export default function Hero() {
             </FadeIn>
 
             <FadeIn delay={300}>
-              <div className="flex flex-wrap gap-3 mb-14">
+              <div className="flex flex-wrap gap-xs mb-xl">
                 <ButtonLink href={siteConfig.hero.primaryCta.href} size="lg">
                   {siteConfig.hero.primaryCta.label} <ArrowRight size={13} />
                 </ButtonLink>
