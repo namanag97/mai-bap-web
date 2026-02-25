@@ -48,7 +48,7 @@ export default function Pricing() {
         </FadeIn>
 
         {/* Tier grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-md">
           {tiers.map((tier, i) => {
             const price = annual ? tier.annualPrice : tier.monthlyPrice
             const period = annual ? tier.annualPeriod : tier.period
@@ -56,7 +56,7 @@ export default function Pricing() {
             return (
               <FadeIn key={tier.name} delay={i * 120} direction="up">
                 <div
-                  className={`flex flex-col p-8 h-full hover-lift ${tier.featured ? 'card-featured' : 'card'}`}
+                  className={`flex flex-col h-full hover-lift ${tier.featured ? 'card-featured' : 'card'}`}
                 >
                   {tier.featured && (
                     <MetaLabel as="div" size="xxs" className="border border-border-default px-2 py-0.5 self-start mb-5">
