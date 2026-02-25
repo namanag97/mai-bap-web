@@ -144,7 +144,7 @@ export default function Hero() {
             </FadeIn>
 
             <FadeIn delay={100}>
-              <h1 className="text-[clamp(3rem,7vw,6rem)] font-light tracking-tight leading-[0.92] text-ink-primary mb-8">
+              <h1 className="text-[clamp(2.618rem,7vw,4.236rem)] font-light tracking-display leading-display text-ink-primary mb-md">
                 {siteConfig.hero.title.map((line, i) => (
                   <span key={i}>{line}{i < siteConfig.hero.title.length - 1 && <br />}</span>
                 ))}
