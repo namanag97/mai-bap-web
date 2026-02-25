@@ -132,7 +132,7 @@ export default function Hero() {
       <div className="absolute inset-0 pointer-events-none bg-engineering-grid opacity-50" />
 
       <Container className="relative">
-        <div className="grid lg:grid-cols-[1fr_460px] xl:grid-cols-[1fr_520px] gap-12 xl:gap-20 py-24 lg:py-32 xl:py-40 items-center">
+        <div className="grid lg:grid-cols-[1fr_460px] xl:grid-cols-[1fr_520px] gap-xl xl:gap-20 py-2xl lg:py-3xl xl:py-40 items-center">
 
           {/* Left — typography */}
           <div>
