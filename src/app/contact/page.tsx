@@ -26,7 +26,7 @@ export default function ContactPage() {
       <Container className="py-12">
         <div className="grid lg:grid-cols-[1fr_380px] gap-xl">
           {/* Form card */}
-          <div className="card">
+          <div className="card p-md">
             {submitted ? (
               <div className="py-16 flex flex-col items-center text-center">
                 <div className="w-12 h-12 border border-border-default flex items-center justify-center mb-6">
