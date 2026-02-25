@@ -355,7 +355,7 @@ body::after {
 .prose .prose-lead {
   font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
   font-weight: 300;
-  line-height: 1.75;
+  line-height: 1.618;   /* φ (was 1.75) */
   color: var(--color-ink-secondary);
   margin-top: 0;
 }
