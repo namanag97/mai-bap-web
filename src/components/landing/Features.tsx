@@ -13,7 +13,7 @@ export default function Features() {
 
   return (
     <section id="features" className="section">
-      <Container>
+      <Container className="py-2xl">
 
         {/* Section header */}
         <FadeIn>
