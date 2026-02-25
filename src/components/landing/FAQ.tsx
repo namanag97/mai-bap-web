@@ -14,7 +14,7 @@ export default function FAQ() {
 
   return (
     <section className="section">
-      <Container>
+      <Container className="py-2xl">
 
         <FadeIn>
           <div className="grid lg:grid-cols-[1fr_2fr] gap-xl lg:gap-20">
