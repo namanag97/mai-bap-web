@@ -1,65 +1,58 @@
 {
   "shadow": {
     "xs": {
-      "value": [
-        { "x": "0", "y": "1", "blur": "2",  "spread": "0", "color": "rgba(26,25,24,0.05)", "type": "dropShadow" }
-      ],
-      "type": "boxShadow",
-      "description": "Subtle card lift."
+      "value": {
+        "x": "0", "y": "1", "blur": "2", "spread": "0",
+        "color": "#1a19180d", "type": "dropShadow"
+      },
+      "type": "boxShadow"
     },
     "sm": {
       "value": [
-        { "x": "0", "y": "1", "blur": "3",  "spread": "0", "color": "rgba(26,25,24,0.10)", "type": "dropShadow" },
-        { "x": "0", "y": "1", "blur": "2",  "spread": "0", "color": "rgba(26,25,24,0.05)", "type": "dropShadow" }
+        { "x": "0", "y": "1", "blur": "3", "spread": "0", "color": "#1a19181a", "type": "dropShadow" },
+        { "x": "0", "y": "1", "blur": "2", "spread": "0", "color": "#1a19180d", "type": "dropShadow" }
       ],
-      "type": "boxShadow",
-      "description": "Standard card elevation."
+      "type": "boxShadow"
     },
     "md": {
       "value": [
-        { "x": "0", "y": "4", "blur": "6",  "spread": "0", "color": "rgba(26,25,24,0.10)", "type": "dropShadow" },
-        { "x": "0", "y": "2", "blur": "4",  "spread": "0", "color": "rgba(26,25,24,0.06)", "type": "dropShadow" }
+        { "x": "0", "y": "4", "blur": "6",  "spread": "0", "color": "#1a19181a", "type": "dropShadow" },
+        { "x": "0", "y": "2", "blur": "4",  "spread": "0", "color": "#1a191810", "type": "dropShadow" }
       ],
-      "type": "boxShadow",
-      "description": "Dropdowns, popovers, featured cards."
+      "type": "boxShadow"
     },
     "lg": {
       "value": [
-        { "x": "0", "y": "10", "blur": "15", "spread": "0", "color": "rgba(26,25,24,0.10)", "type": "dropShadow" },
-        { "x": "0", "y": "4",  "blur": "6",  "spread": "0", "color": "rgba(26,25,24,0.06)", "type": "dropShadow" }
+        { "x": "0", "y": "10", "blur": "15", "spread": "0", "color": "#1a19181a", "type": "dropShadow" },
+        { "x": "0", "y": "4",  "blur": "6",  "spread": "0", "color": "#1a191810", "type": "dropShadow" }
       ],
-      "type": "boxShadow",
-      "description": "Modals, overlays."
+      "type": "boxShadow"
     },
     "hover-lift": {
       "value": [
-        { "x": "0", "y": "0",  "blur": "0",  "spread": "1",  "color": "rgba(26,25,24,0.20)", "type": "innerShadow" },
-        { "x": "0", "y": "12", "blur": "24", "spread": "-8", "color": "rgba(26,25,24,0.15)", "type": "dropShadow" }
+        { "x": "0", "y": "0",  "blur": "0",  "spread": "1",  "color": "#1a191833", "type": "innerShadow" },
+        { "x": "0", "y": "12", "blur": "24", "spread": "-8", "color": "#1a191826", "type": "dropShadow" }
       ],
-      "type": "boxShadow",
-      "description": "hover-lift state. Inset border-strong + warm drop shadow."
+      "type": "boxShadow"
     },
     "focus-ring": {
       "value": [
-        { "x": "0", "y": "0", "blur": "0", "spread": "2", "color": "{surface.ground}", "type": "dropShadow" },
-        { "x": "0", "y": "0", "blur": "0", "spread": "4", "color": "{ink.primary}",    "type": "dropShadow" }
+        { "x": "0", "y": "0", "blur": "0", "spread": "2", "color": "#f5f3ef", "type": "dropShadow" },
+        { "x": "0", "y": "0", "blur": "0", "spread": "4", "color": "#1a1918", "type": "dropShadow" }
       ],
-      "type": "boxShadow",
-      "description": "macOS/Linear-style keyboard focus ring."
+      "type": "boxShadow"
     }
   },
-
   "duration": {
-    "fast":  { "value": "120ms", "type": "other", "description": "Micro-interactions: color, border." },
-    "base":  { "value": "200ms", "type": "other", "description": "Standard transitions: opacity, position." },
-    "slow":  { "value": "350ms", "type": "other", "description": "Complex animations: modal, drawer." },
-    "lift":  { "value": "300ms", "type": "other", "description": "hover-lift spring." }
+    "fast": { "value": "120", "type": "other" },
+    "base": { "value": "200", "type": "other" },
+    "slow": { "value": "350", "type": "other" },
+    "lift": { "value": "300", "type": "other" }
   },
-
   "easing": {
-    "default": { "value": "cubic-bezier(0.25, 0.1, 0.25, 1)", "type": "other", "description": "Standard. Balanced in/out." },
-    "in":      { "value": "cubic-bezier(0.4, 0, 1, 1)",       "type": "other", "description": "Accelerating — element leaving." },
-    "out":     { "value": "cubic-bezier(0, 0, 0.2, 1)",        "type": "other", "description": "Decelerating — element entering." },
-    "spring":  { "value": "cubic-bezier(0.2, 0, 0, 1)",        "type": "other", "description": "Spring — fast start, graceful deceleration. hover-lift." }
+    "default": { "value": "cubic-bezier(0.25, 0.1, 0.25, 1)", "type": "other" },
+    "in":      { "value": "cubic-bezier(0.4, 0, 1, 1)",       "type": "other" },
+    "out":     { "value": "cubic-bezier(0, 0, 0.2, 1)",        "type": "other" },
+    "spring":  { "value": "cubic-bezier(0.2, 0, 0, 1)",        "type": "other" }
   }
 }
