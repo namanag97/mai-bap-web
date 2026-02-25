@@ -115,14 +115,14 @@
   --tracking-label:    0.0618em;  /* uppercase labels (1/φ × 0.1em) */
 
   /* ── Spacing scale ─────────────────────────────────────── */
-  --spacing-2xs: 0.382rem;    /* φ^-2 = 6.1px */
-  --spacing-xs:  0.618rem;    /* φ^-1 = 9.9px */
-  --spacing-sm:  1rem;        /* φ^0 = 16px */
-  --spacing-md:  1.618rem;    /* φ^1 = 25.9px */
-  --spacing-lg:  2.618rem;    /* φ^2 = 41.9px */
-  --spacing-xl:  4.236rem;    /* φ^3 = 67.8px */
-  --spacing-2xl: 6.854rem;    /* φ^4 = 109.6px */
-  --spacing-3xl: 11.09rem;    /* φ^5 = 177.4px */
+  --spacing-phi-2xs: 0.382rem;    /* φ^-2 = 6.1px */
+  --spacing-phi-xs:  0.618rem;    /* φ^-1 = 9.9px */
+  --spacing-phi-sm:  1rem;        /* φ^0 = 16px */
+  --spacing-phi-md:  1.618rem;    /* φ^1 = 25.9px */
+  --spacing-phi-lg:  2.618rem;    /* φ^2 = 41.9px */
+  --spacing-phi-xl:  4.236rem;    /* φ^3 = 67.8px */
+  --spacing-phi-2xl: 6.854rem;    /* φ^4 = 109.6px */
+  --spacing-phi-3xl: 11.09rem;    /* φ^5 = 177.4px */
 
   /* Semantic space tokens */
   --space-section:    6.854rem;    /* φ^4 = 109.6px */
@@ -750,11 +750,11 @@ body::after {
 
 /* ── Information architecture stacking classes ─────────────── */
 /* φ-derived vertical rhythm for sibling spacing              */
-.stack-xs > * + * { margin-top: var(--spacing-2xs); }   /* 6.1px — inline sub-items */
-.stack-sm > * + * { margin-top: var(--spacing-xs); }    /* 9.9px — related siblings */
-.stack-md > * + * { margin-top: var(--spacing-sm); }    /* 16px — content blocks */
-.stack-lg > * + * { margin-top: var(--spacing-md); }    /* 25.9px — major sections */
-.stack-xl > * + * { margin-top: var(--spacing-lg); }    /* 41.9px — section groups */
+.stack-xs > * + * { margin-top: var(--spacing-phi-2xs); }   /* 6.1px — inline sub-items */
+.stack-sm > * + * { margin-top: var(--spacing-phi-xs); }    /* 9.9px — related siblings */
+.stack-md > * + * { margin-top: var(--spacing-phi-sm); }    /* 16px — content blocks */
+.stack-lg > * + * { margin-top: var(--spacing-phi-md); }    /* 25.9px — major sections */
+.stack-xl > * + * { margin-top: var(--spacing-phi-lg); }    /* 41.9px — section groups */
 
 /* ── Card body — inner padding with optical top correction ─── */
 .card-body {
