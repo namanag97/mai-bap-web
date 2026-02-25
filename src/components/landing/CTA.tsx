@@ -19,7 +19,7 @@ export default function CTA() {
           </div>
         </FadeIn>
 
-        <div className="grid lg:grid-cols-[1fr_auto] gap-12 items-end">
+        <div className="grid lg:grid-cols-[1fr_auto] gap-xl items-end">
           {/* Left: headline */}
           <FadeIn delay={100}>
             <div>
