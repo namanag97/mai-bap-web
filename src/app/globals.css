@@ -758,6 +758,20 @@ body::after {
   background-color: var(--color-border-default);
 }
 
+/* ── Information architecture stacking classes ─────────────── */
+/* φ-derived vertical rhythm for sibling spacing              */
+.stack-xs > * + * { margin-top: var(--spacing-2xs); }   /* 6.1px — inline sub-items */
+.stack-sm > * + * { margin-top: var(--spacing-xs); }    /* 9.9px — related siblings */
+.stack-md > * + * { margin-top: var(--spacing-sm); }    /* 16px — content blocks */
+.stack-lg > * + * { margin-top: var(--spacing-md); }    /* 25.9px — major sections */
+.stack-xl > * + * { margin-top: var(--spacing-lg); }    /* 41.9px — section groups */
+
+/* ── Card body — inner padding with optical top correction ─── */
+.card-body {
+  padding: var(--space-element);
+  padding-top: var(--body-offset);   /* optical correction */
+}
+
 /* ── Badge pill — category/status tag ─────────────────────── */
 .badge-pill {
   display: inline-flex;
