@@ -115,12 +115,22 @@
   --tracking-label:    0.0618em;  /* uppercase labels (1/φ × 0.1em) */
 
   /* ── Spacing scale ─────────────────────────────────────── */
-  --space-section: 6rem;
-  --space-section-lg: 8rem;
-  --space-block: 3rem;
-  --space-element: 1.5rem;
-  --space-inline: 0.75rem;
-  --space-gutter: 1.5rem;
+  --spacing-2xs: 0.382rem;    /* φ^-2 = 6.1px */
+  --spacing-xs:  0.618rem;    /* φ^-1 = 9.9px */
+  --spacing-sm:  1rem;        /* φ^0 = 16px */
+  --spacing-md:  1.618rem;    /* φ^1 = 25.9px */
+  --spacing-lg:  2.618rem;    /* φ^2 = 41.9px */
+  --spacing-xl:  4.236rem;    /* φ^3 = 67.8px */
+  --spacing-2xl: 6.854rem;    /* φ^4 = 109.6px */
+  --spacing-3xl: 11.09rem;    /* φ^5 = 177.4px */
+
+  /* Semantic space tokens */
+  --space-section:    6.854rem;    /* φ^4 = 109.6px */
+  --space-section-lg: 11.09rem;   /* φ^5 = 177.4px */
+  --space-block:      4.236rem;    /* φ^3 = 67.8px */
+  --space-element:    1.618rem;    /* φ^1 = 25.9px */
+  --space-inline:     0.618rem;    /* φ^-1 = 9.9px */
+  --space-gutter:     1.618rem;    /* φ^1 = 25.9px */
 
   /* ── Shadows (warm-tinted, actually visible) ──────────── */
   --shadow-xs: 0 1px 2px #1a19180d;
