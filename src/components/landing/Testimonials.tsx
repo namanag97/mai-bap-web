@@ -10,16 +10,16 @@ export default function Testimonials() {
 
   return (
     <section className="section">
-      <Container className="py-2xl">
+      <Container className="py-phi-2xl">
 
         {/* Logo strip */}
         <FadeIn>
-          <div className="mb-xl pb-lg border-b border-border-default">
-            <div className="flex items-center gap-xs mb-md">
+          <div className="mb-phi-xl pb-phi-lg border-b border-border-default">
+            <div className="flex items-center gap-phi-xs mb-phi-md">
               <MetaLabel as="div" color="dim">{logoStripLabel}</MetaLabel>
               <div className="flex-1 divider" />
             </div>
-            <div className="flex flex-wrap items-center justify-center gap-x-xl gap-y-4">
+            <div className="flex flex-wrap items-center justify-center gap-x-phi-xl gap-y-4">
               {logos.map(name => (
                 <span
                   key={name}
@@ -34,8 +34,8 @@ export default function Testimonials() {
 
         {/* Section header */}
         <FadeIn>
-          <div className="mb-xl">
-            <div className="flex items-center gap-xs mb-md">
+          <div className="mb-phi-xl">
+            <div className="flex items-center gap-phi-xs mb-phi-md">
               <SectionLabel label={sectionLabel} />
               <div className="flex-1 divider" />
             </div>
@@ -46,11 +46,11 @@ export default function Testimonials() {
         </FadeIn>
 
         {/* Testimonial grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-md">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-phi-md">
           {items.map((t, i) => (
             <FadeIn key={t.name} delay={i * 120} direction="up">
-              <div className="card p-md flex flex-col h-full hover-lift">
-                <blockquote className="text-sm text-ink-secondary leading-relaxed flex-1 mb-md">
+              <div className="card p-phi-md flex flex-col h-full hover-lift">
+                <blockquote className="text-sm text-ink-secondary leading-relaxed flex-1 mb-phi-md">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
                 <div className="pt-5 border-t border-border-subtle">
