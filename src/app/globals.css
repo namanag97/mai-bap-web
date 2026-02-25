@@ -95,14 +95,13 @@
 
   /* ── Line heights ──────────────────────────────────────── */
   /* Law: as size increases, leading must decrease.           */
-  --leading-display: 0.92;  /* Hero titles only                */
-  --leading-tight: 1.1;
-  --leading-heading: 1.2;   /* H2, H3 — new token              */
-  --leading-snug: 1.4;
-  --leading-body: 1.65;     /* Paragraphs (was 1.75, tighter   */
-                            /* suits 65ch reading columns)     */
-  --leading-relaxed: 1.7;
-  --leading-mono: 1.5;      /* Code blocks, ASCII — rigid      */
+  --leading-display: 1.128;   /* φ^0.25 (was 0.92) */
+  --leading-tight:   1.128;   /* φ^0.25 (was 1.1) */
+  --leading-heading: 1.272;   /* √φ (was 1.2) */
+  --leading-snug:    1.272;   /* √φ (was 1.4) */
+  --leading-body:    1.618;   /* φ (was 1.65) */
+  --leading-relaxed: 1.618;   /* φ (was 1.7) */
+  --leading-mono:    1.272;   /* √φ (was 1.5) */
 
   /* ── Letter spacing ────────────────────────────────────── */
   --tracking-tight: -0.01em;
