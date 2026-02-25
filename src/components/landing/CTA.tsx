@@ -10,7 +10,7 @@ export default function CTA() {
 
   return (
     <section className="section-deep">
-      <Container>
+      <Container className="py-3xl">
         {/* Section label */}
         <FadeIn>
           <div className="flex items-center gap-xs mb-lg">
