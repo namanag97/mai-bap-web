@@ -36,12 +36,12 @@ export default function Features() {
         </FadeIn>
 
         {/* Feature grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md">
           {items.map((feature, i) => {
             const Icon = featureIcons[i] ?? Activity
             return (
               <FadeIn key={feature.title} delay={i * 80} direction="up">
-                <div className="card p-8 group cursor-default h-full hover-lift">
+                <div className="card group cursor-default h-full hover-lift">
                   <IconBox icon={Icon} className="mb-6" />
                   <h3 className="text-sm font-semibold text-ink-primary mb-2 tracking-tight">{feature.title}</h3>
                   <p className="text-xs text-ink-muted leading-relaxed">{feature.description}</p>
