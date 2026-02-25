@@ -175,7 +175,7 @@ export default function ChangelogPage() {
               {/* Timeline dot */}
               <div className="absolute -left-[calc(2rem+4.5px)] top-8 w-[9px] h-[9px] border border-border-default bg-surface-raised rounded-full" />
 
-              <div className="card hover-lift">
+              <div className="card p-md hover-lift">
                 {/* Version + date row */}
                 <div className="flex items-center gap-xs mb-3">
                   <Badge variant={release.featured ? 'primary' : 'neutral'} className="font-bold">
