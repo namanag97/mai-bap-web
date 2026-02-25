@@ -122,7 +122,7 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
-          <div className="pt-3 border-t border-border-subtle flex flex-col gap-3">
+          <div className="pt-3 border-t border-border-subtle flex flex-col gap-xs">
             <button
               onClick={toggle}
               aria-label="Toggle theme"
