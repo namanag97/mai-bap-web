@@ -79,7 +79,7 @@ export default function Navbar() {
         </nav>
 
         {/* Desktop CTAs */}
-        <div className="hidden md:flex items-center gap-5">
+        <div className="hidden md:flex items-center gap-md">
           <button
             onClick={toggle}
             aria-label="Toggle theme"
