@@ -38,7 +38,7 @@ export default function CTA() {
 
           {/* Right: actions */}
           <FadeIn delay={200} direction="left">
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-xs">
               <ButtonLink href={primaryCta.href} variant="primary" size="lg" className="whitespace-nowrap">
                 {primaryCta.label}
                 <ArrowRight size={13} />
