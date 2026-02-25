@@ -1,0 +1,26 @@
+[
+  {
+    "id": "light",
+    "name": "Light",
+    "selectedTokenSets": {
+      "primitive":      "source",
+      "semantic.light": "enabled",
+      "semantic.dark":  "disabled",
+      "spacing":        "enabled",
+      "typography":     "enabled",
+      "effects":        "enabled"
+    }
+  },
+  {
+    "id": "dark",
+    "name": "Dark",
+    "selectedTokenSets": {
+      "primitive":      "source",
+      "semantic.light": "disabled",
+      "semantic.dark":  "enabled",
+      "spacing":        "enabled",
+      "typography":     "enabled",
+      "effects":        "enabled"
+    }
+  }
+]
