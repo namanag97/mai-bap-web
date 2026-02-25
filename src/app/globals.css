@@ -104,11 +104,15 @@
   --leading-mono:    1.272;   /* √φ (was 1.5) */
 
   /* ── Letter spacing ────────────────────────────────────── */
-  --tracking-tight: -0.01em;
-  --tracking-normal: 0;
-  --tracking-wide: 0.05em;
-  --tracking-widest: 0.1em;
-  --tracking-logo: 0.2em;
+  --tracking-tight:   -0.01em;
+  --tracking-normal:   0;
+  --tracking-wide:     0.05em;
+  --tracking-widest:   0.1em;
+  --tracking-logo:     0.2em;
+  --tracking-display: -0.022em;   /* display headings */
+  --tracking-heading: -0.014em;   /* headings */
+  --tracking-body:    -0.011em;   /* body */
+  --tracking-label:    0.0618em;  /* uppercase labels (1/φ × 0.1em) */
 
   /* ── Spacing scale ─────────────────────────────────────── */
   --space-section: 6rem;
