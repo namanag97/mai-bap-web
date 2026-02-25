@@ -1,0 +1,47 @@
+{
+  "phi": {
+    "2xs": { "value": "6",   "type": "sizing", "description": "φ^-2 = 0.382rem. Tight inline spacing, hairline gaps." },
+    "xs":  { "value": "10",  "type": "sizing", "description": "φ^-1 = 0.618rem. Small gaps, compact padding." },
+    "sm":  { "value": "16",  "type": "sizing", "description": "φ^0 = 1rem. Base unit. Standard inline padding." },
+    "md":  { "value": "26",  "type": "sizing", "description": "φ^1 = 1.618rem. Standard block padding. Card internal." },
+    "lg":  { "value": "42",  "type": "sizing", "description": "φ^2 = 2.618rem. Section internal gaps." },
+    "xl":  { "value": "68",  "type": "sizing", "description": "φ^3 = 4.236rem. Large section padding." },
+    "2xl": { "value": "110", "type": "sizing", "description": "φ^4 = 6.854rem. Section vertical padding." },
+    "3xl": { "value": "177", "type": "sizing", "description": "φ^5 = 11.09rem. CTA and hero-level spacing." }
+  },
+
+  "semantic": {
+    "section":    { "value": "{phi.2xl}", "type": "sizing", "description": "Standard section vertical rhythm." },
+    "section-lg": { "value": "{phi.3xl}", "type": "sizing", "description": "Large/hero sections." },
+    "block":      { "value": "{phi.xl}",  "type": "sizing", "description": "Between content blocks." },
+    "element":    { "value": "{phi.md}",  "type": "sizing", "description": "Between elements within a block." },
+    "inline":     { "value": "{phi.xs}",  "type": "sizing", "description": "Between inline elements." },
+    "gutter":     { "value": "{phi.md}",  "type": "sizing", "description": "Column/grid gutter." }
+  },
+
+  "radius": {
+    "sm":      { "value": "2",  "type": "borderRadius", "description": "Almost square. Subtle softening." },
+    "default": { "value": "4",  "type": "borderRadius", "description": "Standard. Cards, inputs, buttons." },
+    "lg":      { "value": "8",  "type": "borderRadius", "description": "Larger containers, images, code blocks." }
+  },
+
+  "layout": {
+    "navbar-height":  { "value": "56",  "type": "sizing", "description": "3.5rem. Sticky nav height." },
+    "sidebar-width":  { "value": "256", "type": "sizing", "description": "16rem. App shell sidebar." }
+  },
+
+  "z-index": {
+    "base":     { "value": "0",   "type": "other" },
+    "raised":   { "value": "1",   "type": "other" },
+    "dropdown": { "value": "100", "type": "other" },
+    "sticky":   { "value": "200", "type": "other" },
+    "overlay":  { "value": "300", "type": "other" },
+    "modal":    { "value": "400", "type": "other" },
+    "toast":    { "value": "500", "type": "other" }
+  },
+
+  "opacity": {
+    "disabled": { "value": "0.5", "type": "other" },
+    "overlay":  { "value": "0.8", "type": "other" }
+  }
+}
