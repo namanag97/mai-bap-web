@@ -14,13 +14,13 @@ export default function FAQ() {
 
   return (
     <section className="section">
-      <Container className="py-24">
+      <Container>
 
         <FadeIn>
-          <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
+          <div className="grid lg:grid-cols-[1fr_2fr] gap-xl lg:gap-20">
             {/* Left: header */}
             <div>
-              <div className="flex items-center gap-3 mb-5">
+              <div className="flex items-center gap-xs mb-md">
                 <SectionLabel label={sectionLabel} />
                 <div className="flex-1 divider" />
               </div>
