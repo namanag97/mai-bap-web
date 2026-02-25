@@ -137,7 +137,7 @@ export default function Hero() {
           {/* Left — typography */}
           <div>
             <FadeIn delay={0}>
-              <div className="flex items-center gap-3 mb-10">
+              <div className="flex items-center gap-xs mb-lg">
                 <SectionLabel label={siteConfig.hero.sectionLabel} />
                 <div className="flex-1 divider" />
               </div>
