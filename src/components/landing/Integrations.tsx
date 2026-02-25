@@ -8,7 +8,7 @@ export default function Integrations() {
 
   return (
     <section className="section">
-      <Container>
+      <Container className="py-xl">
 
         {/* Header */}
         <div className="grid lg:grid-cols-2 gap-lg mb-xl pb-lg border-b border-border-default">
