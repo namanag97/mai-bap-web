@@ -15,7 +15,7 @@ export default function Pricing() {
 
   return (
     <section id="pricing" className="section">
-      <Container>
+      <Container className="py-2xl">
 
         {/* Header */}
         <FadeIn>
