@@ -127,7 +127,7 @@ export default function ContactPage() {
           {/* Sidebar */}
           <div className="space-y-8">
             <div className="border-t border-border-default pt-6">
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center gap-xs mb-3">
                 <MetaLabel as="div">Office</MetaLabel>
                 <div className="flex-1 divider" />
               </div>
