@@ -10,7 +10,7 @@ export default function Testimonials() {
 
   return (
     <section className="section">
-      <Container>
+      <Container className="py-2xl">
 
         {/* Logo strip */}
         <FadeIn>
