@@ -10,16 +10,16 @@ export default function Testimonials() {
 
   return (
     <section className="section">
-      <Container className="py-24">
+      <Container>
 
         {/* Logo strip */}
         <FadeIn>
-          <div className="mb-16 pb-10 border-b border-border-default">
-            <div className="flex items-center gap-3 mb-8">
+          <div className="mb-xl pb-lg border-b border-border-default">
+            <div className="flex items-center gap-xs mb-md">
               <MetaLabel as="div" color="dim">{logoStripLabel}</MetaLabel>
               <div className="flex-1 divider" />
             </div>
-            <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
+            <div className="flex flex-wrap items-center justify-center gap-x-xl gap-y-4">
               {logos.map(name => (
                 <span
                   key={name}
