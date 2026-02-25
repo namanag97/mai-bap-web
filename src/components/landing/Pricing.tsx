@@ -59,7 +59,7 @@ export default function Pricing() {
                   className={`flex flex-col h-full hover-lift ${tier.featured ? 'card-featured' : 'card'}`}
                 >
                   {tier.featured && (
-                    <MetaLabel as="div" size="xxs" className="border border-border-default px-2 py-0.5 self-start mb-5">
+                    <MetaLabel as="div" size="xxs" className="border border-border-default px-2 py-0.5 self-start mb-md">
                       Most popular
                     </MetaLabel>
                   )}
