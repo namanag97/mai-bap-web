@@ -32,7 +32,7 @@ export default function Pricing() {
 
         {/* Billing toggle */}
         <FadeIn>
-          <div className="flex items-center justify-center gap-1 mb-10">
+          <div className="flex items-center justify-center gap-1 mb-lg">
             <ToggleGroup
               options={billingOptions}
               value={billing}
