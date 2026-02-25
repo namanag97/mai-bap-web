@@ -154,7 +154,7 @@ export default function Hero() {
             </FadeIn>
 
             <FadeIn delay={200}>
-              <p className="text-[1.0625rem] text-ink-secondary font-light leading-[1.7] max-w-[420px] mb-10">
+              <p className="text-[1.0625rem] text-ink-secondary font-light leading-relaxed max-w-[420px] mb-lg">
                 {siteConfig.hero.subtitle}
               </p>
             </FadeIn>
