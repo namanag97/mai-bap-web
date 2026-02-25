@@ -643,8 +643,6 @@ body::after {
 
 /* ── Card — standalone elevated content block ─────────────── */
 .card {
-  padding: var(--space-element);
-  border-radius: var(--radius);
   background-color: var(--color-surface-raised);
   border: 1px solid var(--color-border-default);
   box-shadow: var(--shadow-sm);
