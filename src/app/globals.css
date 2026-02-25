@@ -672,18 +672,24 @@ body::after {
 
 /* ── Section — full-width content section ─────────────────── */
 .section {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
   border-bottom: 1px solid var(--color-border-default);
   background-color: var(--color-surface-ground);
 }
 
 /* ── Section inverse — dark full-width section ────────────── */
 .section-inverse {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
   border-bottom: 1px solid var(--color-border-default);
   background-color: var(--color-surface-inverse);
 }
 
 /* ── Section deep — weighted warm section, replaces dark for stats/CTA ── */
 .section-deep {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
   background-color: var(--color-surface-deep);
   border-top: 2px solid var(--color-border-strong);
   border-bottom: 1px solid var(--color-border-default);
