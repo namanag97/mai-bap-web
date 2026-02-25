@@ -95,9 +95,9 @@ export default function Pricing() {
                   </ButtonLink>
 
                   {/* Features */}
-                  <ul className="flex flex-col gap-2.5 mt-auto">
+                  <ul className="flex flex-col gap-xs mt-auto">
                     {tier.features.map(f => (
-                      <li key={f} className="flex items-start gap-2.5">
+                      <li key={f} className="flex items-start gap-xs">
                         <Check
                           size={12}
                           className="mt-0.5 shrink-0 text-ink-primary"
