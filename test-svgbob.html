@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>svgbob test — mai-bap design tokens</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+      background: #f5f3ef;
+      color: #1a1918;
+      padding: 3rem 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: #8a8580;
+      margin-bottom: 3rem;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: #1a19181a;
+      border: 1px solid #1a19181a;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+    .cell {
+      background: #faf9f7;
+      padding: 1.5rem;
+    }
+    .cell-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: #b5b0aa;
+      margin-bottom: 1rem;
+      font-family: 'Geist Mono', ui-monospace, monospace;
+    }
+    pre {
+      font-family: 'Geist Mono', ui-monospace, monospace;
+      font-size: 10px;
+      line-height: 1.5;
+      color: #4a4744;
+      white-space: pre;
+      overflow-x: auto;
+    }
+    svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    /* Override svgbob default styles for brand feel */
+    svg text { font-family: 'Geist Mono', ui-monospace, monospace !important; font-size: 14px !important; fill: #1a1918 !important; }
+    svg line, svg path, svg polyline { stroke: #1a1918 !important; stroke-width: 1.5 !important; }
+    svg rect { fill: #faf9f7 !important; stroke: #1a1918 !important; }
+    svg polygon { fill: #1a1918 !important; stroke: #1a1918 !important; }
+    svg circle { fill: #1a1918 !important; stroke: #1a1918 !important; }
+    /* Axis lines slightly muted */
+    svg { background: transparent !important; }
+    h3 { font-size: 12px; font-weight: 600; color: #1a1918; margin-bottom: 2rem; letter-spacing: -.01em; }
+  </style>
+</head>
+<body>
+
+<h1>svgbob rendering test — mai-bap design system</h1>
+
+<h3>Diagram A — TCO vs Complexity Chart</h3>
+<div class="row">
+  <div class="cell">
+    <div class="cell-label">Raw ASCII input</div>
+    <pre>
+  TCO ($)
+  |
+  |                         / &lt;-- BI (Exponential ETL/Data Eng Cost)
+  |                        /
+  |                       /
+  |                      /
+  |                     /
+  |                    /
+  |                   /
+  | PM Base =========*===============================&gt; (Linear Scaling)
+  | Premium         /|
+  | Cost           / |  &lt;-- CROSSOVER POINT
+  |               /  |
+  |              /   |
+  |             /    |
+  0.0 +--------/-----+------------------------&gt; Complexity (S, V, Q)
+</pre>
+  </div>
+  <div class="cell">
+    <div class="cell-label">svgbob-wasm render</div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="576" height="288">
+    <style>
+        line, path, circle, rect, polygon{stroke:black;stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter;}text{font-family:Iosevka Fixed, monospace;font-size:14px;}rect.backdrop{stroke:none;fill:transparent;}.broken{stroke-dasharray:8;}.filled{fill:black;}.bg_filled{fill:transparent;}.nofill{fill:transparent;}.end_marked_arrow{marker-end:url(#arrow);}.start_marked_arrow{marker-start:url(#arrow);}.end_marked_diamond{marker-end:url(#diamond);}.start_marked_diamond{marker-start:url(#diamond);}.end_marked_circle{marker-end:url(#circle);}.start_marked_circle{marker-start:url(#circle);}.end_marked_open_circle{marker-end:url(#open_circle);}.start_marked_open_circle{marker-start:url(#open_circle);}.end_marked_big_open_circle{marker-end:url(#big_open_circle);}.start_marked_big_open_circle{marker-start:url(#big_open_circle);}
+        <!--separator-->
+        
+    </style>
+    <defs>
+        <marker id="arrow" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <polygon points="0,0 0,4 4,2 0,0"></polygon>
+        </marker>
+        <marker id="diamond" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <polygon points="0,2 2,0 4,2 2,4 0,2"></polygon>
+        </marker>
+        <marker id="circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="2" class="filled"></circle>
+        </marker>
+        <marker id="open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="2" class="bg_filled"></circle>
+        </marker>
+        <marker id="big_open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="3" class="bg_filled"></circle>
+        </marker>
+    </defs>
+    <rect class="backdrop" x="0" y="0" width="576" height="288"></rect>
+    <text x="18" y="28" >TCO</text>
+    <line x1="20" y1="32" x2="20" y2="256" class="solid"></line>
+    <text x="18" y="268" >0.0</text>
+    <path d="M 56,16 A 16,16 0,0,0 56,32" class="nofill"></path>
+    <text x="58" y="28" >$</text>
+    <path d="M 64,16 A 16,16 0,0,1 64,32" class="nofill"></path>
+    <line x1="232" y1="48" x2="174" y2="164" class="solid"></line>
+    <line x1="96" y1="166" x2="168" y2="166" class="solid"></line>
+    <line x1="96" y1="170" x2="168" y2="170" class="solid"></line>
+    <circle cx="172" cy="168" r="3" class="filled"></circle>
+    <line x1="170" y1="172" x2="120" y2="272" class="solid"></line>
+    <line x1="176" y1="166" x2="424" y2="166" class="solid"></line>
+    <line x1="176" y1="170" x2="424" y2="170" class="solid"></line>
+    <text x="426" y="172" >&gt;</text>
+    <text x="274" y="60" >BI</text>
+    <path d="M 304,48 A 16,16 0,0,0 304,64" class="nofill"></path>
+    <text x="306" y="60" >Exponential</text>
+    <text x="402" y="60" >ETL</text>
+    <line x1="432" y1="48" x2="424" y2="64" class="solid"></line>
+    <text x="434" y="60" >Data</text>
+    <text x="474" y="60" >Eng</text>
+    <text x="506" y="60" >Cost</text>
+    <path d="M 536,48 A 16,16 0,0,1 536,64" class="nofill"></path>
+    <text x="34" y="172" >PM</text>
+    <text x="58" y="172" >Base</text>
+    <text x="34" y="188" >Premium</text>
+    <text x="34" y="204" >Cost</text>
+    <path d="M 448,160 A 16,16 0,0,0 448,176" class="nofill"></path>
+    <text x="450" y="172" >Linear</text>
+    <text x="506" y="172" >Scaling</text>
+    <path d="M 560,160 A 16,16 0,0,1 560,176" class="nofill"></path>
+    <text x="226" y="204" >CROSSOVER</text>
+    <text x="306" y="204" >POINT</text>
+    <text x="386" y="268" >Complexity</text>
+    <path d="M 480,256 A 16,16 0,0,0 480,272" class="nofill"></path>
+    <text x="482" y="268" >S,</text>
+    <text x="506" y="268" >V,</text>
+    <text x="530" y="268" >Q</text>
+    <path d="M 536,256 A 16,16 0,0,1 536,272" class="nofill"></path>
+    <g>
+        <line x1="172" y1="172" x2="172" y2="264" class="solid"></line>
+        <line x1="52" y1="264" x2="368" y2="264" class="solid"></line>
+        <polygon points="368,260 376,264 368,268" class="filled"></polygon>
+    </g>
+    <g>
+        <polygon points="248,52 240,56 248,60" class="filled"></polygon>
+        <line x1="248" y1="56" x2="264" y2="56" class="solid"></line>
+    </g>
+    <g>
+        <polygon points="200,196 192,200 200,204" class="filled"></polygon>
+        <line x1="200" y1="200" x2="216" y2="200" class="solid"></line>
+    </g>
+</svg>
+  </div>
+  <div class="cell">
+    <div class="cell-label">bob-wasm render</div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="576" height="288">
+    <style>
+        line, path, circle, rect, polygon{stroke:black;stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter;}text{font-family:Iosevka Fixed, monospace;font-size:14px;}rect.backdrop{stroke:none;fill:transparent;}.broken{stroke-dasharray:8;}.filled{fill:black;}.bg_filled{fill:transparent;}.nofill{fill:transparent;}.end_marked_arrow{marker-end:url(#arrow);}.start_marked_arrow{marker-start:url(#arrow);}.end_marked_diamond{marker-end:url(#diamond);}.start_marked_diamond{marker-start:url(#diamond);}.end_marked_circle{marker-end:url(#circle);}.start_marked_circle{marker-start:url(#circle);}.end_marked_open_circle{marker-end:url(#open_circle);}.start_marked_open_circle{marker-start:url(#open_circle);}.end_marked_big_open_circle{marker-end:url(#big_open_circle);}.start_marked_big_open_circle{marker-start:url(#big_open_circle);}
+        <!--separator-->
+        
+    </style>
+    <defs>
+        <marker id="arrow" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <polygon points="0,0 0,4 4,2 0,0"></polygon>
+        </marker>
+        <marker id="diamond" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <polygon points="0,2 2,0 4,2 2,4 0,2"></polygon>
+        </marker>
+        <marker id="circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="2" class="filled"></circle>
+        </marker>
+        <marker id="open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="2" class="bg_filled"></circle>
+        </marker>
+        <marker id="big_open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="3" class="bg_filled"></circle>
+        </marker>
+    </defs>
+    <rect class="backdrop" x="0" y="0" width="576" height="288"></rect>
+    <text x="18" y="28" >TCO</text>
+    <line x1="20" y1="32" x2="20" y2="256" class="solid"></line>
+    <text x="18" y="268" >0.0</text>
+    <path d="M 56,16 A 16,16 0,0,0 56,32" class="nofill"></path>
+    <text x="58" y="28" >$</text>
+    <path d="M 64,16 A 16,16 0,0,1 64,32" class="nofill"></path>
+    <line x1="232" y1="48" x2="174" y2="164" class="solid"></line>
+    <line x1="96" y1="166" x2="168" y2="166" class="solid"></line>
+    <line x1="96" y1="170" x2="168" y2="170" class="solid"></line>
+    <circle cx="172" cy="168" r="3" class="filled"></circle>
+    <line x1="170" y1="172" x2="120" y2="272" class="solid"></line>
+    <line x1="176" y1="166" x2="424" y2="166" class="solid"></line>
+    <line x1="176" y1="170" x2="424" y2="170" class="solid"></line>
+    <text x="426" y="172" >&gt;</text>
+    <text x="274" y="60" >BI</text>
+    <path d="M 304,48 A 16,16 0,0,0 304,64" class="nofill"></path>
+    <text x="306" y="60" >Exponential</text>
+    <text x="402" y="60" >ETL</text>
+    <line x1="432" y1="48" x2="424" y2="64" class="solid"></line>
+    <text x="434" y="60" >Data</text>
+    <text x="474" y="60" >Eng</text>
+    <text x="506" y="60" >Cost</text>
+    <path d="M 536,48 A 16,16 0,0,1 536,64" class="nofill"></path>
+    <text x="34" y="172" >PM</text>
+    <text x="58" y="172" >Base</text>
+    <text x="34" y="188" >Premium</text>
+    <text x="34" y="204" >Cost</text>
+    <path d="M 448,160 A 16,16 0,0,0 448,176" class="nofill"></path>
+    <text x="450" y="172" >Linear</text>
+    <text x="506" y="172" >Scaling</text>
+    <path d="M 560,160 A 16,16 0,0,1 560,176" class="nofill"></path>
+    <text x="226" y="204" >CROSSOVER</text>
+    <text x="306" y="204" >POINT</text>
+    <text x="386" y="268" >Complexity</text>
+    <path d="M 480,256 A 16,16 0,0,0 480,272" class="nofill"></path>
+    <text x="482" y="268" >S,</text>
+    <text x="506" y="268" >V,</text>
+    <text x="530" y="268" >Q</text>
+    <path d="M 536,256 A 16,16 0,0,1 536,272" class="nofill"></path>
+    <g>
+        <line x1="172" y1="172" x2="172" y2="264" class="solid"></line>
+        <line x1="52" y1="264" x2="368" y2="264" class="solid"></line>
+        <polygon points="368,260 376,264 368,268" class="filled"></polygon>
+    </g>
+    <g>
+        <polygon points="248,52 240,56 248,60" class="filled"></polygon>
+        <line x1="248" y1="56" x2="264" y2="56" class="solid"></line>
+    </g>
+    <g>
+        <polygon points="200,196 192,200 200,204" class="filled"></polygon>
+        <line x1="200" y1="200" x2="216" y2="200" class="solid"></line>
+    </g>
+</svg>
+  </div>
+</div>
+
+<h3>Diagram B — Delta NBV Formula Box</h3>
+<div class="row">
+  <div class="cell">
+    <div class="cell-label">Raw ASCII input</div>
+    <pre>
+  +--------------------------------------------------+
+  |  Delta NBV = NBV_PM - NBV_BI                     |
+  |                                                  |
+  |  = L * [ (D_PM * A_PM) - (D_BI * A_BI) ]        |
+  |       -  [ TCO_PM - TCO_BI ]                     |
+  |           _________________/   _____________/  |
+  |           The Value PM Recovers  Premium PM Costs|
+  +--------------------------------------------------+
+</pre>
+  </div>
+  <div class="cell">
+    <div class="cell-label">svgbob-wasm render</div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="440" height="160">
+    <style>
+        line, path, circle, rect, polygon{stroke:black;stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter;}text{font-family:Iosevka Fixed, monospace;font-size:14px;}rect.backdrop{stroke:none;fill:transparent;}.broken{stroke-dasharray:8;}.filled{fill:black;}.bg_filled{fill:transparent;}.nofill{fill:transparent;}.end_marked_arrow{marker-end:url(#arrow);}.start_marked_arrow{marker-start:url(#arrow);}.end_marked_diamond{marker-end:url(#diamond);}.start_marked_diamond{marker-start:url(#diamond);}.end_marked_circle{marker-end:url(#circle);}.start_marked_circle{marker-start:url(#circle);}.end_marked_open_circle{marker-end:url(#open_circle);}.start_marked_open_circle{marker-start:url(#open_circle);}.end_marked_big_open_circle{marker-end:url(#big_open_circle);}.start_marked_big_open_circle{marker-start:url(#big_open_circle);}
+        <!--separator-->
+        
+    </style>
+    <defs>
+        <marker id="arrow" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <polygon points="0,0 0,4 4,2 0,0"></polygon>
+        </marker>
+        <marker id="diamond" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <polygon points="0,2 2,0 4,2 2,4 0,2"></polygon>
+        </marker>
+        <marker id="circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="2" class="filled"></circle>
+        </marker>
+        <marker id="open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="2" class="bg_filled"></circle>
+        </marker>
+        <marker id="big_open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="3" class="bg_filled"></circle>
+        </marker>
+    </defs>
+    <rect class="backdrop" x="0" y="0" width="440" height="160"></rect>
+    <text x="42" y="44" >Delta</text>
+    <text x="90" y="44" >NBV</text>
+    <line x1="120" y1="38" x2="128" y2="38" class="solid"></line>
+    <line x1="120" y1="42" x2="128" y2="42" class="solid"></line>
+    <text x="138" y="44" >NBV</text>
+    <line x1="160" y1="48" x2="168" y2="48" class="solid"></line>
+    <text x="170" y="44" >PM</text>
+    <line x1="192" y1="40" x2="200" y2="40" class="solid"></line>
+    <text x="210" y="44" >NBV</text>
+    <line x1="232" y1="48" x2="240" y2="48" class="solid"></line>
+    <text x="242" y="44" >BI</text>
+    <path d="M 112,64 A 16,16 0,0,0 112,80" class="nofill"></path>
+    <text x="114" y="76" >D</text>
+    <line x1="120" y1="80" x2="128" y2="80" class="solid"></line>
+    <text x="130" y="76" >PM</text>
+    <text x="154" y="76" >*</text>
+    <text x="170" y="76" >A</text>
+    <line x1="176" y1="80" x2="184" y2="80" class="solid"></line>
+    <text x="186" y="76" >PM</text>
+    <path d="M 200,64 A 16,16 0,0,1 200,80" class="nofill"></path>
+    <line x1="216" y1="72" x2="224" y2="72" class="solid"></line>
+    <path d="M 240,64 A 16,16 0,0,0 240,80" class="nofill"></path>
+    <text x="242" y="76" >D</text>
+    <line x1="248" y1="80" x2="256" y2="80" class="solid"></line>
+    <text x="258" y="76" >BI</text>
+    <line x1="420" y1="64" x2="420" y2="80" class="solid"></line>
+    <text x="106" y="92" >[</text>
+    <text x="122" y="92" >TCO</text>
+    <line x1="144" y1="96" x2="152" y2="96" class="solid"></line>
+    <text x="154" y="92" >PM</text>
+    <line x1="176" y1="88" x2="184" y2="88" class="solid"></line>
+    <text x="194" y="92" >TCO</text>
+    <line x1="216" y1="96" x2="224" y2="96" class="solid"></line>
+    <text x="226" y="92" >BI</text>
+    <text x="250" y="92" >]</text>
+    <line x1="428" y1="80" x2="428" y2="96" class="solid"></line>
+    <line x1="412" y1="96" x2="412" y2="112" class="solid"></line>
+    <text x="114" y="124" >The</text>
+    <text x="146" y="124" >Value</text>
+    <text x="194" y="124" >PM</text>
+    <text x="218" y="124" >Rec</text>
+    <circle cx="244" cy="120" r="3" class="nofill"></circle>
+    <text x="250" y="124" >vers</text>
+    <text x="298" y="124" >Premium</text>
+    <text x="362" y="124" >PM</text>
+    <text x="386" y="124" >Costs</text>
+    <line x1="40" y1="70" x2="48" y2="70" class="solid"></line>
+    <line x1="40" y1="74" x2="48" y2="74" class="solid"></line>
+    <text x="58" y="76" >L</text>
+    <text x="74" y="76" >*</text>
+    <text x="90" y="76" >[</text>
+    <line x1="80" y1="88" x2="88" y2="88" class="solid"></line>
+    <text x="282" y="76" >*</text>
+    <text x="298" y="76" >A</text>
+    <line x1="304" y1="80" x2="312" y2="80" class="solid"></line>
+    <text x="314" y="76" >BI</text>
+    <path d="M 328,64 A 16,16 0,0,1 328,80" class="nofill"></path>
+    <text x="346" y="76" >]</text>
+    <g>
+        <line x1="20" y1="24" x2="428" y2="24" class="solid"></line>
+        <line x1="20" y1="24" x2="20" y2="136" class="solid"></line>
+        <line x1="428" y1="24" x2="428" y2="64" class="solid"></line>
+        <line x1="428" y1="112" x2="428" y2="136" class="solid"></line>
+        <line x1="20" y1="136" x2="428" y2="136" class="solid"></line>
+    </g>
+    <g>
+        <line x1="112" y1="112" x2="248" y2="112" class="solid"></line>
+        <line x1="256" y1="96" x2="246" y2="116" class="solid"></line>
+    </g>
+    <g>
+        <line x1="280" y1="112" x2="384" y2="112" class="solid"></line>
+        <line x1="392" y1="96" x2="384" y2="112" class="solid"></line>
+    </g>
+</svg>
+  </div>
+  <div class="cell">
+    <div class="cell-label">bob-wasm render</div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="440" height="160">
+    <style>
+        line, path, circle, rect, polygon{stroke:black;stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter;}text{font-family:Iosevka Fixed, monospace;font-size:14px;}rect.backdrop{stroke:none;fill:transparent;}.broken{stroke-dasharray:8;}.filled{fill:black;}.bg_filled{fill:transparent;}.nofill{fill:transparent;}.end_marked_arrow{marker-end:url(#arrow);}.start_marked_arrow{marker-start:url(#arrow);}.end_marked_diamond{marker-end:url(#diamond);}.start_marked_diamond{marker-start:url(#diamond);}.end_marked_circle{marker-end:url(#circle);}.start_marked_circle{marker-start:url(#circle);}.end_marked_open_circle{marker-end:url(#open_circle);}.start_marked_open_circle{marker-start:url(#open_circle);}.end_marked_big_open_circle{marker-end:url(#big_open_circle);}.start_marked_big_open_circle{marker-start:url(#big_open_circle);}
+        <!--separator-->
+        
+    </style>
+    <defs>
+        <marker id="arrow" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <polygon points="0,0 0,4 4,2 0,0"></polygon>
+        </marker>
+        <marker id="diamond" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <polygon points="0,2 2,0 4,2 2,4 0,2"></polygon>
+        </marker>
+        <marker id="circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="2" class="filled"></circle>
+        </marker>
+        <marker id="open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="2" class="bg_filled"></circle>
+        </marker>
+        <marker id="big_open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="3" class="bg_filled"></circle>
+        </marker>
+    </defs>
+    <rect class="backdrop" x="0" y="0" width="440" height="160"></rect>
+    <text x="42" y="44" >Delta</text>
+    <text x="90" y="44" >NBV</text>
+    <line x1="120" y1="38" x2="128" y2="38" class="solid"></line>
+    <line x1="120" y1="42" x2="128" y2="42" class="solid"></line>
+    <text x="138" y="44" >NBV</text>
+    <line x1="160" y1="48" x2="168" y2="48" class="solid"></line>
+    <text x="170" y="44" >PM</text>
+    <line x1="192" y1="40" x2="200" y2="40" class="solid"></line>
+    <text x="210" y="44" >NBV</text>
+    <line x1="232" y1="48" x2="240" y2="48" class="solid"></line>
+    <text x="242" y="44" >BI</text>
+    <path d="M 112,64 A 16,16 0,0,0 112,80" class="nofill"></path>
+    <text x="114" y="76" >D</text>
+    <line x1="120" y1="80" x2="128" y2="80" class="solid"></line>
+    <text x="130" y="76" >PM</text>
+    <text x="154" y="76" >*</text>
+    <text x="170" y="76" >A</text>
+    <line x1="176" y1="80" x2="184" y2="80" class="solid"></line>
+    <text x="186" y="76" >PM</text>
+    <path d="M 200,64 A 16,16 0,0,1 200,80" class="nofill"></path>
+    <line x1="216" y1="72" x2="224" y2="72" class="solid"></line>
+    <path d="M 240,64 A 16,16 0,0,0 240,80" class="nofill"></path>
+    <text x="242" y="76" >D</text>
+    <line x1="248" y1="80" x2="256" y2="80" class="solid"></line>
+    <text x="258" y="76" >BI</text>
+    <line x1="420" y1="64" x2="420" y2="80" class="solid"></line>
+    <text x="106" y="92" >[</text>
+    <text x="122" y="92" >TCO</text>
+    <line x1="144" y1="96" x2="152" y2="96" class="solid"></line>
+    <text x="154" y="92" >PM</text>
+    <line x1="176" y1="88" x2="184" y2="88" class="solid"></line>
+    <text x="194" y="92" >TCO</text>
+    <line x1="216" y1="96" x2="224" y2="96" class="solid"></line>
+    <text x="226" y="92" >BI</text>
+    <text x="250" y="92" >]</text>
+    <line x1="428" y1="80" x2="428" y2="96" class="solid"></line>
+    <line x1="412" y1="96" x2="412" y2="112" class="solid"></line>
+    <text x="114" y="124" >The</text>
+    <text x="146" y="124" >Value</text>
+    <text x="194" y="124" >PM</text>
+    <text x="218" y="124" >Rec</text>
+    <circle cx="244" cy="120" r="3" class="nofill"></circle>
+    <text x="250" y="124" >vers</text>
+    <text x="298" y="124" >Premium</text>
+    <text x="362" y="124" >PM</text>
+    <text x="386" y="124" >Costs</text>
+    <line x1="40" y1="70" x2="48" y2="70" class="solid"></line>
+    <line x1="40" y1="74" x2="48" y2="74" class="solid"></line>
+    <text x="58" y="76" >L</text>
+    <text x="74" y="76" >*</text>
+    <text x="90" y="76" >[</text>
+    <line x1="80" y1="88" x2="88" y2="88" class="solid"></line>
+    <text x="282" y="76" >*</text>
+    <text x="298" y="76" >A</text>
+    <line x1="304" y1="80" x2="312" y2="80" class="solid"></line>
+    <text x="314" y="76" >BI</text>
+    <path d="M 328,64 A 16,16 0,0,1 328,80" class="nofill"></path>
+    <text x="346" y="76" >]</text>
+    <g>
+        <line x1="20" y1="24" x2="428" y2="24" class="solid"></line>
+        <line x1="20" y1="24" x2="20" y2="136" class="solid"></line>
+        <line x1="428" y1="24" x2="428" y2="64" class="solid"></line>
+        <line x1="428" y1="112" x2="428" y2="136" class="solid"></line>
+        <line x1="20" y1="136" x2="428" y2="136" class="solid"></line>
+    </g>
+    <g>
+        <line x1="112" y1="112" x2="248" y2="112" class="solid"></line>
+        <line x1="256" y1="96" x2="246" y2="116" class="solid"></line>
+    </g>
+    <g>
+        <line x1="280" y1="112" x2="384" y2="112" class="solid"></line>
+        <line x1="392" y1="96" x2="384" y2="112" class="solid"></line>
+    </g>
+</svg>
+  </div>
+</div>
+
+</body>
+</html>

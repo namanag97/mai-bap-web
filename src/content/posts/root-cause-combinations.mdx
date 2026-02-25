@@ -22,7 +22,7 @@ You pull a report on late purchase orders. 22% are arriving late, above your tar
 
 You reach one of two conclusions: either there is no single root cause, just systemic underperformance. Or you pick the most elevated factor — Vendor A, probably — and schedule a supplier review meeting.
 
-<AsciiDiagram code={`
+<AsciiDiagram>
 ┌ FILTERING ONE DIMENSION AT A TIME ──────────────────────────────────────────┐
 │                                                                               │
 │  Q: Why are 22% of purchase orders arriving late?                            │
@@ -44,7 +44,8 @@ You reach one of two conclusions: either there is no single root cause, just sys
 │               You schedule a supplier review. Hope for the best.             │
 │                                                                               │
 └───────────────────────────────────────────────────────────────────────────────┘
-`} />
+
+</AsciiDiagram>
 
 The problem with this analysis is not the data. The data contains the answer. The problem is that filtering one attribute at a time shows you averages — and averages erase exactly the signal you are looking for.
 
@@ -58,7 +59,7 @@ The average — 38% — is the blended result of a normal supplier (19%, 21%) an
 
 This is not a subtle statistical quirk. It is a fundamental property of averages: they pool dissimilar things into a single number. When the dissimilar things you are pooling include both a working case and a broken case, the number you get describes neither.
 
-<AsciiDiagram code={`
+<AsciiDiagram>
 ┌ WHAT THE INTERSECTION REVEALS ──────────────────────────────────────────────┐
 │                                                                               │
 │  Now look at Vendor × Material combined:                                     │
@@ -79,7 +80,8 @@ This is not a subtle statistical quirk. It is a fundamental property of averages
 │  The average was hiding the signal.                                          │
 │                                                                               │
 └───────────────────────────────────────────────────────────────────────────────┘
-`} />
+
+</AsciiDiagram>
 
 ## How the system finds it
 
@@ -91,7 +93,7 @@ It starts with the full population — all your orders, 22% late. It evaluates e
 
 It then takes the late-order group and repeats the question: within the orders already flagged as late, which remaining attribute best explains why those specific orders are late? This produces a second level. Then a third.
 
-<AsciiDiagram code={`
+<AsciiDiagram>
 ┌ HOW THE SYSTEM NARROWS IT DOWN ─────────────────────────────────────────────┐
 │                                                                               │
 │  All purchase orders: 10,000                                                 │
@@ -121,7 +123,8 @@ It then takes the late-order group and repeats the question: within the orders a
 │                         monitor                    act now                   │
 │                                                                               │
 └───────────────────────────────────────────────────────────────────────────────┘
-`} />
+
+</AsciiDiagram>
 
 At the end of this process, you have specific, actionable findings — not "Vendor A has a problem" but "Vendor A delivering Steel is 93% late, affecting 680 orders, accounting for over half of all late deliveries in your dataset."
 
