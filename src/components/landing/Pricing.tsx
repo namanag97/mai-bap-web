@@ -15,12 +15,12 @@ export default function Pricing() {
 
   return (
     <section id="pricing" className="section">
-      <Container className="py-24">
+      <Container>
 
         {/* Header */}
         <FadeIn>
           <div className="mb-12 pb-8 border-b border-border-default">
-            <div className="flex items-center gap-3 mb-5">
+            <div className="flex items-center gap-xs mb-md">
               <SectionLabel label={sectionLabel} />
               <div className="flex-1 divider" />
             </div>
