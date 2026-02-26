@@ -518,6 +518,21 @@ body::after {
   font-family: var(--font-mono), monospace;
 }
 
+/* Reset .prose pre styles for AsciiDiagram — those components supply
+   their own container (border + bg). Without this, the dark bleed-margin
+   pre styles render as black bars over the diagram box. */
+.prose pre:has(> .prose-diagram),
+.prose pre:has(> .prose-diagram-inline) {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  border-radius: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
 /* ── Smooth transitions ───────────────────────────────────── */
 @media (prefers-reduced-motion: no-preference) {
   @view-transition {
