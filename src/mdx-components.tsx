@@ -6,7 +6,6 @@ import type { MDXComponents } from 'mdx/types'
 import { Callout } from '@/components/ui/Callout'
 import { ProcessFlow } from '@/components/ui/ProcessFlow'
 import { Figure } from '@/components/ui/Figure'
-import { AsciiDiagram } from '@/components/ui/AsciiDiagram'
 
 export const mdxComponents: MDXComponents = {
   // ── Headings — rehype-slug adds id attributes
