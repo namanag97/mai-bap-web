@@ -8,7 +8,6 @@
  */
 import { CodeBlock } from './CodeBlock'
 import { Callout } from './Callout'
-import { AsciiDiagram } from './AsciiDiagram'
 import type { ContentBlock } from '@/content/types'
 
 interface ProseRendererProps {
