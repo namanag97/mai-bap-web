@@ -32,5 +32,4 @@ export const mdxComponents: MDXComponents = {
   Callout,
   ProcessFlow,
   Figure,
-  AsciiDiagram,
 }
