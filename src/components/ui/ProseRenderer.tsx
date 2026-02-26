@@ -65,12 +65,9 @@ export function ProseRenderer({ blocks }: ProseRendererProps) {
 
           case 'diagram':
             return (
-              <AsciiDiagram
-                key={i}
-                code={block.text ?? ''}
-                caption={block.caption}
-                variant={block.variant ?? 'block'}
-              />
+              <pre key={i}>
+                <code>{block.text ?? ''}</code>
+              </pre>
             )
 
           case 'note':
