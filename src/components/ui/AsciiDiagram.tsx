@@ -71,7 +71,7 @@ export function AsciiDiagram({
 
   return (
     <figure className={cn('my-0', className)}>
-      <div className="border border-border-default bg-surface-inset overflow-x-auto">
+      <div className="w-full border border-border-default bg-surface-inset overflow-x-auto">
         <pre className="px-6 py-5 m-0">
           <code className="prose-diagram">{trimmed}</code>
         </pre>
