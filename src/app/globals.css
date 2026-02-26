@@ -533,6 +533,16 @@ body::after {
   line-height: inherit;
 }
 
+/* Diagrams follow the same bleed pattern as .prose pre — wider than the
+   65ch reading column so wide ASCII art has more room before scrolling. */
+.prose figure:has(.prose-diagram),
+.prose figure:has(.prose-diagram-inline) {
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
 /* ── Smooth transitions ───────────────────────────────────── */
 @media (prefers-reduced-motion: no-preference) {
   @view-transition {
