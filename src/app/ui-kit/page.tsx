@@ -527,26 +527,6 @@ function Demo() {
             />
           </div>
 
-          {/* AsciiDiagram */}
-          <SubHeader label="AsciiDiagram" />
-          <div className="card p-phi-md mb-phi-lg flex flex-col gap-phi-md">
-            <div>
-              <MetaLabel size="xxs" color="dim" as="div" className="mb-phi-sm">block variant</MetaLabel>
-              <AsciiDiagram variant="block" caption="Fig. 1 — Data pipeline">
-                {`\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510    \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510    \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510
-\u2502 Input \u2502\u2500\u2500\u2500\u25b6\u2502Process\u2502\u2500\u2500\u2500\u25b6\u2502Output \u2502
-\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518`}
-              </AsciiDiagram>
-            </div>
-            <div>
-              <MetaLabel size="xxs" color="dim" as="div" className="mb-phi-sm">inline variant</MetaLabel>
-              <p className="text-sm text-ink-secondary mb-1">The data flows as follows:</p>
-              <AsciiDiagram variant="inline">
-                {`A \u2192 B \u2192 C \u2192 D`}
-              </AsciiDiagram>
-            </div>
-          </div>
-
           {/* IconBox */}
           <SubHeader label="IconBox" />
           <div className="card p-phi-md mb-phi-lg flex items-center gap-phi-xl">
