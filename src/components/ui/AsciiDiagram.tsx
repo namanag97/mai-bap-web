@@ -49,7 +49,7 @@ export function AsciiDiagram({
   className,
   children,
 }: AsciiDiagramProps) {
-  const source = code ?? (typeof children === 'string' ? children : '')
+  const source = code ?? childrenToText(children)
   const trimmed = source.replace(/^\n+|\n+$/g, '')
 
   if (variant === 'inline') {
