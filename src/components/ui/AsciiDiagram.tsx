@@ -12,15 +12,34 @@
  *
  * The jank fix: letter-spacing: 0. Geist Mono is monospace but inheriting
  * a non-zero letter-spacing from a parent breaks the column alignment.
+ *
+ * MDX note: blank lines inside a JSX block make MDX wrap content in <p>
+ * elements rather than passing a plain string. childrenToText() handles both.
  */
+import { isValidElement, type ReactNode } from 'react'
 import { cn } from '@/lib/utils'
+
+// MDX sometimes compiles children as React elements (<p> wrapping text) rather
+// than a plain string when the block contains blank lines. This walks the tree
+// and extracts the raw text, preserving newlines within paragraphs.
+function childrenToText(node: ReactNode): string {
+  if (typeof node === 'string') return node
+  if (typeof node === 'number') return String(node)
+  if (!node) return ''
+  if (Array.isArray(node)) return node.map(childrenToText).join('')
+  if (isValidElement(node)) {
+    const { children: c } = node.props as { children?: ReactNode }
+    return childrenToText(c)
+  }
+  return ''
+}
 
 interface AsciiDiagramProps {
   code?: string
   caption?: string
   variant?: 'block' | 'inline'
   className?: string
-  children?: string
+  children?: ReactNode
 }
 
 export function AsciiDiagram({
