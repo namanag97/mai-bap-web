@@ -22,7 +22,7 @@ When you click a filter, the tool sends a request to the database, retrieves the
 
 Each handoff takes time. The shipping step is usually the bottleneck. When you are working with millions of rows — which is normal for any real operations dataset — moving that data between systems adds seconds to every single click.
 
-<AsciiDiagram>
+```
 ┌ HOW MOST ANALYTICS TOOLS WORK ───────────────────────────────────────────────┐
 │                                                                               │
 │  You click a filter                                                           │
@@ -43,8 +43,7 @@ Each handoff takes time. The shipping step is usually the bottleneck. When you a
 │  Total: anywhere from 15 seconds to 2 minutes. For every single click.       │
 │                                                                               │
 └───────────────────────────────────────────────────────────────────────────────┘
-
-</AsciiDiagram>
+```
 
 The effect is insidious. You adapt to the wait without realising it. You stop exploring and start planning. Instead of following a thread of curiosity — "I wonder if region matters here" — you begin batching questions and submitting them like a form. The slow tool has quietly changed how you think about analysis.
 
@@ -54,7 +53,7 @@ The architectural alternative is simple to describe, though technically demandin
 
 When you click a filter, the engine reads directly from the data that is already right there. The full calculation — across millions of rows — completes before you have time to reach for another tab.
 
-<AsciiDiagram>
+```
 ┌ HOW IN-MEMORY ANALYTICS WORKS ──────────────────────────────────────────────┐
 │                                                                               │
 │  You click a filter                                                           │
@@ -76,8 +75,7 @@ When you click a filter, the engine reads directly from the data that is already
 │                               in under 0.1 seconds                           │
 │                                                                               │
 └───────────────────────────────────────────────────────────────────────────────┘
-
-</AsciiDiagram>
+```
 
 This is not a performance optimisation layered on top of the same architecture. It is a fundamentally different architecture with a different relationship between data and computation.
 
