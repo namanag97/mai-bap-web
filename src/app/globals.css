@@ -790,37 +790,6 @@ body::after {
   box-shadow: inset 2px 0 0 0 var(--color-ink-accent);
 }
 
-/* ASCII diagram — embedded object treatment with inset box, not raw text */
-.prose-diagram {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.8125rem;
-  line-height: 1.5;
-  letter-spacing: 0;
-  white-space: pre;
-  color: var(--color-ink-secondary);
-  display: block;
-  background: var(--color-surface-inset);
-  padding: 2rem;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border-subtle);
-  overflow-x: auto;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
-/* Inline diagram — no box, no background, no border.
-   Pure mono text indented from the left margin. Feels like the text itself.
-   The only distinction is the typeface (mono) and a small left indent. */
-.prose-diagram-inline {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.875rem;
-  line-height: 1.65;
-  letter-spacing: 0;
-  white-space: pre;
-  color: var(--color-ink-secondary);
-  display: block;
-}
-
 /* ── TOC Tickers — fixed left-side section indicators ─────── */
 /*
  * Visible only at xl+ (≥1280px). Each ticker is a tiny dot
