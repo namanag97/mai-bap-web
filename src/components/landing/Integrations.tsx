@@ -8,12 +8,12 @@ export default function Integrations() {
 
   return (
     <section className="section">
-      <Container className="py-xl">
+      <Container className="py-20">
 
         {/* Header */}
-        <div className="grid lg:grid-cols-2 gap-lg mb-xl pb-lg border-b border-border-default">
+        <div className="grid lg:grid-cols-2 gap-8 mb-14 pb-10 border-b border-border-default">
           <div>
-            <div className="flex items-center gap-xs mb-md">
+            <div className="flex items-center gap-3 mb-5">
               <SectionLabel label={integrations.sectionLabel} />
               <div className="flex-1 divider" />
             </div>

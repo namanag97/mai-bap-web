@@ -14,9 +14,9 @@ const variantCls: Record<Variant, string> = {
 }
 
 const sizeCls: Record<Size, string> = {
-  sm: 'px-xs py-2xs text-[10px] gap-1.5',
-  md: 'px-sm py-xs text-[11px] gap-2',
-  lg: 'px-md py-xs text-[11px] gap-2.5',
+  sm: 'px-3 py-1.5 text-[10px] gap-1.5',
+  md: 'px-5 py-2.5 text-[11px] gap-2',
+  lg: 'px-7 py-3.5 text-[11px] gap-2.5',
 }
 
 const base =

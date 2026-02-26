@@ -10,20 +10,20 @@ export default function CTA() {
 
   return (
     <section className="section-deep">
-      <Container className="py-3xl">
+      <Container className="py-32">
         {/* Section label */}
         <FadeIn>
-          <div className="flex items-center gap-xs mb-lg">
+          <div className="flex items-center gap-3 mb-10">
             <MetaLabel as="div" color="dim">{sectionLabel}</MetaLabel>
             <div className="flex-1 divider" />
           </div>
         </FadeIn>
 
-        <div className="grid lg:grid-cols-[1fr_auto] gap-xl items-end">
+        <div className="grid lg:grid-cols-[1fr_auto] gap-12 items-end">
           {/* Left: headline */}
           <FadeIn delay={100}>
             <div>
-              <h2 className="text-4xl lg:text-5xl xl:text-6xl font-light tracking-display text-ink-primary leading-display mb-6">
+              <h2 className="text-4xl lg:text-5xl xl:text-6xl font-light tracking-tight text-ink-primary leading-[0.95] mb-6">
                 {title.map((line, i) => (
                   <span key={i}>{line}{i < title.length - 1 && <br />}</span>
                 ))}
@@ -38,7 +38,7 @@ export default function CTA() {
 
           {/* Right: actions */}
           <FadeIn delay={200} direction="left">
-            <div className="flex flex-col gap-xs">
+            <div className="flex flex-col gap-3">
               <ButtonLink href={primaryCta.href} variant="primary" size="lg" className="whitespace-nowrap">
                 {primaryCta.label}
                 <ArrowRight size={13} />

@@ -13,13 +13,13 @@ export default function Features() {
 
   return (
     <section id="features" className="section">
-      <Container className="py-2xl">
+      <Container className="py-24">
 
         {/* Section header */}
         <FadeIn>
-          <div className="grid lg:grid-cols-2 gap-lg mb-xl pb-lg border-b border-border-default">
+          <div className="grid lg:grid-cols-2 gap-8 mb-16 pb-10 border-b border-border-default">
             <div>
-              <div className="flex items-center gap-xs mb-md">
+              <div className="flex items-center gap-3 mb-5">
                 <SectionLabel label={sectionLabel} />
                 <div className="flex-1 divider" />
               </div>
@@ -36,12 +36,12 @@ export default function Features() {
         </FadeIn>
 
         {/* Feature grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {items.map((feature, i) => {
             const Icon = featureIcons[i] ?? Activity
             return (
               <FadeIn key={feature.title} delay={i * 80} direction="up">
-                <div className="card p-md group cursor-default h-full hover-lift">
+                <div className="card p-8 group cursor-default h-full hover-lift">
                   <IconBox icon={Icon} className="mb-6" />
                   <h3 className="text-sm font-semibold text-ink-primary mb-2 tracking-tight">{feature.title}</h3>
                   <p className="text-xs text-ink-muted leading-relaxed">{feature.description}</p>

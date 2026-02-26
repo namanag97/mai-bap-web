@@ -24,9 +24,9 @@ export default function ContactPage() {
 
       {/* Content */}
       <Container className="py-12">
-        <div className="grid lg:grid-cols-[1fr_380px] gap-xl">
+        <div className="grid lg:grid-cols-[1fr_380px] gap-12">
           {/* Form card */}
-          <div className="card p-md">
+          <div className="card p-6 sm:p-8">
             {submitted ? (
               <div className="py-16 flex flex-col items-center text-center">
                 <div className="w-12 h-12 border border-border-default flex items-center justify-center mb-6">
@@ -127,7 +127,7 @@ export default function ContactPage() {
           {/* Sidebar */}
           <div className="space-y-8">
             <div className="border-t border-border-default pt-6">
-              <div className="flex items-center gap-xs mb-3">
+              <div className="flex items-center gap-3 mb-3">
                 <MetaLabel as="div">Office</MetaLabel>
                 <div className="flex-1 divider" />
               </div>
@@ -139,7 +139,7 @@ export default function ContactPage() {
             </div>
 
             <div className="border-t border-border-default pt-6">
-              <div className="flex items-center gap-xs mb-3">
+              <div className="flex items-center gap-3 mb-3">
                 <MetaLabel as="div">Email</MetaLabel>
                 <div className="flex-1 divider" />
               </div>
@@ -152,7 +152,7 @@ export default function ContactPage() {
             </div>
 
             <div className="border-t border-border-default pt-6">
-              <div className="flex items-center gap-xs mb-3">
+              <div className="flex items-center gap-3 mb-3">
                 <MetaLabel as="div">Support hours</MetaLabel>
                 <div className="flex-1 divider" />
               </div>
@@ -163,7 +163,7 @@ export default function ContactPage() {
             </div>
 
             <div className="border-t border-border-default pt-6">
-              <div className="flex items-center gap-xs mb-3">
+              <div className="flex items-center gap-3 mb-3">
                 <MetaLabel as="div">Response time</MetaLabel>
                 <div className="flex-1 divider" />
               </div>

@@ -61,7 +61,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-lg" aria-label="Main navigation">
+        <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
           {siteConfig.navLinks.map(l => (
             <Link
               key={l.href}
@@ -79,7 +79,7 @@ export default function Navbar() {
         </nav>
 
         {/* Desktop CTAs */}
-        <div className="hidden md:flex items-center gap-md">
+        <div className="hidden md:flex items-center gap-5">
           <button
             onClick={toggle}
             aria-label="Toggle theme"
@@ -112,7 +112,7 @@ export default function Navbar() {
           open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         )}
       >
-        <div className="px-md py-5 flex flex-col gap-4">
+        <div className="px-6 py-5 flex flex-col gap-4">
           {siteConfig.navLinks.map(l => (
             <Link
               key={l.href}
@@ -122,7 +122,7 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
-          <div className="pt-3 border-t border-border-subtle flex flex-col gap-xs">
+          <div className="pt-3 border-t border-border-subtle flex flex-col gap-3">
             <button
               onClick={toggle}
               aria-label="Toggle theme"

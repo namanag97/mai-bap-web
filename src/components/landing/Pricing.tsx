@@ -15,12 +15,12 @@ export default function Pricing() {
 
   return (
     <section id="pricing" className="section">
-      <Container className="py-2xl">
+      <Container className="py-24">
 
         {/* Header */}
         <FadeIn>
           <div className="mb-12 pb-8 border-b border-border-default">
-            <div className="flex items-center gap-xs mb-md">
+            <div className="flex items-center gap-3 mb-5">
               <SectionLabel label={sectionLabel} />
               <div className="flex-1 divider" />
             </div>
@@ -32,7 +32,7 @@ export default function Pricing() {
 
         {/* Billing toggle */}
         <FadeIn>
-          <div className="flex items-center justify-center gap-1 mb-lg">
+          <div className="flex items-center justify-center gap-1 mb-10">
             <ToggleGroup
               options={billingOptions}
               value={billing}
@@ -48,7 +48,7 @@ export default function Pricing() {
         </FadeIn>
 
         {/* Tier grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-md">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {tiers.map((tier, i) => {
             const price = annual ? tier.annualPrice : tier.monthlyPrice
             const period = annual ? tier.annualPeriod : tier.period
@@ -56,10 +56,10 @@ export default function Pricing() {
             return (
               <FadeIn key={tier.name} delay={i * 120} direction="up">
                 <div
-                  className={`flex flex-col p-md h-full hover-lift ${tier.featured ? 'card-featured' : 'card'}`}
+                  className={`flex flex-col p-8 h-full hover-lift ${tier.featured ? 'card-featured' : 'card'}`}
                 >
                   {tier.featured && (
-                    <MetaLabel as="div" size="xxs" className="border border-border-default px-2 py-0.5 self-start mb-md">
+                    <MetaLabel as="div" size="xxs" className="border border-border-default px-2 py-0.5 self-start mb-5">
                       Most popular
                     </MetaLabel>
                   )}
@@ -89,15 +89,15 @@ export default function Pricing() {
                     href={tier.cta.href}
                     variant="primary"
                     size="md"
-                    className="mb-md text-center block"
+                    className="mb-8 text-center block"
                   >
                     {tier.cta.label}
                   </ButtonLink>
 
                   {/* Features */}
-                  <ul className="flex flex-col gap-xs mt-auto">
+                  <ul className="flex flex-col gap-2.5 mt-auto">
                     {tier.features.map(f => (
-                      <li key={f} className="flex items-start gap-xs">
+                      <li key={f} className="flex items-start gap-2.5">
                         <Check
                           size={12}
                           className="mt-0.5 shrink-0 text-ink-primary"

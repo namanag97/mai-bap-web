@@ -5,9 +5,9 @@ import { Container, MetaLabel } from '@/components/ui'
 export default function Footer() {
   return (
     <footer className="section border-t border-b-0">
-      <Container className="pt-2xl pb-xl">
+      <Container className="pt-16 pb-10">
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-lg mb-xl">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-14">
           {/* Brand col */}
           <div className="col-span-2 md:col-span-1">
             <Link
@@ -27,11 +27,11 @@ export default function Footer() {
           {/* Link columns */}
           {siteConfig.footerColumns.map(col => (
             <div key={col.heading}>
-              <div className="flex items-center gap-xs mb-sm">
+              <div className="flex items-center gap-3 mb-4">
                 <MetaLabel as="h3" size="xxs">{col.heading}</MetaLabel>
                 <div className="flex-1 divider" />
               </div>
-              <ul className="flex flex-col gap-xs">
+              <ul className="flex flex-col gap-2.5">
                 {col.links.map(l => (
                   <li key={l.label}>
                     <Link

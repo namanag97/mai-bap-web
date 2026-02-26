@@ -132,19 +132,19 @@ export default function Hero() {
       <div className="absolute inset-0 pointer-events-none bg-engineering-grid opacity-50" />
 
       <Container className="relative">
-        <div className="grid lg:grid-cols-[1fr_460px] xl:grid-cols-[1fr_520px] gap-xl xl:gap-20 py-2xl lg:py-3xl xl:py-40 items-center">
+        <div className="grid lg:grid-cols-[1fr_460px] xl:grid-cols-[1fr_520px] gap-12 xl:gap-20 py-24 lg:py-32 xl:py-40 items-center">
 
           {/* Left — typography */}
           <div>
             <FadeIn delay={0}>
-              <div className="flex items-center gap-xs mb-lg">
+              <div className="flex items-center gap-3 mb-10">
                 <SectionLabel label={siteConfig.hero.sectionLabel} />
                 <div className="flex-1 divider" />
               </div>
             </FadeIn>
 
             <FadeIn delay={100}>
-              <h1 className="text-[clamp(2.618rem,7vw,4.236rem)] font-light tracking-display leading-display text-ink-primary mb-md">
+              <h1 className="text-[clamp(3rem,7vw,6rem)] font-light tracking-tight leading-[0.92] text-ink-primary mb-8">
                 {siteConfig.hero.title.map((line, i) => (
                   <span key={i}>{line}{i < siteConfig.hero.title.length - 1 && <br />}</span>
                 ))}
@@ -154,13 +154,13 @@ export default function Hero() {
             </FadeIn>
 
             <FadeIn delay={200}>
-              <p className="text-[1.0625rem] text-ink-secondary font-light leading-relaxed max-w-[420px] mb-lg">
+              <p className="text-[1.0625rem] text-ink-secondary font-light leading-[1.7] max-w-[420px] mb-10">
                 {siteConfig.hero.subtitle}
               </p>
             </FadeIn>
 
             <FadeIn delay={300}>
-              <div className="flex flex-wrap gap-xs mb-xl">
+              <div className="flex flex-wrap gap-3 mb-14">
                 <ButtonLink href={siteConfig.hero.primaryCta.href} size="lg">
                   {siteConfig.hero.primaryCta.label} <ArrowRight size={13} />
                 </ButtonLink>
