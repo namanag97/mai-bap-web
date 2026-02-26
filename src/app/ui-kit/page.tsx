@@ -7,7 +7,6 @@ import {
   Badge,
   Callout,
   CodeBlock,
-  AsciiDiagram,
   SectionLabel,
   SectionTitle,
   Container,
