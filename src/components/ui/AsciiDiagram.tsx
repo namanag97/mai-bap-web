@@ -56,7 +56,7 @@ export function AsciiDiagram({
     return (
       <figure className={cn('my-0', className)}>
         <div className="pl-5">
-          <pre className="m-0 overflow-x-auto">
+          <pre className="m-0 w-full overflow-x-auto">
             <code className="prose-diagram-inline">{trimmed}</code>
           </pre>
         </div>
